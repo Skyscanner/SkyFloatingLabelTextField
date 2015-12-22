@@ -13,6 +13,8 @@
 		76A92FA61C28828E002A26D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76A92FA51C28828E002A26D0 /* Assets.xcassets */; };
 		76A92FA91C28828E002A26D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76A92FA71C28828E002A26D0 /* LaunchScreen.storyboard */; };
 		76A92FB41C28828E002A26D0 /* DemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A92FB31C28828E002A26D0 /* DemoTests.swift */; };
+		76A92FC31C288348002A26D0 /* WatermarkedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A92FC21C288348002A26D0 /* WatermarkedTextField.swift */; };
+		76A92FC51C28ADD4002A26D0 /* IconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A92FC41C28ADD4002A26D0 /* IconView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		76A92FAF1C28828E002A26D0 /* DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		76A92FB31C28828E002A26D0 /* DemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoTests.swift; sourceTree = "<group>"; };
 		76A92FB51C28828E002A26D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		76A92FC21C288348002A26D0 /* WatermarkedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatermarkedTextField.swift; sourceTree = "<group>"; };
+		76A92FC41C28ADD4002A26D0 /* IconView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,7 @@
 		76A92F921C28828E002A26D0 = {
 			isa = PBXGroup;
 			children = (
+				76A92FBE1C28830B002A26D0 /* WatermarkedTextField */,
 				76A92F9D1C28828E002A26D0 /* Demo */,
 				76A92FB21C28828E002A26D0 /* DemoTests */,
 				76A92F9C1C28828E002A26D0 /* Products */,
@@ -94,6 +99,15 @@
 				76A92FB51C28828E002A26D0 /* Info.plist */,
 			);
 			path = DemoTests;
+			sourceTree = "<group>";
+		};
+		76A92FBE1C28830B002A26D0 /* WatermarkedTextField */ = {
+			isa = PBXGroup;
+			children = (
+				76A92FC21C288348002A26D0 /* WatermarkedTextField.swift */,
+				76A92FC41C28ADD4002A26D0 /* IconView.swift */,
+			);
+			path = WatermarkedTextField;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,6 +211,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76A92FC31C288348002A26D0 /* WatermarkedTextField.swift in Sources */,
+				76A92FC51C28ADD4002A26D0 /* IconView.swift in Sources */,
 				76A92FA11C28828E002A26D0 /* ViewController.swift in Sources */,
 				76A92F9F1C28828E002A26D0 /* AppDelegate.swift in Sources */,
 			);
@@ -327,10 +343,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Skyscanner.Demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -338,6 +356,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Skyscanner.Demo;
@@ -388,6 +407,7 @@
 				76A92FBA1C28828E002A26D0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		76A92FBB1C28828E002A26D0 /* Build configuration list for PBXNativeTarget "DemoTests" */ = {
 			isa = XCConfigurationList;
@@ -396,6 +416,7 @@
 				76A92FBD1C28828E002A26D0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
