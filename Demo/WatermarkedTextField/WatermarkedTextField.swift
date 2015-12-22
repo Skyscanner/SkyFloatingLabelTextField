@@ -337,11 +337,8 @@ class WatermarkedTextField: UIControl, UITextFieldDelegate {
             super.highlighted = highlighted
             
             if(highlighted) {
-
                 self.updatePlaceholderLabelVisibility()
-                self.titleLabel.text = self.selectedTitleOrPlaceholder()
-                self.showTitleIfHidden(true)
-
+                self.updateTitleLabel()
             } else {
                 self.performSelector(Selector("fadeoutHighlighted"), withObject: self, afterDelay: notHighlightedFadeOutDelay)
             }
