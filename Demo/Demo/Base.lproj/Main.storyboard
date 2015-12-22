@@ -85,9 +85,17 @@
                                     <action selector="addError" destination="BYZ-38-t0r" eventType="touchUpInside" id="7LL-Ly-84e"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dHd-er-tPb">
+                                <rect key="frame" x="125" y="140" width="151" height="30"/>
+                                <state key="normal" title="Resign first responder"/>
+                                <connections>
+                                    <action selector="resignTextField" destination="BYZ-38-t0r" eventType="touchUpInside" id="j0T-fu-ABP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="dHd-er-tPb" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="120" id="0xE-jr-j8z"/>
                             <constraint firstItem="SqB-4f-slo" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="23x-LK-CW3"/>
                             <constraint firstItem="Q90-lp-2pi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="58B-M9-nvz"/>
                             <constraint firstItem="I1P-U3-aHP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5Yf-Ua-469"/>
@@ -97,13 +105,14 @@
                             <constraint firstItem="H6F-j0-AqL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JUR-36-UBp"/>
                             <constraint firstItem="H6F-j0-AqL" firstAttribute="top" secondItem="I1P-U3-aHP" secondAttribute="bottom" constant="8" id="QCa-1J-2XG"/>
                             <constraint firstItem="v9J-yM-eLO" firstAttribute="top" secondItem="H6F-j0-AqL" secondAttribute="bottom" constant="37.5" id="Sjd-4Z-SJh"/>
+                            <constraint firstItem="Pgz-Tf-Rvl" firstAttribute="top" secondItem="dHd-er-tPb" secondAttribute="bottom" constant="8" id="SzU-ab-zFq"/>
+                            <constraint firstItem="dHd-er-tPb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UEm-j8-JsS"/>
                             <constraint firstItem="Pgz-Tf-Rvl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UoZ-bb-8b6"/>
                             <constraint firstItem="moI-xd-AVZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fA5-NH-ZQV"/>
                             <constraint firstItem="mZq-8q-kvm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kvc-jb-Krz"/>
                             <constraint firstItem="SqB-4f-slo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="18" id="q6s-O5-wiY"/>
                             <constraint firstItem="Q90-lp-2pi" firstAttribute="top" secondItem="moI-xd-AVZ" secondAttribute="bottom" constant="8" id="qYN-El-9rc"/>
                             <constraint firstItem="moI-xd-AVZ" firstAttribute="top" secondItem="mZq-8q-kvm" secondAttribute="bottom" constant="43" id="vsm-gf-TOb"/>
-                            <constraint firstItem="Pgz-Tf-Rvl" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="158" id="w1y-2A-stg"/>
                             <constraint firstAttribute="trailing" secondItem="SqB-4f-slo" secondAttribute="trailing" constant="18" id="yE8-KW-9Sz"/>
                         </constraints>
                     </view>

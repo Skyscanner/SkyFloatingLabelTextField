@@ -22,6 +22,10 @@ class ViewController: UIViewController {
         self.textField?.errorMessage = "error message"
     }
     
+    @IBAction func resignTextField() {
+        self.textField?.resignFirstResponder()
+    }
+    
     @IBAction func selectedTitleChanged(segmentedControl:UISegmentedControl) {
         switch segmentedControl.selectedSegmentIndex {
             case 0:
