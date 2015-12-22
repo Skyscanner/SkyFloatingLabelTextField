@@ -403,7 +403,7 @@ class WatermarkedTextField: UIControl, UITextFieldDelegate {
                 self.titleLabel.text = self.deselectedTitleOrPlaceholder()
             }
             
-            if self.hasText {
+            if self.hasText || self.hasErrorMessage {
                 self.showTitleIfHidden(animated)
             } else {
                 self.hideTitle(animated)
