@@ -1,0 +1,8 @@
+branches:
+  only:
+    - master
+language: objective-c
+os: osx
+osx_image: xcode7.2
+script:
+  - xctool -project Demo/Demo.xcodeproj -sdk iphonesumulator -scheme Demo build
