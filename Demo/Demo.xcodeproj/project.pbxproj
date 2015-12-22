@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		76150EC71C29723F008A5B6D /* IconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76150EC51C29723F008A5B6D /* IconView.swift */; };
+		76150EC81C29723F008A5B6D /* WatermarkedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76150EC61C29723F008A5B6D /* WatermarkedTextField.swift */; };
 		76A92F9F1C28828E002A26D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A92F9E1C28828E002A26D0 /* AppDelegate.swift */; };
 		76A92FA11C28828E002A26D0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A92FA01C28828E002A26D0 /* ViewController.swift */; };
 		76A92FA41C28828E002A26D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76A92FA21C28828E002A26D0 /* Main.storyboard */; };
 		76A92FA61C28828E002A26D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76A92FA51C28828E002A26D0 /* Assets.xcassets */; };
 		76A92FA91C28828E002A26D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76A92FA71C28828E002A26D0 /* LaunchScreen.storyboard */; };
 		76A92FB41C28828E002A26D0 /* DemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A92FB31C28828E002A26D0 /* DemoTests.swift */; };
-		76A92FC91C2949C0002A26D0 /* IconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A92FC71C2949C0002A26D0 /* IconView.swift */; };
-		76A92FCA1C2949C0002A26D0 /* WatermarkedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A92FC81C2949C0002A26D0 /* WatermarkedTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		76150EC51C29723F008A5B6D /* IconView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconView.swift; sourceTree = "<group>"; };
+		76150EC61C29723F008A5B6D /* WatermarkedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatermarkedTextField.swift; sourceTree = "<group>"; };
 		76A92F9B1C28828E002A26D0 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76A92F9E1C28828E002A26D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76A92FA01C28828E002A26D0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -38,8 +40,6 @@
 		76A92FAF1C28828E002A26D0 /* DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		76A92FB31C28828E002A26D0 /* DemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoTests.swift; sourceTree = "<group>"; };
 		76A92FB51C28828E002A26D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		76A92FC71C2949C0002A26D0 /* IconView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconView.swift; sourceTree = "<group>"; };
-		76A92FC81C2949C0002A26D0 /* WatermarkedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatermarkedTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,10 +60,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		76150EC41C29723F008A5B6D /* WatermarkedTextField */ = {
+			isa = PBXGroup;
+			children = (
+				76150EC51C29723F008A5B6D /* IconView.swift */,
+				76150EC61C29723F008A5B6D /* WatermarkedTextField.swift */,
+			);
+			name = WatermarkedTextField;
+			path = ../WatermarkedTextField;
+			sourceTree = "<group>";
+		};
 		76A92F921C28828E002A26D0 = {
 			isa = PBXGroup;
 			children = (
-				76A92FC61C2949C0002A26D0 /* WatermarkedTextField */,
+				76150EC41C29723F008A5B6D /* WatermarkedTextField */,
 				76A92F9D1C28828E002A26D0 /* Demo */,
 				76A92FB21C28828E002A26D0 /* DemoTests */,
 				76A92F9C1C28828E002A26D0 /* Products */,
@@ -99,15 +109,6 @@
 				76A92FB51C28828E002A26D0 /* Info.plist */,
 			);
 			path = DemoTests;
-			sourceTree = "<group>";
-		};
-		76A92FC61C2949C0002A26D0 /* WatermarkedTextField */ = {
-			isa = PBXGroup;
-			children = (
-				76A92FC71C2949C0002A26D0 /* IconView.swift */,
-				76A92FC81C2949C0002A26D0 /* WatermarkedTextField.swift */,
-			);
-			path = WatermarkedTextField;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,8 +213,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				76A92FA11C28828E002A26D0 /* ViewController.swift in Sources */,
-				76A92FCA1C2949C0002A26D0 /* WatermarkedTextField.swift in Sources */,
-				76A92FC91C2949C0002A26D0 /* IconView.swift in Sources */,
+				76150EC81C29723F008A5B6D /* WatermarkedTextField.swift in Sources */,
+				76150EC71C29723F008A5B6D /* IconView.swift in Sources */,
 				76A92F9F1C28828E002A26D0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

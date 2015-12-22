@@ -337,11 +337,8 @@ class WatermarkedTextField: UIControl, UITextFieldDelegate {
             super.highlighted = highlighted
             
             if(highlighted) {
-
                 self.updatePlaceholderLabelVisibility()
-                self.titleLabel.text = self.selectedTitleOrPlaceholder()
-                self.showTitleIfHidden(true)
-
+                self.updateTitleLabel()
             } else {
                 self.performSelector(Selector("fadeoutHighlighted"), withObject: self, afterDelay: notHighlightedFadeOutDelay)
             }
@@ -406,7 +403,7 @@ class WatermarkedTextField: UIControl, UITextFieldDelegate {
                 self.titleLabel.text = self.deselectedTitleOrPlaceholder()
             }
             
-            if self.hasText {
+            if self.hasText || self.hasErrorMessage {
                 self.showTitleIfHidden(animated)
             } else {
                 self.hideTitle(animated)
@@ -447,6 +444,8 @@ class WatermarkedTextField: UIControl, UITextFieldDelegate {
     
     func fadeoutHighlighted() {
         
+        // TODO:
+        /*
         if self.isFirstResponder() {
             if !self.hasText {
                 self.hideTitle(true)
@@ -457,7 +456,7 @@ class WatermarkedTextField: UIControl, UITextFieldDelegate {
             } else {
                 self.hidePlaceholder(true)
             }
-        }
+        }*/
     }
     
     // MARK: - overridable rect calculation
