@@ -38,8 +38,12 @@ extension UITextField {
 
 // MARK: - WatermarkedTextField
 
+
+/**
+    A beautiful and flexible textfield implementation with support for title label, error message and placeholder.
+*/
 @IBDesignable
-class WatermarkedTextField: UIControl, UITextFieldDelegate {
+public class WatermarkedTextField: UIControl, UITextFieldDelegate {
 
     // MARK: animation variables
     
@@ -51,49 +55,59 @@ class WatermarkedTextField: UIControl, UITextFieldDelegate {
     
     // MARK: colors
     
-    @IBInspectable var textColor:UIColor = UIColor.blackColor() {
+    /// The text color of the editable text.
+    @IBInspectable public var textColor:UIColor = UIColor.blackColor() {
         didSet {
             self.textField.textColor = textColor
         }
     }
 
-    @IBInspectable var placeholderColor:UIColor = UIColor.lightGrayColor() {
+    /// The text color of the placeholder label.
+    @IBInspectable public var placeholderColor:UIColor = UIColor.lightGrayColor() {
         didSet {
             self.placeholderLabel.textColor = placeholderColor
         }
     }
     
-    @IBInspectable var errorColor:UIColor = UIColor.redColor() {
+    /// The color used for the title label and the line when the error message is not `nil`
+    @IBInspectable public var errorColor:UIColor = UIColor.redColor() {
         didSet {
             self.updateTitleColor()
             self.updateLineColor()
         }
     }
     
-    @IBInspectable var titleColor:UIColor = UIColor.grayColor() {
+    /// The text color of the title label when not editing.
+    @IBInspectable public var titleColor:UIColor = UIColor.grayColor() {
         didSet {
             self.updateTitleColor()
         }
     }
     
-    @IBInspectable var selectedTitleColor:UIColor = UIColor.grayColor() {
+    /// The text color of the title label when editing.
+    @IBInspectable public var selectedTitleColor:UIColor = UIColor.grayColor() {
         didSet {
             self.updateTitleColor()
         }
     }
-    @IBInspectable var selectedLineColor:UIColor = UIColor.blackColor() {
+    
+    /// The color of the line when editing.
+    @IBInspectable public var selectedLineColor:UIColor = UIColor.blackColor() {
         didSet {
             self.updateLineColor()
         }
     }
-    @IBInspectable var lineColor:UIColor = UIColor.lightGrayColor() {
+    
+    /// The color of the line when not editing.
+    @IBInspectable public var lineColor:UIColor = UIColor.lightGrayColor() {
         didSet {
             self.updateLineColor()
         }
     }
-
+    
     // MARK: delegate
-    
+
+    /// The `WatermarkedTextfield` delegate.
     @IBOutlet weak var delegate:WatermarkedTextFieldDelegate?
 
     // MARK: view components
@@ -105,10 +119,17 @@ class WatermarkedTextField: UIControl, UITextFieldDelegate {
     
     // MARK: properties
     
+    /**
+        The formatter to use before displaying content in the title label. This can be the `selectedTitle`, `deselectedTitle` or the `errorMessage`.
+        The default implementation converts the text to uppercase.
+    */
     var titleFormatter:(String -> String) = { (text:String) -> String in
         return text.uppercaseString
     }
     
+    /**
+        Identifies whether the text object should hide the text being entered.
+    */
     var secureTextEntry:Bool = false {
         didSet {
             self.textField.secureTextEntry = secureTextEntry
@@ -116,13 +137,15 @@ class WatermarkedTextField: UIControl, UITextFieldDelegate {
         }
     }
     
+    /// The error message to display.
     var errorMessage:String? {
         didSet {
             self.updateControl(true)
         }
     }
     
-    override var enabled:Bool {
+    /// A Boolean value that determines whether the receiver is enabled.
+    override public var enabled:Bool {
         set {
             super.enabled = newValue
             self.textField.enabled = newValue
@@ -132,7 +155,8 @@ class WatermarkedTextField: UIControl, UITextFieldDelegate {
         }
     }
     
-    override var highlighted:Bool {
+    /// A Boolean value that determines whether the receiver is highlighted.
+    override public var highlighted:Bool {
         set {
             self.setHighlighted(newValue, animated:false)
         }
@@ -141,6 +165,7 @@ class WatermarkedTextField: UIControl, UITextFieldDelegate {
         }
     }
     
+    /// A Boolean value that determines if the receiver is currently editing.
     var editing:Bool {
         get {
             return self.isFirstResponder() || self.tooltipVisible
@@ -162,7 +187,7 @@ class WatermarkedTextField: UIControl, UITextFieldDelegate {
         }
     }
     
-    var _text:String?
+    private var _text:String?
     @IBInspectable var text:String? {
         set {
             self.setText(newValue, animated:false)
@@ -172,6 +197,10 @@ class WatermarkedTextField: UIControl, UITextFieldDelegate {
         }
     }
     
+    /**
+        The String to display when the input field is empty.
+        The placeholder can also appear in the title label when both `selectedTitle` and `deselectedTitle` are `nil`.
+     */
     @IBInspectable var placeholder:String? {
         didSet {
             self.placeholderLabel.text = placeholder
@@ -179,24 +208,28 @@ class WatermarkedTextField: UIControl, UITextFieldDelegate {
         }
     }
     
+    /// The String to display when the textfield is editing and the input is not empty.
     @IBInspectable var selectedTitle:String? {
         didSet {
             self.updateControl()
         }
     }
-    
+
+    /// The String to display when the textfield is not editing and the input is not empty.
     @IBInspectable var deselectedTitle:String? {
         didSet {
             self.updateControl()
         }
     }
     
+    // TODO: get a better name for this, permanentlySelected?
     var tooltipVisible:Bool = false {
         didSet {
             self.updateControl(true)
         }
     }
     
+    // TODO: get rid of this?
     var titleHeight:CGFloat = 20.0
     
     // MARK: - init
@@ -216,7 +249,7 @@ class WatermarkedTextField: UIControl, UITextFieldDelegate {
         self.init(frame:frame, textField:nil, lineView:nil)
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.createLineView()
         self.createTitleLabel()
@@ -279,7 +312,7 @@ class WatermarkedTextField: UIControl, UITextFieldDelegate {
     
     // MARK: responder
     
-    override func becomeFirstResponder() -> Bool {
+    override public func becomeFirstResponder() -> Bool {
         self.textField.userInteractionEnabled = true
         let success = self.textField.becomeFirstResponder()
         if !success {
@@ -289,7 +322,7 @@ class WatermarkedTextField: UIControl, UITextFieldDelegate {
         return success
     }
     
-    override func resignFirstResponder() -> Bool {
+    override public func resignFirstResponder() -> Bool {
         let success = self.textField.resignFirstResponder()
         if success {
             self.textField.userInteractionEnabled = false
@@ -298,7 +331,7 @@ class WatermarkedTextField: UIControl, UITextFieldDelegate {
         return success
     }
     
-    override func isFirstResponder() -> Bool {
+    override public func isFirstResponder() -> Bool {
         return self.textField.isFirstResponder() || self.textField.editing
     }
     
@@ -500,13 +533,13 @@ class WatermarkedTextField: UIControl, UITextFieldDelegate {
     
     // MARK: - textfield delegate
 
-    func textFieldDidBeginEditing(textField: UITextField) {
+    public func textFieldDidBeginEditing(textField: UITextField) {
         self.updateControl(true)
         if let delegate = self.delegate {
             delegate.watermarkedTextFieldDidBeginEditing(self)
         }
     }
-    func textFieldDidEndEditing(textField: UITextField) {
+    public func textFieldDidEndEditing(textField: UITextField) {
         self.updateControl(true)
         if let delegate = self.delegate {
             delegate.watermarkedTextFieldDidEndEditing(self)
@@ -522,7 +555,7 @@ class WatermarkedTextField: UIControl, UITextFieldDelegate {
         self.sendActionsForControlEvents(.EditingDidEndOnExit)
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    public func textFieldShouldReturn(textField: UITextField) -> Bool {
         if let delegate = self.delegate {
             return delegate.watermarkedTextFieldShouldReturn(self)
         }
@@ -531,7 +564,7 @@ class WatermarkedTextField: UIControl, UITextFieldDelegate {
     
     // MARK: touch handling
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override public func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
         if !self.isFirstResponder() {
             self.becomeFirstResponder()
@@ -542,7 +575,7 @@ class WatermarkedTextField: UIControl, UITextFieldDelegate {
     
     // MARK: - layout
     
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         super.layoutSubviews()
 
         self.placeholderLabel.frame = self.placeholderLabelRectForBounds(self.bounds)
@@ -551,7 +584,7 @@ class WatermarkedTextField: UIControl, UITextFieldDelegate {
         self.titleLabel.frame = self.titleLabelRectForBounds(self.bounds, editing: self.hasText)
     }
     
-    override func intrinsicContentSize() -> CGSize {
+    override public func intrinsicContentSize() -> CGSize {
         return CGSizeMake(self.bounds.size.width, 50.0)
     }
 }
