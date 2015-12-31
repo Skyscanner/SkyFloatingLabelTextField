@@ -66,6 +66,7 @@ class WatermarkedTextField: UIControl, UITextFieldDelegate {
     @IBInspectable var errorColor:UIColor = UIColor.redColor() {
         didSet {
             self.updateTitleColor()
+            self.updateLineColor()
         }
     }
     
