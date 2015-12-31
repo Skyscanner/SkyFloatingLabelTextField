@@ -75,6 +75,11 @@ class WatermarkedTextField: UIControl, UITextFieldDelegate {
         }
     }
     
+    @IBInspectable var selectedTitleColor:UIColor = UIColor.grayColor() {
+        didSet {
+            self.updateTitleColor()
+        }
+    }
     @IBInspectable var selectedLineColor:UIColor = UIColor.blackColor() {
         didSet {
             self.updateLineColor()
@@ -382,7 +387,11 @@ class WatermarkedTextField: UIControl, UITextFieldDelegate {
         if self.hasErrorMessage {
             self.titleLabel.textColor = self.errorColor
         } else {
-            self.titleLabel.textColor = self.titleColor
+            if self.editing {
+                self.titleLabel.textColor = self.selectedTitleColor
+            } else {
+                self.titleLabel.textColor = self.titleColor
+            }
         }
     }
     
