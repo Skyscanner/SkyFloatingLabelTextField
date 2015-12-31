@@ -475,27 +475,6 @@
                                             <segue destination="G0q-zq-dep" kind="show" id="y7T-fO-eLt"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ListCell" id="zAD-Nf-vPX">
-                                        <rect key="frame" x="0.0" y="152" width="400" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zAD-Nf-vPX" id="VsS-u9-VuL">
-                                            <rect key="frame" x="0.0" y="0.0" width="367" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Other" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WxX-1t-Z2Q">
-                                                    <rect key="frame" x="18" y="11.5" width="44" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="WxX-1t-Z2Q" firstAttribute="leading" secondItem="VsS-u9-VuL" secondAttribute="leadingMargin" constant="10" id="WJL-3p-3jG"/>
-                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="WxX-1t-Z2Q" secondAttribute="trailing" constant="10" id="rDv-xw-Omb"/>
-                                                <constraint firstItem="WxX-1t-Z2Q" firstAttribute="centerY" secondItem="VsS-u9-VuL" secondAttribute="centerY" id="xrE-6b-nTB"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
