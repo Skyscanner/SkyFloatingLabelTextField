@@ -90,11 +90,6 @@ class WatermarkedTextField: UIControl, UITextFieldDelegate {
             self.updateLineColor()
         }
     }
-    @IBInspectable var caretColor:UIColor? {
-        didSet {
-            self.textField?.valueForKey("textInputTraits")?.setValue(caretColor, forKey: "insertionPointColor")
-        }
-    }
 
     // MARK: delegate
     
