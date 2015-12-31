@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		761085461C35777C00301446 /* CustomizingColorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761085451C35777C00301446 /* CustomizingColorsViewController.swift */; };
 		76150EC71C29723F008A5B6D /* IconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76150EC51C29723F008A5B6D /* IconView.swift */; };
 		76150EC81C29723F008A5B6D /* WatermarkedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76150EC61C29723F008A5B6D /* WatermarkedTextField.swift */; };
 		76A92F9F1C28828E002A26D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A92F9E1C28828E002A26D0 /* AppDelegate.swift */; };
-		76A92FA11C28828E002A26D0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A92FA01C28828E002A26D0 /* ViewController.swift */; };
+		76A92FA11C28828E002A26D0 /* SettingTextsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A92FA01C28828E002A26D0 /* SettingTextsViewController.swift */; };
 		76A92FA41C28828E002A26D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76A92FA21C28828E002A26D0 /* Main.storyboard */; };
 		76A92FA61C28828E002A26D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76A92FA51C28828E002A26D0 /* Assets.xcassets */; };
 		76A92FA91C28828E002A26D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76A92FA71C28828E002A26D0 /* LaunchScreen.storyboard */; };
@@ -28,11 +29,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		761085451C35777C00301446 /* CustomizingColorsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomizingColorsViewController.swift; sourceTree = "<group>"; };
 		76150EC51C29723F008A5B6D /* IconView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconView.swift; sourceTree = "<group>"; };
 		76150EC61C29723F008A5B6D /* WatermarkedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatermarkedTextField.swift; sourceTree = "<group>"; };
 		76A92F9B1C28828E002A26D0 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76A92F9E1C28828E002A26D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		76A92FA01C28828E002A26D0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		76A92FA01C28828E002A26D0 /* SettingTextsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTextsViewController.swift; sourceTree = "<group>"; };
 		76A92FA31C28828E002A26D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		76A92FA51C28828E002A26D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		76A92FA81C28828E002A26D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -93,7 +95,8 @@
 			isa = PBXGroup;
 			children = (
 				76A92F9E1C28828E002A26D0 /* AppDelegate.swift */,
-				76A92FA01C28828E002A26D0 /* ViewController.swift */,
+				761085451C35777C00301446 /* CustomizingColorsViewController.swift */,
+				76A92FA01C28828E002A26D0 /* SettingTextsViewController.swift */,
 				76A92FA21C28828E002A26D0 /* Main.storyboard */,
 				76A92FA51C28828E002A26D0 /* Assets.xcassets */,
 				76A92FA71C28828E002A26D0 /* LaunchScreen.storyboard */,
@@ -212,10 +215,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				76A92FA11C28828E002A26D0 /* ViewController.swift in Sources */,
+				76A92FA11C28828E002A26D0 /* SettingTextsViewController.swift in Sources */,
 				76150EC81C29723F008A5B6D /* WatermarkedTextField.swift in Sources */,
 				76150EC71C29723F008A5B6D /* IconView.swift in Sources */,
 				76A92F9F1C28828E002A26D0 /* AppDelegate.swift in Sources */,
+				761085461C35777C00301446 /* CustomizingColorsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

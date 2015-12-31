@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class SettingTextsViewController: UIViewController {
 
     @IBOutlet var textField:WatermarkedTextField?
     
