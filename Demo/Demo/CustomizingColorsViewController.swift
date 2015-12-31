@@ -40,6 +40,10 @@ class CustomizingColorsViewController: UIViewController {
         self.textField?.errorColor = self.colorForSegmentIndex(segmentedControl.selectedSegmentIndex)
     }
 
+    @IBAction func tintColorChanged(segmentedControl:UISegmentedControl) {
+        self.textField?.tintColor = self.colorForSegmentIndex(segmentedControl.selectedSegmentIndex)
+    }
+
     // MARK: helper
     
     func colorForSegmentIndex(segmentIndex:Int) -> UIColor {

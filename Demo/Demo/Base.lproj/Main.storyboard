@@ -292,9 +292,9 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VgJ-VD-7rc">
-                                <rect key="frame" x="200" y="226" width="180" height="321"/>
+                                <rect key="frame" x="200" y="226" width="180" height="320.5"/>
                                 <subviews>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="sId-82-UKI">
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" translatesAutoresizingMaskIntoConstraints="NO" id="sId-82-UKI">
                                         <rect key="frame" x="19" y="56.5" width="143" height="29"/>
                                         <segments>
                                             <segment title="⚪️"/>
@@ -313,22 +313,25 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="iAR-Dy-4tD">
-                                        <rect key="frame" x="19" y="136" width="143" height="29"/>
+                                        <rect key="frame" x="19" y="135.5" width="143" height="29"/>
                                         <segments>
                                             <segment title="⚪️"/>
                                             <segment title="🔴 "/>
                                             <segment title="🔵"/>
                                             <segment title="⚫️"/>
                                         </segments>
+                                        <connections>
+                                            <action selector="tintColorChanged:" destination="G0q-zq-dep" eventType="valueChanged" id="khN-kt-nMn"/>
+                                        </connections>
                                     </segmentedControl>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="None" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QUd-Se-DoE">
-                                        <rect key="frame" x="68.5" y="107.5" width="42" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tint color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QUd-Se-DoE">
+                                        <rect key="frame" x="53" y="107.5" width="74.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="aU8-tN-vcw">
-                                        <rect key="frame" x="18" y="214.5" width="143" height="29"/>
+                                        <rect key="frame" x="18" y="214" width="143" height="29"/>
                                         <segments>
                                             <segment title="⚪️"/>
                                             <segment title="🔴 "/>
@@ -337,19 +340,19 @@
                                         </segments>
                                     </segmentedControl>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="None" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3TY-KI-uu5">
-                                        <rect key="frame" x="69" y="185" width="42" height="20.5"/>
+                                        <rect key="frame" x="69" y="184.5" width="42" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="None" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q1Y-Jd-kwO">
-                                        <rect key="frame" x="68.5" y="259.5" width="42" height="20.5"/>
+                                        <rect key="frame" x="68.5" y="259" width="42" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="AcC-l7-4xT">
-                                        <rect key="frame" x="19" y="288" width="143" height="29"/>
+                                        <rect key="frame" x="19" y="287.5" width="143" height="29"/>
                                         <segments>
                                             <segment title="⚪️"/>
                                             <segment title="🔴 "/>
