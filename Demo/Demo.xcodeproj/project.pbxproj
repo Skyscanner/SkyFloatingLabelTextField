@@ -15,6 +15,7 @@
 		76668B921C3697DB0007CF33 /* CustomLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76668B911C3697DB0007CF33 /* CustomLayoutViewController.swift */; };
 		76668B941C3697F00007CF33 /* IconTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76668B931C3697F00007CF33 /* IconTextField.swift */; };
 		76668B971C36B9420007CF33 /* dashicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 76668B961C36B9420007CF33 /* dashicons.ttf */; };
+		76668B9A1C36D8510007CF33 /* DelegateMethodsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76668B991C36D8510007CF33 /* DelegateMethodsViewController.swift */; };
 		76A92F9F1C28828E002A26D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A92F9E1C28828E002A26D0 /* AppDelegate.swift */; };
 		76A92FA41C28828E002A26D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76A92FA21C28828E002A26D0 /* Main.storyboard */; };
 		76A92FA61C28828E002A26D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76A92FA51C28828E002A26D0 /* Assets.xcassets */; };
@@ -41,6 +42,7 @@
 		76668B911C3697DB0007CF33 /* CustomLayoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLayoutViewController.swift; sourceTree = "<group>"; };
 		76668B931C3697F00007CF33 /* IconTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconTextField.swift; sourceTree = "<group>"; };
 		76668B961C36B9420007CF33 /* dashicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = dashicons.ttf; path = "../../../../../../Downloads/dashicons-master/dashicons.ttf"; sourceTree = "<group>"; };
+		76668B991C36D8510007CF33 /* DelegateMethodsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelegateMethodsViewController.swift; sourceTree = "<group>"; };
 		76A92F9B1C28828E002A26D0 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76A92F9E1C28828E002A26D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76A92FA31C28828E002A26D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -124,6 +126,14 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		76668B981C36D8420007CF33 /* Example5 */ = {
+			isa = PBXGroup;
+			children = (
+				76668B991C36D8510007CF33 /* DelegateMethodsViewController.swift */,
+			);
+			path = Example5;
+			sourceTree = "<group>";
+		};
 		76A92F921C28828E002A26D0 = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +161,7 @@
 				76668B871C36976F0007CF33 /* Example2 */,
 				76668B891C36976F0007CF33 /* Example3 */,
 				76668B8C1C36976F0007CF33 /* Example4 */,
+				76668B981C36D8420007CF33 /* Example5 */,
 				76A92F9E1C28828E002A26D0 /* AppDelegate.swift */,
 				76A92FAA1C28828E002A26D0 /* Info.plist */,
 			);
@@ -270,6 +281,7 @@
 			files = (
 				76668B941C3697F00007CF33 /* IconTextField.swift in Sources */,
 				76668B921C3697DB0007CF33 /* CustomLayoutViewController.swift in Sources */,
+				76668B9A1C36D8510007CF33 /* DelegateMethodsViewController.swift in Sources */,
 				76668B8D1C36976F0007CF33 /* SettingTextsViewController.swift in Sources */,
 				76668B8E1C36976F0007CF33 /* CustomizingColorsViewController.swift in Sources */,
 				76150EC81C29723F008A5B6D /* WatermarkedTextField.swift in Sources */,
