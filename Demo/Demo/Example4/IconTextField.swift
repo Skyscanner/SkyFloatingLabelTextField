@@ -40,7 +40,6 @@ public class IconTextField: WatermarkedTextField {
         iconLabel.backgroundColor = UIColor.clearColor()
         iconLabel.font = UIFont(name: "Dashicons-Regular", size: 15)
         iconLabel.textAlignment = .Center
-        iconLabel.frame = CGRectMake(0, self.bounds.size.height - 30.0, iconWidth, 30.0)
         iconLabel.autoresizingMask = [.FlexibleTopMargin, .FlexibleRightMargin]
         self.iconLabel = iconLabel
         self.addSubview(iconLabel)
@@ -77,5 +76,11 @@ public class IconTextField: WatermarkedTextField {
         rect.origin.x += iconWidth
         rect.size.width -= iconWidth
         return rect
+    }
+    
+    override public func layoutSubviews() {
+        super.layoutSubviews()
+        let textHeight = self.textHeight()
+        self.iconLabel.frame = CGRectMake(0, self.bounds.size.height - textHeight, iconWidth, textHeight)
     }
 }
