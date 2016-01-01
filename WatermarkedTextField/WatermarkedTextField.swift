@@ -276,9 +276,6 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
         }
     }
     
-    // TODO: get rid of this?
-    var titleHeight:CGFloat = 20.0
-    
     // MARK: - Initializers
     
     public init(frame:CGRect, textField:UITextField?, lineView:UIView?) {
@@ -490,11 +487,11 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
     
     public func titleLabelRectForBounds(bounds:CGRect, editing:Bool) -> CGRect {
 
-        let lineHeight = self.titleLabel.font.lineHeight
+        let titleHeight = self.titleHeight()
         if editing {
-            return CGRectMake(0, 0, bounds.size.width, lineHeight)
+            return CGRectMake(0, 0, bounds.size.width, titleHeight)
         } else {
-            return CGRectMake(0, lineHeight, bounds.size.width, lineHeight)
+            return CGRectMake(0, titleHeight, bounds.size.width, titleHeight)
         }
     }
 
@@ -508,12 +505,22 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
     }
     
     public func textFieldRectForBounds(bounds:CGRect) -> CGRect {
+        let titleHeight = self.titleHeight()
         return CGRectMake(0, titleHeight, bounds.size.width, bounds.size.height - titleHeight)
     }
     
     public func placeholderLabelRectForBounds(bounds:CGRect) -> CGRect {
+        let titleHeight = self.titleHeight()
         let offsetX:CGFloat = self.textField.leftView != nil ? CGRectGetMaxX(self.textField.leftView!.frame) : 0.0
         return CGRectMake(offsetX, titleHeight, bounds.size.width - offsetX, bounds.size.height - titleHeight)
+    }
+    
+    private func titleHeight() -> CGFloat {
+        return (self.titleLabel.font?.lineHeight ?? 15.0)
+    }
+    
+    private func textHeight() -> CGFloat {
+        return (self.textField.font?.lineHeight ?? 25.0) + 7.0
     }
     
     // MARK: - Textfield delegate methods
@@ -572,7 +579,7 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
     }
     
     override public func intrinsicContentSize() -> CGSize {
-        return CGSizeMake(self.bounds.size.width, 50.0)
+        return CGSizeMake(self.bounds.size.width, self.titleHeight() + self.textHeight())
     }
     
     // MARK: - Helpers
