@@ -70,7 +70,7 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
     /// The text color of the editable text.
     @IBInspectable public var textColor:UIColor = UIColor.blackColor() {
         didSet {
-            self.textField.textColor = textColor
+            self.updateTextColor()
         }
     }
 
@@ -84,8 +84,7 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
     /// The color used for the title label and the line when the error message is not `nil`
     @IBInspectable public var errorColor:UIColor = UIColor.redColor() {
         didSet {
-            self.updateTitleColor()
-            self.updateLineColor()
+            self.updateColors()
         }
     }
     
@@ -106,14 +105,14 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
     /// The color of the line when editing.
     @IBInspectable public var selectedLineColor:UIColor = UIColor.blackColor() {
         didSet {
-            self.updateLineColor()
+            self.updateColors()
         }
     }
     
     /// The color of the line when not editing.
     @IBInspectable public var lineColor:UIColor = UIColor.lightGrayColor() {
         didSet {
-            self.updateLineColor()
+            self.updateColors()
         }
     }
     
@@ -291,6 +290,7 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
         self.createTitleLabel()
         self.createPlaceholderLabel()
         self.createTextField()
+        self.updateColors()
     }
     
     override convenience init(frame: CGRect) {
@@ -303,6 +303,7 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
         self.createTitleLabel()
         self.createPlaceholderLabel()
         self.createTextField()
+        self.updateColors()
     }
     
     // MARK: create components
@@ -400,6 +401,7 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
     public func updateColors() {
         self.updateLineColor()
         self.updateTitleColor()
+        self.updateTextColor()
     }
     
     private func updateLineColor() {
@@ -422,32 +424,35 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
         }
     }
     
+    private func updateTextColor() {
+        if self.hasErrorMessage {
+            self.textField.textColor = self.errorColor
+        } else {
+            self.textField.textColor = textColor
+        }
+    }
+    
     // MARK: - Title handling
     
     private func updateTitleLabel(animated:Bool = false) {
 
-        if let errorMessage = self.errorMessage {
-            self.titleLabel.text = self.titleFormatter(errorMessage)
-            self.showTitleIfHidden(animated)
-        }
-        else {
-            let editing = self.editing
-            
-            if editing {
+        if self.hasErrorMessage {
+            self.titleLabel.text = self.titleFormatter(errorMessage!)
+        } else {
+            if self.editing {
                 self.titleLabel.text = self.selectedTitleOrPlaceholder()
             } else {
                 self.titleLabel.text = self.deselectedTitleOrPlaceholder()
             }
-            
-            if self.hasText || self.hasErrorMessage {
-                self.showTitleIfHidden(animated)
-            } else {
-                self.hideTitle(animated)
-            }
+        }
+        if self.hasErrorMessage || self.hasText {
+            self.showTitle(animated)
+        } else {
+            self.hideTitle(animated)
         }
     }
     
-    private func showTitleIfHidden(animated:Bool = false) {
+    private func showTitle(animated:Bool = false) {
         
         let updateBlock = { () -> Void in
             self.titleLabel.alpha = 1.0
