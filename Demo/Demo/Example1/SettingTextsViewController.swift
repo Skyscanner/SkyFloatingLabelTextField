@@ -12,12 +12,6 @@ class SettingTextsViewController: UIViewController {
 
     @IBOutlet var textField:WatermarkedTextField?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        textField?.placeholderLabel.font = UIFont.italicSystemFontOfSize(18)
-    }
-    
     @IBAction func addError() {
         self.textField?.errorMessage = "error message"
     }

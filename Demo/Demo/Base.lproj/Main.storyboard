@@ -27,9 +27,9 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Placeholder"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="deselectedTitle" value="deselected"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="deselectedTitle" value="Deselected title"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="text" value="Text"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="selected"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="Selected title"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="H6F-j0-AqL">
@@ -416,10 +416,10 @@
             </objects>
             <point key="canvasLocation" x="214" y="712"/>
         </scene>
-        <!--Subclassing View Controller-->
+        <!--Theming by subclassing-->
         <scene sceneID="V2D-Nh-VJ0">
             <objects>
-                <viewController id="ieH-5F-man" customClass="SubclassingViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Theming by subclassing" id="ieH-5F-man" customClass="SubclassingViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gBU-fg-vxT"/>
                         <viewControllerLayoutGuide type="bottom" id="CMk-b9-v8S"/>
@@ -475,10 +475,10 @@
             </objects>
             <point key="canvasLocation" x="214" y="1390"/>
         </scene>
-        <!--Custom Layout View Controller-->
+        <!--Custom layout-->
         <scene sceneID="f8u-NG-Yv7">
             <objects>
-                <viewController id="ZOT-En-7Z8" customClass="CustomLayoutViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Custom layout" id="ZOT-En-7Z8" customClass="CustomLayoutViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3n7-hW-7EJ"/>
                         <viewControllerLayoutGuide type="bottom" id="0wY-mt-IaA"/>
@@ -491,9 +491,7 @@
                                 <rect key="frame" x="70" y="84" width="260" height="50"/>
                                 <color key="backgroundColor" red="0.94117647410000005" green="0.94117647410000005" blue="0.94117647410000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Placeholder"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="Selected title"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="deselectedTitle" value="Deselected title"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Username"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iv1-md-6Bi">
@@ -514,11 +512,21 @@
                                     <action selector="resignTextField" destination="BYZ-38-t0r" eventType="touchUpInside" id="s34-rV-yvv"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GwR-K6-apk">
+                                <rect key="frame" x="50" y="238" width="300" height="117"/>
+                                <string key="text">By overriding the positioning methods you can layout the view components in a flexible manner.  In this example an icon label is added and placeholder label and textfield are positioned differently to make room for it.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="GwR-K6-apk" firstAttribute="leading" secondItem="8oc-za-clg" secondAttribute="leadingMargin" constant="30" id="BWV-Id-9hS"/>
                             <constraint firstItem="Iv1-md-6Bi" firstAttribute="top" secondItem="f9a-5M-ybb" secondAttribute="bottom" constant="4" id="HNq-0n-C5V"/>
+                            <constraint firstItem="GwR-K6-apk" firstAttribute="top" secondItem="Iv1-md-6Bi" secondAttribute="bottom" constant="20" id="QUo-f8-oy1"/>
                             <constraint firstItem="Iv1-md-6Bi" firstAttribute="centerX" secondItem="8oc-za-clg" secondAttribute="centerX" id="SSL-5c-ZFn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="GwR-K6-apk" secondAttribute="trailing" constant="30" id="U10-2R-wbo"/>
                             <constraint firstItem="teF-Dw-L0V" firstAttribute="centerX" secondItem="8oc-za-clg" secondAttribute="centerX" id="WG5-GO-QSc"/>
                             <constraint firstItem="teF-Dw-L0V" firstAttribute="top" secondItem="3n7-hW-7EJ" secondAttribute="bottom" constant="20" id="WYU-Hl-JTk"/>
                             <constraint firstItem="f9a-5M-ybb" firstAttribute="top" secondItem="teF-Dw-L0V" secondAttribute="bottom" constant="20" id="cck-Kd-MX4"/>
@@ -601,8 +609,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="367" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subclassing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="09e-P3-DiE">
-                                                    <rect key="frame" x="18" y="12" width="92.5" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Theming by subclassing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="09e-P3-DiE">
+                                                    <rect key="frame" x="18" y="11.5" width="185" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
