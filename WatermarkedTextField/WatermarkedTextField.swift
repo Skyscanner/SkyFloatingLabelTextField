@@ -540,12 +540,12 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
         return true
     }
 
-    private func textFieldChanged(textfield: UITextField) {
+    internal func textFieldChanged(textfield: UITextField) {
         self.setText(textField.text, animated: true)
         self.resetErrorMessageIfPresent()
     }
     
-    private func editingDidEndOnExit(textfield: UITextField) {
+    internal func editingDidEndOnExit(textfield: UITextField) {
         self.sendActionsForControlEvents(.EditingDidEndOnExit)
     }
     
