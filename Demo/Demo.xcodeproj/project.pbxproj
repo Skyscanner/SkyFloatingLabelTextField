@@ -7,11 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		761085461C35777C00301446 /* CustomizingColorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761085451C35777C00301446 /* CustomizingColorsViewController.swift */; };
-		76150EC71C29723F008A5B6D /* IconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76150EC51C29723F008A5B6D /* IconView.swift */; };
 		76150EC81C29723F008A5B6D /* WatermarkedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76150EC61C29723F008A5B6D /* WatermarkedTextField.swift */; };
+		76668B8D1C36976F0007CF33 /* SettingTextsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76668B861C36976F0007CF33 /* SettingTextsViewController.swift */; };
+		76668B8E1C36976F0007CF33 /* CustomizingColorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76668B881C36976F0007CF33 /* CustomizingColorsViewController.swift */; };
+		76668B8F1C36976F0007CF33 /* SubclassingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76668B8A1C36976F0007CF33 /* SubclassingViewController.swift */; };
+		76668B901C36976F0007CF33 /* ThemedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76668B8B1C36976F0007CF33 /* ThemedTextField.swift */; };
+		76668B921C3697DB0007CF33 /* CustomLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76668B911C3697DB0007CF33 /* CustomLayoutViewController.swift */; };
+		76668B941C3697F00007CF33 /* CustomLayoutTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76668B931C3697F00007CF33 /* CustomLayoutTextField.swift */; };
+		76668B971C36B9420007CF33 /* dashicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 76668B961C36B9420007CF33 /* dashicons.ttf */; };
 		76A92F9F1C28828E002A26D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A92F9E1C28828E002A26D0 /* AppDelegate.swift */; };
-		76A92FA11C28828E002A26D0 /* SettingTextsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A92FA01C28828E002A26D0 /* SettingTextsViewController.swift */; };
 		76A92FA41C28828E002A26D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76A92FA21C28828E002A26D0 /* Main.storyboard */; };
 		76A92FA61C28828E002A26D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76A92FA51C28828E002A26D0 /* Assets.xcassets */; };
 		76A92FA91C28828E002A26D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76A92FA71C28828E002A26D0 /* LaunchScreen.storyboard */; };
@@ -29,12 +33,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		761085451C35777C00301446 /* CustomizingColorsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomizingColorsViewController.swift; sourceTree = "<group>"; };
-		76150EC51C29723F008A5B6D /* IconView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconView.swift; sourceTree = "<group>"; };
 		76150EC61C29723F008A5B6D /* WatermarkedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatermarkedTextField.swift; sourceTree = "<group>"; };
+		76668B861C36976F0007CF33 /* SettingTextsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTextsViewController.swift; sourceTree = "<group>"; };
+		76668B881C36976F0007CF33 /* CustomizingColorsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomizingColorsViewController.swift; sourceTree = "<group>"; };
+		76668B8A1C36976F0007CF33 /* SubclassingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubclassingViewController.swift; sourceTree = "<group>"; };
+		76668B8B1C36976F0007CF33 /* ThemedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemedTextField.swift; sourceTree = "<group>"; };
+		76668B911C3697DB0007CF33 /* CustomLayoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLayoutViewController.swift; sourceTree = "<group>"; };
+		76668B931C3697F00007CF33 /* CustomLayoutTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLayoutTextField.swift; sourceTree = "<group>"; };
+		76668B961C36B9420007CF33 /* dashicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = dashicons.ttf; path = "../../../../../../Downloads/dashicons-master/dashicons.ttf"; sourceTree = "<group>"; };
 		76A92F9B1C28828E002A26D0 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76A92F9E1C28828E002A26D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		76A92FA01C28828E002A26D0 /* SettingTextsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTextsViewController.swift; sourceTree = "<group>"; };
 		76A92FA31C28828E002A26D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		76A92FA51C28828E002A26D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		76A92FA81C28828E002A26D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -65,11 +73,52 @@
 		76150EC41C29723F008A5B6D /* WatermarkedTextField */ = {
 			isa = PBXGroup;
 			children = (
-				76150EC51C29723F008A5B6D /* IconView.swift */,
 				76150EC61C29723F008A5B6D /* WatermarkedTextField.swift */,
 			);
 			name = WatermarkedTextField;
 			path = ../WatermarkedTextField;
+			sourceTree = "<group>";
+		};
+		76668B851C36976F0007CF33 /* Example1 */ = {
+			isa = PBXGroup;
+			children = (
+				76668B861C36976F0007CF33 /* SettingTextsViewController.swift */,
+			);
+			path = Example1;
+			sourceTree = "<group>";
+		};
+		76668B871C36976F0007CF33 /* Example2 */ = {
+			isa = PBXGroup;
+			children = (
+				76668B881C36976F0007CF33 /* CustomizingColorsViewController.swift */,
+			);
+			path = Example2;
+			sourceTree = "<group>";
+		};
+		76668B891C36976F0007CF33 /* Example3 */ = {
+			isa = PBXGroup;
+			children = (
+				76668B8A1C36976F0007CF33 /* SubclassingViewController.swift */,
+				76668B8B1C36976F0007CF33 /* ThemedTextField.swift */,
+			);
+			path = Example3;
+			sourceTree = "<group>";
+		};
+		76668B8C1C36976F0007CF33 /* Example4 */ = {
+			isa = PBXGroup;
+			children = (
+				76668B911C3697DB0007CF33 /* CustomLayoutViewController.swift */,
+				76668B931C3697F00007CF33 /* CustomLayoutTextField.swift */,
+			);
+			path = Example4;
+			sourceTree = "<group>";
+		};
+		76668B951C36B9370007CF33 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				76668B961C36B9420007CF33 /* dashicons.ttf */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		76A92F921C28828E002A26D0 = {
@@ -94,9 +143,12 @@
 		76A92F9D1C28828E002A26D0 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				76668B951C36B9370007CF33 /* Resources */,
+				76668B851C36976F0007CF33 /* Example1 */,
+				76668B871C36976F0007CF33 /* Example2 */,
+				76668B891C36976F0007CF33 /* Example3 */,
+				76668B8C1C36976F0007CF33 /* Example4 */,
 				76A92F9E1C28828E002A26D0 /* AppDelegate.swift */,
-				761085451C35777C00301446 /* CustomizingColorsViewController.swift */,
-				76A92FA01C28828E002A26D0 /* SettingTextsViewController.swift */,
 				76A92FA21C28828E002A26D0 /* Main.storyboard */,
 				76A92FA51C28828E002A26D0 /* Assets.xcassets */,
 				76A92FA71C28828E002A26D0 /* LaunchScreen.storyboard */,
@@ -196,6 +248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				76A92FA91C28828E002A26D0 /* LaunchScreen.storyboard in Resources */,
+				76668B971C36B9420007CF33 /* dashicons.ttf in Resources */,
 				76A92FA61C28828E002A26D0 /* Assets.xcassets in Resources */,
 				76A92FA41C28828E002A26D0 /* Main.storyboard in Resources */,
 			);
@@ -215,11 +268,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				76A92FA11C28828E002A26D0 /* SettingTextsViewController.swift in Sources */,
+				76668B941C3697F00007CF33 /* CustomLayoutTextField.swift in Sources */,
+				76668B921C3697DB0007CF33 /* CustomLayoutViewController.swift in Sources */,
+				76668B8D1C36976F0007CF33 /* SettingTextsViewController.swift in Sources */,
+				76668B8E1C36976F0007CF33 /* CustomizingColorsViewController.swift in Sources */,
 				76150EC81C29723F008A5B6D /* WatermarkedTextField.swift in Sources */,
-				76150EC71C29723F008A5B6D /* IconView.swift in Sources */,
 				76A92F9F1C28828E002A26D0 /* AppDelegate.swift in Sources */,
-				761085461C35777C00301446 /* CustomizingColorsViewController.swift in Sources */,
+				76668B901C36976F0007CF33 /* ThemedTextField.swift in Sources */,
+				76668B8F1C36976F0007CF33 /* SubclassingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
