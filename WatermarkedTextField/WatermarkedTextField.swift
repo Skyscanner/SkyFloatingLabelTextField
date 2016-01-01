@@ -515,11 +515,11 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
         return CGRectMake(offsetX, titleHeight, bounds.size.width - offsetX, bounds.size.height - titleHeight)
     }
     
-    private func titleHeight() -> CGFloat {
+    public func titleHeight() -> CGFloat {
         return (self.titleLabel.font?.lineHeight ?? 15.0)
     }
     
-    private func textHeight() -> CGFloat {
+    public func textHeight() -> CGFloat {
         return (self.textField.font?.lineHeight ?? 25.0) + 7.0
     }
     
