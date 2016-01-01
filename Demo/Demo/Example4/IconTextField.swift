@@ -66,12 +66,16 @@ public class IconTextField: WatermarkedTextField {
     // MARK: Custom layout overrides
     
     override public func textFieldRectForBounds(bounds: CGRect) -> CGRect {
-        let lineHeight = self.textField.font!.lineHeight
-        return CGRectMake(iconWidth, lineHeight, bounds.size.width-iconWidth, bounds.size.height - lineHeight)
+        var rect = super.textFieldRectForBounds(bounds)
+        rect.origin.x += iconWidth
+        rect.size.width -= iconWidth
+        return rect
     }
     
     override public func placeholderLabelRectForBounds(bounds: CGRect) -> CGRect {
-        let lineHeight = self.textField.font!.lineHeight
-        return CGRectMake(iconWidth, lineHeight, bounds.size.width-iconWidth, bounds.size.height - lineHeight)
+        var rect = super.placeholderLabelRectForBounds(bounds)
+        rect.origin.x += iconWidth
+        rect.size.width -= iconWidth
+        return rect
     }
 }
