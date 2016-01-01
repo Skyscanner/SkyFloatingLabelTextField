@@ -45,15 +45,14 @@ extension UITextField {
 @IBDesignable
 public class WatermarkedTextField: UIControl, UITextFieldDelegate {
 
-    // MARK: animation variables
+    // MARK: Animation timing
     
-    var titleFadeInDuration:Double = 0.2
-    var titleFadeOutDuration:Double = 0.6
-    var placeholderFadeInDuration:Double = 0.2
-    var placeholderFadeOutDuration:Double = 0.6
-    var notHighlightedFadeOutDelay:Double = 0.2
+    /// The Double value of the title appearing duration.
+    public var titleFadeInDuration:Double = 0.2
+    /// The Double value of the title disappearing duration.
+    public var titleFadeOutDuration:Double = 0.6
     
-    // MARK: colors
+    // MARK: Colors
     
     /// The text color of the editable text.
     @IBInspectable public var textColor:UIColor = UIColor.blackColor() {
@@ -105,19 +104,19 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
         }
     }
     
-    // MARK: delegate
+    // MARK: Delegate
 
     /// The `WatermarkedTextfield` delegate.
     @IBOutlet weak var delegate:WatermarkedTextFieldDelegate?
 
-    // MARK: view components
+    // MARK: View components
     
     var textField:UITextField!
     var placeholderLabel:UILabel!
     var lineView:UIView!
     var titleLabel:UILabel!
     
-    // MARK: properties
+    // MARK: Properties
     
     /**
         The formatter to use before displaying content in the title label. This can be the `selectedTitle`, `deselectedTitle` or the `errorMessage`.
@@ -234,7 +233,7 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
     
     // MARK: - init
     
-    init(frame:CGRect, textField:UITextField?, lineView:UIView?) {
+    public init(frame:CGRect, textField:UITextField?, lineView:UIView?) {
         super.init(frame: frame)
         
         self.lineView = lineView
@@ -259,7 +258,7 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
     
     // MARK: create components
     
-    func createTitleLabel() {
+    private func createTitleLabel() {
         let titleLabel = UILabel()
         titleLabel.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         titleLabel.font = UIFont.systemFontOfSize(13)
@@ -269,7 +268,7 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
         self.titleLabel = titleLabel
     }
     
-    func createPlaceholderLabel() {
+    private func createPlaceholderLabel() {
         let placeholderLabel = UILabel()
         placeholderLabel.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         placeholderLabel.font = UIFont.systemFontOfSize(18.0)
@@ -279,7 +278,7 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
         self.placeholderLabel = placeholderLabel
     }
     
-    func createTextField() {
+    private func createTextField() {
         
         if self.textField == nil {
             let textField = UITextField()
@@ -293,7 +292,7 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
         self.addSubview(textField)
     }
     
-    func createLineView() {
+    private func createLineView() {
         
         if self.lineView == nil {
             let lineView = UIView()
@@ -306,7 +305,7 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
     
     // MARK: input
     
-    func installDummyInputView() {
+    private func installDummyInputView() {
         self.textField.inputView = UIView(frame: CGRectZero)
     }
     
@@ -337,7 +336,7 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
     
     // MARK: -
 
-    func resetErrorMessageIfPresent() {
+    private func resetErrorMessageIfPresent() {
         if self.hasErrorMessage {
             self.errorMessage = nil
         }
@@ -345,28 +344,28 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
     
     // MARK: -
     
-    func deselectedTitleOrPlaceholder() -> String? {
+    private func deselectedTitleOrPlaceholder() -> String? {
         if let title = self.deselectedTitle ?? self.placeholder {
             return self.titleFormatter(title)
         }
         return nil
     }
     
-    func selectedTitleOrPlaceholder() -> String? {
+    private func selectedTitleOrPlaceholder() -> String? {
         if let title = self.selectedTitle ?? self.placeholder {
             return self.titleFormatter(title)
         }
         return nil
     }
     
-    func setText(text:String?, animated:Bool = false) {
+    public func setText(text:String?, animated:Bool = false) {
         _text = text
         self.textField.text = text
         self.resetErrorMessageIfPresent()
         self.updateControl(animated)
     }
     
-    func setHighlighted(highlighted:Bool, animated:Bool = false) {
+    public func setHighlighted(highlighted:Bool, animated:Bool = false) {
         if(super.highlighted != highlighted) {
             super.highlighted = highlighted
             
@@ -374,14 +373,14 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
                 self.updatePlaceholderLabelVisibility()
                 self.updateTitleLabel()
             } else {
-                self.performSelector(Selector("fadeoutHighlighted"), withObject: self, afterDelay: notHighlightedFadeOutDelay)
+                //self.performSelector(Selector("fadeoutHighlighted"), withObject: self, afterDelay: notHighlightedFadeOutDelay)
             }
         }
     }
     
     // MARK: -
     
-    func updateControl(animated:Bool = false) {
+    private func updateControl(animated:Bool = false) {
         
         self.updateLineColor()
         self.updateTitleLabel(animated)
@@ -392,27 +391,20 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
         }
     }
     
-    func updatePlaceholderLabelVisibility() {
+    private func updatePlaceholderLabelVisibility() {
         self.placeholderLabel.hidden = self.hasText
     }
     
-    func hidePlaceholder(animated:Bool = false) {
-
-        UIView.animateWithDuration(placeholderFadeOutDuration) { () -> Void in
-            self.placeholderLabel.alpha = 0.0
-        }
-    }
+    // MARK: - Selection states
     
-    // MARK: - selection states
-    
-    func updateLineColor() {
+    private func updateLineColor() {
         if self.hasErrorMessage {
             self.lineView.backgroundColor = self.errorColor
         } else {
             self.lineView.backgroundColor = self.editing ? self.selectedLineColor : self.lineColor
         }
     }
-    func updateTitleColor() {
+    private func updateTitleColor() {
         if self.hasErrorMessage {
             self.titleLabel.textColor = self.errorColor
         } else {
@@ -426,7 +418,7 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
     
     // MARK: -
     
-    func updateTitleLabel(animated:Bool = false) {
+    private func updateTitleLabel(animated:Bool = false) {
 
         if let errorMessage = self.errorMessage {
             self.titleLabel.text = self.titleFormatter(errorMessage)
@@ -450,7 +442,7 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
         self.updateTitleColor()
     }
     
-    func showTitleIfHidden(animated:Bool = false) {
+    private func showTitleIfHidden(animated:Bool = false) {
         
         let updateBlock = { () -> Void in
             self.titleLabel.alpha = 1.0
@@ -465,14 +457,14 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
         }
     }
     
-    func hideTitle(animated:Bool = false) {
+    private func hideTitle(animated:Bool = false) {
         
         let updateBlock = { () -> Void in
             self.titleLabel.alpha = 0.0
             self.titleLabel.frame = self.titleLabelRectForBounds(self.bounds, editing: false)
         }
         if animated {
-            UIView.animateWithDuration(titleFadeInDuration, animations: { () -> Void in
+            UIView.animateWithDuration(titleFadeOutDuration, animations: { () -> Void in
                 updateBlock()
             })
         } else {
@@ -480,30 +472,13 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
         }
     }
     
-    func fadeoutHighlighted() {
-        
-        // TODO:
-        /*
-        if self.isFirstResponder() {
-            if !self.hasText {
-                self.hideTitle(true)
-            }
-        } else {
-            if !self.hasText {
-                self.hideTitle(true)
-            } else {
-                self.hidePlaceholder(true)
-            }
-        }*/
-    }
-    
     // MARK: - overridable rect calculation
     
-    func titleLabelRectForBounds(bounds:CGRect) -> CGRect {
+    public func titleLabelRectForBounds(bounds:CGRect) -> CGRect {
         return self.titleLabelRectForBounds(bounds, editing: self.editing)
     }
     
-    func titleLabelRectForBounds(bounds:CGRect, editing:Bool) -> CGRect {
+    public func titleLabelRectForBounds(bounds:CGRect, editing:Bool) -> CGRect {
 
         let lineHeight = self.titleLabel.font.lineHeight
         if editing {
@@ -513,20 +488,20 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
         }
     }
 
-    func lineViewRectForBounds(bounds:CGRect) -> CGRect {
+    public func lineViewRectForBounds(bounds:CGRect) -> CGRect {
         return self.lineViewRectForBounds(bounds, editing: self.editing)
     }
     
-    func lineViewRectForBounds(bounds:CGRect, editing:Bool) -> CGRect {
+    public func lineViewRectForBounds(bounds:CGRect, editing:Bool) -> CGRect {
         let lineWidth:CGFloat = editing ? 1.0 : 0.5
         return CGRectMake(0, bounds.size.height - lineWidth, bounds.size.width, lineWidth);
     }
     
-    func textFieldRectForBounds(bounds:CGRect) -> CGRect {
+    public func textFieldRectForBounds(bounds:CGRect) -> CGRect {
         return CGRectMake(0, titleHeight, bounds.size.width, bounds.size.height - titleHeight)
     }
     
-    func placeholderLabelRectForBounds(bounds:CGRect) -> CGRect {
+    public func placeholderLabelRectForBounds(bounds:CGRect) -> CGRect {
         let offsetX:CGFloat = self.textField.leftView != nil ? CGRectGetMaxX(self.textField.leftView!.frame) : 0.0
         return CGRectMake(offsetX, titleHeight, bounds.size.width - offsetX, bounds.size.height - titleHeight)
     }
@@ -545,24 +520,24 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
             delegate.watermarkedTextFieldDidEndEditing(self)
         }
     }
-    
-    func textFieldChanged(textfield: UITextField) {
-        self.setText(textField.text, animated: true)
-        self.resetErrorMessageIfPresent()
-    }
-    
-    func editingDidEndOnExit(textfield: UITextField) {
-        self.sendActionsForControlEvents(.EditingDidEndOnExit)
-    }
-    
+
     public func textFieldShouldReturn(textField: UITextField) -> Bool {
         if let delegate = self.delegate {
             return delegate.watermarkedTextFieldShouldReturn(self)
         }
         return true
     }
+
+    private func textFieldChanged(textfield: UITextField) {
+        self.setText(textField.text, animated: true)
+        self.resetErrorMessageIfPresent()
+    }
     
-    // MARK: touch handling
+    private func editingDidEndOnExit(textfield: UITextField) {
+        self.sendActionsForControlEvents(.EditingDidEndOnExit)
+    }
+    
+    // MARK: Touch handling
     
     override public func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
@@ -573,7 +548,7 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
         super.touchesBegan(touches, withEvent: event)
     }
     
-    // MARK: - layout
+    // MARK: - Layout
     
     override public func layoutSubviews() {
         super.layoutSubviews()
