@@ -35,22 +35,60 @@ The `WatermarkedTextFieldDelegate` protocol defines the messages sent to a text 
      - parameter watermarkedTextField: The text field for which an editing session began.
     */
     optional func watermarkedTextFieldDidBeginEditing(watermarkedTextField:WatermarkedTextField)
+    
     /**
      Tells the delegate that editing stopped for the specified text field.
      
      - parameter watermarkedTextField: The text field for which the editing session ended.
      */
     optional func watermarkedTextFieldDidEndEditing(watermarkedTextField:WatermarkedTextField)
+    
     /**
      Asks the delegate if the text field should process the pressing of the return button.
      
      - parameter watermarkedTextField: The text field whose return button was pressed.
      */
     optional func watermarkedTextFieldShouldReturn(watermarkedTextField:WatermarkedTextField) -> Bool
+    
+    /**
+     Asks the delegate if the text field should process the pressing of the clear button.
+     
+     - parameter watermarkedTextField: The text field whose clear button was pressed.
+     */
+    optional func watermarkedTextFieldShouldClear(watermarkedTextField:WatermarkedTextField) -> Bool
+    
+    /**
+     Asks the delegate if editing should begin in the specified text field.
+     
+     - parameter watermarkedTextField: The text field for which editing is about to begin.
+     
+     - returns: `true` if an editing session should be initiated; otherwise, `false` to disallow editing.
+     */
+    optional func watermarkedTextFieldShouldBeginEditing(watermarkedTextField:WatermarkedTextField) -> Bool
+    
+    /**
+     Asks the delegate if editing should stop in the specified text field.
+     
+     - parameter watermarkedTextField: The text field for which editing is about to end.
+     
+     - returns: `true` if editing should stop; otherwise, `false` if the editing session should continue
+     */
+    optional func watermarkedTextFieldShouldEndEditing(watermarkedTextField:WatermarkedTextField) -> Bool
+    
+    
+    /**
+     Asks the delegate if editing should stop in the specified text field.
+     
+     - parameter watermarkedTextField: The text field containing the text.
+     - parameter range: The range of characters to be replaced.
+     - parameter string: The replacement string.
+     
+     - returns: `true` if the specified text range should be replaced; otherwise, `false` to keep the old text.
+     */
+    optional func watermarkedTextField(watermarkedTextField: WatermarkedTextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool
 }
 
 // MARK: - WatermarkedTextField
-
 
 /**
     A beautiful and flexible textfield implementation with support for title label, error message and placeholder.
@@ -119,7 +157,7 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
     // MARK: Delegate
 
     /// The `WatermarkedTextfield` delegate.
-    @IBOutlet weak var delegate:WatermarkedTextFieldDelegate?
+    @IBOutlet public weak var delegate:WatermarkedTextFieldDelegate?
 
     // MARK: View components
     
@@ -522,13 +560,41 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
     }
     
     // MARK: - Textfield delegate methods
-
+    
+    public func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+        if let delegate = self.delegate {
+            if let result = delegate.watermarkedTextFieldShouldBeginEditing?(self) {
+                return result
+            }
+        }
+        return true
+    }
+    
     public func textFieldDidBeginEditing(textField: UITextField) {
         self.updateControl(true)
         if let delegate = self.delegate {
             delegate.watermarkedTextFieldDidBeginEditing?(self)
         }
     }
+    
+    public func textFieldShouldEndEditing(textField: UITextField) -> Bool {
+        if let delegate = self.delegate {
+            if let result = delegate.watermarkedTextFieldShouldEndEditing?(self) {
+                return result
+            }
+        }
+        return true
+    }
+    
+    public func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        if let delegate = self.delegate {
+            if let result = delegate.watermarkedTextField?(self, shouldChangeCharactersInRange: range, replacementString: string) {
+                return result
+            }
+        }
+        return true
+    }
+    
     public func textFieldDidEndEditing(textField: UITextField) {
         self.updateControl(true)
         if let delegate = self.delegate {
@@ -544,6 +610,17 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
         }
         return true
     }
+    
+    public func textFieldShouldClear(textField: UITextField) -> Bool {
+        if let delegate = self.delegate {
+            if let result = delegate.watermarkedTextFieldShouldClear?(self) {
+                return result
+            }
+        }
+        return true
+    }
+    
+    // MARK: TextField target actions
 
     internal func textFieldChanged(textfield: UITextField) {
         self.setText(textField.text, animated: true)
@@ -602,4 +679,3 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
         return nil
     }
 }
-
