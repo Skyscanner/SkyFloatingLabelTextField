@@ -8,11 +8,20 @@
 
 import UIKit
 
-
-public class CustomLayoutTextField: WatermarkedTextField {
+@IBDesignable
+public class IconTextField: WatermarkedTextField {
     
-    public var iconLabel:UILabel?
-    public var iconInset:CGFloat = 20.0
+    public var iconLabel:UILabel!
+    public var iconWidth:CGFloat = 20.0
+    
+    @IBInspectable
+    public var icon:String? {
+        didSet {
+            self.iconLabel?.text = icon
+        }
+    }
+    
+    // MARK: Initializers
     
     override public init(frame: CGRect, textField: UITextField?, lineView: UIView?) {
         super.init(frame: frame, textField: textField, lineView: lineView)
@@ -24,46 +33,45 @@ public class CustomLayoutTextField: WatermarkedTextField {
         self.createIconLabel()
     }
     
-    // MARK: - Icon label
+    // MARK: Creating the icon label
     
     func createIconLabel() {
         let iconLabel = UILabel()
         iconLabel.backgroundColor = UIColor.clearColor()
         iconLabel.font = UIFont(name: "Dashicons-Regular", size: 15)
-        iconLabel.text = ""
         iconLabel.textAlignment = .Center
-        iconLabel.frame = CGRectMake(0, self.bounds.size.height - 30.0, 20, 30.0)
+        iconLabel.frame = CGRectMake(0, self.bounds.size.height - 30.0, iconWidth, 30.0)
         iconLabel.autoresizingMask = [.FlexibleTopMargin, .FlexibleRightMargin]
         self.iconLabel = iconLabel
         self.addSubview(iconLabel)
+
+        self.updateIconLabelColor()
     }
-    
-    private func updateIconLabelColor() {
-        self.iconLabel?.textColor = self.editing ? self.selectedLineColor : self.lineColor
-    }
+
+    // MARK: Handling the icon color
     
     override public func updateColors() {
         super.updateColors()
         self.updateIconLabelColor()
     }
-    
-    // MARK: - Custom layout overrides
-    
-    override public func lineViewRectForBounds(bounds: CGRect, editing: Bool) -> CGRect {
-        if editing {
-            return CGRectMake(0, bounds.size.height-3.0, bounds.size.width, 3.0)
+
+    private func updateIconLabelColor() {
+        if self.hasErrorMessage {
+            self.iconLabel?.textColor = self.errorColor
         } else {
-            return CGRectMake(0, bounds.size.height-1.0, bounds.size.width, 1.0)
+            self.iconLabel?.textColor = self.editing ? self.selectedLineColor : self.lineColor
         }
     }
     
+    // MARK: Custom layout overrides
+    
     override public func textFieldRectForBounds(bounds: CGRect) -> CGRect {
         let lineHeight = self.textField.font!.lineHeight
-        return CGRectMake(iconInset, lineHeight, bounds.size.width-iconInset, bounds.size.height - lineHeight)
+        return CGRectMake(iconWidth, lineHeight, bounds.size.width-iconWidth, bounds.size.height - lineHeight)
     }
     
     override public func placeholderLabelRectForBounds(bounds: CGRect) -> CGRect {
         let lineHeight = self.textField.font!.lineHeight
-        return CGRectMake(iconInset, lineHeight, bounds.size.width-iconInset, bounds.size.height - lineHeight)
+        return CGRectMake(iconWidth, lineHeight, bounds.size.width-iconWidth, bounds.size.height - lineHeight)
     }
 }

@@ -13,7 +13,7 @@
 		76668B8F1C36976F0007CF33 /* SubclassingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76668B8A1C36976F0007CF33 /* SubclassingViewController.swift */; };
 		76668B901C36976F0007CF33 /* ThemedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76668B8B1C36976F0007CF33 /* ThemedTextField.swift */; };
 		76668B921C3697DB0007CF33 /* CustomLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76668B911C3697DB0007CF33 /* CustomLayoutViewController.swift */; };
-		76668B941C3697F00007CF33 /* CustomLayoutTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76668B931C3697F00007CF33 /* CustomLayoutTextField.swift */; };
+		76668B941C3697F00007CF33 /* IconTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76668B931C3697F00007CF33 /* IconTextField.swift */; };
 		76668B971C36B9420007CF33 /* dashicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 76668B961C36B9420007CF33 /* dashicons.ttf */; };
 		76A92F9F1C28828E002A26D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A92F9E1C28828E002A26D0 /* AppDelegate.swift */; };
 		76A92FA41C28828E002A26D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76A92FA21C28828E002A26D0 /* Main.storyboard */; };
@@ -39,7 +39,7 @@
 		76668B8A1C36976F0007CF33 /* SubclassingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubclassingViewController.swift; sourceTree = "<group>"; };
 		76668B8B1C36976F0007CF33 /* ThemedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemedTextField.swift; sourceTree = "<group>"; };
 		76668B911C3697DB0007CF33 /* CustomLayoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLayoutViewController.swift; sourceTree = "<group>"; };
-		76668B931C3697F00007CF33 /* CustomLayoutTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLayoutTextField.swift; sourceTree = "<group>"; };
+		76668B931C3697F00007CF33 /* IconTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconTextField.swift; sourceTree = "<group>"; };
 		76668B961C36B9420007CF33 /* dashicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = dashicons.ttf; path = "../../../../../../Downloads/dashicons-master/dashicons.ttf"; sourceTree = "<group>"; };
 		76A92F9B1C28828E002A26D0 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76A92F9E1C28828E002A26D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -108,7 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				76668B911C3697DB0007CF33 /* CustomLayoutViewController.swift */,
-				76668B931C3697F00007CF33 /* CustomLayoutTextField.swift */,
+				76668B931C3697F00007CF33 /* IconTextField.swift */,
 			);
 			path = Example4;
 			sourceTree = "<group>";
@@ -268,7 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				76668B941C3697F00007CF33 /* CustomLayoutTextField.swift in Sources */,
+				76668B941C3697F00007CF33 /* IconTextField.swift in Sources */,
 				76668B921C3697DB0007CF33 /* CustomLayoutViewController.swift in Sources */,
 				76668B8D1C36976F0007CF33 /* SettingTextsViewController.swift in Sources */,
 				76668B8E1C36976F0007CF33 /* CustomizingColorsViewController.swift in Sources */,

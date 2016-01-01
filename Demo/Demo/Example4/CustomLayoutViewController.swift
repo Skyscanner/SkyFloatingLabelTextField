@@ -10,7 +10,7 @@ import UIKit
 
 class CustomLayoutViewController: UIViewController {
 
-    @IBOutlet var textField:CustomLayoutTextField?
+    @IBOutlet var textField:IconTextField?
     
     @IBAction func addError() {
         self.textField?.errorMessage = "error message"
