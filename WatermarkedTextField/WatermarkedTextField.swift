@@ -226,6 +226,22 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
         }
     }
     
+    private var _titleVisible:Bool = false
+    public private(set) var titleVisible:Bool {
+        set {
+            self.setTitleVisibile(newValue, animated: false)
+        }
+        get {
+            return _titleVisible
+        }
+    }
+    private func setTitleVisibile(titleVisible:Bool, animated:Bool = false) {
+        if titleVisible != _titleVisible {
+            _titleVisible = titleVisible
+            self.updateTitleVisibility(animated)
+        }
+    }
+    
     /// A String value that is displayed in the input field.
     private var _text:String?
     @IBInspectable public var text:String? {
@@ -442,36 +458,19 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
                 self.titleLabel.text = self.deselectedTitleOrPlaceholder()
             }
         }
-        if self.hasErrorMessage || self.hasText {
-            self.showTitle(animated)
-        } else {
-            self.hideTitle(animated)
-        }
+        self.setTitleVisibile(self.hasErrorMessage || self.hasText, animated: animated)
     }
-    
-    private func showTitle(animated:Bool = false) {
-        
+
+    private func updateTitleVisibility(animated:Bool = false) {
+        let alpha:CGFloat = _titleVisible ? 1.0 : 0.0
+        let frame:CGRect = self.titleLabelRectForBounds(self.bounds, editing: _titleVisible)
         let updateBlock = { () -> Void in
-            self.titleLabel.alpha = 1.0
-            self.titleLabel.frame = self.titleLabelRectForBounds(self.bounds, editing: true)
+            self.titleLabel.alpha = alpha
+            self.titleLabel.frame = frame
         }
         if animated {
-            UIView.animateWithDuration(titleFadeInDuration, animations: { () -> Void in
-                updateBlock()
-            })
-        } else {
-            updateBlock()
-        }
-    }
-    
-    private func hideTitle(animated:Bool = false) {
-        
-        let updateBlock = { () -> Void in
-            self.titleLabel.alpha = 0.0
-            self.titleLabel.frame = self.titleLabelRectForBounds(self.bounds, editing: false)
-        }
-        if animated {
-            UIView.animateWithDuration(titleFadeOutDuration, animations: { () -> Void in
+            let duration = _titleVisible ? titleFadeInDuration : titleFadeOutDuration
+            UIView.animateWithDuration(duration, animations: { () -> Void in
                 updateBlock()
             })
         } else {
