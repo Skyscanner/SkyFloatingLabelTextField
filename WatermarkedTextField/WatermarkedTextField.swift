@@ -66,9 +66,9 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
 
     // MARK: Animation timing
     
-    /// The Double value of the title appearing duration.
+    /// The value of the title appearing duration.
     public var titleFadeInDuration:Double = 0.2
-    /// The Double value of the title disappearing duration.
+    /// The value of the title disappearing duration.
     public var titleFadeOutDuration:Double = 0.6
     
     // MARK: Colors
@@ -284,7 +284,7 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
     // TODO: get rid of this?
     var titleHeight:CGFloat = 20.0
     
-    // MARK: - init
+    // MARK: - Initializers
     
     public init(frame:CGRect, textField:UITextField?, lineView:UIView?) {
         super.init(frame: frame)
@@ -362,7 +362,7 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
         self.textField.inputView = UIView(frame: CGRectZero)
     }
     
-    // MARK: responder
+    // MARK: Responder handling
     
     override public func becomeFirstResponder() -> Bool {
         self.textField.userInteractionEnabled = true
@@ -385,28 +385,6 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
     
     override public func isFirstResponder() -> Bool {
         return self.textField.isFirstResponder() || self.textField.editing
-    }
-    
-    // MARK: -
-
-    private func resetErrorMessageIfPresent() {
-        if self.hasErrorMessage && discardsErrorMessageOnTextChange {
-            self.errorMessage = nil
-        }
-    }
-    
-    private func deselectedTitleOrPlaceholder() -> String? {
-        if let title = self.deselectedTitle ?? self.placeholder {
-            return self.titleFormatter(title)
-        }
-        return nil
-    }
-    
-    private func selectedTitleOrPlaceholder() -> String? {
-        if let title = self.selectedTitle ?? self.placeholder {
-            return self.titleFormatter(title)
-        }
-        return nil
     }
     
     // MARK: - View updates
@@ -595,6 +573,28 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
     
     override public func intrinsicContentSize() -> CGSize {
         return CGSizeMake(self.bounds.size.width, 50.0)
+    }
+    
+    // MARK: - Helpers
+    
+    private func resetErrorMessageIfPresent() {
+        if self.hasErrorMessage && discardsErrorMessageOnTextChange {
+            self.errorMessage = nil
+        }
+    }
+    
+    private func deselectedTitleOrPlaceholder() -> String? {
+        if let title = self.deselectedTitle ?? self.placeholder {
+            return self.titleFormatter(title)
+        }
+        return nil
+    }
+    
+    private func selectedTitleOrPlaceholder() -> String? {
+        if let title = self.selectedTitle ?? self.placeholder {
+            return self.titleFormatter(title)
+        }
+        return nil
     }
 }
 
