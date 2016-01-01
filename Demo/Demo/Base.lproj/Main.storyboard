@@ -472,10 +472,10 @@
             </objects>
             <point key="canvasLocation" x="214" y="1390"/>
         </scene>
-        <!--Custom layout-->
+        <!--Custom layout by subclassing-->
         <scene sceneID="f8u-NG-Yv7">
             <objects>
-                <viewController title="Custom layout" id="ZOT-En-7Z8" customClass="CustomLayoutViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Custom layout by subclassing" id="ZOT-En-7Z8" customClass="CustomLayoutViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3n7-hW-7EJ"/>
                         <viewControllerLayoutGuide type="bottom" id="0wY-mt-IaA"/>
@@ -632,8 +632,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="367" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Custom layout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qSH-5l-bpY">
-                                                    <rect key="frame" x="18" y="11.5" width="110" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Custom layout by subclassing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qSH-5l-bpY">
+                                                    <rect key="frame" x="18" y="12" width="228" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
