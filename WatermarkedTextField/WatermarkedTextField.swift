@@ -8,12 +8,6 @@
 
 import UIKit
 
-// MARK: -
-
-protocol HighlightableView {
-    var highlighted:Bool {get set}
-}
-
 // MARK: - UITextField extension
 
 extension UITextField {
@@ -186,7 +180,8 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
     /// A Boolean value that determines whether the receiver is highlighted.
     override public var highlighted:Bool {
         set {
-            self.setHighlighted(newValue, animated:false)
+            super.highlighted = highlighted
+//            self.setHighlighted(newValue, animated:false)
         }
         get {
             return super.highlighted
@@ -194,6 +189,7 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
     }
     
     // TODO: clean up api here
+    /*
     private func setHighlighted(highlighted:Bool, animated:Bool = false) {
         if(super.highlighted != highlighted) {
             super.highlighted = highlighted
@@ -205,7 +201,7 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
                 //self.performSelector(Selector("fadeoutHighlighted"), withObject: self, afterDelay: notHighlightedFadeOutDelay)
             }
         }
-    }
+    }*/
     
     /// A Boolean value that determines if the receiver is currently editing.
     public var editing:Bool {
@@ -390,14 +386,9 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
     // MARK: - View updates
     
     private func updateControl(animated:Bool = false) {
-        
-        self.updateLineColor()
+        self.updateColors()
         self.updateTitleLabel(animated)
         self.updatePlaceholderLabelVisibility()
-        
-        if var leftView = self.textField.leftView as? HighlightableView {
-            leftView.highlighted = self.editing
-        }
     }
     
     private func updatePlaceholderLabelVisibility() {
@@ -405,6 +396,11 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
     }
     
     // MARK: - Color updates
+    
+    public func updateColors() {
+        self.updateLineColor()
+        self.updateTitleColor()
+    }
     
     private func updateLineColor() {
         if self.hasErrorMessage {
@@ -449,7 +445,6 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
                 self.hideTitle(animated)
             }
         }
-        self.updateTitleColor()
     }
     
     private func showTitleIfHidden(animated:Bool = false) {
