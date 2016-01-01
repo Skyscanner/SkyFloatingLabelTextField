@@ -511,8 +511,7 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
     
     public func placeholderLabelRectForBounds(bounds:CGRect) -> CGRect {
         let titleHeight = self.titleHeight()
-        let offsetX:CGFloat = self.textField.leftView != nil ? CGRectGetMaxX(self.textField.leftView!.frame) : 0.0
-        return CGRectMake(offsetX, titleHeight, bounds.size.width - offsetX, bounds.size.height - titleHeight)
+        return CGRectMake(0, titleHeight, bounds.size.width, bounds.size.height - titleHeight)
     }
     
     public func titleHeight() -> CGFloat {
