@@ -15,8 +15,8 @@ class SubclassingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let blueColor = UIColor(red: 0.0, green: 221.0/256.0, blue: 238.0/256.0, alpha: 1.0)
-        self.view.tintColor = blueColor
+        // WatermarkedTextField will inherit it's superview's `tintColor`.
+        self.view.tintColor = UIColor(red: 0.0, green: 221.0/256.0, blue: 238.0/256.0, alpha: 1.0)
     }
     
     @IBAction func addError() {
@@ -26,5 +26,4 @@ class SubclassingViewController: UIViewController {
     @IBAction func resignTextField() {
         self.textField?.resignFirstResponder()
     }
-
 }
