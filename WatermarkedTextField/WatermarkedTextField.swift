@@ -69,7 +69,7 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
     /// The value of the title appearing duration.
     public var titleFadeInDuration:Double = 0.2
     /// The value of the title disappearing duration.
-    public var titleFadeOutDuration:Double = 0.6
+    public var titleFadeOutDuration:Double = 0.3
     
     // MARK: Colors
     
