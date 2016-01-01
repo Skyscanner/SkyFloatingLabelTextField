@@ -1,0 +1,5 @@
+clean: true
+author_name: Skyscanner Ltd.
+author_url: https://skyscanner.net
+copyright: "2015 © Skyscanner Ltd. See LICENSE for more details."
+github_url: https://github.com/Skyscanner/SkyWatermarkedTextField
