@@ -14,11 +14,11 @@
 		76668B901C36976F0007CF33 /* ThemedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76668B8B1C36976F0007CF33 /* ThemedTextField.swift */; };
 		76668B921C3697DB0007CF33 /* CustomLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76668B911C3697DB0007CF33 /* CustomLayoutViewController.swift */; };
 		76668B941C3697F00007CF33 /* IconTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76668B931C3697F00007CF33 /* IconTextField.swift */; };
-		76668B971C36B9420007CF33 /* dashicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 76668B961C36B9420007CF33 /* dashicons.ttf */; };
 		76668B9A1C36D8510007CF33 /* DelegateMethodsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76668B991C36D8510007CF33 /* DelegateMethodsViewController.swift */; };
+		76668B9C1C3A8AA10007CF33 /* dashicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 76668B9B1C3A8AA10007CF33 /* dashicons.ttf */; };
+		76668B9E1C3A8AB80007CF33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76668B9D1C3A8AB80007CF33 /* Assets.xcassets */; };
 		76A92F9F1C28828E002A26D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A92F9E1C28828E002A26D0 /* AppDelegate.swift */; };
 		76A92FA41C28828E002A26D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76A92FA21C28828E002A26D0 /* Main.storyboard */; };
-		76A92FA61C28828E002A26D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76A92FA51C28828E002A26D0 /* Assets.xcassets */; };
 		76A92FA91C28828E002A26D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76A92FA71C28828E002A26D0 /* LaunchScreen.storyboard */; };
 		76A92FB41C28828E002A26D0 /* DemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A92FB31C28828E002A26D0 /* DemoTests.swift */; };
 /* End PBXBuildFile section */
@@ -41,12 +41,12 @@
 		76668B8B1C36976F0007CF33 /* ThemedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemedTextField.swift; sourceTree = "<group>"; };
 		76668B911C3697DB0007CF33 /* CustomLayoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLayoutViewController.swift; sourceTree = "<group>"; };
 		76668B931C3697F00007CF33 /* IconTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconTextField.swift; sourceTree = "<group>"; };
-		76668B961C36B9420007CF33 /* dashicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = dashicons.ttf; path = "../../../../../../Downloads/dashicons-master/dashicons.ttf"; sourceTree = "<group>"; };
 		76668B991C36D8510007CF33 /* DelegateMethodsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelegateMethodsViewController.swift; sourceTree = "<group>"; };
+		76668B9B1C3A8AA10007CF33 /* dashicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = dashicons.ttf; sourceTree = "<group>"; };
+		76668B9D1C3A8AB80007CF33 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		76A92F9B1C28828E002A26D0 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76A92F9E1C28828E002A26D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76A92FA31C28828E002A26D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		76A92FA51C28828E002A26D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		76A92FA81C28828E002A26D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		76A92FAA1C28828E002A26D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		76A92FAF1C28828E002A26D0 /* DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,10 +118,10 @@
 		76668B951C36B9370007CF33 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				76668B9D1C3A8AB80007CF33 /* Assets.xcassets */,
+				76668B9B1C3A8AA10007CF33 /* dashicons.ttf */,
 				76A92FA21C28828E002A26D0 /* Main.storyboard */,
 				76A92FA71C28828E002A26D0 /* LaunchScreen.storyboard */,
-				76A92FA51C28828E002A26D0 /* Assets.xcassets */,
-				76668B961C36B9420007CF33 /* dashicons.ttf */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -259,8 +259,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				76A92FA91C28828E002A26D0 /* LaunchScreen.storyboard in Resources */,
-				76668B971C36B9420007CF33 /* dashicons.ttf in Resources */,
-				76A92FA61C28828E002A26D0 /* Assets.xcassets in Resources */,
+				76668B9C1C3A8AA10007CF33 /* dashicons.ttf in Resources */,
+				76668B9E1C3A8AB80007CF33 /* Assets.xcassets in Resources */,
 				76A92FA41C28828E002A26D0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
