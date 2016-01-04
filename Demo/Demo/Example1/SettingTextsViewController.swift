@@ -10,7 +10,7 @@ import UIKit
 
 class SettingTextsViewController: UIViewController {
 
-    @IBOutlet var textField:WatermarkedTextField?
+    @IBOutlet var textField:SkyFloatingLabelTextField?
     
     @IBAction func addError() {
         self.textField?.errorMessage = "error message"

@@ -1,5 +1,5 @@
 //
-//  WatermarkedTextField.swift
+//  SkyFloatingLabelTextField.swift
 //  Demo
 //
 //  Created by Daniel Langh on 21/12/15.
@@ -22,79 +22,79 @@ extension UITextField {
     }
 }
 
-// MARK: - WatermarkedTextFieldDelegate
+// MARK: - SkyFloatingLabelTextFieldDelegate
 
 /**
-The `WatermarkedTextFieldDelegate` protocol defines the messages sent to a text field delegate as part of the sequence of editing its text. All of the methods of this protocol are optional.
+The `SkyFloatingLabelTextFieldDelegate` protocol defines the messages sent to a text field delegate as part of the sequence of editing its text. All of the methods of this protocol are optional.
 */
-@objc public protocol WatermarkedTextFieldDelegate: class {
+@objc public protocol SkyFloatingLabelTextFieldDelegate: class {
     
     /**
      Tells the delegate that editing began for the specified text field.
      
-     - parameter watermarkedTextField: The text field for which an editing session began.
+     - parameter textField: The text field for which an editing session began.
     */
-    optional func watermarkedTextFieldDidBeginEditing(watermarkedTextField:WatermarkedTextField)
+    optional func textFieldDidBeginEditing(textField:SkyFloatingLabelTextField)
     
     /**
      Tells the delegate that editing stopped for the specified text field.
      
-     - parameter watermarkedTextField: The text field for which the editing session ended.
+     - parameter textField: The text field for which the editing session ended.
      */
-    optional func watermarkedTextFieldDidEndEditing(watermarkedTextField:WatermarkedTextField)
+    optional func textFieldDidEndEditing(textField:SkyFloatingLabelTextField)
     
     /**
      Asks the delegate if the text field should process the pressing of the return button.
      
-     - parameter watermarkedTextField: The text field whose return button was pressed.
+     - parameter textField: The text field whose return button was pressed.
      */
-    optional func watermarkedTextFieldShouldReturn(watermarkedTextField:WatermarkedTextField) -> Bool
+    optional func textFieldShouldReturn(textField:SkyFloatingLabelTextField) -> Bool
     
     /**
      Asks the delegate if the text field should process the pressing of the clear button.
      
-     - parameter watermarkedTextField: The text field whose clear button was pressed.
+     - parameter textField: The text field whose clear button was pressed.
      */
-    optional func watermarkedTextFieldShouldClear(watermarkedTextField:WatermarkedTextField) -> Bool
+    optional func textFieldShouldClear(textField:SkyFloatingLabelTextField) -> Bool
     
     /**
      Asks the delegate if editing should begin in the specified text field.
      
-     - parameter watermarkedTextField: The text field for which editing is about to begin.
+     - parameter textField: The text field for which editing is about to begin.
      
      - returns: `true` if an editing session should be initiated; otherwise, `false` to disallow editing.
      */
-    optional func watermarkedTextFieldShouldBeginEditing(watermarkedTextField:WatermarkedTextField) -> Bool
+    optional func textFieldShouldBeginEditing(textField:SkyFloatingLabelTextField) -> Bool
     
     /**
      Asks the delegate if editing should stop in the specified text field.
      
-     - parameter watermarkedTextField: The text field for which editing is about to end.
+     - parameter textField: The text field for which editing is about to end.
      
      - returns: `true` if editing should stop; otherwise, `false` if the editing session should continue
      */
-    optional func watermarkedTextFieldShouldEndEditing(watermarkedTextField:WatermarkedTextField) -> Bool
+    optional func textFieldShouldEndEditing(textField:SkyFloatingLabelTextField) -> Bool
     
     
     /**
      Asks the delegate if editing should stop in the specified text field.
      
-     - parameter watermarkedTextField: The text field containing the text.
+     - parameter textField: The text field containing the text.
      - parameter range: The range of characters to be replaced.
      - parameter string: The replacement string.
      
      - returns: `true` if the specified text range should be replaced; otherwise, `false` to keep the old text.
      */
-    optional func watermarkedTextField(watermarkedTextField: WatermarkedTextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool
+    optional func textField(textField: SkyFloatingLabelTextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool
 }
 
-// MARK: - WatermarkedTextField
+// MARK: - SkyFloatingLabelTextField
 
 /**
     A beautiful and flexible textfield implementation with support for title label, error message and placeholder.
 */
 @IBDesignable
-public class WatermarkedTextField: UIControl, UITextFieldDelegate {
+public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
 
     // MARK: Animation timing
     
@@ -170,8 +170,8 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
     
     // MARK: Delegate
 
-    /// The `WatermarkedTextfield` delegate.
-    @IBOutlet public weak var delegate:WatermarkedTextFieldDelegate?
+    /// The `SkyFloatingLabelTextField` delegate.
+    @IBOutlet public weak var delegate:SkyFloatingLabelTextFieldDelegate?
 
     // MARK: View components
     
@@ -585,7 +585,7 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
     
     public func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
         if let delegate = self.delegate {
-            if let result = delegate.watermarkedTextFieldShouldBeginEditing?(self) {
+            if let result = delegate.textFieldShouldBeginEditing?(self) {
                 return result
             }
         }
@@ -595,13 +595,13 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
     public func textFieldDidBeginEditing(textField: UITextField) {
         self.updateControl(true)
         if let delegate = self.delegate {
-            delegate.watermarkedTextFieldDidBeginEditing?(self)
+            delegate.textFieldDidBeginEditing?(self)
         }
     }
     
     public func textFieldShouldEndEditing(textField: UITextField) -> Bool {
         if let delegate = self.delegate {
-            if let result = delegate.watermarkedTextFieldShouldEndEditing?(self) {
+            if let result = delegate.textFieldShouldEndEditing?(self) {
                 return result
             }
         }
@@ -610,7 +610,7 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
     
     public func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         if let delegate = self.delegate {
-            if let result = delegate.watermarkedTextField?(self, shouldChangeCharactersInRange: range, replacementString: string) {
+            if let result = delegate.textField?(self, shouldChangeCharactersInRange: range, replacementString: string) {
                 return result
             }
         }
@@ -620,13 +620,13 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
     public func textFieldDidEndEditing(textField: UITextField) {
         self.updateControl(true)
         if let delegate = self.delegate {
-            delegate.watermarkedTextFieldDidEndEditing?(self)
+            delegate.textFieldDidEndEditing?(self)
         }
     }
 
     public func textFieldShouldReturn(textField: UITextField) -> Bool {
         if let delegate = self.delegate {
-            if let result = delegate.watermarkedTextFieldShouldReturn?(self) {
+            if let result = delegate.textFieldShouldReturn?(self) {
                 return result
             }
         }
@@ -635,7 +635,7 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
     
     public func textFieldShouldClear(textField: UITextField) -> Bool {
         if let delegate = self.delegate {
-            if let result = delegate.watermarkedTextFieldShouldClear?(self) {
+            if let result = delegate.textFieldShouldClear?(self) {
                 return result
             }
         }

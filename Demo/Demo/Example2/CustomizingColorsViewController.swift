@@ -10,7 +10,7 @@ import UIKit
 
 class CustomizingColorsViewController: UIViewController {
 
-    @IBOutlet weak var textField:WatermarkedTextField?
+    @IBOutlet weak var textField:SkyFloatingLabelTextField?
     
     @IBAction func addError() {
         self.textField?.errorMessage = "error message"

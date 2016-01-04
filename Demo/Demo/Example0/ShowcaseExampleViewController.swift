@@ -8,13 +8,13 @@
 
 import UIKit
 
-class ShowcaseExampleViewController: UIViewController, WatermarkedTextFieldDelegate {
+class ShowcaseExampleViewController: UIViewController, SkyFloatingLabelTextFieldDelegate {
     
-    var departureCityField: WatermarkedTextField!
-    var arrivalCityField: WatermarkedTextField!
-    var titleField: WatermarkedTextField!
-    var firstNameField: WatermarkedTextField!
-    var lastNameField: WatermarkedTextField!
+    var departureCityField: SkyFloatingLabelTextField!
+    var arrivalCityField: SkyFloatingLabelTextField!
+    var titleField: SkyFloatingLabelTextField!
+    var firstNameField: SkyFloatingLabelTextField!
+    var lastNameField: SkyFloatingLabelTextField!
     
     var cityFieldsSplitPercentage: CGFloat = 0.5 {
         didSet {
@@ -48,7 +48,7 @@ class ShowcaseExampleViewController: UIViewController, WatermarkedTextFieldDeleg
     }
     
     func setupDepartureCityField() {
-        self.departureCityField = WatermarkedTextField()
+        self.departureCityField = SkyFloatingLabelTextField()
         self.departureCityField.placeholder = "Departure City"
         self.departureCityField.delegate = self
         self.applySkyscannerTheme(self.departureCityField)
@@ -56,7 +56,7 @@ class ShowcaseExampleViewController: UIViewController, WatermarkedTextFieldDeleg
     }
     
     func setupArrivalCityField() {
-        self.arrivalCityField = WatermarkedTextField()
+        self.arrivalCityField = SkyFloatingLabelTextField()
         self.arrivalCityField.placeholder = "Arrival City"
         self.arrivalCityField.delegate = self
         self.applySkyscannerTheme(self.arrivalCityField)
@@ -65,7 +65,7 @@ class ShowcaseExampleViewController: UIViewController, WatermarkedTextFieldDeleg
     
     // MARK: - Styling the text fields to the Skyscanner theme
     
-    func applySkyscannerTheme(textField: WatermarkedTextField) {
+    func applySkyscannerTheme(textField: SkyFloatingLabelTextField) {
         
         let onePixelHeight = 1.0 / Double(UIScreen.mainScreen().scale)
         
@@ -115,11 +115,11 @@ class ShowcaseExampleViewController: UIViewController, WatermarkedTextFieldDeleg
     
     // MARK: - Delegate
     
-    func watermarkedTextFieldDidBeginEditing(watermarkedTextField: WatermarkedTextField) {
-        if(watermarkedTextField == self.departureCityField) {
+    func textFieldDidBeginEditing(textField: SkyFloatingLabelTextField) {
+        if(textField == self.departureCityField) {
             self.cityFieldsSplitPercentage = 0.6;
         }
-        else if(watermarkedTextField == self.arrivalCityField) {
+        else if(textField == self.arrivalCityField) {
             self.cityFieldsSplitPercentage = 0.4;
         }
     }

@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-public class IconTextField: WatermarkedTextField {
+public class IconTextField: SkyFloatingLabelTextField {
     
     public var iconLabel:UILabel!
     public var iconWidth:CGFloat = 20.0

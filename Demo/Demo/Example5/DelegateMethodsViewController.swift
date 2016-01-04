@@ -8,9 +8,9 @@
 
 import UIKit
 
-class DelegateMethodsViewController: UIViewController, WatermarkedTextFieldDelegate {
+class DelegateMethodsViewController: UIViewController, SkyFloatingLabelTextFieldDelegate {
 
-    @IBOutlet var textField:WatermarkedTextField?
+    @IBOutlet var textField:SkyFloatingLabelTextField?
     @IBOutlet var logTextView:UITextView!
     
     override func viewDidLoad() {
@@ -37,38 +37,38 @@ class DelegateMethodsViewController: UIViewController, WatermarkedTextFieldDeleg
     }
 
     
-    // MARK: - WatermarkedTextField delegate
+    // MARK: - SkyFloatingLabelTextField delegate
     
-    func watermarkedTextFieldDidBeginEditing(watermarkedTextField: WatermarkedTextField) {
-        self.log("watermarkedTextFieldDidBeginEditing:")
+    func textFieldDidBeginEditing(textField: SkyFloatingLabelTextField) {
+        self.log("textFieldDidBeginEditing:")
     }
     
-    func watermarkedTextField(watermarkedTextField: WatermarkedTextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        self.log("watermarkedTextField:shouldChangeCharactersInRange:replacementString:")
+    func textField(textField: SkyFloatingLabelTextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        self.log("textField:shouldChangeCharactersInRange:replacementString:")
         return true
     }
     
-    func watermarkedTextFieldDidEndEditing(watermarkedTextField: WatermarkedTextField) {
-        self.log("watermarkedTextFieldDidEndEditing:")
+    func textFieldDidEndEditing(textField: SkyFloatingLabelTextField) {
+        self.log("textFieldDidEndEditing:")
     }
     
-    func watermarkedTextFieldShouldBeginEditing(watermarkedTextField: WatermarkedTextField) -> Bool {
-        self.log("watermarkedTextFieldShouldBeginEditing:")
+    func textFieldShouldBeginEditing(textField: SkyFloatingLabelTextField) -> Bool {
+        self.log("textFieldShouldBeginEditing:")
         return true
     }
     
-    func watermarkedTextFieldShouldClear(watermarkedTextField: WatermarkedTextField) -> Bool {
-        self.log("watermarkedTextFieldShouldClear:")
+    func textFieldShouldClear(textField: SkyFloatingLabelTextField) -> Bool {
+        self.log("textFieldShouldClear:")
         return true
     }
     
-    func watermarkedTextFieldShouldEndEditing(watermarkedTextField: WatermarkedTextField) -> Bool {
-        self.log("watermarkedTextFieldShouldEndEditing:")
+    func textFieldShouldEndEditing(textField: SkyFloatingLabelTextField) -> Bool {
+        self.log("textFieldShouldEndEditing:")
         return true
     }
     
-    func watermarkedTextFieldShouldReturn(watermarkedTextField: WatermarkedTextField) -> Bool {
-        self.log("watermarkedTextFieldShouldReturn")
+    func textFieldShouldReturn(textField: SkyFloatingLabelTextField) -> Bool {
+        self.log("textFieldShouldReturn")
         return true
     }
 }

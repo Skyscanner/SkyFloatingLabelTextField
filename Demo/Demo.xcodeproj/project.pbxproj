@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		76150EC81C29723F008A5B6D /* WatermarkedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76150EC61C29723F008A5B6D /* WatermarkedTextField.swift */; };
+		76150EC81C29723F008A5B6D /* SkyFloatingLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76150EC61C29723F008A5B6D /* SkyFloatingLabelTextField.swift */; };
 		76668B8D1C36976F0007CF33 /* SettingTextsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76668B861C36976F0007CF33 /* SettingTextsViewController.swift */; };
 		76668B8E1C36976F0007CF33 /* CustomizingColorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76668B881C36976F0007CF33 /* CustomizingColorsViewController.swift */; };
 		76668B8F1C36976F0007CF33 /* SubclassingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76668B8A1C36976F0007CF33 /* SubclassingViewController.swift */; };
@@ -35,7 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		76150EC61C29723F008A5B6D /* WatermarkedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatermarkedTextField.swift; sourceTree = "<group>"; };
+		76150EC61C29723F008A5B6D /* SkyFloatingLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyFloatingLabelTextField.swift; sourceTree = "<group>"; };
 		76668B861C36976F0007CF33 /* SettingTextsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTextsViewController.swift; sourceTree = "<group>"; };
 		76668B881C36976F0007CF33 /* CustomizingColorsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomizingColorsViewController.swift; sourceTree = "<group>"; };
 		76668B8A1C36976F0007CF33 /* SubclassingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubclassingViewController.swift; sourceTree = "<group>"; };
@@ -77,7 +77,7 @@
 		76150EC41C29723F008A5B6D /* WatermarkedTextField */ = {
 			isa = PBXGroup;
 			children = (
-				76150EC61C29723F008A5B6D /* WatermarkedTextField.swift */,
+				76150EC61C29723F008A5B6D /* SkyFloatingLabelTextField.swift */,
 			);
 			name = WatermarkedTextField;
 			path = ../WatermarkedTextField;
@@ -302,7 +302,7 @@
 				76668B8D1C36976F0007CF33 /* SettingTextsViewController.swift in Sources */,
 				F5513BB81C3A96CA00B5C2CE /* ShowcaseExampleViewController.swift in Sources */,
 				76668B8E1C36976F0007CF33 /* CustomizingColorsViewController.swift in Sources */,
-				76150EC81C29723F008A5B6D /* WatermarkedTextField.swift in Sources */,
+				76150EC81C29723F008A5B6D /* SkyFloatingLabelTextField.swift in Sources */,
 				76A92F9F1C28828E002A26D0 /* AppDelegate.swift in Sources */,
 				76668B901C36976F0007CF33 /* ThemedTextField.swift in Sources */,
 				76668B8F1C36976F0007CF33 /* SubclassingViewController.swift in Sources */,
