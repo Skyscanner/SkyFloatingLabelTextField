@@ -81,9 +81,10 @@ class ShowcaseExampleViewController: UIViewController {
         textField.selectedLineColor = overcastBlueColor
         textField.selectedLineHeight = 2 * onePixelHeight
         
-        textField.textField.font = UIFont(name: "Courier-Bold", size: 18)
-        textField.titleLabel.font = UIFont(name: "Courier", size: 12)
-        
+        // Set custom fonts for the title, placeholder and textfield labels
+        textField.titleLabel.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 12)
+        textField.placeholderLabel.font = UIFont(name: "AppleSDGothicNeo-Light", size: 18)
+        textField.textField.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 18)
     }
     
     // MARK: - Animation logic
@@ -104,16 +105,5 @@ class ShowcaseExampleViewController: UIViewController {
         self.departureCityField.frame = CGRectMake(marginLeft, offsetY, departureCityFieldWidth, cityFieldHeight)
         self.arrivalCityField.frame = CGRectMake(marginLeft + departureCityFieldWidth + spacingBetweenFields, offsetY, arrivalCityFieldWidth, cityFieldHeight)
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
