@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ShowcaseExampleViewController: UIViewController {
+class ShowcaseExampleViewController: UIViewController, WatermarkedTextFieldDelegate {
     
     var departureCityField: WatermarkedTextField!
     var arrivalCityField: WatermarkedTextField!
@@ -50,6 +50,7 @@ class ShowcaseExampleViewController: UIViewController {
     func setupDepartureCityField() {
         self.departureCityField = WatermarkedTextField()
         self.departureCityField.placeholder = "Departure City"
+        self.departureCityField.delegate = self
         self.applySkyscannerTheme(self.departureCityField)
         self.view.addSubview(self.departureCityField)
     }
@@ -57,6 +58,7 @@ class ShowcaseExampleViewController: UIViewController {
     func setupArrivalCityField() {
         self.arrivalCityField = WatermarkedTextField()
         self.arrivalCityField.placeholder = "Arrival City"
+        self.arrivalCityField.delegate = self
         self.applySkyscannerTheme(self.arrivalCityField)
         self.view.addSubview(self.arrivalCityField)
     }
@@ -87,10 +89,15 @@ class ShowcaseExampleViewController: UIViewController {
         textField.textField.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 18)
     }
     
-    // MARK: - Animation logic
+    // MARK: - Animating the width change of the city fields
     
-    //
     func updateCityFieldsLayout() {
+        UIView.animateWithDuration(0.2, animations: { () -> Void in
+            self.layoutCityFields()
+        })
+    }
+    
+    func layoutCityFields() {
         let offsetY:CGFloat = 72
         let marginLeft:CGFloat = 12
         let marginRight:CGFloat = 12
@@ -101,9 +108,20 @@ class ShowcaseExampleViewController: UIViewController {
         
         let departureCityFieldWidth = contentWidth * self.cityFieldsSplitPercentage
         let arrivalCityFieldWidth = contentWidth * (1 - self.cityFieldsSplitPercentage)
-
+        
         self.departureCityField.frame = CGRectMake(marginLeft, offsetY, departureCityFieldWidth, cityFieldHeight)
         self.arrivalCityField.frame = CGRectMake(marginLeft + departureCityFieldWidth + spacingBetweenFields, offsetY, arrivalCityFieldWidth, cityFieldHeight)
+    }
+    
+    // MARK: - Delegate
+    
+    func watermarkedTextFieldDidBeginEditing(watermarkedTextField: WatermarkedTextField) {
+        if(watermarkedTextField == self.departureCityField) {
+            self.cityFieldsSplitPercentage = 0.6;
+        }
+        else if(watermarkedTextField == self.arrivalCityField) {
+            self.cityFieldsSplitPercentage = 0.4;
+        }
     }
 
 }
