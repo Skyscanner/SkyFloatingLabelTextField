@@ -140,17 +140,31 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
         }
     }
     
-    /// The color of the line when editing.
-    @IBInspectable public var selectedLineColor:UIColor = UIColor.blackColor() {
-        didSet {
-            self.updateColors()
-        }
-    }
-    
     /// The color of the line when not editing.
     @IBInspectable public var lineColor:UIColor = UIColor.lightGrayColor() {
         didSet {
-            self.updateColors()
+            self.updateLineView()
+        }
+    }
+    
+    /// The color of the line when editing.
+    @IBInspectable public var selectedLineColor:UIColor = UIColor.blackColor() {
+        didSet {
+            self.updateLineView()
+        }
+    }
+    
+    // MARK: Line height
+    
+    @IBInspectable public var lineHeight:Double = 0.5 {
+        didSet {
+            self.updateLineView()
+        }
+    }
+    
+    @IBInspectable public var selectedLineHeight:Double = 1.0 {
+        didSet {
+            self.updateLineView()
         }
     }
     
@@ -439,12 +453,20 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
     
     private func updateControl(animated:Bool = false) {
         self.updateColors()
+        self.updateLineView()
         self.updateTitleLabel(animated)
         self.updatePlaceholderLabelVisibility()
     }
     
     private func updatePlaceholderLabelVisibility() {
         self.placeholderLabel.hidden = self.hasText
+    }
+    
+    private func updateLineView() {
+        if let lineView = self.lineView {
+            lineView.frame = self.lineViewRectForBounds(self.bounds, editing: self.editing)
+            lineView.backgroundColor = self.editing ? self.selectedLineColor : self.lineColor
+        }
     }
     
     // MARK: - Color updates
@@ -537,8 +559,8 @@ public class WatermarkedTextField: UIControl, UITextFieldDelegate {
     }
     
     public func lineViewRectForBounds(bounds:CGRect, editing:Bool) -> CGRect {
-        let lineWidth:CGFloat = editing ? 1.0 : 0.5
-        return CGRectMake(0, bounds.size.height - lineWidth, bounds.size.width, lineWidth);
+        let lineHeight:CGFloat = editing ? CGFloat(self.selectedLineHeight) : CGFloat(self.lineHeight)
+        return CGRectMake(0, bounds.size.height - lineHeight, bounds.size.width, lineHeight);
     }
     
     public func textFieldRectForBounds(bounds:CGRect) -> CGRect {

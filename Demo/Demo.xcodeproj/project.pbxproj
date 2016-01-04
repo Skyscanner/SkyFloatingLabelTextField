@@ -21,6 +21,7 @@
 		76A92FA41C28828E002A26D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76A92FA21C28828E002A26D0 /* Main.storyboard */; };
 		76A92FA91C28828E002A26D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76A92FA71C28828E002A26D0 /* LaunchScreen.storyboard */; };
 		76A92FB41C28828E002A26D0 /* DemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A92FB31C28828E002A26D0 /* DemoTests.swift */; };
+		F5513BB81C3A96CA00B5C2CE /* ShowcaseExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5513BB71C3A96CA00B5C2CE /* ShowcaseExampleViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		76A92FAF1C28828E002A26D0 /* DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		76A92FB31C28828E002A26D0 /* DemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoTests.swift; sourceTree = "<group>"; };
 		76A92FB51C28828E002A26D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F5513BB71C3A96CA00B5C2CE /* ShowcaseExampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowcaseExampleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,37 +83,41 @@
 			path = ../WatermarkedTextField;
 			sourceTree = "<group>";
 		};
-		76668B851C36976F0007CF33 /* Example1 */ = {
+		76668B851C36976F0007CF33 /* Example1_SettingTextProperties */ = {
 			isa = PBXGroup;
 			children = (
 				76668B861C36976F0007CF33 /* SettingTextsViewController.swift */,
 			);
+			name = Example1_SettingTextProperties;
 			path = Example1;
 			sourceTree = "<group>";
 		};
-		76668B871C36976F0007CF33 /* Example2 */ = {
+		76668B871C36976F0007CF33 /* Example2_CustomizingColors */ = {
 			isa = PBXGroup;
 			children = (
 				76668B881C36976F0007CF33 /* CustomizingColorsViewController.swift */,
 			);
+			name = Example2_CustomizingColors;
 			path = Example2;
 			sourceTree = "<group>";
 		};
-		76668B891C36976F0007CF33 /* Example3 */ = {
+		76668B891C36976F0007CF33 /* Example3_ThemingBySubclassing */ = {
 			isa = PBXGroup;
 			children = (
 				76668B8A1C36976F0007CF33 /* SubclassingViewController.swift */,
 				76668B8B1C36976F0007CF33 /* ThemedTextField.swift */,
 			);
+			name = Example3_ThemingBySubclassing;
 			path = Example3;
 			sourceTree = "<group>";
 		};
-		76668B8C1C36976F0007CF33 /* Example4 */ = {
+		76668B8C1C36976F0007CF33 /* Example4_CustomLayoutBySubclassing */ = {
 			isa = PBXGroup;
 			children = (
 				76668B911C3697DB0007CF33 /* CustomLayoutViewController.swift */,
 				76668B931C3697F00007CF33 /* IconTextField.swift */,
 			);
+			name = Example4_CustomLayoutBySubclassing;
 			path = Example4;
 			sourceTree = "<group>";
 		};
@@ -126,11 +132,12 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		76668B981C36D8420007CF33 /* Example5 */ = {
+		76668B981C36D8420007CF33 /* Example5_UsingDelegateMethods */ = {
 			isa = PBXGroup;
 			children = (
 				76668B991C36D8510007CF33 /* DelegateMethodsViewController.swift */,
 			);
+			name = Example5_UsingDelegateMethods;
 			path = Example5;
 			sourceTree = "<group>";
 		};
@@ -156,12 +163,13 @@
 		76A92F9D1C28828E002A26D0 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				F5513BB61C3A969900B5C2CE /* Example0_Showcase */,
 				76668B951C36B9370007CF33 /* Resources */,
-				76668B851C36976F0007CF33 /* Example1 */,
-				76668B871C36976F0007CF33 /* Example2 */,
-				76668B891C36976F0007CF33 /* Example3 */,
-				76668B8C1C36976F0007CF33 /* Example4 */,
-				76668B981C36D8420007CF33 /* Example5 */,
+				76668B851C36976F0007CF33 /* Example1_SettingTextProperties */,
+				76668B871C36976F0007CF33 /* Example2_CustomizingColors */,
+				76668B891C36976F0007CF33 /* Example3_ThemingBySubclassing */,
+				76668B8C1C36976F0007CF33 /* Example4_CustomLayoutBySubclassing */,
+				76668B981C36D8420007CF33 /* Example5_UsingDelegateMethods */,
 				76A92F9E1C28828E002A26D0 /* AppDelegate.swift */,
 				76A92FAA1C28828E002A26D0 /* Info.plist */,
 			);
@@ -175,6 +183,15 @@
 				76A92FB51C28828E002A26D0 /* Info.plist */,
 			);
 			path = DemoTests;
+			sourceTree = "<group>";
+		};
+		F5513BB61C3A969900B5C2CE /* Example0_Showcase */ = {
+			isa = PBXGroup;
+			children = (
+				F5513BB71C3A96CA00B5C2CE /* ShowcaseExampleViewController.swift */,
+			);
+			name = Example0_Showcase;
+			path = Example0;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,6 +300,7 @@
 				76668B921C3697DB0007CF33 /* CustomLayoutViewController.swift in Sources */,
 				76668B9A1C36D8510007CF33 /* DelegateMethodsViewController.swift in Sources */,
 				76668B8D1C36976F0007CF33 /* SettingTextsViewController.swift in Sources */,
+				F5513BB81C3A96CA00B5C2CE /* ShowcaseExampleViewController.swift in Sources */,
 				76668B8E1C36976F0007CF33 /* CustomizingColorsViewController.swift in Sources */,
 				76150EC81C29723F008A5B6D /* WatermarkedTextField.swift in Sources */,
 				76A92F9F1C28828E002A26D0 /* AppDelegate.swift in Sources */,
