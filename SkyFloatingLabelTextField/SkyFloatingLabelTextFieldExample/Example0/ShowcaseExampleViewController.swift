@@ -10,8 +10,8 @@ import UIKit
 
 class ShowcaseExampleViewController: UIViewController, SkyFloatingLabelTextFieldDelegate {
     
-    var departureCityField: SkyFloatingLabelTextField!
-    var arrivalCityField: SkyFloatingLabelTextField!
+    var departureCityField: SkyFloatingLabelTextFieldWithIcon!
+    var arrivalCityField: SkyFloatingLabelTextFieldWithIcon!
     var titleField: SkyFloatingLabelTextField!
     var firstNameField: SkyFloatingLabelTextField!
     var lastNameField: SkyFloatingLabelTextField!
@@ -55,18 +55,22 @@ class ShowcaseExampleViewController: UIViewController, SkyFloatingLabelTextField
     // MARK: - Creating the form elements
     
     func setupDepartureCityField() {
-        self.departureCityField = SkyFloatingLabelTextField()
+        self.departureCityField = SkyFloatingLabelTextFieldWithIcon()
         self.departureCityField.placeholder = "Departure City"
         self.departureCityField.delegate = self
-        self.applySkyscannerTheme(self.departureCityField)
+        self.applySkyscannerThemeWithIcon(self.departureCityField)
+        self.departureCityField.iconText = "\u{f072}" // plane icon as per https://fortawesome.github.io/Font-Awesome/cheatsheet/
+        
         self.view.addSubview(self.departureCityField)
     }
     
     func setupArrivalCityField() {
-        self.arrivalCityField = SkyFloatingLabelTextField()
+        self.arrivalCityField = SkyFloatingLabelTextFieldWithIcon()
         self.arrivalCityField.placeholder = "Arrival City"
         self.arrivalCityField.delegate = self
-        self.applySkyscannerTheme(self.arrivalCityField)
+        self.applySkyscannerThemeWithIcon(self.arrivalCityField)
+        self.arrivalCityField.iconRotationDegrees = 90
+        self.arrivalCityField.iconText = "\u{f072}"
         self.view.addSubview(self.arrivalCityField)
     }
     
@@ -114,17 +118,31 @@ class ShowcaseExampleViewController: UIViewController, SkyFloatingLabelTextField
         self.view.addSubview(self.submitButton)
     }
     
-    func submitButtonPressStarted() {
-        if (self.departureCityField.textField.text ?? "").isEmpty {
-            self.departureCityField.highlighted = true
-        }
-    }
-    
-    func submitButtonPressEnded() {
-        self.departureCityField.highlighted = false
+    func updateNameFieldsLayout() {
+        let offsetY:CGFloat = 142
+        let marginLeft:CGFloat = 12
+        let marginRight:CGFloat = 12
+        let spacingBetweenFields:CGFloat = 12
+        let fieldHeight:CGFloat = 50
+        let screenWidth:CGFloat = self.view.bounds.width
+        
+        let titleFieldLength:CGFloat = 50
+        let nameFieldLength = (screenWidth - marginLeft - marginRight - 2*spacingBetweenFields - titleFieldLength) / 2
+        
+        self.titleField.frame = CGRectMake(marginLeft, offsetY, titleFieldLength, fieldHeight)
+        self.firstNameField.frame = CGRectMake(marginLeft + titleFieldLength + spacingBetweenFields, offsetY, nameFieldLength, fieldHeight)
+        self.lastNameField.frame = CGRectMake(marginLeft + titleFieldLength + nameFieldLength + 2 * spacingBetweenFields, offsetY, nameFieldLength, fieldHeight)
     }
     
     // MARK: - Styling the text fields to the Skyscanner theme
+    
+    func applySkyscannerThemeWithIcon(textField: SkyFloatingLabelTextFieldWithIcon) {
+        self.applySkyscannerTheme(textField)
+        
+        textField.iconColor = lightGreyColor
+        textField.selectedIconColor = overcastBlueColor
+        textField.iconFont = UIFont(name: "FontAwesome", size: 15)
+    }
     
     func applySkyscannerTheme(textField: SkyFloatingLabelTextField) {
         
@@ -146,23 +164,37 @@ class ShowcaseExampleViewController: UIViewController, SkyFloatingLabelTextField
         textField.textField.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 18)
     }
     
-    // MARK: - Animating the width change of the city fields
+    // MARK: - Validating the fields when "submit" is pressed
     
-    func updateNameFieldsLayout() {
-        let offsetY:CGFloat = 142
-        let marginLeft:CGFloat = 12
-        let marginRight:CGFloat = 12
-        let spacingBetweenFields:CGFloat = 12
-        let fieldHeight:CGFloat = 50
-        let screenWidth:CGFloat = self.view.bounds.width
-        
-        let titleFieldLength:CGFloat = 50
-        let nameFieldLength = (screenWidth - marginLeft - marginRight - 2*spacingBetweenFields - titleFieldLength) / 2
-        
-        self.titleField.frame = CGRectMake(marginLeft, offsetY, titleFieldLength, fieldHeight)
-        self.firstNameField.frame = CGRectMake(marginLeft + titleFieldLength + spacingBetweenFields, offsetY, nameFieldLength, fieldHeight)
-        self.lastNameField.frame = CGRectMake(marginLeft + titleFieldLength + nameFieldLength + 2 * spacingBetweenFields, offsetY, nameFieldLength, fieldHeight)
+    func submitButtonPressStarted() {
+        // By setting the highlighted property to true, the floating title is shown
+        if (self.departureCityField.textField.text ?? "").isEmpty {
+            self.departureCityField.highlighted = true
+        }
+        if (self.arrivalCityField.textField.text ?? "").isEmpty {
+            self.arrivalCityField.highlighted = true
+        }
+        if (self.titleField.textField.text ?? "").isEmpty {
+            self.titleField.highlighted = true
+        }
+        if (self.firstNameField.textField.text ?? "").isEmpty {
+            self.firstNameField.highlighted = true
+        }
+        if (self.lastNameField.textField.text ?? "").isEmpty {
+            self.lastNameField.highlighted = true
+        }
     }
+    
+    func submitButtonPressEnded() {
+        // When setting the highlighted property to false, if the textfield is not selected, then the title field disappears
+        self.departureCityField.highlighted = false
+        self.arrivalCityField.highlighted = false
+        self.titleField.highlighted = false
+        self.firstNameField.highlighted = false
+        self.lastNameField.highlighted = false
+    }
+    
+    // MARK: - Animating the width change of the city fields
     
     func updateCityFieldsLayout() {
         UIView.animateWithDuration(0.2, animations: { () -> Void in
