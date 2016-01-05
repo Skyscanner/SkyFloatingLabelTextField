@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name = "SkyWatermarkedTextField"
+  s.name = "SkyFloatingLabelTextField"
   s.version = "0.0.1"
   s.summary = "A beutiful and flexible textfield with support for placeholder, title and error messages"
   s.homepage = "https://github.com/Skyscanner/SkyWatermarkedTextField"
@@ -7,5 +7,5 @@ Pod::Spec.new do |s|
   s.authors = "Daniel Langh, Gergely Orosz, Raimon Lapuente"
   s.ios.deployment_target = "8.0"
   s.source = { :git => "https://github.com/Skyscanner/SkyWatermarkedTextField.git" }
-  s.source_files = 'WatermarkedTextField/*.swift'
+  s.source_files = 'SkyFloatingLabelTextField/SkyFloatingLabelTextField/*.swift'
 end
