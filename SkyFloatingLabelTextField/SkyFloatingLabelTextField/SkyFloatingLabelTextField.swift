@@ -230,34 +230,28 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
     
     /// A Boolean value that determines whether the receiver is highlighted.
     override public var highlighted:Bool {
-        set {
-            super.highlighted = highlighted
-//            self.setHighlighted(newValue, animated:false)
-        }
-        get {
-            return super.highlighted
+        didSet {
+            if(self.highlighted) {
+                _titleVisible = true
+                self.updateTitleVisibility(true, animateFromCurrentState: true)
+            } else {
+                // Performing fading out after a short timeout to make sure the title previously faded in all the way
+                self.performSelector("fadeOutHighlighted", withObject: self, afterDelay: self.titleFadeInDuration)
+            }
         }
     }
     
-    // TODO: clean up api here
-    /*
-    private func setHighlighted(highlighted:Bool, animated:Bool = false) {
-        if(super.highlighted != highlighted) {
-            super.highlighted = highlighted
-            
-            if(highlighted) {
-                self.updatePlaceholderLabelVisibility()
-                self.updateTitleLabel()
-            } else {
-                //self.performSelector(Selector("fadeoutHighlighted"), withObject: self, afterDelay: notHighlightedFadeOutDelay)
-            }
+    internal func fadeOutHighlighted() {
+        if(!self.hasText) {
+            _titleVisible = false
+            self.updateTitleVisibility(true, animateFromCurrentState: true)
         }
-    }*/
+    }
     
     /// A Boolean value that determines if the receiver is currently editing.
     public var editing:Bool {
         get {
-            return self.isFirstResponder() || self.tooltipVisible
+            return self.isFirstResponder() || self.selected
         }
     }
     
@@ -279,6 +273,8 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
     }
     
     private var _titleVisible:Bool = false
+    
+    /// A Boolean value determining whether the title field is shown
     public private(set) var titleVisible:Bool {
         set {
             self.setTitleVisibile(newValue, animated: false)
@@ -294,8 +290,9 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
         }
     }
     
-    /// A String value that is displayed in the input field.
     private var _text:String?
+    
+    /// A String value that is displayed in the input field.
     @IBInspectable public var text:String? {
         set {
             self.setText(newValue, animated:false)
@@ -337,8 +334,8 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
         }
     }
     
-    // TODO: get a better name for this, permanentlySelected?
-    public var tooltipVisible:Bool = false {
+    // Determines whether the field is selected. When selected, the title floats above the textbox.
+    public override var selected:Bool {
         didSet {
             self.updateControl(true)
         }
@@ -521,7 +518,7 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
         self.setTitleVisibile(self.hasErrorMessage || self.hasText, animated: animated)
     }
 
-    private func updateTitleVisibility(animated:Bool = false) {
+    private func updateTitleVisibility(animated:Bool = false, animateFromCurrentState:Bool = false) {
         let alpha:CGFloat = _titleVisible ? 1.0 : 0.0
         let frame:CGRect = self.titleLabelRectForBounds(self.bounds, editing: _titleVisible)
         let updateBlock = { () -> Void in
@@ -529,10 +526,15 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
             self.titleLabel.frame = frame
         }
         if animated {
+            var animationOptions:UIViewAnimationOptions = .CurveEaseOut;
+            if(animateFromCurrentState) {
+                animationOptions = [.BeginFromCurrentState, .CurveEaseOut]
+            }
             let duration = _titleVisible ? titleFadeInDuration : titleFadeOutDuration
-            UIView.animateWithDuration(duration, animations: { () -> Void in
+            
+            UIView.animateWithDuration(duration, delay: 0, options: animationOptions, animations: { () -> Void in
                 updateBlock()
-            })
+                }, completion: nil)
         } else {
             updateBlock()
         }

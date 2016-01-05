@@ -15,6 +15,11 @@ class ShowcaseExampleViewController: UIViewController, SkyFloatingLabelTextField
     var titleField: SkyFloatingLabelTextField!
     var firstNameField: SkyFloatingLabelTextField!
     var lastNameField: SkyFloatingLabelTextField!
+    var submitButton: UIButton!
+    
+    let lightGreyColor = UIColor(red: 197/255, green: 205/255, blue: 205/255, alpha: 1.0)
+    let darkGreyColor = UIColor(red: 52/255, green: 42/255, blue: 61/255, alpha: 1.0)
+    let overcastBlueColor = UIColor(red: 0, green: 187/255, blue: 204/255, alpha: 1.0)
     
     var cityFieldsSplitPercentage: CGFloat = 0.5 {
         didSet {
@@ -32,10 +37,13 @@ class ShowcaseExampleViewController: UIViewController, SkyFloatingLabelTextField
         
         self.setupDepartureCityField()
         self.setupArrivalCityField()
-        self.updateCityFieldsLayout()
+        self.setupTitleField()
+        self.setupFirstNameField()
+        self.setupLastNameField()
+        self.setupSubmitButton()
         
-
-        // Do any additional setup after loading the view.
+        self.updateCityFieldsLayout()
+        self.updateNameFieldsLayout()
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,9 +51,8 @@ class ShowcaseExampleViewController: UIViewController, SkyFloatingLabelTextField
         // Dispose of any resources that can be recreated.
     }
     
-    func updateCityFieldLengths() {
-        // Whenever departure or arrival fields are selected, have them take up more space
-    }
+    
+    // MARK: - Creating the form elements
     
     func setupDepartureCityField() {
         self.departureCityField = SkyFloatingLabelTextField()
@@ -63,15 +70,65 @@ class ShowcaseExampleViewController: UIViewController, SkyFloatingLabelTextField
         self.view.addSubview(self.arrivalCityField)
     }
     
+    func setupTitleField() {
+        self.titleField = SkyFloatingLabelTextField()
+        self.titleField.placeholder = "Title"
+        self.titleField.delegate = self
+        self.applySkyscannerTheme(self.titleField)
+        self.view.addSubview(self.titleField)
+    }
+    
+    func setupFirstNameField() {
+        self.firstNameField = SkyFloatingLabelTextField()
+        self.firstNameField.placeholder = "Firstname"
+        self.firstNameField.delegate = self
+        self.applySkyscannerTheme(self.firstNameField)
+        self.view.addSubview(self.firstNameField)
+    }
+    
+    func setupLastNameField() {
+        self.lastNameField = SkyFloatingLabelTextField()
+        self.lastNameField.placeholder = "Lastname"
+        self.lastNameField.delegate = self
+        self.applySkyscannerTheme(self.lastNameField)
+        self.view.addSubview(self.lastNameField)
+    }
+    
+    func setupSubmitButton() {
+        let offsetY:CGFloat = 222
+        let screenWidth:CGFloat = self.view.bounds.width
+        let buttonWidth:CGFloat = 150
+        let buttonHeight:CGFloat = 40
+        let marginRight:CGFloat = 12
+        
+        self.submitButton = UIButton(frame: CGRectMake(screenWidth - buttonWidth - marginRight, offsetY, buttonWidth, buttonHeight))
+        self.submitButton.setTitle("Submit", forState: .Normal)
+        self.submitButton.setTitleColor(darkGreyColor, forState: .Normal)
+        self.submitButton.setTitleColor(overcastBlueColor, forState: .Highlighted)
+        self.submitButton.layer.borderColor = darkGreyColor.CGColor
+        self.submitButton.layer.borderWidth = 1
+        self.submitButton.layer.cornerRadius = 5
+        self.submitButton.addTarget(self, action: "submitButtonPressStarted", forControlEvents: .TouchDown)
+        self.submitButton.addTarget(self, action: "submitButtonPressEnded", forControlEvents: .TouchUpInside)
+        
+        self.view.addSubview(self.submitButton)
+    }
+    
+    func submitButtonPressStarted() {
+        if (self.departureCityField.textField.text ?? "").isEmpty {
+            self.departureCityField.highlighted = true
+        }
+    }
+    
+    func submitButtonPressEnded() {
+        self.departureCityField.highlighted = false
+    }
+    
     // MARK: - Styling the text fields to the Skyscanner theme
     
     func applySkyscannerTheme(textField: SkyFloatingLabelTextField) {
         
         let onePixelHeight = 1.0 / Double(UIScreen.mainScreen().scale)
-        
-        let lightGreyColor = UIColor(red: 197/255, green: 205/255, blue: 205/255, alpha: 1.0)
-        let darkGreyColor = UIColor(red: 52/255, green: 42/255, blue: 61/255, alpha: 1.0)
-        let overcastBlueColor = UIColor(red: 0, green: 187/255, blue: 204/255, alpha: 1.0)
         
         textField.tintColor = overcastBlueColor
         
@@ -90,6 +147,22 @@ class ShowcaseExampleViewController: UIViewController, SkyFloatingLabelTextField
     }
     
     // MARK: - Animating the width change of the city fields
+    
+    func updateNameFieldsLayout() {
+        let offsetY:CGFloat = 142
+        let marginLeft:CGFloat = 12
+        let marginRight:CGFloat = 12
+        let spacingBetweenFields:CGFloat = 12
+        let fieldHeight:CGFloat = 50
+        let screenWidth:CGFloat = self.view.bounds.width
+        
+        let titleFieldLength:CGFloat = 50
+        let nameFieldLength = (screenWidth - marginLeft - marginRight - 2*spacingBetweenFields - titleFieldLength) / 2
+        
+        self.titleField.frame = CGRectMake(marginLeft, offsetY, titleFieldLength, fieldHeight)
+        self.firstNameField.frame = CGRectMake(marginLeft + titleFieldLength + spacingBetweenFields, offsetY, nameFieldLength, fieldHeight)
+        self.lastNameField.frame = CGRectMake(marginLeft + titleFieldLength + nameFieldLength + 2 * spacingBetweenFields, offsetY, nameFieldLength, fieldHeight)
+    }
     
     func updateCityFieldsLayout() {
         UIView.animateWithDuration(0.2, animations: { () -> Void in
@@ -117,10 +190,10 @@ class ShowcaseExampleViewController: UIViewController, SkyFloatingLabelTextField
     
     func textFieldDidBeginEditing(textField: SkyFloatingLabelTextField) {
         if(textField == self.departureCityField) {
-            self.cityFieldsSplitPercentage = 0.6;
+            self.cityFieldsSplitPercentage = 0.65;
         }
         else if(textField == self.arrivalCityField) {
-            self.cityFieldsSplitPercentage = 0.4;
+            self.cityFieldsSplitPercentage = 0.35;
         }
     }
 
