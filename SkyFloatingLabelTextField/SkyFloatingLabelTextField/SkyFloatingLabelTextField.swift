@@ -153,6 +153,7 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
                 self.updateTitleColor()
                 _titleVisible = true
                 self.updateTitleVisibility(true, animateFromCurrentState: true)
+                self.updateLineView()
             } else {
                 // Performing fading out after a short timeout to make sure the title previously faded in all the way
                 self.performSelector("fadeOutHighlighted", withObject: self, afterDelay: self.titleFadeInDuration)
@@ -165,6 +166,7 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
             self.updateTitleColor()
             _titleVisible = false
             self.updateTitleVisibility(true, animateFromCurrentState: true)
+            self.updateLineView()
         }
     }
     
@@ -382,8 +384,9 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
     
     private func updateLineView() {
         if let lineView = self.lineView {
+            // TODO: unit test highlighted
             lineView.frame = self.lineViewRectForBounds(self.bounds, editing: self.editing)
-            lineView.backgroundColor = self.editing ? self.selectedLineColor : self.lineColor
+            lineView.backgroundColor = self.editing || self.highlighted ? self.selectedLineColor : self.lineColor
         }
     }
     
