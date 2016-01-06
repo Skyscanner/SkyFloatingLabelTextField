@@ -1,6 +1,6 @@
 //
 //  ShowcaseExampleViewController.swift
-//  Demo
+// Demo
 //
 //  Created by Gergely Orosz on 04/01/2016.
 //  Copyright © 2016 Skyscanner. All rights reserved.
@@ -21,22 +21,11 @@ class ShowcaseExampleViewController: UIViewController, SkyFloatingLabelTextField
     let darkGreyColor = UIColor(red: 52/255, green: 42/255, blue: 61/255, alpha: 1.0)
     let overcastBlueColor = UIColor(red: 0, green: 187/255, blue: 204/255, alpha: 1.0)
 
-    override func awakeFromNib() {
-        // force viewDidLoad to execute
-        //NSLog("awakeFromNib %@", self.view)
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.setupThemeColors()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     
     // MARK: - Creating the form elements
     
@@ -56,6 +45,12 @@ class ShowcaseExampleViewController: UIViewController, SkyFloatingLabelTextField
         self.applySkyscannerTheme(self.titleField)
         self.applySkyscannerTheme(self.nameField)
         self.applySkyscannerTheme(self.emailField)
+        
+        self.arrivalCityField.delegate = self
+        self.departureCityField.delegate = self
+        self.titleField.delegate = self
+        self.nameField.delegate = self
+        self.emailField.delegate = self
     }
     
     // MARK: - Styling the text fields to the Skyscanner theme
@@ -115,4 +110,33 @@ class ShowcaseExampleViewController: UIViewController, SkyFloatingLabelTextField
     }
     
     // MARK: - Delegate
+    
+    func textFieldShouldReturn(textField: SkyFloatingLabelTextField) -> Bool {
+        // Validate the email field
+        if (textField == self.emailField) {
+            if let email = self.emailField.text {
+                if(!isValidEmail(email)) {
+                    self.emailField.errorMessage = "Email not valid"
+                    return false
+                }
+            }
+            
+        }
+        
+        // When pressing return, move to the next field
+        let nextTag = textField.tag + 1
+        if let nextResponder = textField.superview?.viewWithTag(nextTag) as UIResponder! {
+            nextResponder.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+        }
+        return false
+    }
+    
+    func isValidEmail(str:String?) -> Bool {
+        let emailRegEx = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
+        
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluateWithObject(str)
+    }
 }
