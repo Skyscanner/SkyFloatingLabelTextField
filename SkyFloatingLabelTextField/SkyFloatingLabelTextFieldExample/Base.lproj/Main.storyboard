@@ -7,26 +7,6 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--Showcase example-->
-        <scene sceneID="Tax-8m-igM">
-            <objects>
-                <viewController title="Showcase example" id="sbI-aO-whq" customClass="ShowcaseExampleViewController" customModule="SkyFloatingLabelTextFieldExample" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="UKW-N1-m06"/>
-                        <viewControllerLayoutGuide type="bottom" id="nZa-AZ-D2u"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="DME-2e-T8X">
-                        <rect key="frame" x="0.0" y="0.0" width="400" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="400" height="600"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gx2-Hb-eaC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-195" y="751"/>
-        </scene>
         <!--Setting text properties-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -39,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="400" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SqB-4f-slo" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextFieldExample" customModuleProvider="target">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SqB-4f-slo" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextFieldExample" customModuleProvider="target">
                                 <rect key="frame" x="70" y="84" width="260" height="44"/>
                                 <color key="backgroundColor" red="0.94117647410000005" green="0.94117647410000005" blue="0.94117647410000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <userDefinedRuntimeAttributes>
@@ -49,7 +29,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="Selected title"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="H6F-j0-AqL">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="H6F-j0-AqL">
                                 <rect key="frame" x="93" y="262" width="213" height="29"/>
                                 <segments>
                                     <segment title="None"/>
@@ -59,13 +39,13 @@
                                     <action selector="selectedTitleChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="qvS-Fc-aIu"/>
                                 </connections>
                             </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selected title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I1P-U3-aHP">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Selected title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I1P-U3-aHP">
                                 <rect key="frame" x="148" y="233" width="104" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="mZq-8q-kvm">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="mZq-8q-kvm">
                                 <rect key="frame" x="79" y="384" width="243" height="29"/>
                                 <segments>
                                     <segment title="None"/>
@@ -75,13 +55,13 @@
                                     <action selector="deselectedTitleChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="5vs-iW-xCl"/>
                                 </connections>
                             </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deselected title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v9J-yM-eLO">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Deselected title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v9J-yM-eLO">
                                 <rect key="frame" x="138" y="355" width="123" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="Q90-lp-2pi">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="Q90-lp-2pi">
                                 <rect key="frame" x="103" y="506" width="195" height="29"/>
                                 <segments>
                                     <segment title="None"/>
@@ -91,39 +71,39 @@
                                     <action selector="placeholderChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="e30-g4-Z13"/>
                                 </connections>
                             </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Placeholder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="moI-xd-AVZ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Placeholder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="moI-xd-AVZ">
                                 <rect key="frame" x="154" y="477" width="93" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pgz-Tf-Rvl">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pgz-Tf-Rvl">
                                 <rect key="frame" x="168" y="182" width="65" height="30"/>
                                 <state key="normal" title="Add error"/>
                                 <connections>
                                     <action selector="addError" destination="BYZ-38-t0r" eventType="touchUpInside" id="7LL-Ly-84e"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dHd-er-tPb">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dHd-er-tPb">
                                 <rect key="frame" x="125" y="148" width="151" height="30"/>
                                 <state key="normal" title="Resign first responder"/>
                                 <connections>
                                     <action selector="resignTextField" destination="BYZ-38-t0r" eventType="touchUpInside" id="j0T-fu-ABP"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selected title is visible when the control is editing and input text is at least 1 character long" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wBj-r2-GJ8">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Selected title is visible when the control is editing and input text is at least 1 character long" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wBj-r2-GJ8">
                                 <rect key="frame" x="20" y="298" width="360" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deselected title is visible when the control is not editing and input text is at least 1 character long" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wjk-mj-9y9">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Deselected title is visible when the control is not editing and input text is at least 1 character long" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wjk-mj-9y9">
                                 <rect key="frame" x="20" y="420" width="360" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yWR-GY-MZc">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yWR-GY-MZc">
                                 <rect key="frame" x="20" y="542" width="360" height="40"/>
                                 <string key="text">Placeholder is visible when no input text is present or when input text is at least 1 character long and neither selected nor deselected title is present</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
@@ -185,7 +165,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="400" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uNV-WR-pyn" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextFieldExample" customModuleProvider="target">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uNV-WR-pyn" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextFieldExample" customModuleProvider="target">
                                 <rect key="frame" x="70" y="84" width="260" height="44"/>
                                 <color key="backgroundColor" red="0.94117647409439087" green="0.94117647409439087" blue="0.94117647409439087" alpha="1" colorSpace="calibratedRGB"/>
                                 <userDefinedRuntimeAttributes>
@@ -195,7 +175,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="text" value="Text"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Re-re-tpi">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Re-re-tpi">
                                 <rect key="frame" x="168" y="182" width="65" height="30"/>
                                 <state key="normal" title="Add error"/>
                                 <connections>
@@ -203,7 +183,7 @@
                                     <action selector="addError" destination="BYZ-38-t0r" eventType="touchUpInside" id="nbk-8O-m3o"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LrB-X8-Rt8">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LrB-X8-Rt8">
                                 <rect key="frame" x="125" y="148" width="151" height="30"/>
                                 <state key="normal" title="Resign first responder"/>
                                 <connections>
@@ -211,10 +191,10 @@
                                     <action selector="resignTextField" destination="BYZ-38-t0r" eventType="touchUpInside" id="Uv6-rC-Q47"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="alE-Hq-VDg">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="alE-Hq-VDg">
                                 <rect key="frame" x="20" y="220" width="180" height="323"/>
                                 <subviews>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="OhG-wy-aBa">
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="OhG-wy-aBa">
                                         <rect key="frame" x="19" y="57" width="143" height="29"/>
                                         <segments>
                                             <segment title="⚪️"/>
@@ -226,13 +206,13 @@
                                             <action selector="selectedTitleColorChanged:" destination="G0q-zq-dep" eventType="valueChanged" id="0md-98-VlZ"/>
                                         </connections>
                                     </segmentedControl>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selected title color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tqd-y8-1jW">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Selected title color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tqd-y8-1jW">
                                         <rect key="frame" x="16" y="28" width="147" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="6Ya-gn-vtf">
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="6Ya-gn-vtf">
                                         <rect key="frame" x="19" y="137" width="143" height="29"/>
                                         <segments>
                                             <segment title="⚪️"/>
@@ -244,13 +224,13 @@
                                             <action selector="placeholderColorChanged:" destination="G0q-zq-dep" eventType="valueChanged" id="Wpd-dQ-Kgw"/>
                                         </connections>
                                     </segmentedControl>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Placeholder color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRP-1f-9dO">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Placeholder color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRP-1f-9dO">
                                         <rect key="frame" x="21" y="108" width="137" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="bD7-hR-7wM">
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="bD7-hR-7wM">
                                         <rect key="frame" x="18" y="216" width="143" height="29"/>
                                         <segments>
                                             <segment title="⚪️"/>
@@ -262,19 +242,19 @@
                                             <action selector="textColorChanged:" destination="G0q-zq-dep" eventType="valueChanged" id="8BS-ZY-pkY"/>
                                         </connections>
                                     </segmentedControl>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q1u-4f-EEP">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Text color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q1u-4f-EEP">
                                         <rect key="frame" x="51" y="186" width="78" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q7U-ur-hzY">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Error color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q7U-ur-hzY">
                                         <rect key="frame" x="48" y="261" width="83" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="xDl-bN-AMF">
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="xDl-bN-AMF">
                                         <rect key="frame" x="19" y="290" width="143" height="29"/>
                                         <segments>
                                             <segment title="⚪️"/>
@@ -308,10 +288,10 @@
                                     <constraint firstItem="bD7-hR-7wM" firstAttribute="centerX" secondItem="alE-Hq-VDg" secondAttribute="centerX" id="zNy-g8-cbb"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VgJ-VD-7rc">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VgJ-VD-7rc">
                                 <rect key="frame" x="200" y="220" width="180" height="323"/>
                                 <subviews>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" translatesAutoresizingMaskIntoConstraints="NO" id="sId-82-UKI">
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" translatesAutoresizingMaskIntoConstraints="NO" id="sId-82-UKI">
                                         <rect key="frame" x="19" y="57" width="143" height="29"/>
                                         <segments>
                                             <segment title="⚪️"/>
@@ -323,13 +303,13 @@
                                             <action selector="titleColorChanged:" destination="G0q-zq-dep" eventType="valueChanged" id="eWe-gg-tvR"/>
                                         </connections>
                                     </segmentedControl>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deselected title color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VVQ-Em-Z8I">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Deselected title color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VVQ-Em-Z8I">
                                         <rect key="frame" x="6" y="28" width="167" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="iAR-Dy-4tD">
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="iAR-Dy-4tD">
                                         <rect key="frame" x="19" y="137" width="143" height="29"/>
                                         <segments>
                                             <segment title="⚪️"/>
@@ -341,13 +321,13 @@
                                             <action selector="tintColorChanged:" destination="G0q-zq-dep" eventType="valueChanged" id="khN-kt-nMn"/>
                                         </connections>
                                     </segmentedControl>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tint color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QUd-Se-DoE">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Tint color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QUd-Se-DoE">
                                         <rect key="frame" x="53" y="108" width="75" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="aU8-tN-vcw">
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="aU8-tN-vcw">
                                         <rect key="frame" x="18" y="216" width="143" height="29"/>
                                         <segments>
                                             <segment title="⚪️"/>
@@ -356,19 +336,19 @@
                                             <segment title="⚫️"/>
                                         </segments>
                                     </segmentedControl>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="None" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3TY-KI-uu5">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="None" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3TY-KI-uu5">
                                         <rect key="frame" x="69" y="186" width="42" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="None" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q1Y-Jd-kwO">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="None" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q1Y-Jd-kwO">
                                         <rect key="frame" x="69" y="261" width="42" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="AcC-l7-4xT">
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="AcC-l7-4xT">
                                         <rect key="frame" x="19" y="290" width="143" height="29"/>
                                         <segments>
                                             <segment title="⚪️"/>
@@ -504,7 +484,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="400" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qZL-jx-7sf" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextFieldExample" customModuleProvider="target">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qZL-jx-7sf" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextFieldExample" customModuleProvider="target">
                                 <rect key="frame" x="70" y="84" width="260" height="44"/>
                                 <color key="backgroundColor" red="0.94117647410000005" green="0.94117647410000005" blue="0.94117647410000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <userDefinedRuntimeAttributes>
@@ -514,7 +494,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="Selected title"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5HI-11-MA2">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5HI-11-MA2">
                                 <rect key="frame" x="168" y="182" width="65" height="30"/>
                                 <state key="normal" title="Add error"/>
                                 <connections>
@@ -522,7 +502,7 @@
                                     <action selector="addError" destination="gAs-mn-2iH" eventType="touchUpInside" id="ZCP-oP-kDI"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wkx-Ta-RMG">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wkx-Ta-RMG">
                                 <rect key="frame" x="125" y="148" width="151" height="30"/>
                                 <state key="normal" title="Resign first responder"/>
                                 <connections>
@@ -530,7 +510,7 @@
                                     <action selector="resignTextField" destination="BYZ-38-t0r" eventType="touchUpInside" id="FOO-gq-1js"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RbV-ew-j6J">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RbV-ew-j6J">
                                 <rect key="frame" x="20" y="236" width="360" height="334"/>
                                 <color key="backgroundColor" red="0.94117647409439087" green="0.94117647409439087" blue="0.94117647409439087" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" red="0.52941179275512695" green="0.54117649793624878" blue="0.58431375026702881" alpha="1" colorSpace="calibratedRGB"/>
@@ -608,7 +588,7 @@
 
 In this example an icon label is added and placeholder label and textfield are positioned differently to make room for it.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -643,11 +623,18 @@ In this example an icon label is added and placeholder label and textfield are p
                         <rect key="frame" x="0.0" y="0.0" width="400" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <containerView key="tableHeaderView" opaque="NO" contentMode="scaleToFill" id="pEh-Bj-WOF">
+                            <rect key="frame" x="0.0" y="64" width="400" height="289"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <connections>
+                                <segue destination="Xf7-hu-W0W" kind="embed" id="xe8-ss-8aS"/>
+                            </connections>
+                        </containerView>
                         <sections>
                             <tableViewSection id="pGc-nk-IVx">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ListCell" id="WmM-j0-sBA">
-                                        <rect key="frame" x="0.0" y="64" width="400" height="44"/>
+                                        <rect key="frame" x="0.0" y="353" width="400" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WmM-j0-sBA" id="VZO-MM-gy2">
                                             <rect key="frame" x="0.0" y="0.0" width="367" height="43"/>
@@ -656,7 +643,7 @@ In this example an icon label is added and placeholder label and textfield are p
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Showcase example" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kzD-Et-jwg">
                                                     <rect key="frame" x="18" y="11" width="147" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -666,12 +653,9 @@ In this example an icon label is added and placeholder label and textfield are p
                                                 <constraint firstItem="kzD-Et-jwg" firstAttribute="leading" secondItem="VZO-MM-gy2" secondAttribute="leadingMargin" constant="10" id="w30-Fc-RF3"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="sbI-aO-whq" kind="show" id="TNZ-f0-Ini"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ListCell" id="9Ic-jU-0kD">
-                                        <rect key="frame" x="0.0" y="108" width="400" height="44"/>
+                                        <rect key="frame" x="0.0" y="397" width="400" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9Ic-jU-0kD" id="n5V-PH-Xpt">
                                             <rect key="frame" x="0.0" y="0.0" width="367" height="43"/>
@@ -680,7 +664,7 @@ In this example an icon label is added and placeholder label and textfield are p
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Setting text properties" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HdC-wj-sIC">
                                                     <rect key="frame" x="18" y="11" width="172" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -695,7 +679,7 @@ In this example an icon label is added and placeholder label and textfield are p
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ListCell" id="Y6b-WS-83A">
-                                        <rect key="frame" x="0.0" y="152" width="400" height="44"/>
+                                        <rect key="frame" x="0.0" y="441" width="400" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Y6b-WS-83A" id="nF8-7o-rtc">
                                             <rect key="frame" x="0.0" y="0.0" width="367" height="43"/>
@@ -704,7 +688,7 @@ In this example an icon label is added and placeholder label and textfield are p
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Customizing colors" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jCk-47-jKB">
                                                     <rect key="frame" x="18" y="11" width="147" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -719,7 +703,7 @@ In this example an icon label is added and placeholder label and textfield are p
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ListCell" id="rOq-H4-quk">
-                                        <rect key="frame" x="0.0" y="196" width="400" height="44"/>
+                                        <rect key="frame" x="0.0" y="485" width="400" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rOq-H4-quk" id="hT2-6u-XHh">
                                             <rect key="frame" x="0.0" y="0.0" width="367" height="43"/>
@@ -728,7 +712,7 @@ In this example an icon label is added and placeholder label and textfield are p
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Theming by subclassing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="09e-P3-DiE">
                                                     <rect key="frame" x="18" y="11" width="185" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -743,7 +727,7 @@ In this example an icon label is added and placeholder label and textfield are p
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ListCell" id="8oo-Gf-1XP">
-                                        <rect key="frame" x="0.0" y="240" width="400" height="44"/>
+                                        <rect key="frame" x="0.0" y="529" width="400" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8oo-Gf-1XP" id="381-SW-Nym">
                                             <rect key="frame" x="0.0" y="0.0" width="367" height="43"/>
@@ -752,7 +736,7 @@ In this example an icon label is added and placeholder label and textfield are p
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Custom layout by subclassing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qSH-5l-bpY">
                                                     <rect key="frame" x="18" y="11" width="228" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -767,7 +751,7 @@ In this example an icon label is added and placeholder label and textfield are p
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ListCell" id="RAK-ye-rqX">
-                                        <rect key="frame" x="0.0" y="284" width="400" height="44"/>
+                                        <rect key="frame" x="0.0" y="573" width="400" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RAK-ye-rqX" id="Lst-at-xEK">
                                             <rect key="frame" x="0.0" y="0.0" width="367" height="43"/>
@@ -776,7 +760,7 @@ In this example an icon label is added and placeholder label and textfield are p
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Using delegate methods" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="evz-m8-4qe">
                                                     <rect key="frame" x="18" y="11" width="187" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -823,6 +807,143 @@ In this example an icon label is added and placeholder label and textfield are p
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iKr-aV-jXN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1439" y="1483"/>
+        </scene>
+        <!--Showcase Example View Controller-->
+        <scene sceneID="R9t-1m-ssI">
+            <objects>
+                <viewController id="Xf7-hu-W0W" customClass="ShowcaseExampleViewController" customModule="SkyFloatingLabelTextFieldExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9X3-6u-Hos"/>
+                        <viewControllerLayoutGuide type="bottom" id="FS4-AH-FdX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dkS-M1-t0L">
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="289"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="prN-Fn-qfW" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextFieldExample" customModuleProvider="target">
+                                <rect key="frame" x="20" y="0.0" width="170" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Arrival City"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="Arrival City"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="deselectedTitle" value="Arrival City"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="selectedLineHeight">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DRB-F4-mdj" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextFieldExample" customModuleProvider="target">
+                                <rect key="frame" x="210" y="0.0" width="170" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Departure City"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="Departure City"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="deselectedTitle" value="Departure City"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="selectedLineHeight">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Tq-bL-5M8" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextFieldExample" customModuleProvider="target">
+                                <rect key="frame" x="20" y="74" width="50" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="Prs-Qd-wjU"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Title"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="Title"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="deselectedTitle" value="Title"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="selectedLineHeight">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RmS-Sw-C2l" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextFieldExample" customModuleProvider="target">
+                                <rect key="frame" x="90" y="74" width="135" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Name"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="Name"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="deselectedTitle" value="Name"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="selectedLineHeight">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ukr-FA-JUg" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextFieldExample" customModuleProvider="target">
+                                <rect key="frame" x="245" y="74" width="135" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Email"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="selectedTitle" value="Email"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="deselectedTitle" value="Email"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="selectedLineHeight">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1tu-Rl-onB">
+                                <rect key="frame" x="280" y="168" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="bRc-N7-vw9"/>
+                                </constraints>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" red="0.20392157137393951" green="0.21176470816135406" blue="0.23921568691730499" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="submitButtonDown:" destination="Xf7-hu-W0W" eventType="touchDown" id="ji1-yN-cIj"/>
+                                    <action selector="submitButtonTouchUpInside:" destination="Xf7-hu-W0W" eventType="touchUpInside" id="Jjf-Vx-EsB"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="DRB-F4-mdj" firstAttribute="baseline" secondItem="prN-Fn-qfW" secondAttribute="baseline" id="2ev-wj-2A2"/>
+                            <constraint firstItem="prN-Fn-qfW" firstAttribute="leading" secondItem="dkS-M1-t0L" secondAttribute="leadingMargin" id="9vq-G8-tVK"/>
+                            <constraint firstItem="RmS-Sw-C2l" firstAttribute="width" secondItem="Ukr-FA-JUg" secondAttribute="width" id="AkU-3d-JAn"/>
+                            <constraint firstItem="1tu-Rl-onB" firstAttribute="top" secondItem="Ukr-FA-JUg" secondAttribute="bottom" constant="50" id="Hlw-0I-f5q"/>
+                            <constraint firstItem="DRB-F4-mdj" firstAttribute="leading" secondItem="prN-Fn-qfW" secondAttribute="trailing" constant="20" id="KUD-RF-5HF"/>
+                            <constraint firstItem="Ukr-FA-JUg" firstAttribute="trailing" secondItem="DRB-F4-mdj" secondAttribute="trailing" id="SmC-TB-mnJ"/>
+                            <constraint firstItem="Ukr-FA-JUg" firstAttribute="baseline" secondItem="RmS-Sw-C2l" secondAttribute="baseline" id="VOG-JD-vwP"/>
+                            <constraint firstItem="prN-Fn-qfW" firstAttribute="width" secondItem="DRB-F4-mdj" secondAttribute="width" id="W31-dy-siF"/>
+                            <constraint firstItem="0Tq-bL-5M8" firstAttribute="top" secondItem="prN-Fn-qfW" secondAttribute="bottom" constant="30" id="YRb-H9-Vxn"/>
+                            <constraint firstItem="RmS-Sw-C2l" firstAttribute="leading" secondItem="0Tq-bL-5M8" secondAttribute="trailing" constant="20" id="ZNx-s4-3Or"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="DRB-F4-mdj" secondAttribute="trailing" id="dGs-oT-BpM"/>
+                            <constraint firstItem="Ukr-FA-JUg" firstAttribute="leading" secondItem="RmS-Sw-C2l" secondAttribute="trailing" constant="20" id="jHq-ez-lY7"/>
+                            <constraint firstItem="RmS-Sw-C2l" firstAttribute="baseline" secondItem="0Tq-bL-5M8" secondAttribute="baseline" id="kzO-EM-cP3"/>
+                            <constraint firstItem="prN-Fn-qfW" firstAttribute="top" secondItem="9X3-6u-Hos" secondAttribute="bottom" id="sMg-mJ-l6E"/>
+                            <constraint firstItem="1tu-Rl-onB" firstAttribute="trailing" secondItem="Ukr-FA-JUg" secondAttribute="trailing" id="tlZ-JR-MXh"/>
+                            <constraint firstItem="0Tq-bL-5M8" firstAttribute="leading" secondItem="prN-Fn-qfW" secondAttribute="leading" id="x6M-8b-97j"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="arrivalCityField" destination="prN-Fn-qfW" id="4DU-pv-O8E"/>
+                        <outlet property="departureCityField" destination="DRB-F4-mdj" id="aZt-BP-upg"/>
+                        <outlet property="emailField" destination="Ukr-FA-JUg" id="7Yq-Pn-HZQ"/>
+                        <outlet property="nameField" destination="RmS-Sw-C2l" id="Kh4-Lh-0nR"/>
+                        <outlet property="submitButton" destination="1tu-Rl-onB" id="zcU-S5-DhU"/>
+                        <outlet property="titleField" destination="0Tq-bL-5M8" id="lUP-Hc-pBA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6vo-9A-MDg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-366" y="759"/>
         </scene>
     </scenes>
 </document>

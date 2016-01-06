@@ -52,7 +52,7 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
     }
     
     /// The text color of the title label when editing.
-    @IBInspectable public var selectedTitleColor:UIColor = UIColor.grayColor() {
+    @IBInspectable public var selectedTitleColor:UIColor = UIColor.blueColor() {
         didSet {
             self.updateTitleColor()
         }
@@ -193,6 +193,7 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
     }
     
     private var _titleVisible:Bool = false
+    private var _renderingInInterfaceBuilder:Bool = false
     
     /// A Boolean value determining whether the title field is shown
     public private(set) var titleVisible:Bool {
@@ -589,13 +590,21 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
     
     // MARK: - Layout
     
+    override public func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        self.selected = true
+        self.titleLabel.alpha = 1.0
+        _renderingInInterfaceBuilder = true
+        self.updateColors()
+    }
+    
     override public func layoutSubviews() {
         super.layoutSubviews()
 
         self.placeholderLabel.frame = self.placeholderLabelRectForBounds(self.bounds)
         self.textField.frame = self.textFieldRectForBounds(self.bounds)
-        self.lineView.frame = self.lineViewRectForBounds(self.bounds, editing: self.editing)
-        self.titleLabel.frame = self.titleLabelRectForBounds(self.bounds, editing: self.hasText)
+        self.lineView.frame = self.lineViewRectForBounds(self.bounds, editing: self.editing || _renderingInInterfaceBuilder)
+        self.titleLabel.frame = self.titleLabelRectForBounds(self.bounds, editing: self.hasText || _renderingInInterfaceBuilder)
     }
     
     override public func intrinsicContentSize() -> CGSize {
