@@ -4,8 +4,6 @@
 
 On top of implementing the space-saving floating title, the component also supports using iconography, various states (error, selected, highlighted states), and is very much customizable and extensible.
 
-Credits for the concept to Matt D. Smith ([@mds](https://twitter.com/mds)).
-
 ![](/SkyFloatingLabelTextField/images/showcase-example.gif)
 
 ## Usage
@@ -16,8 +14,16 @@ The UI component can be used via the `SkyFloatingLabelTextField` and `SkyFloatin
 
 The component supports setting colors for different parts, and their states:
 
-*TODO*
+*TBC*
 
 ## Installation
 
-- 
+### Cocoapods
+
+### Carthage
+
+### Manual
+
+## Credits
+
+Credits for the original design, and improving it with iconography to Matt D. Smith ([@mds](https://twitter.com/mds)).
