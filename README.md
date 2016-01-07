@@ -1,6 +1,6 @@
 # SkyFloatingLabelTextField
 
-`SkyFloatingLabelTextField` is beautiful, flexible and customizable implementation of the **"Float Label Pattern"**.
+`SkyFloatingLabelTextField` is beautiful, flexible and customizable implementation of the **"Float Label Pattern"**. This design enables adding context to input fields that is visible at time of typing, while minimizing the additional space used to display this additional context.
 
 On top of implementing the space-saving floating title, the component also supports using iconography, various states (error, selected, highlighted states), and is very much customizable and extensible.
 
