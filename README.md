@@ -27,3 +27,5 @@ The component supports setting colors for different parts, and their states:
 ## Credits
 
 Credits for the original design, and improving it with iconography to Matt D. Smith ([@mds](https://twitter.com/mds)).
+
+The original component was built by [Daniel Langh](https://github.com/intonarumori), [Gergely Orosz](https://github.com/gergelyorosz) and [Raimon Laupente](https://github.com/wolffan).
