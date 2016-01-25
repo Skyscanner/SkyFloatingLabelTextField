@@ -10,11 +10,51 @@ On top of implementing the space-saving floating title, the component also suppo
 
 The UI component can be used via the `SkyFloatingLabelTextField` and `SkyFloatingLabelTextFieldWithIcon` classes - the latter has support for icons on the right side of the textbox.
 
-### Colors
+The control can be used very similar to the `UITextField`, both from Interface Builder, or from code.
 
-The component supports setting colors for different parts, and their states:
+## States and properties
 
-*TBC*
+The control supports three different states, with matching properties:
+- **State independent**
+  - `text`: the value of the textfield, the same way as UITextField works
+  - `textColor`: the color of the editable text
+  - `tintColor`: the color of the cursor when editing, as per `UITextField`
+- **Deselected / Normal** state
+  - `deselectedTitle`: the text contents of the title above the textfield 
+  - `titleColor`: the color of the floating label
+  - `lineHeight`: the height of the bottom line, under the textfield
+  - `lineColor`:  the color of the bottom line, under the textfield
+- **Selected** state: when the textfield's `selected` property is set to `true`. This is typically when it becomes the first responder.
+  - `selectedTitle`
+  - `selectedTitleColor`
+  - `selectedLineHeight`
+  - `selectedLineColor`
+- **Highlighted** state: when the `highlighted` property is set to true.
+  - In this case the title color is shown using the `selectedTitleColor` and the line color is displayed using the `selectedLineColor` values
+  - Highlighting can be an alternative way to show fields that have not been filled out, e.g. when a person submits a form. See [this example](https://github.com/Skyscanner/SkyFloatingLabelTextField/blob/master/SkyFloatingLabelTextField/SkyFloatingLabelTextFieldExample/Example0/ShowcaseExampleViewController.swift) on how it is used there.
+- **Error**: when the textfield's `errorMessage` property is set to a non `nil` value
+  - `errorMessage`: the text displayed as the title of the textfield
+  - `errorColor`: the color used to display the title and bottom line with
+
+###`SkyFloatingLabelTextFieldWithIcon` additional properties:
+- **State independent**
+  - `iconFont`: font to use to display icons
+  - `iconText`: the icon's content
+  - `iconMarginBottom`: margin in points on the bottom of the icon. Helps position icon to the right height more precisely
+  - `iconRotationDegrees`: rotates the icon itself. In the above example the second airline logo is the same icon, just rotated by 90 degrees
+- **Deselected / Normal** state
+  - `iconColor`: color to display the icon with
+- **Selected** state
+  -  `selectedIconColor`: color used when the textfield is elected
+
+###Further customizing the control by subclassing
+
+The control was designed to allow further customization in subclasses. The control itself inherits from `UITextField`, so the standard overrides from there can all be used. A few other notable customization hooks via overriding are:
+- `updateColors`: override this method to customzie colors whenever the state of the control changes
+- Layout overrrides:
+  - `titleLabelRectForBounds`: override to change the bounds of the title label
+  - `lineViewRectForBounds`: override to change the bounds of the bottom line view
+  - `placeholderLabelRectForBounds`: override to change the bounds of the placeholder view
 
 ## Installation
 
@@ -23,6 +63,7 @@ The component supports setting colors for different parts, and their states:
 ### Carthage
 
 ### Manual
+
 
 ## Credits
 
