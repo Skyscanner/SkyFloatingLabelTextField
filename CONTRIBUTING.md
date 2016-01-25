@@ -5,7 +5,7 @@ If you would like to contribute code you can do so through GitHub by forking the
 When submitting code, please follow existing conventions and style in order to keep readability of the code high.
 
 ## Pull requests
-*Before* creating a pull request:
+**_Before_** creating a pull request:
 
 * Updated to the latest version of the _master_ branch (and branch out from that to avoid conflicts).
 * _SkyFloatingLabelTextField_ and _SkyFloatingLabelTextFieldExample_ schemes compile successfully.
@@ -19,7 +19,7 @@ When submitting code, please follow existing conventions and style in order to k
 * New files contain the common license header (please see below).
 * New classes and methods contain enough documentation to understand their purpose
 
-*After* creating a pull request:
+**_After_** creating a pull request:
 
 * After validation is completed by Travis CI, the build state is green (meaning both the build succeeded, and all tests pass)
 
