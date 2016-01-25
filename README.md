@@ -1,6 +1,6 @@
 # SkyFloatingLabelTextField
 
-`SkyFloatingLabelTextField` is beautiful, flexible and customizable implementation of the **"Float Label Pattern"**. This design enables adding context to input fields that is visible at time of typing, while minimizing the additional space used to display this additional context.
+`SkyFloatingLabelTextField` is beautiful, flexible and customizable implementation of the **"Float Label Pattern"**. This design enables adding context to input fields that is visible at time of typing, while minimizing the additional space used to display this additional context. This component is used in the [Skyscanner TravelPro iOS application](https://itunes.apple.com/us/app/travelpro/id826338988?mt=8) on several places.
 
 On top of implementing the space-saving floating title, the component also supports using iconography, various states (error, selected, highlighted states), and is very much customizable and extensible.
 
@@ -58,12 +58,19 @@ The control was designed to allow further customization in subclasses. The contr
 
 ## Installation
 
-### Cocoapods
-
-### Carthage
-
 ### Manual
 
+Copy the files in the `SkyFloatingLabelTextField` to your project:
+- `SkyFloatingLabelTextField.swift`
+- `SkyFloatingLabelTextFieldDelegate.swift`
+- `SkyFloatingLabelTextFieldWithIcon.swift`
+- `UITextField+fixCaretPosition.swift`
+
+### Cocoapods
+
+Support coming soon.
+
+### Carthage
 
 ## Credits
 
