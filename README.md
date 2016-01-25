@@ -31,7 +31,7 @@ The control supports three different states, with matching properties:
   - `selectedLineColor`
 - **Highlighted** state: when the `highlighted` property is set to true.
   - In this case the title color is shown using the `selectedTitleColor` and the line color is displayed using the `selectedLineColor` values
-  - Highlighting can be an alternative way to show fields that have not been filled out, e.g. when a person submits a form. See [this example](https://github.com/Skyscanner/SkyFloatingLabelTextField/blob/master/SkyFloatingLabelTextField/SkyFloatingLabelTextFieldExample/Example0/ShowcaseExampleViewController.swift) on how it is used there.
+  - Highlighting can be an alternative way to show fields that have not been filled out, e.g. when a person submits a form. See [this example](/SkyFloatingLabelTextField/blob/master/SkyFloatingLabelTextField/SkyFloatingLabelTextFieldExample/Example0/ShowcaseExampleViewController.swift) on how it is used there.
 - **Error**: when the textfield's `errorMessage` property is set to a non `nil` value
   - `errorMessage`: the text displayed as the title of the textfield
   - `errorColor`: the color used to display the title and bottom line with
@@ -71,6 +71,10 @@ Copy the files in the `SkyFloatingLabelTextField` to your project:
 Support coming soon.
 
 ### Carthage
+
+##Contributing
+
+We welcome all contributions. Please read [this guide](/Contributing.md) before opening issues or submitting pull requests, as well as how and who to contact with questions.
 
 ## Credits
 
