@@ -1,8 +1,13 @@
-branches:
-  only:
-    - master
 language: objective-c
-os: osx
+
+branches:
+ only:
+ - master
+
+xcode_project: SkyFloatingLabelTextField/SkyFloatingLabelTextField.xcodeproj
+xcode_scheme: SkyFloatingLabelTextField
 osx_image: xcode7.2
+xcode_sdk: iphonesimulator9.2
+
 script:
-  - xctool -project Demo/Demo.xcodeproj -sdk iphonesumulator -scheme Demo build
+- xcodebuild clean build test -project SkyFloatingLabelTextField/SkyFloatingLabelTextField.xcodeproj -scheme SkyFloatingLabelTextField -destination 'platform=iOS Simulator,name=iPhone 6,OS=9.2'
