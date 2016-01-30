@@ -11,7 +11,7 @@ xcode_sdk: iphonesimulator9.2
 
 before_install:
     - gem install specific_install
-    - gem specific_install -l https://github.com/venmo/slather.git --no-rdoc --no-ri --no-document --quiet
+    - gem specific_install -l https://github.com/venmo/slather.git
 #    - gem install slather --no-rdoc --no-ri --no-document --quiet
 
 script:
