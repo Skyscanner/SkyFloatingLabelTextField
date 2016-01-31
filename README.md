@@ -23,7 +23,7 @@ The control supports three different states, with matching properties:
   - `textColor`: the color of the editable text
   - `tintColor`: the color of the cursor when editing, as per `UITextField`
 - **Deselected / Normal** state
-  - `deselectedTitle`: the text contents of the title above the textfield 
+  - `title`: the text contents of the title above the textfield
   - `titleColor`: the color of the floating label
   - `lineHeight`: the height of the bottom line, under the textfield
   - `lineColor`:  the color of the bottom line, under the textfield
