@@ -37,22 +37,8 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
         }
     }
     
-    /// The color used for the title label and the line when the error message is not `nil`
-    @IBInspectable public var errorColor:UIColor = UIColor.redColor() {
-        didSet {
-            self.updateColors()
-        }
-    }
-    
     /// The text color of the title label when not editing.
     @IBInspectable public var titleColor:UIColor = UIColor.grayColor() {
-        didSet {
-            self.updateTitleColor()
-        }
-    }
-    
-    /// The text color of the title label when editing.
-    @IBInspectable public var selectedTitleColor:UIColor = UIColor.blueColor() {
         didSet {
             self.updateTitleColor()
         }
@@ -62,6 +48,20 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
     @IBInspectable public var lineColor:UIColor = UIColor.lightGrayColor() {
         didSet {
             self.updateLineView()
+        }
+    }
+    
+    /// The color used for the title label and the line when the error message is not `nil`
+    @IBInspectable public var errorColor:UIColor = UIColor.redColor() {
+        didSet {
+            self.updateColors()
+        }
+    }
+    
+    /// The text color of the title label when editing.
+    @IBInspectable public var selectedTitleColor:UIColor = UIColor.blueColor() {
+        didSet {
+            self.updateTitleColor()
         }
     }
     
@@ -161,15 +161,6 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
         }
     }
     
-    internal func fadeOutHighlighted() {
-        if(!self.hasText) {
-            self.updateTitleColor()
-            _titleVisible = false
-            self.updateTitleVisibility(true, animateFromCurrentState: true)
-            self.updateLineView()
-        }
-    }
-    
     /// A Boolean value that determines if the receiver is currently editing.
     public var editing:Bool {
         get {
@@ -251,7 +242,7 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
     }
 
     /// The String to display when the textfield is not editing and the input is not empty.
-    @IBInspectable public var deselectedTitle:String? {
+    @IBInspectable public var title:String? {
         didSet {
             self.updateControl()
         }
@@ -384,10 +375,9 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
     
     private func updateLineView() {
         if let lineView = self.lineView {
-            // TODO: unit test highlighted
             lineView.frame = self.lineViewRectForBounds(self.bounds, editing: self.editing)
-            lineView.backgroundColor = self.editing || self.highlighted ? self.selectedLineColor : self.lineColor
         }
+        self.updateLineColor()
     }
     
     // MARK: - Color updates
@@ -437,7 +427,7 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
             if self.editing {
                 self.titleLabel.text = self.selectedTitleOrPlaceholder()
             } else {
-                self.titleLabel.text = self.deselectedTitleOrPlaceholder()
+                self.titleLabel.text = self.titleOrPlaceholder()
             }
         }
         self.setTitleVisibile(self.hasErrorMessage || self.hasText, animated: animated)
@@ -616,14 +606,23 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
     
     // MARK: - Helpers
     
+    private func fadeOutHighlighted() {
+        if(!self.hasText) {
+            self.updateTitleColor()
+            _titleVisible = false
+            self.updateTitleVisibility(true, animateFromCurrentState: true)
+            self.updateLineView()
+        }
+    }
+    
     private func resetErrorMessageIfPresent() {
         if self.hasErrorMessage && discardsErrorMessageOnTextChange {
             self.errorMessage = nil
         }
     }
     
-    private func deselectedTitleOrPlaceholder() -> String? {
-        if let title = self.deselectedTitle ?? self.placeholder {
+    private func titleOrPlaceholder() -> String? {
+        if let title = self.title ?? self.placeholder {
             return self.titleFormatter(title)
         }
         return nil
