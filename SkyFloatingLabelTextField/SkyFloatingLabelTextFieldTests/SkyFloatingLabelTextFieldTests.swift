@@ -20,7 +20,6 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
     
@@ -104,5 +103,59 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
     }
     
     
+    // MARK:  - Line height
     
+    func test_whenSettingLineHeight_thenLineViewHeightIsChangedToThisValue() {
+        // when
+        self.floatingLabelTextField.lineHeight = 3
+        
+        // then
+        XCTAssertEqual(self.floatingLabelTextField.lineView.frame.size.height, 3)
+    }
+    
+    func test_whenSettingSelectedLineHeight__withTextFieldBeingSelected_thenLineViewHeightIsChangedToThisValue() {
+        // given
+        self.floatingLabelTextField.selected = true
+        
+        // when
+        self.floatingLabelTextField.selectedLineHeight = 4
+        
+        // then
+        XCTAssertEqual(self.floatingLabelTextField.lineView.frame.size.height, 4)
+    }
+    
+    // MARK:  - Other properties
+    
+    func test_whenSettingSecureTextEntry_thenTextFieldSecureTextEntryPropertyIsChangedToThisValue() {
+        // given
+        XCTAssertFalse(self.floatingLabelTextField.textField.secureTextEntry)
+        
+        // when
+        self.floatingLabelTextField.secureTextEntry = true
+        
+        // then
+        XCTAssertTrue(self.floatingLabelTextField.textField.secureTextEntry)
+    }
+    
+    func test_whenGettingEnabledValue_thenReturnsPreviouslySetValue() {
+        // given
+        XCTAssertTrue(self.floatingLabelTextField.enabled)
+        
+        // when
+        self.floatingLabelTextField.enabled = false
+        
+        // then
+        XCTAssertFalse(self.floatingLabelTextField.enabled)
+    }
+    
+    func test_whenSettingEnabled_thenTextFieldEnabledPropertyIsChangedToThisValue() {
+        // given
+        XCTAssertTrue(self.floatingLabelTextField.textField.enabled)
+        
+        // when
+        self.floatingLabelTextField.enabled = false
+        
+        // then
+        XCTAssertFalse(self.floatingLabelTextField.textField.enabled)
+    }
 }

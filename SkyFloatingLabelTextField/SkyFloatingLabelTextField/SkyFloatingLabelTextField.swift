@@ -161,15 +161,6 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
         }
     }
     
-    internal func fadeOutHighlighted() {
-        if(!self.hasText) {
-            self.updateTitleColor()
-            _titleVisible = false
-            self.updateTitleVisibility(true, animateFromCurrentState: true)
-            self.updateLineView()
-        }
-    }
-    
     /// A Boolean value that determines if the receiver is currently editing.
     public var editing:Bool {
         get {
@@ -614,6 +605,15 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
     }
     
     // MARK: - Helpers
+    
+    private func fadeOutHighlighted() {
+        if(!self.hasText) {
+            self.updateTitleColor()
+            _titleVisible = false
+            self.updateTitleVisibility(true, animateFromCurrentState: true)
+            self.updateLineView()
+        }
+    }
     
     private func resetErrorMessageIfPresent() {
         if self.hasErrorMessage && discardsErrorMessageOnTextChange {
