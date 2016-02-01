@@ -34,9 +34,9 @@ class SettingTextsViewController: UIViewController {
     @IBAction func deselectedTitleChanged(segmentedControl:UISegmentedControl) {
         switch segmentedControl.selectedSegmentIndex {
         case 0:
-            self.textField?.deselectedTitle = nil
+            self.textField?.title = nil
         case 1:
-            self.textField?.deselectedTitle = "Deselected title"
+            self.textField?.title = "Deselected title"
         default:
             break
         }
