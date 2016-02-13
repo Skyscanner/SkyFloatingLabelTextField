@@ -124,7 +124,51 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         XCTAssertEqual(self.floatingLabelTextField.lineView.frame.size.height, 4)
     }
     
-    // MARK:  - Other properties
+    // MARK:  - hasText
+    
+    func test_hasText_whenTextPropertyIsNotEmpty_thenReturnsTrue() {
+        // given
+        self.floatingLabelTextField.text = "hello";
+        
+        // then
+        XCTAssertTrue(self.floatingLabelTextField.hasText)
+    }
+    
+    func test_hasText_whenTextPropertyIsEmpty_thenReturnsFalse() {
+        // given
+        self.floatingLabelTextField.text = "";
+        
+        // then
+        XCTAssertFalse(self.floatingLabelTextField.hasText)
+    }
+    
+    // MARK:  - highlighted
+    
+    func test_whenSettingHighighted_toTrue_thenTitleAlphaIsOne() {
+        // given
+        self.floatingLabelTextField.highlighted = true;
+        
+        // then
+        XCTAssertEqual(self.floatingLabelTextField.titleLabel.alpha, 1.0)
+    }
+    
+    func test_whenSettingHighighted_toFalse_then_afterOneSecond_titleAlphaIsZero() {
+        // given
+        let expectation = self.expectationWithDescription("")
+        
+        // when
+        self.floatingLabelTextField.highlighted = false;
+        
+        self.delay(1.0, callback: { () -> Void in
+            // then
+            XCTAssertEqual(self.floatingLabelTextField.titleLabel.alpha, 0.0)
+            expectation.fulfill()
+        })
+
+        self.failOnTimeoutAfterSeconds(5)
+    }
+    
+    // MARK:  - textField properties
     
     func test_whenSettingSecureTextEntry_thenTextFieldSecureTextEntryPropertyIsChangedToThisValue() {
         // given
@@ -157,5 +201,24 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         
         // then
         XCTAssertFalse(self.floatingLabelTextField.textField.enabled)
+    }
+    
+    // MARK: - Helpers
+    
+    func failOnTimeoutAfterSeconds(timeout: NSTimeInterval) {
+        self.waitForExpectationsWithTimeout(timeout, handler: {(error: NSError?) -> Void in
+            if let error = error {
+                XCTFail("Call timed out %@", file: error.localizedDescription)
+            }
+        })
+    }
+    
+    func delay(delay:Double, callback:()->()) {
+        dispatch_after(
+            dispatch_time(
+                DISPATCH_TIME_NOW,
+                Int64(delay * Double(NSEC_PER_SEC))
+            ),
+            dispatch_get_main_queue(), callback)
     }
 }

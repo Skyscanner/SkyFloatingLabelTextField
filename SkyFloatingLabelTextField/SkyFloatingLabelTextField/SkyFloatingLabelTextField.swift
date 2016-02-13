@@ -190,11 +190,11 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
     
     /// A Boolean value determining whether the title field is shown
     public private(set) var titleVisible:Bool {
-        set {
-            self.setTitleVisibile(newValue, animated: false)
-        }
         get {
             return _titleVisible
+        }
+        set {
+            self.setTitleVisibile(newValue, animated: false)
         }
     }
     private func setTitleVisibile(titleVisible:Bool, animated:Bool = false) {
