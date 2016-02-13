@@ -156,7 +156,10 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
                 self.updateLineView()
             } else {
                 // Performing fading out after a short timeout to make sure the title previously faded in all the way
-                self.performSelector("fadeOutHighlighted", withObject: self, afterDelay: self.titleFadeInDuration)
+                let time = dispatch_time(DISPATCH_TIME_NOW, Int64(self.titleFadeInDuration * Double(NSEC_PER_SEC)))
+                dispatch_after(time, dispatch_get_main_queue(), { () -> Void in
+                    self.fadeOutHighlighted()
+                })
             }
         }
     }
