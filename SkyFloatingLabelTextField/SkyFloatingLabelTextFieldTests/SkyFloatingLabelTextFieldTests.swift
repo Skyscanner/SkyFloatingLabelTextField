@@ -104,7 +104,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
     }
     
     
-    // MARK:  - Line height
+    // MARK:  - line height
     
     func test_whenSettingLineHeight_thenLineViewHeightIsChangedToThisValue() {
         // when
@@ -125,8 +125,8 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         XCTAssertEqual(floatingLabelTextField.lineView.frame.size.height, 4)
     }
     
-    // MARK:  - hasText
-    
+    // MARK:  - text
+
     func test_hasText_whenTextPropertyIsNotEmpty_thenReturnsTrue() {
         // given
         floatingLabelTextField.text = "hello";
@@ -141,6 +141,20 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         
         // then
         XCTAssertFalse(floatingLabelTextField.hasText)
+    }
+    
+    func test_whenSettingText_withErrorMessagePresent_thenClearsErrorMessage() {
+        // given
+        floatingLabelTextField.errorMessage = "error"
+        floatingLabelTextField.title = "title"
+        XCTAssertEqual(floatingLabelTextField.titleLabel.text, "ERROR")
+        
+        // when
+        floatingLabelTextField.text = "hello!"
+        
+        // then
+        XCTAssertEqual(floatingLabelTextField.titleLabel.text, "TITLE")
+        XCTAssertNil(floatingLabelTextField.errorMessage)
     }
     
     // MARK:  - highlighted
@@ -281,6 +295,43 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         XCTAssertNotNil(floatingLabelTextField.textField)
         XCTAssertNotNil(floatingLabelTextField.placeholderLabel)
         XCTAssertNotNil(floatingLabelTextField.lineView)
+    }
+    
+    // MARK: - Responder handling
+    
+    func test_whenBecomeFirstResponderInvoked_thenTextFieldUserInteractionEnabledSetToFalse() {
+        // given
+        floatingLabelTextField.textField.userInteractionEnabled = true
+        XCTAssertTrue(floatingLabelTextField.textField.userInteractionEnabled)
+        
+        // when
+        floatingLabelTextField.becomeFirstResponder()
+        
+        // then
+        XCTAssertFalse(floatingLabelTextField.textField.userInteractionEnabled)
+    }
+    
+    func test_whenResignFirstResponderInvoked_thenTextFieldUserInteractionEnabledSetToFalse() {
+        // given
+        floatingLabelTextField.becomeFirstResponder()
+        
+        // when
+        floatingLabelTextField.resignFirstResponder()
+        
+        // then
+        XCTAssertFalse(floatingLabelTextField.textField.userInteractionEnabled)
+    }
+    
+    func test_whenTouchesBegan_withNotBeingFirstResponder_thenTextFielUserInteractionEnabledSetToFalse() {
+        // given
+        floatingLabelTextField.resignFirstResponder()
+        XCTAssertTrue(floatingLabelTextField.textField.userInteractionEnabled)
+        
+        // when
+        floatingLabelTextField.touchesBegan(Set<UITouch>(), withEvent: nil)
+        
+        // then
+        XCTAssertFalse(floatingLabelTextField.textField.userInteractionEnabled)
     }
     
     // MARK: - Textfield delegate methods
@@ -596,7 +647,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
     
     // MARK: prepareForInterfaceBuilder()
     
-    func test_whenPrtepareForInterfaceBuilderInvoked_thenSelectedSetToTrue() {
+    func test_whenPrepareForInterfaceBuilderInvoked_thenSelectedSetToTrue() {
         // given
         XCTAssertFalse(floatingLabelTextField.selected)
         
@@ -605,6 +656,20 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         
         // then
         XCTAssertTrue(floatingLabelTextField.selected)
+    }
+    
+    // MARK: intrinsicContentSize()
+    
+    func test_whenIntristicContentSizeInvoked_thenHeightIsTitleHeightAndContentHeightSize() {
+        // given
+        XCTAssertNotEqual(floatingLabelTextField.titleHeight(), 0)
+        XCTAssertNotEqual(floatingLabelTextField.textHeight(), 0)
+        
+        // when
+        let size = floatingLabelTextField.intrinsicContentSize()
+        
+        // then
+        XCTAssertEqual(size.height, floatingLabelTextField.titleHeight() + floatingLabelTextField.textHeight())
     }
     
     // MARK: - Helpers
