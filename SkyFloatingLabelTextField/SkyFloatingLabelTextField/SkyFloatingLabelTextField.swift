@@ -192,12 +192,9 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
     private var _renderingInInterfaceBuilder:Bool = false
     
     /// A Boolean value determining whether the title field is shown
-    public private(set) var titleVisible:Bool {
+    public var titleVisible:Bool {
         get {
             return _titleVisible
-        }
-        set {
-            self.setTitleVisibile(newValue, animated: false)
         }
     }
     private func setTitleVisibile(titleVisible:Bool, animated:Bool = false) {
@@ -332,12 +329,6 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
         self.addSubview(lineView)
     }
     
-    // MARK: input
-    
-    private func installDummyInputView() {
-        self.textField.inputView = UIView(frame: CGRectZero)
-    }
-    
     // MARK: Responder handling
     
     override public func becomeFirstResponder() -> Bool {
@@ -460,10 +451,6 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
     
     // MARK: - Positioning Overrides
     
-    private func titleLabelRectForBounds(bounds:CGRect) -> CGRect {
-        return self.titleLabelRectForBounds(bounds, editing: self.editing)
-    }
-    
     public func titleLabelRectForBounds(bounds:CGRect, editing:Bool) -> CGRect {
 
         let titleHeight = self.titleHeight()
@@ -472,10 +459,6 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
         } else {
             return CGRectMake(0, titleHeight, bounds.size.width, titleHeight)
         }
-    }
-
-    private func lineViewRectForBounds(bounds:CGRect) -> CGRect {
-        return self.lineViewRectForBounds(bounds, editing: self.editing)
     }
     
     public func lineViewRectForBounds(bounds:CGRect, editing:Bool) -> CGRect {
@@ -494,11 +477,11 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
     }
     
     public func titleHeight() -> CGFloat {
-        return (self.titleLabel.font?.lineHeight ?? 15.0)
+        return self.titleLabel.font!.lineHeight
     }
     
     public func textHeight() -> CGFloat {
-        return (self.textField.font?.lineHeight ?? 25.0) + 7.0
+        return self.textField.font!.lineHeight + 7.0
     }
     
     // MARK: - Textfield delegate methods
@@ -597,10 +580,10 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
     override public func layoutSubviews() {
         super.layoutSubviews()
 
+        self.titleLabel.frame = self.titleLabelRectForBounds(self.bounds, editing: self.hasText || _renderingInInterfaceBuilder)
         self.placeholderLabel.frame = self.placeholderLabelRectForBounds(self.bounds)
         self.textField.frame = self.textFieldRectForBounds(self.bounds)
         self.lineView.frame = self.lineViewRectForBounds(self.bounds, editing: self.editing || _renderingInInterfaceBuilder)
-        self.titleLabel.frame = self.titleLabelRectForBounds(self.bounds, editing: self.hasText || _renderingInInterfaceBuilder)
     }
     
     override public func intrinsicContentSize() -> CGSize {
