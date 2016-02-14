@@ -69,7 +69,7 @@ Copy the files in the `SkyFloatingLabelTextField` to your project:
 - `SkyFloatingLabelTextFieldWithIcon.swift`
 - `UITextField+fixCaretPosition.swift`
 
-### Cocoapods
+### CocoaPods
 
 Support coming soon.
 
