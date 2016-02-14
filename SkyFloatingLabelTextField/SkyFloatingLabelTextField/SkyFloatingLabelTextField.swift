@@ -548,7 +548,7 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
     // MARK: TextField target actions
 
     internal func textFieldChanged(textfield: UITextField) {
-        self.setText(textField.text, animated: true)
+        self.setText(textfield.text, animated: true)
         self.resetErrorMessageIfPresent()
     }
     

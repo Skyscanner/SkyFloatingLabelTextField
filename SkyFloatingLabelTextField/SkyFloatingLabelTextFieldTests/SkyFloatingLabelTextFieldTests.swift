@@ -13,6 +13,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
     
     var floatingLabelTextField: SkyFloatingLabelTextField!
     let customColor = UIColor(red: 125/255, green: 120/255, blue: 50/255, alpha: 1.0)
+    let textFieldDelegateMock = TextFieldDelegateMock()
     
     override func setUp() {
         super.setUp()
@@ -282,6 +283,228 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         XCTAssertNotNil(floatingLabelTextField.lineView)
     }
     
+    // MARK: - Textfield delegate methods
+    
+    // MARK: textFieldShouldBeginEditing
+    
+    func test_whenTextFieldShouldBeginEditingInvoked_withNilDelegate_thenReturnsTrue() {
+        // given
+        floatingLabelTextField.delegate = nil
+        
+        // when
+        let result = floatingLabelTextField.textFieldShouldBeginEditing(floatingLabelTextField.textField)
+        
+        // then
+        XCTAssertTrue(result)
+    }
+    
+    func test_whenTextFieldShouldBeginEditingInvoked_withDelegateThatDoesNotImplementTextFieldShouldBeginEditing_thenReturnsTrue() {
+        // given
+        floatingLabelTextField.delegate = EmptyTextFieldDelegate()
+        
+        // when
+        let result = floatingLabelTextField.textFieldShouldBeginEditing(floatingLabelTextField.textField)
+        
+        // then
+        XCTAssertTrue(result)
+    }
+    
+    func test_whenTextFieldShouldBeginEditingInvoked_withNonNilDelegate_thenInvokesDelegate() {
+        // given
+        floatingLabelTextField.delegate = textFieldDelegateMock
+        
+        // when
+        let result = floatingLabelTextField.textFieldShouldBeginEditing(floatingLabelTextField.textField)
+        
+        // then
+        XCTAssertFalse(result)
+        XCTAssertTrue(textFieldDelegateMock.textFieldShouldBeginEditingInvoked)
+    }
+    
+    // MARK: textFieldDidBeginEditing
+    
+    func test_whenTextFieldDidBeginEditingInvoked_withNonNilDelegate_thenInvokesDelegate() {
+        // given
+        floatingLabelTextField.delegate = textFieldDelegateMock
+        
+        // when
+        floatingLabelTextField.textFieldDidBeginEditing(floatingLabelTextField.textField)
+        
+        // then
+        XCTAssertTrue(textFieldDelegateMock.textFieldDidBeginEditingInvoked)
+    }
+    
+    // MARK: textFieldShouldEndEditing
+    
+    func test_whenTextFieldShouldEndEditingInvoked_withNilDelegate_thenReturnsTrue() {
+        // given
+        floatingLabelTextField.delegate = nil
+        
+        // when
+        let result = floatingLabelTextField.textFieldShouldEndEditing(floatingLabelTextField.textField)
+        
+        // then
+        XCTAssertTrue(result)
+    }
+    
+    func test_whenTextFieldShouldEndEditing_withDelegateThatDoesNotImplementTextFieldShouldBeginEditing_thenReturnsTrue() {
+        // given
+        floatingLabelTextField.delegate = EmptyTextFieldDelegate()
+        
+        // when
+        let result = floatingLabelTextField.textFieldShouldEndEditing(floatingLabelTextField.textField)
+        
+        // then
+        XCTAssertTrue(result)
+    }
+    
+    func test_whenTextFieldShouldEndEditingInvoked_withNonNilDelegate_thenInvokesDelegate() {
+        // given
+        floatingLabelTextField.delegate = textFieldDelegateMock
+        
+        // when
+        let result = floatingLabelTextField.textFieldShouldEndEditing(floatingLabelTextField.textField)
+        
+        // then
+        XCTAssertFalse(result)
+        XCTAssertTrue(textFieldDelegateMock.textFieldShouldEndEditingInvoked)
+    }
+    
+    // MARK: textFieldDidEndEditing
+    
+    func test_whenTextFieldDidEndEditingInvoked_withNonNilDelegate_thenInvokesDelegate() {
+        // given
+        floatingLabelTextField.delegate = textFieldDelegateMock
+        
+        // when
+        floatingLabelTextField.textFieldDidEndEditing(floatingLabelTextField.textField)
+        
+        // then
+        XCTAssertTrue(textFieldDelegateMock.textFieldDidEndEditingInvoked)
+    }
+    
+    // MARK: textFieldShouldReturn
+    
+    func test_whenTextFieldShouldReturnInvoked_withNilDelegate_thenReturnsTrue() {
+        // given
+        floatingLabelTextField.delegate = nil
+        
+        // when
+        let result = floatingLabelTextField.textFieldShouldReturn(floatingLabelTextField.textField)
+        
+        // then
+        XCTAssertTrue(result)
+    }
+    
+    func test_whenTextFieldShouldReturnInvoked_withDelegateThatDoesNotImplementTextFieldShouldBeginEditing_thenReturnsTrue() {
+        // given
+        floatingLabelTextField.delegate = EmptyTextFieldDelegate()
+        
+        // when
+        let result = floatingLabelTextField.textFieldShouldReturn(floatingLabelTextField.textField)
+        
+        // then
+        XCTAssertTrue(result)
+    }
+    
+    func test_whenTextFieldShouldReturnInvoked_withNonNilDelegate_thenInvokesDelegate() {
+        // given
+        floatingLabelTextField.delegate = textFieldDelegateMock
+        
+        // when
+        let result = floatingLabelTextField.textFieldShouldReturn(floatingLabelTextField.textField)
+        
+        // then
+        XCTAssertFalse(result)
+        XCTAssertTrue(textFieldDelegateMock.textFieldShouldReturnInvoked)
+    }
+    
+    // MARK: textFieldShouldClear
+    
+    func test_whenTextFieldShouldClearInvoked_withNilDelegate_thenReturnsTrue() {
+        // given
+        floatingLabelTextField.delegate = nil
+        
+        // when
+        let result = floatingLabelTextField.textFieldShouldClear(floatingLabelTextField.textField)
+        
+        // then
+        XCTAssertTrue(result)
+    }
+    
+    func test_whenTextFieldShouldClearInvoked_withDelegateThatDoesNotImplementTextFieldShouldBeginEditing_thenReturnsTrue() {
+        // given
+        floatingLabelTextField.delegate = EmptyTextFieldDelegate()
+        
+        // when
+        let result = floatingLabelTextField.textFieldShouldClear(floatingLabelTextField.textField)
+        
+        // then
+        XCTAssertTrue(result)
+    }
+    
+    func test_whenTextFieldShouldClearInvoked_withNonNilDelegate_thenInvokesDelegate() {
+        // given
+        floatingLabelTextField.delegate = textFieldDelegateMock
+        
+        // when
+        let result = floatingLabelTextField.textFieldShouldClear(floatingLabelTextField.textField)
+        
+        // then
+        XCTAssertFalse(result)
+        XCTAssertTrue(textFieldDelegateMock.textFieldShouldClearInvoked)
+    }
+    
+    // MARK: shouldChangeCharactersInRange
+    
+    func test_whenShouldChangeCharactersInRangeInvoked_withNilDelegate_thenReturnsTrue() {
+        // given
+        floatingLabelTextField.delegate = nil
+        
+        // when
+        let result = floatingLabelTextField.textField(floatingLabelTextField.textField, shouldChangeCharactersInRange: NSRange(), replacementString:"")
+        
+        // then
+        XCTAssertTrue(result)
+    }
+    
+    func test_whenShouldChangeCharactersInRangeInvoked_withDelegateThatDoesNotImplementTextFieldShouldBeginEditing_thenReturnsTrue() {
+        // given
+        floatingLabelTextField.delegate = EmptyTextFieldDelegate()
+        
+        // when
+        let result = floatingLabelTextField.textField(floatingLabelTextField.textField, shouldChangeCharactersInRange: NSRange(), replacementString:"")
+        
+        // then
+        XCTAssertTrue(result)
+    }
+    
+    func test_whenShouldChangeCharactersInRangeInvoked_withNonNilDelegate_thenInvokesDelegate() {
+        // given
+        floatingLabelTextField.delegate = textFieldDelegateMock
+        
+        // when
+        let result = floatingLabelTextField.textField(floatingLabelTextField.textField, shouldChangeCharactersInRange: NSRange(), replacementString:"")
+        
+        // then
+        XCTAssertFalse(result)
+        XCTAssertTrue(textFieldDelegateMock.shouldChangeCharactersInRangeInvoked)
+    }
+    
+    // MARK: - TextField target actions
+    
+    func test_whenTextFieldEditingChanged_thenUpdatesText() {
+        // give
+        let textField = UITextField()
+        textField.text = "textField1Text"
+        
+        // when
+        floatingLabelTextField.textFieldChanged(textField)
+        
+        // then
+        XCTAssertEqual(floatingLabelTextField.textField.text, "textField1Text")
+    }
+    
     // MARK:  - control lifecycle events
     
     func test_whenLayoutSubviewsInvoked_thenTitleLabelFrameIsUpdated() {
@@ -333,7 +556,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         XCTAssertEqual(floatingLabelTextField.lineView.frame.height, 2.0)
     }
     
-    // MARK:  - titleHeight()
+    // MARK: titleHeight()
     
     func test_whenTitleLabelHasFontSet_thenTitleHeightReturnsFontHeight() {
         // given
@@ -352,7 +575,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         XCTAssertNotNil(floatingLabelTextField.titleLabel.font)
     }
     
-    // MARK:  - textHeight()
+    // MARK: textHeight()
     
     func test_whenTextFieldHasFontSet_thenTextHeightReturnsFontHeightPlusSeven() {
         // given
@@ -369,6 +592,19 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         
         // then
         XCTAssertNotNil(floatingLabelTextField.textField.font)
+    }
+    
+    // MARK: prepareForInterfaceBuilder()
+    
+    func test_whenPrtepareForInterfaceBuilderInvoked_thenSelectedSetToTrue() {
+        // given
+        XCTAssertFalse(floatingLabelTextField.selected)
+        
+        // when
+        floatingLabelTextField.prepareForInterfaceBuilder()
+        
+        // then
+        XCTAssertTrue(floatingLabelTextField.selected)
     }
     
     // MARK: - Helpers
@@ -388,5 +624,59 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
                 Int64(delay * Double(NSEC_PER_SEC))
             ),
             dispatch_get_main_queue(), callback)
+    }
+    
+    class EmptyTextFieldDelegate: SkyFloatingLabelTextFieldDelegate {
+        
+    }
+    
+    class TextFieldDelegateMock: SkyFloatingLabelTextFieldDelegate {
+        var textFieldShouldBeginEditing = false
+        var textFieldShouldEndEditing = false
+        var textFieldShouldReturn = false
+        var textFieldShouldClear = false
+        var shouldChangeCharactersInRange = false
+        
+        var textFieldShouldBeginEditingInvoked = false
+        var textFieldShouldEndEditingInvoked = false
+        var textFieldDidBeginEditingInvoked = false
+        var textFieldDidEndEditingInvoked = false
+        var textFieldShouldReturnInvoked = false
+        var textFieldShouldClearInvoked = false
+        var shouldChangeCharactersInRangeInvoked = false
+        
+        @objc func textFieldDidBeginEditing(textField: SkyFloatingLabelTextField) {
+            textFieldDidBeginEditingInvoked = true
+        }
+        
+        @objc func textFieldDidEndEditing(textField: SkyFloatingLabelTextField) {
+            textFieldDidEndEditingInvoked = true
+        }
+        
+        @objc func textFieldShouldBeginEditing(textField: SkyFloatingLabelTextField) -> Bool {
+            textFieldShouldBeginEditingInvoked = true
+            return textFieldShouldBeginEditing
+        }
+        
+        @objc func textFieldShouldEndEditing(textField: SkyFloatingLabelTextField) -> Bool {
+            textFieldShouldEndEditingInvoked = true
+            return textFieldShouldEndEditing
+        }
+        
+        @objc func textFieldShouldReturn(textField: SkyFloatingLabelTextField) -> Bool {
+            textFieldShouldReturnInvoked = true
+            return textFieldShouldReturn
+        }
+        
+        @objc func textFieldShouldClear(textField: SkyFloatingLabelTextField) -> Bool {
+            textFieldShouldClearInvoked = true
+            return textFieldShouldClear
+        }
+        
+        @objc func textField(textField: SkyFloatingLabelTextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+            shouldChangeCharactersInRangeInvoked = true
+            return shouldChangeCharactersInRange
+        }
+        
     }
 }
