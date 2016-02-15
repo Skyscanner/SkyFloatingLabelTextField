@@ -46,6 +46,7 @@ public class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     @IBInspectable
     public var iconMarginBottom:Double = 4 {
         didSet {
+            self.updateFrame()
         }
     }
     
@@ -114,6 +115,10 @@ public class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     
     override public func layoutSubviews() {
         super.layoutSubviews()
+        self.updateFrame()
+    }
+    
+    private func updateFrame() {
         let textHeight = self.textHeight()
         let marginBottom = CGFloat(self.iconMarginBottom)
         self.iconLabel.frame = CGRectMake(0, self.bounds.size.height - textHeight - marginBottom, iconWidth, textHeight)
