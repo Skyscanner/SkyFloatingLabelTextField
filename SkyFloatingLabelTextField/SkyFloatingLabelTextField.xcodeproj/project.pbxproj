@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F52638461C72886F0068D21A /* SkyFloatingLabelTextFieldWithIconTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52638451C72886F0068D21A /* SkyFloatingLabelTextFieldWithIconTests.swift */; };
 		F53841FF1C3C1F8300409083 /* SkyFloatingLabelTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53841FE1C3C1F8300409083 /* SkyFloatingLabelTextFieldDelegate.swift */; };
 		F53842011C3C1FB800409083 /* UITextField+fixCaretPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53842001C3C1FB800409083 /* UITextField+fixCaretPosition.swift */; };
 		F53842031C3C206300409083 /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53842021C3C206300409083 /* SkyFloatingLabelTextFieldWithIcon.swift */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F52638451C72886F0068D21A /* SkyFloatingLabelTextFieldWithIconTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyFloatingLabelTextFieldWithIconTests.swift; sourceTree = "<group>"; };
 		F53841FE1C3C1F8300409083 /* SkyFloatingLabelTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyFloatingLabelTextFieldDelegate.swift; sourceTree = "<group>"; };
 		F53842001C3C1FB800409083 /* UITextField+fixCaretPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+fixCaretPosition.swift"; sourceTree = "<group>"; };
 		F53842021C3C206300409083 /* SkyFloatingLabelTextFieldWithIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyFloatingLabelTextFieldWithIcon.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				F56289271C3BE3A20082D9A6 /* SkyFloatingLabelTextFieldTests.swift */,
+				F52638451C72886F0068D21A /* SkyFloatingLabelTextFieldWithIconTests.swift */,
 				F56289291C3BE3A20082D9A6 /* Info.plist */,
 			);
 			path = SkyFloatingLabelTextFieldTests;
@@ -389,6 +392,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F56289281C3BE3A20082D9A6 /* SkyFloatingLabelTextFieldTests.swift in Sources */,
+				F52638461C72886F0068D21A /* SkyFloatingLabelTextFieldWithIconTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
