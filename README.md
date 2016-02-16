@@ -2,6 +2,10 @@
 
 [![Build Status](https://travis-ci.org/Skyscanner/SkyFloatingLabelTextField.svg?branch=master)](https://travis-ci.org/Skyscanner/SkyFloatingLabelTextField)
 [![Coverage Status](https://coveralls.io/repos/github/Skyscanner/SkyFloatingLabelTextField/badge.svg?branch=master)](https://coveralls.io/github/Skyscanner/SkyFloatingLabelTextField?branch=master)
+[![Pod Platform](https://img.shields.io/cocoapods/p/SkyFloatingLabelTextField.svg?style=flat)](https://cocoapods.org/pods/SkyFloatingLabelTextField)
+[![Pod License](https://img.shields.io/cocoapods/l/SkyFloatingLabelTextField.svg?style=flat)](https://github.com/SkyFloatingLabelTextField/blob/master/LICENSE.md)
+
+[![Pod Version](https://img.shields.io/cocoapods/v/SkyFloatingLabelTextField.svg?style=flat)](https://cocoapods.org/pods/SkyFloatingLabelTextField)
 
 `SkyFloatingLabelTextField` is a beautiful, flexible and customizable implementation of the **"Float Label Pattern"**. This design enables adding context to input fields that is visible at time of typing, while minimizing the additional space used to display this additional context. This component is used in the [Skyscanner TravelPro iOS application](https://itunes.apple.com/gb/app/travelpro-business-travel/id1046916687) in several places.
 
