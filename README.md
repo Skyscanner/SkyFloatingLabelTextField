@@ -65,19 +65,21 @@ The control was designed to allow further customization in subclasses. The contr
 
 ## Installation
 
-### Manual
+#### CocoaPods
 
-Copy the files in the `SkyFloatingLabelTextField` to your project:
+The control is available through [CocoaPods](https://cocoapods.org/). To install it, add the following line to your Podfile:
+
+```
+pod 'SkyFloatingLabelTextField'
+```
+
+#### Manual
+
+You can download the latest files from our [Releases page](https://github.com/Skyscanner/SkyFloatingLabelTextField/releases). After doing so, copy the files in the `SkyFloatingLabelTextField/SkyFloatingLabelTextField` folder to your project:
 - `SkyFloatingLabelTextField.swift`
 - `SkyFloatingLabelTextFieldDelegate.swift`
 - `SkyFloatingLabelTextFieldWithIcon.swift`
 - `UITextField+fixCaretPosition.swift`
-
-### CocoaPods
-
-Support coming soon.
-
-### Carthage
 
 ##Contributing
 
