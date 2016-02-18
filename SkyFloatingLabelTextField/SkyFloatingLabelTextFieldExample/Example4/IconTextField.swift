@@ -23,8 +23,8 @@ public class IconTextField: SkyFloatingLabelTextField {
     
     // MARK: Initializers
     
-    override public init(frame: CGRect, textField: UITextField?, lineView: UIView?) {
-        super.init(frame: frame, textField: textField, lineView: lineView)
+    override public init(frame: CGRect) {
+        super.init(frame: frame)
         self.createIconLabel()
     }
     
