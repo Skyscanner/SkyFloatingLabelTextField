@@ -264,10 +264,10 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
     */
     override public init(frame: CGRect) {
         super.init(frame: frame)
-        self.createLineView()
         self.createTitleLabel()
         self.createPlaceholderLabel()
         self.createTextField()
+        self.createLineView()
         self.updateColors()
     }
 
@@ -277,10 +277,10 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
      */
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.createLineView()
         self.createTitleLabel()
         self.createPlaceholderLabel()
         self.createTextField()
+        self.createLineView()
         self.updateColors()
     }
     
@@ -320,14 +320,21 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
     }
     
     private func createLineView() {
-        
+
         if self.lineView == nil {
             let lineView = UIView()
             lineView.userInteractionEnabled = false
             self.lineView = lineView
+            self.configureDefaultLineHeight()
         }
         lineView.autoresizingMask = [.FlexibleWidth, .FlexibleTopMargin]
         self.addSubview(lineView)
+    }
+    
+    private func configureDefaultLineHeight() {
+        let onePixel = 1.0 / Double(UIScreen.mainScreen().scale)
+        self.lineHeight = 2.0 * onePixel
+        self.selectedLineHeight = 2.0 * self.lineHeight
     }
     
     // MARK: Responder handling
