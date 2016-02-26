@@ -10,8 +10,8 @@ import UIKit
 
 public class ThemedTextField: SkyFloatingLabelTextField {
 
-    public override init(frame: CGRect, textField: UITextField?, lineView: UIView?) {
-        super.init(frame: frame, textField: textField, lineView: lineView)
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
         self.setupTheme()
     }
     

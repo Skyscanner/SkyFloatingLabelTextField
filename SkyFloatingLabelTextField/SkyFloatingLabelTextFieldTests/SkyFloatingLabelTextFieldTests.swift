@@ -106,12 +106,28 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
     
     // MARK:  - line height
     
+    func test_whenInitializingControl_thenLineHeightIsTwoPixelsOnScreen() {
+        // given
+        let onePixel = 1.0 / Double(UIScreen.mainScreen().scale)
+        
+        // then
+        XCTAssertEqual(floatingLabelTextField.lineHeight, 2.0 * onePixel)
+    }
+    
     func test_whenSettingLineHeight_thenLineViewHeightIsChangedToThisValue() {
         // when
         floatingLabelTextField.lineHeight = 3
         
         // then
         XCTAssertEqual(floatingLabelTextField.lineView.frame.size.height, 3)
+    }
+    
+    func test_whenInitializingControl_thenSelectedLineHeightIsFourPixelsOnScreen() {
+        // given
+        let onePixel = 1.0 / Double(UIScreen.mainScreen().scale)
+        
+        // then
+        XCTAssertEqual(floatingLabelTextField.selectedLineHeight, 4.0 * onePixel)
     }
     
     func test_whenSettingSelectedLineHeight__withTextFieldBeingSelected_thenLineViewHeightIsChangedToThisValue() {

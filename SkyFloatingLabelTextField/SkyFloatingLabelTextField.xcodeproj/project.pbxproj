@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F51232B21C7686F400FF32A6 /* IconTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51232B11C7686F400FF32A6 /* IconTextField.swift */; };
 		F52638461C72886F0068D21A /* SkyFloatingLabelTextFieldWithIconTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52638451C72886F0068D21A /* SkyFloatingLabelTextFieldWithIconTests.swift */; };
 		F53841FF1C3C1F8300409083 /* SkyFloatingLabelTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53841FE1C3C1F8300409083 /* SkyFloatingLabelTextFieldDelegate.swift */; };
 		F53842011C3C1FB800409083 /* UITextField+fixCaretPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53842001C3C1FB800409083 /* UITextField+fixCaretPosition.swift */; };
@@ -26,7 +27,6 @@
 		F547D4CF1C3BEAF40075A0C2 /* SubclassingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F547D4C51C3BEAF40075A0C2 /* SubclassingViewController.swift */; };
 		F547D4D01C3BEAF40075A0C2 /* ThemedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F547D4C61C3BEAF40075A0C2 /* ThemedTextField.swift */; };
 		F547D4D11C3BEAF40075A0C2 /* CustomLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F547D4C81C3BEAF40075A0C2 /* CustomLayoutViewController.swift */; };
-		F547D4D21C3BEAF40075A0C2 /* IconTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F547D4C91C3BEAF40075A0C2 /* IconTextField.swift */; };
 		F547D4D31C3BEAF40075A0C2 /* DelegateMethodsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F547D4CB1C3BEAF40075A0C2 /* DelegateMethodsViewController.swift */; };
 		F547D4D51C3BED250075A0C2 /* SkyFloatingLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F547D4D41C3BED250075A0C2 /* SkyFloatingLabelTextField.swift */; };
 		F547D4D61C3BED2D0075A0C2 /* SkyFloatingLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F547D4D41C3BED250075A0C2 /* SkyFloatingLabelTextField.swift */; };
@@ -45,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F51232B11C7686F400FF32A6 /* IconTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconTextField.swift; sourceTree = "<group>"; };
 		F52638451C72886F0068D21A /* SkyFloatingLabelTextFieldWithIconTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyFloatingLabelTextFieldWithIconTests.swift; sourceTree = "<group>"; };
 		F53841FE1C3C1F8300409083 /* SkyFloatingLabelTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyFloatingLabelTextFieldDelegate.swift; sourceTree = "<group>"; };
 		F53842001C3C1FB800409083 /* UITextField+fixCaretPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+fixCaretPosition.swift"; sourceTree = "<group>"; };
@@ -63,7 +64,6 @@
 		F547D4C51C3BEAF40075A0C2 /* SubclassingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubclassingViewController.swift; sourceTree = "<group>"; };
 		F547D4C61C3BEAF40075A0C2 /* ThemedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemedTextField.swift; sourceTree = "<group>"; };
 		F547D4C81C3BEAF40075A0C2 /* CustomLayoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLayoutViewController.swift; sourceTree = "<group>"; };
-		F547D4C91C3BEAF40075A0C2 /* IconTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconTextField.swift; sourceTree = "<group>"; };
 		F547D4CB1C3BEAF40075A0C2 /* DelegateMethodsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelegateMethodsViewController.swift; sourceTree = "<group>"; };
 		F547D4D41C3BED250075A0C2 /* SkyFloatingLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyFloatingLabelTextField.swift; sourceTree = "<group>"; };
 		F56289181C3BE3A20082D9A6 /* SkyFloatingLabelTextField.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SkyFloatingLabelTextField.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -163,8 +163,8 @@
 		F547D4C71C3BEAF40075A0C2 /* Example4 */ = {
 			isa = PBXGroup;
 			children = (
+				F51232B11C7686F400FF32A6 /* IconTextField.swift */,
 				F547D4C81C3BEAF40075A0C2 /* CustomLayoutViewController.swift */,
-				F547D4C91C3BEAF40075A0C2 /* IconTextField.swift */,
 			);
 			path = Example4;
 			sourceTree = "<group>";
@@ -364,8 +364,8 @@
 				F547D4D61C3BED2D0075A0C2 /* SkyFloatingLabelTextField.swift in Sources */,
 				F547D4CD1C3BEAF40075A0C2 /* SettingTextsViewController.swift in Sources */,
 				F547D4D31C3BEAF40075A0C2 /* DelegateMethodsViewController.swift in Sources */,
-				F547D4D21C3BEAF40075A0C2 /* IconTextField.swift in Sources */,
 				F53842041C3C237D00409083 /* SkyFloatingLabelTextFieldDelegate.swift in Sources */,
+				F51232B21C7686F400FF32A6 /* IconTextField.swift in Sources */,
 				F547D4CC1C3BEAF40075A0C2 /* ShowcaseExampleViewController.swift in Sources */,
 				F547D4D01C3BEAF40075A0C2 /* ThemedTextField.swift in Sources */,
 				F547D4CF1C3BEAF40075A0C2 /* SubclassingViewController.swift in Sources */,
