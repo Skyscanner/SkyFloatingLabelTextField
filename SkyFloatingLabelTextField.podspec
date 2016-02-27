@@ -6,6 +6,6 @@ Pod::Spec.new do |s|
   s.license = { :type => "Apache 2.0", :file => "LICENSE.md" }
   s.authors = "Daniel Langh, Gergely Orosz, Raimon Lapuente"
   s.ios.deployment_target = "8.0"
-  s.source = { :git => "https://github.com/Skyscanner/SkyFloatingLabelTextField.git", :tag => "v0.1.1" }
+  s.source = { :git => "https://github.com/Skyscanner/SkyFloatingLabelTextField.git", :tag => "v0.2.0" }
   s.source_files = 'SkyFloatingLabelTextField/SkyFloatingLabelTextField/*.swift'
 end
