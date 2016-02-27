@@ -173,38 +173,54 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         XCTAssertNil(floatingLabelTextField.errorMessage)
     }
     
-    // MARK:  - highlighted
+    // MARK:  - highlighted 
     
-    func test_whenSettingHighighted_toTrue_thenTitleAlphaIsOne() {
+    func test_whenSettingHighighted_toTrue_withoutAnimation_thenTitleAlphaSetToOne() {
         // given
-        floatingLabelTextField.highlighted = true;
+        XCTAssertEqual(floatingLabelTextField.titleLabel.alpha, 0.0)
+        floatingLabelTextField.setHighlighted(true, animated: false)
         
         // then
         XCTAssertEqual(floatingLabelTextField.titleLabel.alpha, 1.0)
     }
     
-    func test_whenSettingHighighted_toTrue_thenTitleAlphaIsVisible() {
+    func test_whenSettingHighighted_toTrue_withAnimation_thenTitleAlphaIsNotChangedImmediately() {
         // given
-        floatingLabelTextField.highlighted = true;
-        
-        // then
-        XCTAssertTrue(floatingLabelTextField.titleVisible)
-    }
-    
-    func test_whenSettingHighighted_toFalse_then_afterOneSecond_titleAlphaIsZero() {
-        // given
-        let expectation = self.expectationWithDescription("")
+        XCTAssertEqual(floatingLabelTextField.titleLabel.alpha, 0.0)
         
         // when
-        floatingLabelTextField.highlighted = false;
+        floatingLabelTextField.setHighlighted(true, animated: false)
+        
+        // then
+        XCTAssertEqual(floatingLabelTextField.titleLabel.alpha, 1.0)
+    }
+    
+    func test_whenSettingHighighted_toTrue_withAnimation_thenTitleAlphaIsSetToOne_afterOneSecond() {
+        // given
+        let expectation = self.expectationWithDescription("")
+        XCTAssertEqual(floatingLabelTextField.titleLabel.alpha, 0.0)
+        
+        // when
+        floatingLabelTextField.setHighlighted(true, animated: false)
         
         self.delay(1.0, callback: { () -> Void in
             // then
-            XCTAssertEqual(self.floatingLabelTextField.titleLabel.alpha, 0.0)
+            XCTAssertEqual(self.floatingLabelTextField.titleLabel.alpha, 1.0)
             expectation.fulfill()
         })
-
+        
         self.failOnTimeoutAfterSeconds(5)
+    }
+    
+    func test_whenSettingHighighted_toTrue_withoutAnimation_thenTitleAlphaIsVisible() {
+        // given
+        XCTAssertFalse(floatingLabelTextField.titleVisible)
+        
+        // when
+        floatingLabelTextField.setHighlighted(true, animated: false)
+        
+        // then
+        XCTAssertTrue(floatingLabelTextField.titleVisible)
     }
     
     func test_whenSettingHighighted_toFalse_then_afterOneSecond_titleIsNotVisible() {
@@ -221,6 +237,20 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         })
         
         self.failOnTimeoutAfterSeconds(5)
+    }
+    
+    // MARK:  - setHighlighted with animation
+    
+    func test_whenSettingHighlightedToFalse_withoutAnimation_thenTitleAlphaIsZeroImmediately() {
+        // given
+        floatingLabelTextField.setHighlighted(true, animated: false)
+        XCTAssertEqual(self.floatingLabelTextField.titleLabel.alpha, 1.0)
+        
+        // when
+        floatingLabelTextField.setHighlighted(false, animated: false)
+        
+        // then
+        XCTAssertEqual(self.floatingLabelTextField.titleLabel.alpha, 0.0)
     }
     
     // MARK:  - placeholder
@@ -332,6 +362,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         floatingLabelTextField.becomeFirstResponder()
         
         // when
+        floatingLabelTextField.endEditing(true)
         floatingLabelTextField.resignFirstResponder()
         
         // then
