@@ -146,20 +146,41 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
         }
     }
     
-    /// A Boolean value that determines whether the receiver is highlighted.
+    /// The backing property for the highlighted property
+    private var _highlighted = false
+    
+    /// A Boolean value that determines whether the receiver is highlighted. When changing this value, highlighting will be done with animation
     override public var highlighted:Bool {
-        didSet {
-            if(self.highlighted) {
-                self.updateTitleColor()
-                _titleVisible = true
-                self.updateTitleVisibility(true, animateFromCurrentState: true)
-                self.updateLineView()
-            } else {
+        get {
+            return _highlighted
+        }
+        set {
+            self.setHighlighted(_highlighted, animated: true)
+        }
+    }
+    
+    /**
+        Sets the highlighted state with specifying whether this state change should be animated
+     
+        - parameter highlighted: Whether the field should be highlighted
+        - parameter animated: Whether the change in highlighting should be animated
+     */
+    public func setHighlighted(highlighted:Bool, animated:Bool) {
+        _highlighted = highlighted
+        if(self.highlighted) {
+            self.updateTitleColor()
+            _titleVisible = true
+            self.updateTitleVisibility(animated, animateFromCurrentState: true)
+            self.updateLineView()
+        } else {
+            if(animated) {
                 // Performing fading out after a short timeout to make sure the title previously faded in all the way
                 let time = dispatch_time(DISPATCH_TIME_NOW, Int64(self.titleFadeInDuration * Double(NSEC_PER_SEC)))
                 dispatch_after(time, dispatch_get_main_queue(), { () -> Void in
-                    self.fadeOutHighlighted()
+                    self.fadeOutHighlightedWithAnimated(true)
                 })
+            } else {
+                self.fadeOutHighlightedWithAnimated(false)
             }
         }
     }
@@ -260,7 +281,7 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
    
     /**
         Initializes the control
-        @param frame the frame of the control
+         - parameter frame the frame of the control
     */
     override public init(frame: CGRect) {
         super.init(frame: frame)
@@ -272,8 +293,8 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
     }
 
     /**
-     Intialzies the control by deserializing it
-     @param coder the object to deserialize the control from
+        Intialzies the control by deserializing it
+        - parameter coder the object to deserialize the control from
      */
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -705,11 +726,11 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
     
     // MARK: - Helpers
     
-    private func fadeOutHighlighted() {
+    private func fadeOutHighlightedWithAnimated(animated: Bool) {
         if(!self.hasText) {
             self.updateTitleColor()
             _titleVisible = false
-            self.updateTitleVisibility(true, animateFromCurrentState: true)
+            self.updateTitleVisibility(animated, animateFromCurrentState: true)
             self.updateLineView()
         }
     }
