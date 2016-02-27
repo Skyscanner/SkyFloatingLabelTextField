@@ -419,6 +419,19 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         XCTAssertTrue(textFieldDelegateMock.textFieldShouldBeginEditingInvoked)
     }
     
+    // MARK: textFieldChanged
+    
+    func test_whenTextChanged_withNonNilDelegate_thenInvokesTextFieldChangedMethodOnDelegate() {
+        // given
+        floatingLabelTextField.delegate = textFieldDelegateMock
+        
+        // when
+        floatingLabelTextField.text = "newText"
+        
+        // then
+        XCTAssertTrue(textFieldDelegateMock.textFieldChangedInvoked)
+    }
+    
     // MARK: textFieldDidBeginEditing
     
     func test_whenTextFieldDidBeginEditingInvoked_withNonNilDelegate_thenInvokesDelegate() {
@@ -749,6 +762,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         var textFieldShouldClear = false
         var shouldChangeCharactersInRange = false
         
+        var textFieldChangedInvoked = false
         var textFieldShouldBeginEditingInvoked = false
         var textFieldShouldEndEditingInvoked = false
         var textFieldDidBeginEditingInvoked = false
@@ -759,6 +773,10 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         
         @objc func textFieldDidBeginEditing(textField: SkyFloatingLabelTextField) {
             textFieldDidBeginEditingInvoked = true
+        }
+        
+        @objc func textFieldChanged(textField: SkyFloatingLabelTextField) {
+            textFieldChangedInvoked = true
         }
         
         @objc func textFieldDidEndEditing(textField: SkyFloatingLabelTextField) {
