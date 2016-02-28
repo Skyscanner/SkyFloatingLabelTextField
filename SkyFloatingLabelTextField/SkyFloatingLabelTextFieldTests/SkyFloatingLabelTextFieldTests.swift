@@ -616,6 +616,17 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         XCTAssertEqual(floatingLabelTextField.textField.text, "textField1Text")
     }
     
+    func test_whenTextFieldEditingDidEndOnExitInvoked_thenSendsActionForControlEvents_editingDidEndOnExit() {
+        // given
+        let textField = SkyFloatingLabelTextFieldSpy();
+        
+        // when
+        textField.editingDidEndOnExit(UITextField())
+        
+        // then
+        XCTAssertEqual(textField.lastSendActionsForControlEventsInvocation!, UIControlEvents.EditingDidEndOnExit)
+    }
+    
     // MARK:  - control lifecycle events
     
     func test_whenLayoutSubviewsInvoked_thenTitleLabelFrameIsUpdated() {
@@ -807,6 +818,13 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
             shouldChangeCharactersInRangeInvoked = true
             return shouldChangeCharactersInRange
         }
+    }
+    
+    class SkyFloatingLabelTextFieldSpy: SkyFloatingLabelTextField {
+        var lastSendActionsForControlEventsInvocation: UIControlEvents?
         
+        override func sendActionsForControlEvents(controlEvents: UIControlEvents) {
+            lastSendActionsForControlEventsInvocation = controlEvents
+        }
     }
 }

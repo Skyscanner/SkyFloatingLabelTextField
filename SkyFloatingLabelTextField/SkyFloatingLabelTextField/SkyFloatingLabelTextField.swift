@@ -329,16 +329,15 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
     }
     
     private func createTextField() {
-        if self.textField == nil {
-            let textField = UITextField()
+        if textField == nil {
+            textField = UITextField()
             textField.font = UIFont.systemFontOfSize(18.0)
-            self.textField = textField
+            self.addSubview(textField)
         }
         textField.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         textField.delegate = self
         textField.addTarget(self, action: Selector("editingDidEndOnExit:"), forControlEvents: .EditingDidEndOnExit)
         textField.addTarget(self, action: Selector("textFieldChanged:"), forControlEvents: .EditingChanged)
-        self.addSubview(textField)
     }
     
     private func createLineView() {
