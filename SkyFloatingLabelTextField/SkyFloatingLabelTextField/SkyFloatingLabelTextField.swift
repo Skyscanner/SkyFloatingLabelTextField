@@ -9,11 +9,11 @@
 import UIKit
 
 /**
-    A beautiful and flexible textfield implementation with support for title label, error message and placeholder.
-*/
+ A beautiful and flexible textfield implementation with support for title label, error message and placeholder.
+ */
 @IBDesignable
 public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
-
+    
     // MARK: Animation timing
     
     /// The value of the title appearing duration.
@@ -29,7 +29,7 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
             self.updateTextColor()
         }
     }
-
+    
     /// The text color of the placeholder label.
     @IBInspectable public var placeholderColor:UIColor = UIColor.lightGrayColor() {
         didSet {
@@ -87,10 +87,10 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
     }
     
     // MARK: Delegate
-
+    
     /// The `SkyFloatingLabelTextField` delegate.
     @IBOutlet public weak var delegate:SkyFloatingLabelTextFieldDelegate?
-
+    
     // MARK: View components
     
     /// The internal `UITextField` for text input.
@@ -108,18 +108,18 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
     // MARK: Properties
     
     /**
-        The formatter to use before displaying content in the title label. This can be the `title`, `selectedTitle` or the `errorMessage`.
-        The default implementation converts the text to uppercase.
+    The formatter to use before displaying content in the title label. This can be the `title`, `selectedTitle` or the `errorMessage`.
+    The default implementation converts the text to uppercase.
     */
     public var titleFormatter:(String -> String) = { (text:String) -> String in
         return text.uppercaseString
     }
     
     /**
-        Identifies whether the text object should hide the text being entered.
-    */
+     Identifies whether the text object should hide the text being entered.
+     */
     public var secureTextEntry:Bool = false {
-        didSet { 
+        didSet {
             self.textField.secureTextEntry = secureTextEntry
             self.textField.fixCaretPosition()
         }
@@ -160,10 +160,10 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
     }
     
     /**
-        Sets the highlighted state with specifying whether this state change should be animated
+     Sets the highlighted state with specifying whether this state change should be animated
      
-        - parameter highlighted: Whether the field should be highlighted
-        - parameter animated: Whether the change in highlighting should be animated
+     - parameter highlighted: Whether the field should be highlighted
+     - parameter animated: Whether the change in highlighting should be animated
      */
     public func setHighlighted(highlighted:Bool, animated:Bool) {
         _highlighted = highlighted
@@ -243,11 +243,12 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
         self.textField.text = text
         self.resetErrorMessageIfPresent()
         self.updateControl(animated)
+        self.delegate?.textFieldChanged?(self)
     }
     
     /**
-        The String to display when the input field is empty.
-        The placeholder can also appear in the title label when both `title` `selectedTitle` and are `nil`.
+     The String to display when the input field is empty.
+     The placeholder can also appear in the title label when both `title` `selectedTitle` and are `nil`.
      */
     @IBInspectable public var placeholder:String? {
         didSet {
@@ -262,7 +263,7 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
             self.updateControl()
         }
     }
-
+    
     /// The String to display when the textfield is not editing and the input is not empty.
     @IBInspectable public var title:String? {
         didSet {
@@ -278,10 +279,10 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
     }
     
     // MARK: - Initializers
-   
+    
     /**
-        Initializes the control
-         - parameter frame the frame of the control
+    Initializes the control
+    - parameter frame the frame of the control
     */
     override public init(frame: CGRect) {
         super.init(frame: frame)
@@ -291,10 +292,10 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
         self.createLineView()
         self.updateColors()
     }
-
+    
     /**
-        Intialzies the control by deserializing it
-        - parameter coder the object to deserialize the control from
+     Intialzies the control by deserializing it
+     - parameter coder the object to deserialize the control from
      */
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -328,20 +329,19 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
     }
     
     private func createTextField() {
-        if self.textField == nil {
-            let textField = UITextField()
+        if textField == nil {
+            textField = UITextField()
             textField.font = UIFont.systemFontOfSize(18.0)
-            self.textField = textField
+            self.addSubview(textField)
         }
         textField.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         textField.delegate = self
         textField.addTarget(self, action: Selector("editingDidEndOnExit:"), forControlEvents: .EditingDidEndOnExit)
         textField.addTarget(self, action: Selector("textFieldChanged:"), forControlEvents: .EditingChanged)
-        self.addSubview(textField)
     }
     
     private func createLineView() {
-
+        
         if self.lineView == nil {
             let lineView = UIView()
             lineView.userInteractionEnabled = false
@@ -361,8 +361,8 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
     // MARK: Responder handling
     
     /**
-        Attempt the control to become the first responder
-        @return True when successfull becoming the first responder
+    Attempt the control to become the first responder
+    @return True when successfull becoming the first responder
     */
     override public func becomeFirstResponder() -> Bool {
         self.textField.userInteractionEnabled = true
@@ -375,9 +375,9 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
     }
     
     /**
-        Attempt the control to resign being the first responder
-        @return True when successfull resigning being the first responder
-    */
+     Attempt the control to resign being the first responder
+     @return True when successfull resigning being the first responder
+     */
     override public func resignFirstResponder() -> Bool {
         let success = self.textField.resignFirstResponder()
         if success {
@@ -389,7 +389,7 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
     
     /**
      @return whether the control is currently the first responder
-    */
+     */
     override public func isFirstResponder() -> Bool {
         return self.textField.isFirstResponder() || self.textField.editing
     }
@@ -455,7 +455,7 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
     // MARK: - Title handling
     
     private func updateTitleLabel(animated:Bool = false) {
-
+        
         if self.hasErrorMessage {
             self.titleLabel.text = self.titleFormatter(errorMessage!)
         } else {
@@ -467,7 +467,7 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
         }
         self.setTitleVisibile(self.hasErrorMessage || self.hasText, animated: animated)
     }
-
+    
     private func updateTitleVisibility(animated:Bool = false, animateFromCurrentState:Bool = false) {
         let alpha:CGFloat = _titleVisible ? 1.0 : 0.0
         let frame:CGRect = self.titleLabelRectForBounds(self.bounds, editing: _titleVisible)
@@ -493,16 +493,16 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
     // MARK: - Positioning Overrides
     
     /**
-        Calculate the bounds for the title label. Override to create a custom size title field.
+    Calculate the bounds for the title label. Override to create a custom size title field.
     
-        - parameter bounds The current bounds of the title
+    - parameter bounds The current bounds of the title
     
-        - parameter editing True if the control is selected or highlighted
+    - parameter editing True if the control is selected or highlighted
     
-        -returns The rectangle that the title label should render in
+    -returns The rectangle that the title label should render in
     */
     public func titleLabelRectForBounds(bounds:CGRect, editing:Bool) -> CGRect {
-
+        
         let titleHeight = self.titleHeight()
         if editing {
             return CGRectMake(0, 0, bounds.size.width, titleHeight)
@@ -512,56 +512,56 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
     }
     
     /**
-        Calculate the bounds for the textfield component of the control. Override to create a custom size textbox in the control.
+     Calculate the bounds for the textfield component of the control. Override to create a custom size textbox in the control.
      
-        - parameter bounds The current bounds of the textfield component
+     - parameter bounds The current bounds of the textfield component
      
-        - parameter editing True if the control is selected or highlighted
+     - parameter editing True if the control is selected or highlighted
      
-        -returns The rectangle that the textfield component should render in
-    */
+     -returns The rectangle that the textfield component should render in
+     */
     public func textFieldRectForBounds(bounds:CGRect) -> CGRect {
         let titleHeight = self.titleHeight()
         return CGRectMake(0, titleHeight, bounds.size.width, bounds.size.height - titleHeight)
     }
     
     /**
-        Calculate the bounds for the placeholder component of the control. Override to create a custom size textbox in the control.
+     Calculate the bounds for the placeholder component of the control. Override to create a custom size textbox in the control.
      
-        - parameter bounds The current bounds of the placeholder component
+     - parameter bounds The current bounds of the placeholder component
      
-        - parameter editing True if the control is selected or highlighted
+     - parameter editing True if the control is selected or highlighted
      
-        -returns The rectangle that the placeholder component should render in
-    */
+     -returns The rectangle that the placeholder component should render in
+     */
     public func placeholderLabelRectForBounds(bounds:CGRect) -> CGRect {
         let titleHeight = self.titleHeight()
         return CGRectMake(0, titleHeight, bounds.size.width, bounds.size.height - titleHeight)
     }
     
     /**
-        Calculate the bounds for the bottom line of the control. Override to create a custom size bottom line in the textbox.
+     Calculate the bounds for the bottom line of the control. Override to create a custom size bottom line in the textbox.
      
-        - parameter bounds The current bounds of the line
+     - parameter bounds The current bounds of the line
      
-        - parameter editing True if the control is selected or highlighted
+     - parameter editing True if the control is selected or highlighted
      
-        -returns The rectangle that the line bar should render in
-    */
+     -returns The rectangle that the line bar should render in
+     */
     public func lineViewRectForBounds(bounds:CGRect, editing:Bool) -> CGRect {
         let lineHeight:CGFloat = editing ? CGFloat(self.selectedLineHeight) : CGFloat(self.lineHeight)
         return CGRectMake(0, bounds.size.height - lineHeight, bounds.size.width, lineHeight);
     }
-
+    
     /**
-        -returns the calculated height of the title label. Override to size the title with a different height
-    */
+     -returns the calculated height of the title label. Override to size the title with a different height
+     */
     public func titleHeight() -> CGFloat {
         return self.titleLabel.font!.lineHeight
     }
     
     /**
-        -returns the calculated height of the textfield. Override to size the textfield with a different height
+     -returns the calculated height of the textfield. Override to size the textfield with a different height
      */
     public func textHeight() -> CGFloat {
         return self.textField.font!.lineHeight + 7.0
@@ -576,27 +576,23 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
     */
     public func textFieldDidBeginEditing(textField: UITextField) {
         self.updateControl(true)
-        if let delegate = self.delegate {
-            delegate.textFieldDidBeginEditing?(self)
-        }
+        self.delegate?.textFieldDidBeginEditing?(self)
     }
     
     /**
-        Tells the delegate that editing stopped for the specified text field.
+     Tells the delegate that editing stopped for the specified text field.
      
-        - parameter textField: The text field for which the editing session ended.
+     - parameter textField: The text field for which the editing session ended.
      */
     public func textFieldDidEndEditing(textField: UITextField) {
         self.updateControl(true)
-        if let delegate = self.delegate {
-            delegate.textFieldDidEndEditing?(self)
-        }
+        self.delegate?.textFieldDidEndEditing?(self)
     }
     
     /**
-        Asks the delegate if the text field should process the pressing of the return button.
+     Asks the delegate if the text field should process the pressing of the return button.
      
-        - parameter textField: The text field whose return button was pressed.
+     - parameter textField: The text field whose return button was pressed.
      */
     public func textFieldShouldReturn(textField: UITextField) -> Bool {
         if let delegate = self.delegate {
@@ -608,9 +604,9 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
     }
     
     /**
-        Asks the delegate if the text field should process the pressing of the clear button.
+     Asks the delegate if the text field should process the pressing of the clear button.
      
-        - parameter textField: The text field whose clear button was pressed.
+     - parameter textField: The text field whose clear button was pressed.
      */
     public func textFieldShouldClear(textField: UITextField) -> Bool {
         if let delegate = self.delegate {
@@ -636,13 +632,13 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
         }
         return true
     }
-
+    
     /**
-        Asks the delegate if editing should stop in the specified text field.
+     Asks the delegate if editing should stop in the specified text field.
      
-        - parameter textField: The text field for which editing is about to end.
+     - parameter textField: The text field for which editing is about to end.
      
-        - returns: `true` if editing should stop; otherwise, `false` if the editing session should continue
+     - returns: `true` if editing should stop; otherwise, `false` if the editing session should continue
      */
     public func textFieldShouldEndEditing(textField: UITextField) -> Bool {
         if let delegate = self.delegate {
@@ -654,13 +650,13 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
     }
     
     /**
-        Asks the delegate if editing should stop in the specified text field.
+     Asks the delegate if editing should stop in the specified text field.
      
-        - parameter textField: The text field containing the text.
-        - parameter range: The range of characters to be replaced.
-        - parameter string: The replacement string.
+     - parameter textField: The text field containing the text.
+     - parameter range: The range of characters to be replaced.
+     - parameter string: The replacement string.
      
-        - returns: `true` if the specified text range should be replaced; otherwise, `false` to keep the old text.
+     - returns: `true` if the specified text range should be replaced; otherwise, `false` to keep the old text.
      */
     public func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         if let delegate = self.delegate {
@@ -670,9 +666,9 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
         }
         return true
     }
-   
+    
     // MARK: TextField target actions
-
+    
     internal func textFieldChanged(textfield: UITextField) {
         self.setText(textfield.text, animated: true)
         self.resetErrorMessageIfPresent()
@@ -708,7 +704,7 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
     /// Invoked by layoutIfNeeded automatically
     override public func layoutSubviews() {
         super.layoutSubviews()
-
+        
         self.titleLabel.frame = self.titleLabelRectForBounds(self.bounds, editing: self.hasText || _renderingInInterfaceBuilder)
         self.placeholderLabel.frame = self.placeholderLabelRectForBounds(self.bounds)
         self.textField.frame = self.textFieldRectForBounds(self.bounds)
@@ -716,10 +712,10 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
     }
     
     /**
-        Calculate the content size for auto layout
+     Calculate the content size for auto layout
      
-        - returns: the content size to be used for auto layout
-    */
+     - returns: the content size to be used for auto layout
+     */
     override public func intrinsicContentSize() -> CGSize {
         return CGSizeMake(self.bounds.size.width, self.titleHeight() + self.textHeight())
     }

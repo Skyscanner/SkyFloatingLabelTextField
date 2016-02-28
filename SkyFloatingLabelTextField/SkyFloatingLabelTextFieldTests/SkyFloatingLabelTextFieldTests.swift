@@ -419,6 +419,19 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         XCTAssertTrue(textFieldDelegateMock.textFieldShouldBeginEditingInvoked)
     }
     
+    // MARK: textFieldChanged
+    
+    func test_whenTextChanged_withNonNilDelegate_thenInvokesTextFieldChangedMethodOnDelegate() {
+        // given
+        floatingLabelTextField.delegate = textFieldDelegateMock
+        
+        // when
+        floatingLabelTextField.text = "newText"
+        
+        // then
+        XCTAssertTrue(textFieldDelegateMock.textFieldChangedInvoked)
+    }
+    
     // MARK: textFieldDidBeginEditing
     
     func test_whenTextFieldDidBeginEditingInvoked_withNonNilDelegate_thenInvokesDelegate() {
@@ -603,6 +616,17 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         XCTAssertEqual(floatingLabelTextField.textField.text, "textField1Text")
     }
     
+    func test_whenTextFieldEditingDidEndOnExitInvoked_thenSendsActionForControlEvents_editingDidEndOnExit() {
+        // given
+        let textField = SkyFloatingLabelTextFieldSpy();
+        
+        // when
+        textField.editingDidEndOnExit(UITextField())
+        
+        // then
+        XCTAssertEqual(textField.lastSendActionsForControlEventsInvocation!, UIControlEvents.EditingDidEndOnExit)
+    }
+    
     // MARK:  - control lifecycle events
     
     func test_whenLayoutSubviewsInvoked_thenTitleLabelFrameIsUpdated() {
@@ -749,6 +773,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         var textFieldShouldClear = false
         var shouldChangeCharactersInRange = false
         
+        var textFieldChangedInvoked = false
         var textFieldShouldBeginEditingInvoked = false
         var textFieldShouldEndEditingInvoked = false
         var textFieldDidBeginEditingInvoked = false
@@ -759,6 +784,10 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         
         @objc func textFieldDidBeginEditing(textField: SkyFloatingLabelTextField) {
             textFieldDidBeginEditingInvoked = true
+        }
+        
+        @objc func textFieldChanged(textField: SkyFloatingLabelTextField) {
+            textFieldChangedInvoked = true
         }
         
         @objc func textFieldDidEndEditing(textField: SkyFloatingLabelTextField) {
@@ -789,6 +818,13 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
             shouldChangeCharactersInRangeInvoked = true
             return shouldChangeCharactersInRange
         }
+    }
+    
+    class SkyFloatingLabelTextFieldSpy: SkyFloatingLabelTextField {
+        var lastSendActionsForControlEventsInvocation: UIControlEvents?
         
+        override func sendActionsForControlEvents(controlEvents: UIControlEvents) {
+            lastSendActionsForControlEventsInvocation = controlEvents
+        }
     }
 }
