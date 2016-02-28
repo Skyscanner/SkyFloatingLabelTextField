@@ -16,56 +16,56 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
     
     // MARK: Animation timing
     
-    /// The value of the title appearing duration.
+    /// The value of the title appearing duration
     public var titleFadeInDuration:Double = 0.2
-    /// The value of the title disappearing duration.
+    /// The value of the title disappearing duration
     public var titleFadeOutDuration:Double = 0.3
     
     // MARK: Colors
     
-    /// The text color of the editable text.
+    /// A UIColor value that determines the text color of the editable text
     @IBInspectable public var textColor:UIColor = UIColor.blackColor() {
         didSet {
             self.updateTextColor()
         }
     }
     
-    /// The text color of the placeholder label.
+    /// A UIColor value that determines text color of the placeholder label
     @IBInspectable public var placeholderColor:UIColor = UIColor.lightGrayColor() {
         didSet {
             self.placeholderLabel.textColor = placeholderColor
         }
     }
     
-    /// The text color of the title label when not editing.
+    /// A UIColor value that determines the text color of the title label when in the normal state
     @IBInspectable public var titleColor:UIColor = UIColor.grayColor() {
         didSet {
             self.updateTitleColor()
         }
     }
     
-    /// The color of the line when not editing.
+    /// A UIColor value that determines the color of the bottom line when in the normal state
     @IBInspectable public var lineColor:UIColor = UIColor.lightGrayColor() {
         didSet {
             self.updateLineView()
         }
     }
     
-    /// The color used for the title label and the line when the error message is not `nil`
+    /// A UIColor value that determines the color used for the title label and the line when the error message is not `nil`
     @IBInspectable public var errorColor:UIColor = UIColor.redColor() {
         didSet {
             self.updateColors()
         }
     }
     
-    /// The text color of the title label when editing.
+    /// A UIColor value that determines the text color of the title label when editing
     @IBInspectable public var selectedTitleColor:UIColor = UIColor.blueColor() {
         didSet {
             self.updateTitleColor()
         }
     }
     
-    /// The color of the line when editing.
+    /// A UIColor value that determines the color of the line in a selected state
     @IBInspectable public var selectedLineColor:UIColor = UIColor.blackColor() {
         didSet {
             self.updateLineView()
@@ -74,12 +74,14 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
     
     // MARK: Line height
     
+    /// A double value that determines the height for the bottom line when the control is in the normal state
     @IBInspectable public var lineHeight:Double = 0.5 {
         didSet {
             self.updateLineView()
         }
     }
     
+    /// A dobule value that determines the height for the bottom line when the control is in a selected state
     @IBInspectable public var selectedLineHeight:Double = 1.0 {
         didSet {
             self.updateLineView()
@@ -512,11 +514,9 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
     }
     
     /**
-     Calculate the bounds for the textfield component of the control. Override to create a custom size textbox in the control.
+     Calculates the bounds for the textfield component of the control. Override to create a custom size textbox in the control.
      
      - parameter bounds The current bounds of the textfield component
-     
-     - parameter editing True if the control is selected or highlighted
      
      -returns The rectangle that the textfield component should render in
      */
@@ -526,11 +526,9 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
     }
     
     /**
-     Calculate the bounds for the placeholder component of the control. Override to create a custom size textbox in the control.
+     Calculates the bounds for the placeholder component of the control. Override to create a custom size textbox in the control.
      
      - parameter bounds The current bounds of the placeholder component
-     
-     - parameter editing True if the control is selected or highlighted
      
      -returns The rectangle that the placeholder component should render in
      */
@@ -669,11 +667,21 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
     
     // MARK: TextField target actions
     
+    /**
+    Invoked when a property of the child textField member has changed
+
+    - parameter textField: the textField member
+    */
     internal func textFieldChanged(textfield: UITextField) {
         self.setText(textfield.text, animated: true)
         self.resetErrorMessageIfPresent()
     }
     
+    /**
+     Invoked when a the child textfield has ended editing (e.g. the keyboard was dismissed)
+     
+     - parameter textField: the textField member
+     */
     internal func editingDidEndOnExit(textfield: UITextField) {
         self.sendActionsForControlEvents(.EditingDidEndOnExit)
     }
