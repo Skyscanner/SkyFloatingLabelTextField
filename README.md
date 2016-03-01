@@ -15,6 +15,20 @@ On top of implementing the space-saving floating title, the component also suppo
 
 ![](/SkyFloatingLabelTextField/images/showcase-example.gif)
 
+## Installation
+
+#### CocoaPods
+
+The control is available through [CocoaPods](https://cocoapods.org/). To install it, add the following line to your Podfile:
+
+```
+pod 'SkyFloatingLabelTextField'
+```
+
+#### Manual
+
+You can download the latest files from our [Releases page](https://github.com/Skyscanner/SkyFloatingLabelTextField/releases). After doing so, copy the files in the `Sources` folder to your project.
+
 ## Usage
 
 The UI component can be used via the `SkyFloatingLabelTextField` class. To use icons on the right hand side, use the `SkyFloatingLabelTextFieldWithIcon` class. This control can be used very similar to `UITextField` - both from Interface Builder, or from code.
@@ -135,23 +149,9 @@ The control was designed to allow further customization in subclasses. The contr
   - `lineViewRectForBounds`: override to change the bounds of the bottom line view
   - `placeholderLabelRectForBounds`: override to change the bounds of the placeholder view
 
-## Installation
+##Documentation
 
-#### CocoaPods
-
-The control is available through [CocoaPods](https://cocoapods.org/). To install it, add the following line to your Podfile:
-
-```
-pod 'SkyFloatingLabelTextField'
-```
-
-#### Manual
-
-You can download the latest files from our [Releases page](https://github.com/Skyscanner/SkyFloatingLabelTextField/releases). After doing so, copy the files in the `SkyFloatingLabelTextField/SkyFloatingLabelTextField` folder to your project:
-- `SkyFloatingLabelTextField.swift`
-- `SkyFloatingLabelTextFieldDelegate.swift`
-- `SkyFloatingLabelTextFieldWithIcon.swift`
-- `UITextField+fixCaretPosition.swift`
+See the [SkyFloatingLabelTextField documentation](http://cocoadocs.org/docsets/SkyFloatingLabelTextField) on [CocoaDocs.org](http://cocoadocs.org) for the full documentation.
 
 ##Contributing
 
