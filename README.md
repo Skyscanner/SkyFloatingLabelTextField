@@ -7,7 +7,7 @@
 
 [![Pod Version](https://img.shields.io/cocoapods/v/SkyFloatingLabelTextField.svg?style=flat)](https://cocoapods.org/pods/SkyFloatingLabelTextField)
 
-`SkyFloatingLabelTextField` is a beautiful, flexible and customizable implementation of the **"Float Label Pattern"**. This design enables adding context to input fields that is visible at time of typing, while minimizing the additional space used to display this additional context. This component is used in the [Skyscanner TravelPro iOS application](https://itunes.apple.com/gb/app/travelpro-business-travel/id1046916687) in several places.
+`SkyFloatingLabelTextField` is a beautiful, flexible and customizable implementation of the space saving **"Float Label Pattern"**. This design enables adding context to input fields that is visible at time of typing, while minimizing the additional space used to display this additional context. This component is used in the [Skyscanner TravelPro iOS application](https://itunes.apple.com/gb/app/travelpro-business-travel/id1046916687) in several places.
 
 On top of implementing the space-saving floating title, the component also supports using iconography, various states (error, selected, highlighted states), and is very much customizable and extensible.
 
@@ -15,44 +15,114 @@ On top of implementing the space-saving floating title, the component also suppo
 
 ## Usage
 
-The UI component can be used via the `SkyFloatingLabelTextField` and `SkyFloatingLabelTextFieldWithIcon` classes - the latter has support for icons on the right side of the textbox.
+The UI component can be used via the `SkyFloatingLabelTextField` class. To use icons on the right hand side, use the `SkyFloatingLabelTextFieldWithIcon` class. This control can be used very similar to `UITextField` - both from Interface Builder, or from code.
 
-The control can be used very similar to the `UITextField`, both from Interface Builder, or from code.
+To create an instance of the class, use Interface builder, or do it from code. This example will create the following textbox with the placeholder and title:
 
-## States and properties
+![](/SkyFloatingLabelTextField/images/example-1.gif)
 
-The control supports three different states, with matching properties:
-- **State independent**
-  - `text`: the value of the textfield, the same way as UITextField works
-  - `textColor`: the color of the editable text
-  - `tintColor`: the color of the cursor when editing, as per `UITextField`
-- **Deselected / Normal** state
-  - `title`: the text contents of the title above the textfield
-  - `titleColor`: the color of the floating label
-  - `lineHeight`: the height of the bottom line, under the textfield
-  - `lineColor`:  the color of the bottom line, under the textfield
-- **Selected** state: when the textfield's `selected` property is set to `true`. This is typically when it becomes the first responder.
-  - `selectedTitle`
-  - `selectedTitleColor`
-  - `selectedLineHeight`
-  - `selectedLineColor`
-- **Highlighted** state: when the `highlighted` property is set to true.
-  - In this case the title color is shown using the `selectedTitleColor` and the line color is displayed using the `selectedLineColor` values
-  - Highlighting can be an alternative way to show fields that have not been filled out, e.g. when a person submits a form. See [this example](/SkyFloatingLabelTextField/blob/master/SkyFloatingLabelTextField/SkyFloatingLabelTextFieldExample/Example0/ShowcaseExampleViewController.swift) on how it is used there.
-- **Error**: when the textfield's `errorMessage` property is set to a non `nil` value
-  - `errorMessage`: the text displayed as the title of the textfield
-  - `errorColor`: the color used to display the title and bottom line with
+```swift
+let textField = SkyFloatingLabelTextField(frame: CGRectMake(10, 10, 200, 45))
+textField.placeholder = "Name"
+textField.title = "Your full name"
+self.view.addSubview(textField)
+```
 
-###`SkyFloatingLabelTextFieldWithIcon` additional properties:
-- **State independent**
-  - `iconFont`: font to use to display icons
-  - `iconText`: the icon's content
-  - `iconMarginBottom`: margin in points on the bottom of the icon. Helps position icon to the right height more precisely
-  - `iconRotationDegrees`: rotates the icon itself. In the above example the second airline logo is the same icon, just rotated by 90 degrees
-- **Deselected / Normal** state
-  - `iconColor`: color to display the icon with
-- **Selected** state
-  -  `selectedIconColor`: color used when the textfield is elected
+### Colors
+
+To customize the colors of the textfield, set a few properties - either from code, or from Interface builder. To use a textfield with an icon, utilize the `SkyFloatingLabelTextFieldWithIcon` class (and bundle the font class with your app). This example will change colors for the textfield on teh right:
+
+![](/SkyFloatingLabelTextField/images/example-2.gif)
+
+```swift
+let lightGreyColor = UIColor(red: 197/255, green: 205/255, blue: 205/255, alpha: 1.0)
+let darkGreyColor = UIColor(red: 52/255, green: 42/255, blue: 61/255, alpha: 1.0)
+let overcastBlueColor = UIColor(red: 0, green: 187/255, blue: 204/255, alpha: 1.0)
+
+let textField1 = SkyFloatingLabelTextField(frame: CGRectMake(10, 10, 120, 45))
+textField1.placeholder = "First name"
+textField1.title = "Given name"
+self.view.addSubview(textField1)
+
+let textField2 = SkyFloatingLabelTextField(frame: CGRectMake(150, 10, 120, 45))
+textField2.placeholder = "Last name"
+textField2.title = "Family name"
+
+textField2.tintColor = overcastBlueColor // the color of the blinking cursor
+textField2.textColor = darkGreyColor
+textField2.lineColor = lightGreyColor
+textField2.selectedTitleColor = overcastBlueColor
+textField2.selectedLineColor = overcastBlueColor
+
+textField2.lineHeight = 1.0 // bottom line height in points
+textField2.selectedLineHeight = 2.0
+```
+
+### Icons and fonts
+
+Use the `SkyFloatingLabelTextFieldWithIcon` field to display icons next to the textfields. You will have to set the `iconFont` property and bundle your icon with your app (if its not a built in one). Icons can be rotated and more precise positioning is also supported:
+
+![](/SkyFloatingLabelTextField/images/example-3.gif)
+
+```swift
+let overcastBlueColor = UIColor(red: 0, green: 187/255, blue: 204/255, alpha: 1.0)
+
+let textField1 = SkyFloatingLabelTextFieldWithIcon(frame: CGRectMake(10, 10, 120, 45))
+textField1.placeholder = "Departure"
+textField1.title = "Flying from"
+textField1.iconFont = UIFont(name: "FontAwesome", size: 15)
+textField1.iconText = "\u{f072}" // plane icon as per https://fortawesome.github.io/Font-Awesome/cheatsheet/
+self.view.addSubview(textField1)
+
+let textField2 = SkyFloatingLabelTextFieldWithIcon(frame: CGRectMake(150, 10, 120, 45))
+textField2.placeholder = "Arrival"
+textField2.title = "Flying to"
+textField2.tintColor = overcastBlueColor
+textField2.selectedTitleColor = overcastBlueColor
+textField2.selectedLineColor = overcastBlueColor
+
+// Set icon properties
+textField2.iconColor = UIColor.lightGrayColor()
+textField2.selectedIconColor = overcastBlueColor
+textField2.iconFont = UIFont(name: "FontAwesome", size: 15)
+textField2.iconText = "\u{f072}" // plane icon as per https://fortawesome.github.io/Font-Awesome/cheatsheet/
+textField2.iconRotationDegrees = 90 // rotate it 90 degrees
+textField2.iconMarginBottom = 4.0 // more precise icon positioning
+textField2.iconMarginLeft = 2.0
+self.view.addSubview(textField2)
+```
+
+### Error state and delegates
+
+The textfield supports displaying an error state - this can be useful for example when validating fields on the fly. When the `errorMessage` property is set on the control, then the control is highlighted with the color set in the `errorColor` property.
+
+To get notified of different events happening on the textfield - such as the text changing, editing starting or ending - just set the `delegate` property to a class implementing the `SkyFloatingLabelTextFieldDelegate` protocol. This delegate is very similar to the [UITextFieldDelegate protocol](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UITextFieldDelegate_Protocol/):
+
+![](/SkyFloatingLabelTextField/images/example-4.gif)
+
+```swift
+class MyViewController: UIViewController, SkyFloatingLabelTextFieldDelegate {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let textField1 = SkyFloatingLabelTextField(frame: CGRectMake(10, 10, 120, 45))
+        textField1.placeholder = "Email"
+        textField1.title = "Email address"
+        textField1.errorColor = UIColor.redColor()
+        textField1.delegate = self
+        self.view.addSubview(textField1)
+    }
+
+    /// Implementing a method on the SkyFloatingLabelTextFieldDelegate protocol. This will notify us when something has changed on the textfield
+    func textFieldChanged(textField: SkyFloatingLabelTextField) {
+        if let text = textField.text {
+            // Note: every time when the text of the textfield changes, the error message is reset (hence we don't need to reset it)
+            if(text.characters.count < 3 || !text.containsString("@")) {
+                textField.errorMessage = "Invaid email"
+            }
+        }
+    }
+}
+```
 
 ###Further customizing the control by subclassing
 
@@ -87,6 +157,6 @@ We welcome all contributions. Please read [this guide](/CONTRIBUTING.md) before 
 
 ## Credits
 
-Credits for the original design, and improving it with iconography to Matt D. Smith ([@mds](https://twitter.com/mds)).
-
 The original component was built by [Daniel Langh](https://github.com/intonarumori), [Gergely Orosz](https://github.com/gergelyorosz) and [Raimon Laupente](https://github.com/wolffan).
+
+Credits for the original design, and improving it with iconography to Matt D. Smith ([@mds](https://twitter.com/mds)).

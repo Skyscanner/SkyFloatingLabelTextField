@@ -277,6 +277,18 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         XCTAssertEqual(floatingLabelTextField.titleLabel.text, "TITLE")
     }
     
+    func test_whenTitleIsSetAndSelectedTitleIsNotSet_withControlBeingSelected_thenTitleLabelDisplaysUppercaseTitle() {
+        // given
+        floatingLabelTextField.selected = true
+        
+        // when
+        floatingLabelTextField.title = "title"
+        floatingLabelTextField.selectedTitle = nil
+        
+        // then
+        XCTAssertEqual(floatingLabelTextField.titleLabel.text, "TITLE")
+    }
+    
     func test_whenTitleAndSelectedTitleAreSet_withControlBeingSelected_thenTitleLabelDisplaysUppercaseSelectedTitle() {
         // given
         floatingLabelTextField.selected = true
