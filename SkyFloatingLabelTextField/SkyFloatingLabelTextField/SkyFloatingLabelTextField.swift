@@ -462,7 +462,7 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
             self.titleLabel.text = self.titleFormatter(errorMessage!)
         } else {
             if self.editing {
-                self.titleLabel.text = self.selectedTitleOrPlaceholder()
+                self.titleLabel.text = self.selectedTitleOrTitlePlaceholder()
             } else {
                 self.titleLabel.text = self.titleOrPlaceholder()
             }
@@ -674,7 +674,6 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
     */
     internal func textFieldChanged(textfield: UITextField) {
         self.setText(textfield.text, animated: true)
-        self.resetErrorMessageIfPresent()
     }
     
     /**
@@ -752,8 +751,8 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
         return nil
     }
     
-    private func selectedTitleOrPlaceholder() -> String? {
-        if let title = self.selectedTitle ?? self.placeholder {
+    private func selectedTitleOrTitlePlaceholder() -> String? {
+        if let title = self.selectedTitle ?? self.title ?? self.placeholder {
             return self.titleFormatter(title)
         }
         return nil
