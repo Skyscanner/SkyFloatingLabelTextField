@@ -1,4 +1,4 @@
-v1.0.2
+v1.0.3
 ----------
 * Updated the description of the pod
 
