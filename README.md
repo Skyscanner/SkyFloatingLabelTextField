@@ -140,7 +140,7 @@ class MyViewController: UIViewController, SkyFloatingLabelTextFieldDelegate {
 }
 ```
 
-###Further customizing the control by subclassing
+### Further customizing the control by subclassing
 
 The control was designed to allow further customization in subclasses. The control itself inherits from `UITextField`, so the standard overrides from there can all be used. A few other notable customization hooks via overriding are:
 - `updateColors`: override this method to customzie colors whenever the state of the control changes
@@ -149,11 +149,11 @@ The control was designed to allow further customization in subclasses. The contr
   - `lineViewRectForBounds`: override to change the bounds of the bottom line view
   - `placeholderLabelRectForBounds`: override to change the bounds of the placeholder view
 
-##Documentation
+## Documentation
 
 See the [SkyFloatingLabelTextField documentation](http://cocoadocs.org/docsets/SkyFloatingLabelTextField) on [CocoaDocs.org](http://cocoadocs.org) for the full documentation.
 
-##Contributing
+## Contributing
 
 We welcome all contributions. Please read [this guide](/CONTRIBUTING.md) before opening issues or submitting pull requests, as well as how and who to contact with questions.
 
