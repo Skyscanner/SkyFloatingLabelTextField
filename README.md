@@ -15,47 +15,9 @@ On top of implementing the space-saving floating title, the component also suppo
 
 ![](/SkyFloatingLabelTextField/images/showcase-example.gif)
 
-## Installation
-
-#### CocoaPods
-
-The control is available through [CocoaPods](https://cocoapods.org/). CocoaPods can be installed using [Ruby gems](https://rubygems.org/):
-```shell
-$ gem install cocoapods
-```
-
-Then simply add `SkyFloatingLabelTextField` to your Podfile:
-
-```
-pod 'SkyFloatingLabelTextField', '~> 1.0'
-```
-
-Lastly let CocoaPods fetch the latest version of the component by running:
-```shell
-$ cocoapods update
-```
-
-#### Carthage
-The component supports [Carthage](https://github.con/Carthage/Carthage). Start by making sure you have the latest version of Carthage installed. Using [Homebrew](http://brew.sh/) run this:
-```shell
-$ brew update
-$ brew install carthage
-```
-Then add `SkyFloatingLabelTextField` to your `Cartfile`:
-```
-github 'Skyscanner/SkyFloatingLabelTextField' ~> 1.0
-```
-Afterwards have Carthage update the component by running:
-```shell
-$ carthage update
-```
-Finally, add the framework to the Xcode project of your App. Link the framework to your App and copy it to the App’s Frameworks directory via the “Build Phases” section.
-
-#### Manual
-
-You can download the latest files from our [Releases page](https://github.com/Skyscanner/SkyFloatingLabelTextField/releases). After doing so, copy the files in the `Sources` folder to your project.
-
 ## Usage
+
+To start using the component add it to your project using CocoaPods, Carthage or manually as per the [Installation](#installation) section.
 
 The UI component can be used via the `SkyFloatingLabelTextField` class. To use icons on the right hand side, use the `SkyFloatingLabelTextFieldWithIcon` class. This control can be used very similar to `UITextField` - both from Interface Builder, or from code.
 
@@ -178,6 +140,46 @@ The control was designed to allow further customization in subclasses. The contr
 ## Documentation
 
 See the [SkyFloatingLabelTextField documentation](http://cocoadocs.org/docsets/SkyFloatingLabelTextField) on [CocoaDocs.org](http://cocoadocs.org) for the full documentation.
+
+## Installation
+
+#### CocoaPods
+
+The control is available through [CocoaPods](https://cocoapods.org/). CocoaPods can be installed using [Ruby gems](https://rubygems.org/):
+```shell
+$ gem install cocoapods
+```
+
+Then simply add `SkyFloatingLabelTextField` to your Podfile:
+
+```
+pod 'SkyFloatingLabelTextField', '~> 1.0'
+```
+
+Lastly let CocoaPods fetch the latest version of the component by running:
+```shell
+$ cocoapods update
+```
+
+#### Carthage
+The component supports [Carthage](https://github.con/Carthage/Carthage). Start by making sure you have the latest version of Carthage installed. Using [Homebrew](http://brew.sh/) run this:
+```shell
+$ brew update
+$ brew install carthage
+```
+Then add `SkyFloatingLabelTextField` to your `Cartfile`:
+```
+github 'Skyscanner/SkyFloatingLabelTextField' ~> 1.0
+```
+Afterwards have Carthage update the component by running:
+```shell
+$ carthage update
+```
+Finally, add the framework to the Xcode project of your App. Link the framework to your App and copy it to the App’s Frameworks directory via the “Build Phases” section.
+
+#### Manual
+
+You can download the latest files from our [Releases page](https://github.com/Skyscanner/SkyFloatingLabelTextField/releases). After doing so, copy the files in the `Sources` folder to your project.
 
 ## Contributing
 
