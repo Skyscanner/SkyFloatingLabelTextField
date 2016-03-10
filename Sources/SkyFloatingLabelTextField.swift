@@ -117,6 +117,19 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
         return text.uppercaseString
     }
     
+    private var emptyKeyboardView: UIView = UIView()
+    
+    /// A bool value that determines whether the keyboard should be shown when the field is selected
+    public var hideKeyboardWhenSelected:Bool = false {
+        didSet {
+            if(self.hideKeyboardWhenSelected) {
+                self.textField.inputView = emptyKeyboardView
+            } else {
+                self.textField.inputView =  nil
+            }
+        }
+    }
+    
     /**
      Identifies whether the text object should hide the text being entered.
      */
@@ -369,9 +382,6 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
     override public func becomeFirstResponder() -> Bool {
         self.textField.userInteractionEnabled = true
         let success = self.textField.becomeFirstResponder()
-        if !success {
-            self.textField.userInteractionEnabled = false
-        }
         self.updateControl(true)
         return success
     }
@@ -382,9 +392,7 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
      */
     override public func resignFirstResponder() -> Bool {
         let success = self.textField.resignFirstResponder()
-        if success {
-            self.textField.userInteractionEnabled = false
-        }
+        self.textField.userInteractionEnabled = false
         self.updateControl(true)
         return success
     }

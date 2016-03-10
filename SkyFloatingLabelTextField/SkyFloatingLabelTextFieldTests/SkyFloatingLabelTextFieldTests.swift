@@ -314,6 +314,26 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         XCTAssertTrue(floatingLabelTextField.textField.secureTextEntry)
     }
     
+    func test_whenSettingHideKeyboardWhenSelectedToTrue_thenTextFieldInputViewIsAnEmptyView() {
+        // when
+        floatingLabelTextField.hideKeyboardWhenSelected = true
+        
+        // them
+        XCTAssertEqual(floatingLabelTextField.textField.inputView!.frame.width, 0)
+        XCTAssertEqual(floatingLabelTextField.textField.inputView!.frame.height, 0)
+    }
+    
+    func test_whenChangingHideKeyboardWhenSelectedToFalse_thenTextFieldInputViewIsSetToNil() {
+        // given
+        floatingLabelTextField.hideKeyboardWhenSelected = true
+        
+        // when
+        floatingLabelTextField.hideKeyboardWhenSelected = false
+        
+        // them
+        XCTAssertNil(floatingLabelTextField.textField.inputView)
+    }
+    
     func test_whenGettingEnabledValue_thenReturnsPreviouslySetValue() {
         // given
         XCTAssertTrue(floatingLabelTextField.enabled)
@@ -357,40 +377,40 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
     
     // MARK: - Responder handling
     
-    func test_whenBecomeFirstResponderInvoked_thenTextFieldUserInteractionEnabledSetToFalse() {
+    func test_whenBecomeFirstResponderInvoked_thenTextFieldUserInteractionEnabledSetToTrue() {
         // given
-        floatingLabelTextField.textField.userInteractionEnabled = true
-        XCTAssertTrue(floatingLabelTextField.textField.userInteractionEnabled)
+        floatingLabelTextField.textField.userInteractionEnabled = false
+        XCTAssertFalse(floatingLabelTextField.textField.userInteractionEnabled)
         
         // when
         floatingLabelTextField.becomeFirstResponder()
         
         // then
-        XCTAssertFalse(floatingLabelTextField.textField.userInteractionEnabled)
+        XCTAssertTrue(floatingLabelTextField.textField.userInteractionEnabled)
     }
     
     func test_whenResignFirstResponderInvoked_thenTextFieldUserInteractionEnabledSetToFalse() {
         // given
         floatingLabelTextField.becomeFirstResponder()
+        XCTAssertTrue(floatingLabelTextField.textField.userInteractionEnabled)
         
         // when
-        floatingLabelTextField.endEditing(true)
         floatingLabelTextField.resignFirstResponder()
         
         // then
         XCTAssertFalse(floatingLabelTextField.textField.userInteractionEnabled)
     }
     
-    func test_whenTouchesBegan_withNotBeingFirstResponder_thenTextFielUserInteractionEnabledSetToFalse() {
+    func test_whenTouchesBegan_withNotBeingFirstResponder_thenTextFieldUserInteractionEnabledSetToTrue() {
         // given
         floatingLabelTextField.resignFirstResponder()
-        XCTAssertTrue(floatingLabelTextField.textField.userInteractionEnabled)
+        XCTAssertFalse(floatingLabelTextField.textField.userInteractionEnabled)
         
         // when
         floatingLabelTextField.touchesBegan(Set<UITouch>(), withEvent: nil)
         
         // then
-        XCTAssertFalse(floatingLabelTextField.textField.userInteractionEnabled)
+        XCTAssertTrue(floatingLabelTextField.textField.userInteractionEnabled)
     }
     
     // MARK: - Textfield delegate methods
