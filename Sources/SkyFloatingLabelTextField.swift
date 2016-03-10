@@ -382,9 +382,6 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
     override public func becomeFirstResponder() -> Bool {
         self.textField.userInteractionEnabled = true
         let success = self.textField.becomeFirstResponder()
-        if !success {
-            self.textField.userInteractionEnabled = false
-        }
         self.updateControl(true)
         return success
     }
@@ -395,9 +392,7 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
      */
     override public func resignFirstResponder() -> Bool {
         let success = self.textField.resignFirstResponder()
-        if success {
-            self.textField.userInteractionEnabled = false
-        }
+        self.textField.userInteractionEnabled = false
         self.updateControl(true)
         return success
     }

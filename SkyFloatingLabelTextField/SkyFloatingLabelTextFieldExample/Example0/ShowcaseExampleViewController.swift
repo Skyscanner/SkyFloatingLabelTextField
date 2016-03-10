@@ -25,6 +25,8 @@ class ShowcaseExampleViewController: UIViewController, SkyFloatingLabelTextField
         super.viewDidLoad()
         
         self.setupThemeColors()
+        
+        self.arrivalCityField.becomeFirstResponder()
     }
     
     // MARK: - Creating the form elements
