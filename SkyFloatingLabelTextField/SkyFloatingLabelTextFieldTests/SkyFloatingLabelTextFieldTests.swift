@@ -314,6 +314,26 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         XCTAssertTrue(floatingLabelTextField.textField.secureTextEntry)
     }
     
+    func test_whenSettingHideKeyboardWhenSelectedToTrue_thenTextFieldInputViewIsAnEmptyView() {
+        // when
+        floatingLabelTextField.hideKeyboardWhenSelected = true
+        
+        // them
+        XCTAssertEqual(floatingLabelTextField.textField.inputView!.frame.width, 0)
+        XCTAssertEqual(floatingLabelTextField.textField.inputView!.frame.height, 0)
+    }
+    
+    func test_whenChangingHideKeyboardWhenSelectedToFalse_thenTextFieldInputViewIsSetToNil() {
+        // given
+        floatingLabelTextField.hideKeyboardWhenSelected = true
+        
+        // when
+        floatingLabelTextField.hideKeyboardWhenSelected = false
+        
+        // them
+        XCTAssertNil(floatingLabelTextField.textField.inputView)
+    }
+    
     func test_whenGettingEnabledValue_thenReturnsPreviouslySetValue() {
         // given
         XCTAssertTrue(floatingLabelTextField.enabled)
