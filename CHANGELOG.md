@@ -1,3 +1,7 @@
+v1.0.6
+----------
+* Removed the hideKeyboardWhenSelected property. This property seemed too specific. To hide the keyboard when selecting a field, an alternative workaround is to set the textField.inputView property to an empty view.
+
 v1.0.5
 ----------
 * Added the hideKeyboardWhenSelected property

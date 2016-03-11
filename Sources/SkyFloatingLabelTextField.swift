@@ -119,17 +119,6 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
     
     private var emptyKeyboardView: UIView = UIView()
     
-    /// A bool value that determines whether the keyboard should be shown when the field is selected
-    public var hideKeyboardWhenSelected:Bool = false {
-        didSet {
-            if(self.hideKeyboardWhenSelected) {
-                self.textField.inputView = emptyKeyboardView
-            } else {
-                self.textField.inputView =  nil
-            }
-        }
-    }
-    
     /**
      Identifies whether the text object should hide the text being entered.
      */
