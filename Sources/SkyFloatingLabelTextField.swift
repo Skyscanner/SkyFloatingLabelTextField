@@ -117,8 +117,6 @@ public class SkyFloatingLabelTextField: UIControl, UITextFieldDelegate {
         return text.uppercaseString
     }
     
-    private var emptyKeyboardView: UIView = UIView()
-    
     /**
      Identifies whether the text object should hide the text being entered.
      */
