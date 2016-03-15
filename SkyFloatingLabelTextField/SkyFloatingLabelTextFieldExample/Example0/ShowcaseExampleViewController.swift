@@ -79,7 +79,7 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
         
         // Set custom fonts for the title, placeholder and textfield labels
         textField.titleLabel.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 12)
-        textField.placeholderLabel.font = UIFont(name: "AppleSDGothicNeo-Light", size: 18)
+        textField.placeholderFont = UIFont(name: "AppleSDGothicNeo-Light", size: 18)
         textField.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 18)
     }
     
