@@ -64,15 +64,15 @@ public class IconTextField: SkyFloatingLabelTextField {
     
     // MARK: Custom layout overrides
     
-    override public func textFieldRectForBounds(bounds: CGRect) -> CGRect {
-        var rect = super.textFieldRectForBounds(bounds)
+    override public func textRectForBounds(bounds: CGRect) -> CGRect {
+        var rect = super.textRectForBounds(bounds)
         rect.origin.x += iconWidth
         rect.size.width -= iconWidth
         return rect
     }
     
-    override public func placeholderLabelRectForBounds(bounds: CGRect) -> CGRect {
-        var rect = super.placeholderLabelRectForBounds(bounds)
+    override public func placeholderRectForBounds(bounds: CGRect) -> CGRect {
+        var rect = super.placeholderRectForBounds(bounds)
         rect.origin.x += iconWidth
         rect.size.width -= iconWidth
         return rect
