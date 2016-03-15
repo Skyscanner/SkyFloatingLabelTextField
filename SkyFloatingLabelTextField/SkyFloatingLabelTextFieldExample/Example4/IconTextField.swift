@@ -12,7 +12,7 @@ import UIKit
 public class IconTextField: SkyFloatingLabelTextField {
     
     public var iconLabel:UILabel!
-    public var iconWidth:CGFloat = 20.0
+    public var iconWidth:CGFloat = 25.0
     
     @IBInspectable
     public var icon:String? {
@@ -38,7 +38,6 @@ public class IconTextField: SkyFloatingLabelTextField {
     func createIconLabel() {
         let iconLabel = UILabel()
         iconLabel.backgroundColor = UIColor.clearColor()
-        iconLabel.font = UIFont(name: "Dashicons-Regular", size: 15)
         iconLabel.textAlignment = .Center
         iconLabel.autoresizingMask = [.FlexibleTopMargin, .FlexibleRightMargin]
         self.iconLabel = iconLabel
@@ -65,6 +64,12 @@ public class IconTextField: SkyFloatingLabelTextField {
     // MARK: Custom layout overrides
     
     override public func textRectForBounds(bounds: CGRect) -> CGRect {
+        var rect = super.textRectForBounds(bounds)
+        rect.origin.x += iconWidth
+        rect.size.width -= iconWidth
+        return rect
+    }
+    override public func editingRectForBounds(bounds: CGRect) -> CGRect {
         var rect = super.textRectForBounds(bounds)
         rect.origin.x += iconWidth
         rect.size.width -= iconWidth
