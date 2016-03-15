@@ -26,6 +26,10 @@ public class ThemedTextField: SkyFloatingLabelTextField {
         let whiteColor = UIColor.whiteColor()
         let errorColor = UIColor.redColor()
         
+        let font = UIFont.systemFontOfSize(18.0)
+        self.font = font
+        self.placeholderFont = UIFont.italicSystemFontOfSize(font.pointSize)
+        
         self.errorColor = errorColor
         self.textColor = whiteColor
         self.selectedLineColor = blueColor
