@@ -296,6 +296,7 @@ public class SkyFloatingLabelTextField: UITextField {
     }
     
     private final func init_SkyFloatingLabelTextField() {
+        self.borderStyle = .None
         self.createTitleLabel()
         self.createLineView()
         self.updateColors()
@@ -534,7 +535,12 @@ public class SkyFloatingLabelTextField: UITextField {
      -returns the calculated height of the title label. Override to size the title with a different height
      */
     public func titleHeight() -> CGFloat {
-        return self.titleLabel.font!.lineHeight
+        if titleLabel != nil {
+            if let font = self.titleLabel.font {
+                return font.lineHeight
+            }
+        }
+        return 15.0
     }
     
     /**
@@ -562,9 +568,9 @@ public class SkyFloatingLabelTextField: UITextField {
     override public func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
         self.selected = true
-        self.titleLabel.alpha = 1.0
         _renderingInInterfaceBuilder = true
-        self.updateColors()
+        self.updateControl(false)
+        self.invalidateIntrinsicContentSize()
     }
     
     /// Invoked by layoutIfNeeded automatically
