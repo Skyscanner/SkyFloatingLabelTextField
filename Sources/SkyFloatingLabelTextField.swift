@@ -23,15 +23,19 @@ public class SkyFloatingLabelTextField: UITextField {
     
     // MARK: Colors
     
+    private var cachedTextColor:UIColor?
+    
     /// A UIColor value that determines the text color of the editable text
-    /*
     @IBInspectable
-    override public var textColor:UIColor = UIColor.blackColor() {
+    override public var textColor:UIColor? {
         set {
-            super.textColor
-            self.updateTextColor()
+            self.cachedTextColor = newValue
+            self.updateControl(false)
         }
-    }*/
+        get {
+            return cachedTextColor
+        }
+    }
     
     /// A UIColor value that determines text color of the placeholder label
     @IBInspectable public var placeholderColor:UIColor = UIColor.lightGrayColor() {
@@ -301,6 +305,8 @@ public class SkyFloatingLabelTextField: UITextField {
     }
     
     public func textChanged(textField:UITextField) {
+        resetErrorMessageIfPresent()
+        updateControl(true)
         updateTitleLabel(true)
     }
     
@@ -403,10 +409,9 @@ public class SkyFloatingLabelTextField: UITextField {
     
     private func updateTextColor() {
         if self.hasErrorMessage {
-            self.textColor = self.errorColor
+            super.textColor = self.errorColor
         } else {
-            //TODO:
-            // self.textColor = textColor
+            super.textColor = self.cachedTextColor
         }
     }
     
@@ -541,126 +546,6 @@ public class SkyFloatingLabelTextField: UITextField {
      */
     public func textHeight() -> CGFloat {
         return self.font!.lineHeight + 7.0
-    }
-    
-    // MARK: - Textfield delegate methods
-    
-    /**
-    Tells the delegate that editing began for the specified text field.
-    
-    - parameter textField: The text field for which an editing session began.
-    */
-    public func textFieldDidBeginEditing(textField: UITextField) {
-        self.updateControl(true)
-        self.delegate?.textFieldDidBeginEditing?(self)
-    }
-    
-    /**
-     Tells the delegate that editing stopped for the specified text field.
-     
-     - parameter textField: The text field for which the editing session ended.
-     */
-    public func textFieldDidEndEditing(textField: UITextField) {
-        self.updateControl(true)
-        self.delegate?.textFieldDidEndEditing?(self)
-    }
-    
-    /**
-     Asks the delegate if the text field should process the pressing of the return button.
-     
-     - parameter textField: The text field whose return button was pressed.
-     */
-    public func textFieldShouldReturn(textField: UITextField) -> Bool {
-        if let delegate = self.delegate {
-            if let result = delegate.textFieldShouldReturn?(self) {
-                return result
-            }
-        }
-        return true
-    }
-    
-    /**
-     Asks the delegate if the text field should process the pressing of the clear button.
-     
-     - parameter textField: The text field whose clear button was pressed.
-     */
-    public func textFieldShouldClear(textField: UITextField) -> Bool {
-        if let delegate = self.delegate {
-            if let result = delegate.textFieldShouldClear?(self) {
-                return result
-            }
-        }
-        return true
-    }
-    
-    /**
-     Asks the delegate if editing should begin in the specified text field.
-     
-     - parameter textField: The text field for which editing is about to begin.
-     
-     - returns: `true` if an editing session should be initiated; otherwise, `false` to disallow editing.
-     */
-    public func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
-        if let delegate = self.delegate {
-            if let result = delegate.textFieldShouldBeginEditing?(self) {
-                return result
-            }
-        }
-        return true
-    }
-    
-    /**
-     Asks the delegate if editing should stop in the specified text field.
-     
-     - parameter textField: The text field for which editing is about to end.
-     
-     - returns: `true` if editing should stop; otherwise, `false` if the editing session should continue
-     */
-    public func textFieldShouldEndEditing(textField: UITextField) -> Bool {
-        if let delegate = self.delegate {
-            if let result = delegate.textFieldShouldEndEditing?(self) {
-                return result
-            }
-        }
-        return true
-    }
-    
-    /**
-     Asks the delegate if editing should stop in the specified text field.
-     
-     - parameter textField: The text field containing the text.
-     - parameter range: The range of characters to be replaced.
-     - parameter string: The replacement string.
-     
-     - returns: `true` if the specified text range should be replaced; otherwise, `false` to keep the old text.
-     */
-    public func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        if let delegate = self.delegate {
-            if let result = delegate.textField?(self, shouldChangeCharactersInRange: range, replacementString: string) {
-                return result
-            }
-        }
-        return true
-    }
-    
-    // MARK: TextField target actions
-    
-    /**
-    Invoked when a property of the child textField member has changed
-
-    - parameter textField: the textField member
-    */
-    internal func textFieldChanged(textfield: UITextField) {
-        self.setText(textfield.text, animated: true)
-    }
-    
-    /**
-     Invoked when a the child textfield has ended editing (e.g. the keyboard was dismissed)
-     
-     - parameter textField: the textField member
-     */
-    internal func editingDidEndOnExit(textfield: UITextField) {
-        self.sendActionsForControlEvents(.EditingDidEndOnExit)
     }
     
     // MARK: Touch handling
