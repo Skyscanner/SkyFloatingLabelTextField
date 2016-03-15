@@ -92,6 +92,7 @@ public class SkyFloatingLabelTextField: UITextField {
     @IBInspectable public var lineHeight:CGFloat = 0.5 {
         didSet {
             self.updateLineView()
+            self.setNeedsDisplay()
         }
     }
     
@@ -99,6 +100,7 @@ public class SkyFloatingLabelTextField: UITextField {
     @IBInspectable public var selectedLineHeight:CGFloat = 1.0 {
         didSet {
             self.updateLineView()
+            self.setNeedsDisplay()
         }
     }
     
@@ -460,6 +462,39 @@ public class SkyFloatingLabelTextField: UITextField {
         }
     }
     
+    // MARK: - UITextField text/placeholder positioning Overrides
+    
+    override public func textRectForBounds(bounds: CGRect) -> CGRect {
+        let titleHeight = self.titleHeight()
+        let lineHeight = self.selectedLineHeight
+        let rect = CGRectMake(0, titleHeight, bounds.size.width, bounds.size.height - titleHeight - lineHeight)
+        return rect
+    }
+    
+    override public func editingRectForBounds(bounds: CGRect) -> CGRect {
+        let titleHeight = self.titleHeight()
+        let lineHeight = self.selectedLineHeight
+        let rect = CGRectMake(0, titleHeight, bounds.size.width, bounds.size.height - titleHeight - lineHeight)
+        return rect
+    }
+    
+    override public func placeholderRectForBounds(bounds: CGRect) -> CGRect {
+        let titleHeight = self.titleHeight()
+        let lineHeight = self.selectedLineHeight
+        let rect = CGRectMake(0, titleHeight, bounds.size.width, bounds.size.height - titleHeight - lineHeight)
+        return rect
+    }
+    
+    override public func drawPlaceholderInRect(rect: CGRect) {
+        if let
+            placeholder = self.placeholder,
+            font = self.placeholderFont ?? self.font {
+                var adjustedRect = rect
+                adjustedRect.origin.y = rect.origin.y + (rect.size.height - font.lineHeight)/2.0
+                (placeholder as NSString).drawInRect(adjustedRect, withAttributes: [NSForegroundColorAttributeName:self.placeholderColor, NSFontAttributeName: font])
+        }
+    }
+    
     // MARK: - Positioning Overrides
     
     /**
@@ -480,46 +515,7 @@ public class SkyFloatingLabelTextField: UITextField {
             return CGRectMake(0, titleHeight, bounds.size.width, titleHeight)
         }
     }
-    
-    /**
-     Calculates the bounds for the textfield component of the control. Override to create a custom size textbox in the control.
-     
-     - parameter bounds The current bounds of the textfield component
-     
-     -returns The rectangle that the textfield component should render in
-     */
-    override public func textRectForBounds(bounds: CGRect) -> CGRect {
-        let titleHeight = self.titleHeight()
-        return CGRectMake(0, titleHeight, bounds.size.width, bounds.size.height - titleHeight)
-    }
-    
-    override public func editingRectForBounds(bounds: CGRect) -> CGRect {
-        let titleHeight = self.titleHeight()
-        let lineHeight = self.selectedLineHeight
-        return CGRectMake(0, titleHeight, bounds.size.width, bounds.size.height - titleHeight - lineHeight)
-    }
-    
-    override public func caretRectForPosition(position: UITextPosition) -> CGRect {
-        var rect = super.caretRectForPosition(position)
-        rect.origin.y -= self.selectedLineHeight
-        return rect
-    }
-    
-    override public func placeholderRectForBounds(bounds: CGRect) -> CGRect {
-        let titleHeight = self.titleHeight()
-        let lineHeight = self.selectedLineHeight
-        return CGRectMake(0, titleHeight, bounds.size.width, bounds.size.height - titleHeight - lineHeight)
-    }
-    
-    override public func drawPlaceholderInRect(rect: CGRect) {
-        if let
-            placeholder = self.placeholder,
-            font = self.placeholderFont ?? self.font {
-                (placeholder as NSString).drawInRect(rect, withAttributes: [NSForegroundColorAttributeName:self.placeholderColor, NSFontAttributeName: font])
-        }
-    }
-    
-    
+
     /**
      Calculate the bounds for the bottom line of the control. Override to create a custom size bottom line in the textbox.
      
