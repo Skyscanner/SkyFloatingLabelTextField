@@ -145,7 +145,7 @@ public class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     }
 
     override public func editingRectForBounds(bounds: CGRect) -> CGRect {
-        var rect = super.textRectForBounds(bounds)
+        var rect = super.editingRectForBounds(bounds)
         rect.origin.x += CGFloat(iconWidth + iconMarginLeft)
         rect.size.width -= CGFloat(iconWidth + iconMarginLeft)
         return rect
