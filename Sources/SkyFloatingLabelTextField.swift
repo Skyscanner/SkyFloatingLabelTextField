@@ -36,10 +36,17 @@ public class SkyFloatingLabelTextField: UITextField {
     /// A UIColor value that determines text color of the placeholder label
     @IBInspectable public var placeholderColor:UIColor = UIColor.lightGrayColor() {
         didSet {
-            self.placeholderLabel.textColor = placeholderColor
+            self.setNeedsDisplay()
         }
     }
-    
+
+    /// A UIColor value that determines text color of the placeholder label
+    @IBInspectable public var placeholderFont:UIFont? {
+        didSet {
+            self.setNeedsDisplay()
+        }
+    }
+
     /// A UIColor value that determines the text color of the title label when in the normal state
     @IBInspectable public var titleColor:UIColor = UIColor.grayColor() {
         didSet {
@@ -92,9 +99,6 @@ public class SkyFloatingLabelTextField: UITextField {
     }
     
     // MARK: View components
-    
-    /// The internal `UILabel` that displays the placeholder text when no text input is present.
-    public var placeholderLabel:UILabel!
     
     /// The internal `UIView` to display the line below the text input.
     public var lineView:UIView!
@@ -238,12 +242,9 @@ public class SkyFloatingLabelTextField: UITextField {
      */
     @IBInspectable
     override public var placeholder:String? {
-        set {
-            self.placeholderLabel.text = newValue
+        didSet {
+            self.setNeedsDisplay()
             self.updateTitleLabel()
-        }
-        get {
-            return self.placeholderLabel.text
         }
     }
     
@@ -290,7 +291,6 @@ public class SkyFloatingLabelTextField: UITextField {
     
     private final func init_SkyFloatingLabelTextField() {
         self.createTitleLabel()
-        self.createPlaceholderLabel()
         self.createLineView()
         self.updateColors()
         self.addTextChangeObserver()
@@ -302,7 +302,6 @@ public class SkyFloatingLabelTextField: UITextField {
     
     public func textChanged(textField:UITextField) {
         updateTitleLabel(true)
-        updatePlaceholderLabelVisibility()
     }
     
     // MARK: create components
@@ -315,17 +314,6 @@ public class SkyFloatingLabelTextField: UITextField {
         titleLabel.textColor = self.titleColor
         self.addSubview(titleLabel)
         self.titleLabel = titleLabel
-    }
-    
-    private func createPlaceholderLabel() {
-        let placeholderLabel = UILabel()
-        placeholderLabel.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
-        placeholderLabel.font = UIFont.systemFontOfSize(18.0)
-        placeholderLabel.textColor = self.placeholderColor
-        placeholderLabel.backgroundColor = UIColor.clearColor()
-        placeholderLabel.alpha = 1.0
-        self.addSubview(placeholderLabel)
-        self.placeholderLabel = placeholderLabel
     }
     
     private func createLineView() {
@@ -374,12 +362,6 @@ public class SkyFloatingLabelTextField: UITextField {
         self.updateColors()
         self.updateLineView()
         self.updateTitleLabel(animated)
-        self.updatePlaceholderLabelVisibility()
-    }
-    
-    private func updatePlaceholderLabelVisibility() {
-        let hasText = self.hasText()
-        self.placeholderLabel.hidden = hasText
     }
     
     private func updateLineView() {
@@ -512,11 +494,26 @@ public class SkyFloatingLabelTextField: UITextField {
         return CGRectMake(0, titleHeight, bounds.size.width, bounds.size.height - titleHeight - lineHeight)
     }
     
+    override public func caretRectForPosition(position: UITextPosition) -> CGRect {
+        var rect = super.caretRectForPosition(position)
+        rect.origin.y -= self.selectedLineHeight
+        return rect
+    }
+    
     override public func placeholderRectForBounds(bounds: CGRect) -> CGRect {
         let titleHeight = self.titleHeight()
         let lineHeight = self.selectedLineHeight
         return CGRectMake(0, titleHeight, bounds.size.width, bounds.size.height - titleHeight - lineHeight)
     }
+    
+    override public func drawPlaceholderInRect(rect: CGRect) {
+        if let
+            placeholder = self.placeholder,
+            font = self.placeholderFont ?? self.font {
+                (placeholder as NSString).drawInRect(rect, withAttributes: [NSForegroundColorAttributeName:self.placeholderColor, NSFontAttributeName: font])
+        }
+    }
+    
     
     /**
      Calculate the bounds for the bottom line of the control. Override to create a custom size bottom line in the textbox.
@@ -694,7 +691,6 @@ public class SkyFloatingLabelTextField: UITextField {
         super.layoutSubviews()
         
         self.titleLabel.frame = self.titleLabelRectForBounds(self.bounds, editing: self.hasText() || _renderingInInterfaceBuilder)
-        self.placeholderLabel.frame = self.placeholderRectForBounds(self.bounds)
         self.lineView.frame = self.lineViewRectForBounds(self.bounds, editing: self.editing || _renderingInInterfaceBuilder)
     }
     
