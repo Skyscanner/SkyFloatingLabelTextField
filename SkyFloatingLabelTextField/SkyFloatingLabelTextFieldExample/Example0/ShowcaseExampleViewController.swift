@@ -72,8 +72,6 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
         textField.textColor = darkGreyColor
         textField.lineColor = lightGreyColor
         
-        //textField.backgroundColor = UIColor.redColor()
-        
         textField.selectedTitleColor = overcastBlueColor
         textField.selectedLineColor = overcastBlueColor
         
