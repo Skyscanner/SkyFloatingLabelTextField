@@ -137,13 +137,20 @@ public class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     
     -returns The rectangle that the textfield component should render in
     */
-    override public func textFieldRectForBounds(bounds: CGRect) -> CGRect {
-        var rect = super.textFieldRectForBounds(bounds)
+    override public func textRectForBounds(bounds: CGRect) -> CGRect {
+        var rect = super.textRectForBounds(bounds)
         rect.origin.x += CGFloat(iconWidth + iconMarginLeft)
         rect.size.width -= CGFloat(iconWidth + iconMarginLeft)
         return rect
     }
-    
+
+    override public func editingRectForBounds(bounds: CGRect) -> CGRect {
+        var rect = super.textRectForBounds(bounds)
+        rect.origin.x += CGFloat(iconWidth + iconMarginLeft)
+        rect.size.width -= CGFloat(iconWidth + iconMarginLeft)
+        return rect
+    }
+
     /**
      Calculates the bounds for the placeholder component of the control. Override to create a custom size textbox in the control.
      
@@ -151,8 +158,8 @@ public class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
      
      -returns The rectangle that the placeholder component should render in
      */
-    override public func placeholderLabelRectForBounds(bounds: CGRect) -> CGRect {
-        var rect = super.placeholderLabelRectForBounds(bounds)
+    override public func placeholderRectForBounds(bounds: CGRect) -> CGRect {
+        var rect = super.placeholderRectForBounds(bounds)
         rect.origin.x += CGFloat(iconWidth + iconMarginLeft)
         rect.size.width -= CGFloat(iconWidth + iconMarginLeft)
         return rect
