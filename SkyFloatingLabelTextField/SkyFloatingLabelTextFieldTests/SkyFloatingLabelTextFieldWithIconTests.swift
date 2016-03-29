@@ -107,13 +107,13 @@ class SkyFloatingLabelTextFieldWithIconTests: XCTestCase {
     
     // MARK: - Layout overrides
     
-    func test_whenInvokingTextFieldRectForBounds_thenReturnsValueWithIconWidthAndMarginSubtracted() {
+    func test_whenInvokingTextRectForBounds_thenReturnsValueWithIconWidthAndMarginSubtracted() {
         // given
         floatingLabelTextFieldWithIcon.iconWidth = 10
         floatingLabelTextFieldWithIcon.iconMarginLeft = 5
         
         // when
-        let rect = floatingLabelTextFieldWithIcon.textFieldRectForBounds(CGRectMake(0, 0, 50, 30))
+        let rect = floatingLabelTextFieldWithIcon.textRectForBounds(CGRectMake(0, 0, 50, 30))
         
         // then
         XCTAssertEqual(rect.origin.x, 15)
@@ -126,7 +126,7 @@ class SkyFloatingLabelTextFieldWithIconTests: XCTestCase {
         floatingLabelTextFieldWithIcon.iconMarginLeft = 5
         
         // when
-        let rect = floatingLabelTextFieldWithIcon.placeholderLabelRectForBounds(CGRectMake(0, 0, 60, 30))
+        let rect = floatingLabelTextFieldWithIcon.placeholderRectForBounds(CGRectMake(0, 0, 60, 30))
         
         // then
         XCTAssertEqual(rect.origin.x, 15)

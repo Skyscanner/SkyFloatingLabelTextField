@@ -199,18 +199,6 @@ public class SkyFloatingLabelTextField: UITextField {
         }
     }
     
-    /// A Boolean value that determines whether the receiver has text input.
-    /*
-    public var hasText:Bool {
-        get {
-            super.hasText()
-            if let text = self.text {
-                return text.characters.count > 0
-            }
-            return false
-        }
-    }*/
-    
     private var _titleVisible:Bool = false
     private var _renderingInInterfaceBuilder:Bool = false
     
