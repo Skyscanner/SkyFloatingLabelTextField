@@ -25,7 +25,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         super.tearDown()
     }
     
-    // MARK:  - Colors
+    // MARK:  - colors
     
     func test_whenSettingTextColor_thenTextFieldTextColorIsChangedToThisColor() {
         // when
@@ -91,6 +91,19 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         
         // then
         XCTAssertEqual(floatingLabelTextField.titleLabel.textColor, self.customColor)
+    }
+    
+    // MARK: - fonts
+    
+    func test_whenSettingPlaceholderFont_thenNeedsDisplayInvoked() {
+        // given
+        let floatingLabelTextFieldSpy = SkyFloatingLabelTextFieldSpy()
+        
+        // when
+        floatingLabelTextFieldSpy.placeholderFont = UIFont()
+        
+        // then
+        XCTAssertTrue(floatingLabelTextFieldSpy.setNeedsDisplayInvoked)
     }
     
     func test_whenSettingSelectedLineColor_withTextfieldBeingSelected_thenLineViewBackgroundColorIsChangedToThisColor() {
@@ -174,6 +187,19 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         XCTAssertNil(floatingLabelTextField.errorMessage)
     }
     
+    // MARK:  - editing
+    
+    func test_whenSettingSelected_toTrue_thenEditingIsTrue() {
+        // given
+        XCTAssertFalse(floatingLabelTextField.editing)
+        
+        // when
+        floatingLabelTextField.selected = true
+        
+        // then
+        XCTAssertTrue(floatingLabelTextField.editing)
+    }
+    
     // MARK:  - highlighted 
     
     func test_whenSettingHighighted_toTrue_withoutAnimation_thenTitleAlphaSetToOne() {
@@ -254,6 +280,21 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         XCTAssertEqual(self.floatingLabelTextField.titleLabel.alpha, 0.0)
     }
     
+    // MARK:  - placeholder
+    
+    func test_whenPlaceholderIsSet_withSelected_andNoTitleSet_thenTitleLabelTextIsUppercasePlaceholderText() {
+        // given
+        floatingLabelTextField.title = nil
+        floatingLabelTextField.selectedTitle = nil
+        floatingLabelTextField.selected = true
+        
+        // when
+        floatingLabelTextField.placeholder = "placeholderText"
+        
+        // then
+        XCTAssertEqual(floatingLabelTextField.titleLabel.text, "PLACEHOLDERTEXT")
+    }
+    
     // MARK:  - selectedTitle
     
     func test_whenTitleAndSelectedTitleAreSet_withControlNotBeingSelected_thenTitleLabelDisplaysUppercaseTitle() {
@@ -309,44 +350,6 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         XCTAssertNotNil(floatingLabelTextField.lineView)
     }
     
-    // MARK: - Responder handling
-    
-    func test_whenBecomeFirstResponderInvoked_thenTextFieldUserInteractionEnabledSetToTrue() {
-        // given
-        floatingLabelTextField.userInteractionEnabled = false
-        XCTAssertFalse(floatingLabelTextField.userInteractionEnabled)
-        
-        // when
-        floatingLabelTextField.becomeFirstResponder()
-        
-        // then
-        XCTAssertTrue(floatingLabelTextField.userInteractionEnabled)
-    }
-    
-    func test_whenResignFirstResponderInvoked_thenTextFieldUserInteractionEnabledSetToFalse() {
-        // given
-        floatingLabelTextField.becomeFirstResponder()
-        XCTAssertTrue(floatingLabelTextField.userInteractionEnabled)
-        
-        // when
-        floatingLabelTextField.resignFirstResponder()
-        
-        // then
-        XCTAssertFalse(floatingLabelTextField.userInteractionEnabled)
-    }
-    
-    func test_whenTouchesBegan_withNotBeingFirstResponder_thenTextFieldUserInteractionEnabledSetToTrue() {
-        // given
-        floatingLabelTextField.resignFirstResponder()
-        XCTAssertFalse(floatingLabelTextField.userInteractionEnabled)
-        
-        // when
-        floatingLabelTextField.touchesBegan(Set<UITouch>(), withEvent: nil)
-        
-        // then
-        XCTAssertTrue(floatingLabelTextField.userInteractionEnabled)
-    }
-    
     // MARK: - Textfield delegate methods
     
     // MARK: textFieldShouldBeginEditing
@@ -362,20 +365,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         XCTAssertFalse(result)
         XCTAssertTrue(textFieldDelegateMock.textFieldShouldBeginEditingInvoked)
     }
-    
-    // MARK: textFieldChanged
-    
-    func test_whenTextChanged_withNonNilDelegate_thenInvokesTextFieldChangedMethodOnDelegate() {
-        // given
-        floatingLabelTextField.delegate = textFieldDelegateMock
-        
-        // when
-        floatingLabelTextField.text = "newText"
-        
-        // then
-        XCTAssertTrue(textFieldDelegateMock.textFieldChangedInvoked)
-    }
-    
+
     // MARK: textFieldDidBeginEditing
     
     func test_whenTextFieldDidBeginEditingInvoked_withNonNilDelegate_thenInvokesDelegate() {
@@ -458,6 +448,21 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         XCTAssertTrue(textFieldDelegateMock.shouldChangeCharactersInRangeInvoked)
     }
     
+    // MARK:  - UITextField positioning overrides
+    
+    func test_whenInvokingEditingRectForBounds_thenReturnsRectThatSubtractsTitleHeightAndSelectedLineHeight() {
+        // given
+        floatingLabelTextField.selectedLineHeight = 4
+        let boundsHeight:CGFloat = 60
+        let bounds = CGRectMake(0, 0, 200, boundsHeight)
+        
+        // when
+        let rect = floatingLabelTextField.editingRectForBounds(bounds)
+        
+        // then
+        XCTAssertEqual(rect.height, boundsHeight - 4 - floatingLabelTextField.titleHeight())
+    }
+    
     // MARK:  - control lifecycle events
     
     func test_whenLayoutSubviewsInvoked_thenTitleLabelFrameIsUpdated() {
@@ -470,18 +475,6 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         
         // then
         XCTAssertNotEqual(floatingLabelTextField.titleLabel.frame.height, 0.0)
-    }
-    
-    func test_whenLayoutSubviewsInvoked_thenFrameIsUpdated() {
-        // given
-        floatingLabelTextField.frame = CGRectMake(0, 0, 0, 0)
-        XCTAssertEqual(floatingLabelTextField.frame.height, 0.0)
-        
-        // when
-        floatingLabelTextField.layoutSubviews()
-        
-        // then
-        XCTAssertNotEqual(floatingLabelTextField.frame.height, 0.0)
     }
     
     func test_whenLayoutSubviewsInvoked_thenLineViewFrameIsUpdated() {
@@ -635,11 +628,12 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         }
     }
     
-    class SkyFloatingLabelTextFieldSpy: NSObject, UITextFieldDelegate {
-        var lastSendActionsForControlEventsInvocation: UIControlEvents?
+    class SkyFloatingLabelTextFieldSpy: SkyFloatingLabelTextField {
+        var setNeedsDisplayInvoked = false
         
-        func sendActionsForControlEvents(controlEvents: UIControlEvents) {
-            lastSendActionsForControlEventsInvocation = controlEvents
+        override func setNeedsDisplay() {
+            setNeedsDisplayInvoked = true
+            super.setNeedsDisplay()
         }
     }
 }

@@ -184,6 +184,12 @@ public class SkyFloatingLabelTextField: UITextField {
         }
     }
     
+    override public var editing:Bool {
+        get {
+            return super.editing || self.selected;
+        }
+    }
+    
     /*
     /// A Boolean value that determines if the receiver is currently editing.
     public var editing:Bool {
@@ -221,13 +227,6 @@ public class SkyFloatingLabelTextField: UITextField {
             self.resetErrorMessageIfPresent()
             self.updateControl(false)
         }
-    }
-    
-    /// Sets the value of the textfield
-    public func setText(text:String?, animated:Bool = false) {
-        super.text = text
-        self.resetErrorMessageIfPresent()
-        self.updateControl(animated)
     }
     
     /**
@@ -451,7 +450,7 @@ public class SkyFloatingLabelTextField: UITextField {
         }
     }
     
-    // MARK: - UITextField text/placeholder positioning Overrides
+    // MARK: - UITextField text/placeholder positioning overrides
     
     override public func textRectForBounds(bounds: CGRect) -> CGRect {
         let titleHeight = self.titleHeight()
