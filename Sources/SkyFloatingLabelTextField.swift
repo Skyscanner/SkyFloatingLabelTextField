@@ -296,14 +296,17 @@ public class SkyFloatingLabelTextField: UITextField {
         self.createTitleLabel()
         self.createLineView()
         self.updateColors()
-        self.addTextChangeObserver()
+        self.addEditingChangedObserver()
     }
     
-    private func addTextChangeObserver() {
-        self.addTarget(self, action: Selector("textChanged:"), forControlEvents: .EditingChanged)
+    private func addEditingChangedObserver() {
+        self.addTarget(self, action: Selector("editingChanged"), forControlEvents: .EditingChanged)
     }
     
-    public func textChanged(textField:UITextField) {
+    /**
+     Invoked when the editing state of the textfield changes. Override to respond to this change.
+     */
+    public func editingChanged() {
         resetErrorMessageIfPresent()
         updateControl(true)
         updateTitleLabel(true)
@@ -342,13 +345,12 @@ public class SkyFloatingLabelTextField: UITextField {
     // MARK: Responder handling
     
     /**
-    Attempt the control to become the first responder
-    @return True when successfull becoming the first responder
+     Attempt the control to become the first responder
+     @return True when successfull becoming the first responder
     */
     override public func becomeFirstResponder() -> Bool {
-        let success = super.becomeFirstResponder()
         self.updateControl(true)
-        return success
+        return super.becomeFirstResponder()
     }
     
     /**
@@ -356,9 +358,8 @@ public class SkyFloatingLabelTextField: UITextField {
      @return True when successfull resigning being the first responder
      */
     override public func resignFirstResponder() -> Bool {
-        let success = super.resignFirstResponder()
         self.updateControl(true)
-        return success
+        return super.resignFirstResponder()
     }
     
     // MARK: - View updates
@@ -494,13 +495,11 @@ public class SkyFloatingLabelTextField: UITextField {
     -returns The rectangle that the title label should render in
     */
     public func titleLabelRectForBounds(bounds:CGRect, editing:Bool) -> CGRect {
-        
         let titleHeight = self.titleHeight()
         if editing {
             return CGRectMake(0, 0, bounds.size.width, titleHeight)
-        } else {
-            return CGRectMake(0, titleHeight, bounds.size.width, titleHeight)
         }
+        return CGRectMake(0, titleHeight, bounds.size.width, titleHeight)
     }
 
     /**
@@ -521,10 +520,9 @@ public class SkyFloatingLabelTextField: UITextField {
      -returns the calculated height of the title label. Override to size the title with a different height
      */
     public func titleHeight() -> CGFloat {
-        if titleLabel != nil {
-            if let font = self.titleLabel.font {
+        if let titleLabel = self.titleLabel,
+            font = titleLabel.font {
                 return font.lineHeight
-            }
         }
         return 15.0
     }
@@ -534,18 +532,6 @@ public class SkyFloatingLabelTextField: UITextField {
      */
     public func textHeight() -> CGFloat {
         return self.font!.lineHeight + 7.0
-    }
-    
-    // MARK: Touch handling
-    
-    /// Invoked when a touch event has started
-    override public func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        
-        if !self.isFirstResponder() {
-            self.becomeFirstResponder()
-        }
-        
-        super.touchesBegan(touches, withEvent: event)
     }
     
     // MARK: - Layout

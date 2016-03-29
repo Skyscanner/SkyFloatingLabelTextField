@@ -202,6 +202,18 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         XCTAssertNil(floatingLabelTextField.errorMessage)
     }
     
+    func test_whenEditingChangedInvoked_thenErrorMessageIsCleared() {
+        // given
+        floatingLabelTextField.errorMessage = "Error"
+        
+        // when
+        floatingLabelTextField.editingChanged()
+        
+        // then
+        XCTAssertNil(floatingLabelTextField.errorMessage)
+        
+    }
+    
     // MARK:  - editing
     
     func test_whenSettingSelected_toTrue_thenEditingIsTrue() {
@@ -346,6 +358,30 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         
         // then
         XCTAssertEqual(floatingLabelTextField.titleLabel.text, "SELECTEDTITLE")
+    }
+    
+    // MARK: - Responder handling
+    
+    func test_whenBecomeFirstResponderInvoked_thenUpdateColorsInvoked() {
+        // given
+        let floatingLabelTextFieldSpy = SkyFloatingLabelTextFieldSpy()
+        
+        // when
+        floatingLabelTextFieldSpy.becomeFirstResponder()
+        
+        // then
+        XCTAssertTrue(floatingLabelTextFieldSpy.updateColorsInvoked)
+    }
+    
+    func test_whenResignFirstResponderInvoked_thenUpdateColorsInvoked() {
+        // given
+        let floatingLabelTextFieldSpy = SkyFloatingLabelTextFieldSpy()
+        
+        // when
+        floatingLabelTextFieldSpy.resignFirstResponder()
+        
+        // then
+        XCTAssertTrue(floatingLabelTextFieldSpy.updateColorsInvoked)
     }
     
     // MARK:  - init
@@ -507,6 +543,14 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
     
     // MARK: titleHeight()
     
+    func test_whenTitleLabelIsNil_thenTitleHeightReturnsFifteen() {
+        // given
+        floatingLabelTextField.titleLabel = nil
+        
+        // then
+        XCTAssertEqual(floatingLabelTextField.titleHeight(), 15)
+    }
+    
     func test_whenTitleLabelHasFontSet_thenTitleHeightReturnsFontHeight() {
         // given
         let font = UIFont(name: "Arial", size: 16)
@@ -640,6 +684,15 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
             shouldChangeCharactersInRangeInvoked = true
             return shouldChangeCharactersInRange
+        }
+    }
+    
+    class SkyFloatingLabelTextFieldSpy: SkyFloatingLabelTextField {
+        var updateColorsInvoked = false
+        
+        override func updateColors() {
+            updateColorsInvoked = true
+            super.updateColors()
         }
     }
 }
