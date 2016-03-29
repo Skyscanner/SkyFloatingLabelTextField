@@ -43,6 +43,19 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         XCTAssertEqual(floatingLabelTextField.placeholderColor, self.customColor)
     }
     
+    func test_whenSettingPlaceholderColor_thenAttributedPlaceholderTextIsSet_withColor() {
+        // given
+        let customColor = UIColor.redColor()
+        floatingLabelTextField.placeholder = "test"
+        var fullRange:NSRange = NSMakeRange(0, floatingLabelTextField.placeholder!.characters.count)
+        
+        // when
+        floatingLabelTextField.placeholderColor = customColor
+        
+        // then
+        XCTAssertEqual(floatingLabelTextField.attributedPlaceholder!.attribute(NSForegroundColorAttributeName, atIndex: 0, effectiveRange: &fullRange) as? UIColor, customColor)
+    }
+    
     func test_whenSettingTitleColor_thenTitleLabelTextColorIsChangedToThisColor() {
         // when
         floatingLabelTextField.titleColor = self.customColor
@@ -95,15 +108,17 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
     
     // MARK: - fonts
     
-    func test_whenSettingPlaceholderFont_thenNeedsDisplayInvoked() {
+    func test_whenSettingPlaceholderFont_thenAttributedPlaceholderTextIsSet_withFont() {
         // given
-        let floatingLabelTextFieldSpy = SkyFloatingLabelTextFieldSpy()
+        let customFont = UIFont()
+        floatingLabelTextField.placeholder = "test"
+        var fullRange:NSRange = NSMakeRange(0, floatingLabelTextField.placeholder!.characters.count)
         
         // when
-        floatingLabelTextFieldSpy.placeholderFont = UIFont()
+        floatingLabelTextField.placeholderFont = customFont
         
         // then
-        XCTAssertTrue(floatingLabelTextFieldSpy.setNeedsDisplayInvoked)
+        XCTAssertEqual(floatingLabelTextField.attributedPlaceholder!.attribute(NSFontAttributeName, atIndex: 0, effectiveRange: &fullRange) as? UIFont, customFont)
     }
     
     func test_whenSettingSelectedLineColor_withTextfieldBeingSelected_thenLineViewBackgroundColorIsChangedToThisColor() {
@@ -625,15 +640,6 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
             shouldChangeCharactersInRangeInvoked = true
             return shouldChangeCharactersInRange
-        }
-    }
-    
-    class SkyFloatingLabelTextFieldSpy: SkyFloatingLabelTextField {
-        var setNeedsDisplayInvoked = false
-        
-        override func setNeedsDisplay() {
-            setNeedsDisplayInvoked = true
-            super.setNeedsDisplay()
         }
     }
 }

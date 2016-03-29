@@ -4,7 +4,7 @@
 //
 //  http://www.apache.org/licenses/LICENSE-2.0
 //
-//  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+//  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS /Users/gergelyorosz/Documents/Projects/Skyscanner/SkyFloatingLabelTextField/SkyFloatingLabelTextField/SkyFloatingLabelTextFieldTests/SkyFloatingLabelTextFieldTests.swiftOF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
 
 import UIKit
 
@@ -40,14 +40,23 @@ public class SkyFloatingLabelTextField: UITextField {
     /// A UIColor value that determines text color of the placeholder label
     @IBInspectable public var placeholderColor:UIColor = UIColor.lightGrayColor() {
         didSet {
-            self.setNeedsDisplay()
+            self.updatePlaceholder()
         }
     }
 
     /// A UIColor value that determines text color of the placeholder label
     @IBInspectable public var placeholderFont:UIFont? {
         didSet {
-            self.setNeedsDisplay()
+            self.updatePlaceholder()
+        }
+    }
+    
+    private func updatePlaceholder() {
+        if let
+            placeholder = self.placeholder,
+            font = self.placeholderFont ?? self.font {
+                self.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSForegroundColorAttributeName:placeholderColor,
+                    NSFontAttributeName: font])
         }
     }
 
@@ -471,16 +480,6 @@ public class SkyFloatingLabelTextField: UITextField {
         let lineHeight = self.selectedLineHeight
         let rect = CGRectMake(0, titleHeight, bounds.size.width, bounds.size.height - titleHeight - lineHeight)
         return rect
-    }
-    
-    override public func drawPlaceholderInRect(rect: CGRect) {
-        if let
-            placeholder = self.placeholder,
-            font = self.placeholderFont ?? self.font {
-                var adjustedRect = rect
-                adjustedRect.origin.y = rect.origin.y + (rect.size.height - font.lineHeight)/2.0
-                (placeholder as NSString).drawInRect(adjustedRect, withAttributes: [NSForegroundColorAttributeName:self.placeholderColor, NSFontAttributeName: font])
-        }
     }
     
     // MARK: - Positioning Overrides
