@@ -131,11 +131,9 @@ public class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     // MARK: Custom layout overrides
     
     /**
-    Calculate the bounds for the textfield component of the control. Override to create a custom size textbox in the control.
-    
-    - parameter bounds The current bounds of the textfield component
-    
-    -returns The rectangle that the textfield component should render in
+    Calculate the bounds for the textfield component of the control. Override to create a custom size textbox in the control.    
+    - parameter bounds: The current bounds of the textfield component
+    - returns: The rectangle that the textfield component should render in
     */
     override public func textRectForBounds(bounds: CGRect) -> CGRect {
         var rect = super.textRectForBounds(bounds)
@@ -144,6 +142,11 @@ public class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
         return rect
     }
 
+    /**
+     Calculate the rectangle for the textfield when it is being edited
+     - parameter bounds: The current bounds of the field
+     - returns: The rectangle that the textfield should render in
+     */
     override public func editingRectForBounds(bounds: CGRect) -> CGRect {
         var rect = super.editingRectForBounds(bounds)
         rect.origin.x += CGFloat(iconWidth + iconMarginLeft)
@@ -153,10 +156,8 @@ public class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
 
     /**
      Calculates the bounds for the placeholder component of the control. Override to create a custom size textbox in the control.
-     
-     - parameter bounds The current bounds of the placeholder component
-     
-     -returns The rectangle that the placeholder component should render in
+     - parameter bounds: The current bounds of the placeholder component
+     - returns: The rectangle that the placeholder component should render in
      */
     override public func placeholderRectForBounds(bounds: CGRect) -> CGRect {
         var rect = super.placeholderRectForBounds(bounds)

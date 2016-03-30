@@ -193,19 +193,12 @@ public class SkyFloatingLabelTextField: UITextField {
         }
     }
     
+    /// A Boolean value that determines whether the textfield is being edited.
     override public var editing:Bool {
         get {
             return super.editing || self.selected;
         }
     }
-    
-    /*
-    /// A Boolean value that determines if the receiver is currently editing.
-    public var editing:Bool {
-        get {
-            return self.isFirstResponder() || self.selected
-        }
-    }*/
     
     /// A Boolean value that determines whether the receiver has an error message.
     public var hasErrorMessage:Bool {
@@ -230,6 +223,7 @@ public class SkyFloatingLabelTextField: UITextField {
         }
     }
     
+    /// The text content of the textfield
     @IBInspectable
     override public var text:String? {
         didSet {
@@ -346,7 +340,7 @@ public class SkyFloatingLabelTextField: UITextField {
     
     /**
      Attempt the control to become the first responder
-     @return True when successfull becoming the first responder
+     - returns: True when successfull becoming the first responder
     */
     override public func becomeFirstResponder() -> Bool {
         self.updateControl(true)
@@ -355,7 +349,7 @@ public class SkyFloatingLabelTextField: UITextField {
     
     /**
      Attempt the control to resign being the first responder
-     @return True when successfull resigning being the first responder
+     - returns: True when successfull resigning being the first responder
      */
     override public func resignFirstResponder() -> Bool {
         self.updateControl(true)
@@ -462,13 +456,24 @@ public class SkyFloatingLabelTextField: UITextField {
     
     // MARK: - UITextField text/placeholder positioning overrides
     
+    /** 
+    Calculate the rectangle for the textfield when it is not being edited
+    - parameter bounds: The current bounds of the field
+    - returns: The rectangle that the textfield should render in
+    */
     override public func textRectForBounds(bounds: CGRect) -> CGRect {
+        super.textRectForBounds(<#T##bounds: CGRect##CGRect#>)
         let titleHeight = self.titleHeight()
         let lineHeight = self.selectedLineHeight
         let rect = CGRectMake(0, titleHeight, bounds.size.width, bounds.size.height - titleHeight - lineHeight)
         return rect
     }
     
+    /**
+     Calculate the rectangle for the textfield when it is being edited
+     - parameter bounds: The current bounds of the field
+     - returns: The rectangle that the textfield should render in
+     */
     override public func editingRectForBounds(bounds: CGRect) -> CGRect {
         let titleHeight = self.titleHeight()
         let lineHeight = self.selectedLineHeight
@@ -476,6 +481,11 @@ public class SkyFloatingLabelTextField: UITextField {
         return rect
     }
     
+    /**
+     Calculate the rectangle for the placeholder
+     - parameter bounds: The current bounds of the placeholder
+     - returns: The rectangle that the placeholder should render in
+     */
     override public func placeholderRectForBounds(bounds: CGRect) -> CGRect {
         let titleHeight = self.titleHeight()
         let lineHeight = self.selectedLineHeight
@@ -487,12 +497,9 @@ public class SkyFloatingLabelTextField: UITextField {
     
     /**
     Calculate the bounds for the title label. Override to create a custom size title field.
-    
-    - parameter bounds The current bounds of the title
-    
-    - parameter editing True if the control is selected or highlighted
-    
-    -returns The rectangle that the title label should render in
+    - parameter bounds: The current bounds of the title
+    - parameter editing: True if the control is selected or highlighted
+    - returns: The rectangle that the title label should render in
     */
     public func titleLabelRectForBounds(bounds:CGRect, editing:Bool) -> CGRect {
         let titleHeight = self.titleHeight()
@@ -504,12 +511,9 @@ public class SkyFloatingLabelTextField: UITextField {
 
     /**
      Calculate the bounds for the bottom line of the control. Override to create a custom size bottom line in the textbox.
-     
-     - parameter bounds The current bounds of the line
-     
-     - parameter editing True if the control is selected or highlighted
-     
-     -returns The rectangle that the line bar should render in
+     - parameter bounds: The current bounds of the line
+     - parameter editing: True if the control is selected or highlighted
+     - returns: The rectangle that the line bar should render in
      */
     public func lineViewRectForBounds(bounds:CGRect, editing:Bool) -> CGRect {
         let lineHeight:CGFloat = editing ? CGFloat(self.selectedLineHeight) : CGFloat(self.lineHeight)
@@ -517,7 +521,8 @@ public class SkyFloatingLabelTextField: UITextField {
     }
     
     /**
-     -returns the calculated height of the title label. Override to size the title with a different height
+     Calculate the height of the title label.
+     -returns: the calculated height of the title label. Override to size the title with a different height
      */
     public func titleHeight() -> CGFloat {
         if let titleLabel = self.titleLabel,
@@ -528,7 +533,8 @@ public class SkyFloatingLabelTextField: UITextField {
     }
     
     /**
-     -returns the calculated height of the textfield. Override to size the textfield with a different height
+     Calcualte the height of the textfield.
+     -returns: the calculated height of the textfield. Override to size the textfield with a different height
      */
     public func textHeight() -> CGFloat {
         return self.font!.lineHeight + 7.0
