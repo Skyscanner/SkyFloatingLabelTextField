@@ -462,7 +462,7 @@ public class SkyFloatingLabelTextField: UITextField {
     - returns: The rectangle that the textfield should render in
     */
     override public func textRectForBounds(bounds: CGRect) -> CGRect {
-        super.textRectForBounds(<#T##bounds: CGRect##CGRect#>)
+        super.textRectForBounds(bounds)
         let titleHeight = self.titleHeight()
         let lineHeight = self.selectedLineHeight
         let rect = CGRectMake(0, titleHeight, bounds.size.width, bounds.size.height - titleHeight - lineHeight)
