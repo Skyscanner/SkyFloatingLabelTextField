@@ -124,7 +124,7 @@ public class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
         if self.hasErrorMessage {
             self.iconLabel?.textColor = self.errorColor
         } else {
-            self.iconLabel?.textColor = self.editing ? self.selectedIconColor : self.iconColor
+            self.iconLabel?.textColor = self.editingOrSelected ? self.selectedIconColor : self.iconColor
         }
     }
     

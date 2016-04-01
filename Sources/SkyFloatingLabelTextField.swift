@@ -192,9 +192,9 @@ public class SkyFloatingLabelTextField: UITextField {
             }
         }
     }
-    
-    /// A Boolean value that determines whether the textfield is being edited.
-    override public var editing:Bool {
+
+    /// A Boolean value that determines whether the textfield is being edited or is selected.
+    public var editingOrSelected:Bool {
         get {
             return super.editing || self.selected;
         }
@@ -343,8 +343,9 @@ public class SkyFloatingLabelTextField: UITextField {
      - returns: True when successfull becoming the first responder
     */
     override public func becomeFirstResponder() -> Bool {
+        let result = super.becomeFirstResponder()
         self.updateControl(true)
-        return super.becomeFirstResponder()
+        return result
     }
     
     /**
@@ -352,8 +353,9 @@ public class SkyFloatingLabelTextField: UITextField {
      - returns: True when successfull resigning being the first responder
      */
     override public func resignFirstResponder() -> Bool {
+        let result =  super.resignFirstResponder()
         self.updateControl(true)
-        return super.resignFirstResponder()
+        return result
     }
     
     // MARK: - View updates
@@ -366,7 +368,7 @@ public class SkyFloatingLabelTextField: UITextField {
     
     private func updateLineView() {
         if let lineView = self.lineView {
-            lineView.frame = self.lineViewRectForBounds(self.bounds, editing: self.editing)
+            lineView.frame = self.lineViewRectForBounds(self.bounds, editing: self.editingOrSelected)
         }
         self.updateLineColor()
     }
@@ -384,7 +386,7 @@ public class SkyFloatingLabelTextField: UITextField {
         if self.hasErrorMessage {
             self.lineView.backgroundColor = self.errorColor
         } else {
-            self.lineView.backgroundColor = self.editing ? self.selectedLineColor : self.lineColor
+            self.lineView.backgroundColor = self.editingOrSelected ? self.selectedLineColor : self.lineColor
         }
     }
     
@@ -392,8 +394,7 @@ public class SkyFloatingLabelTextField: UITextField {
         if self.hasErrorMessage {
             self.titleLabel.textColor = self.errorColor
         } else {
-            // TODO: unit test that this is set when highlighted
-            if self.editing || self.highlighted {
+            if self.editingOrSelected || self.highlighted {
                 self.titleLabel.textColor = self.selectedTitleColor
             } else {
                 self.titleLabel.textColor = self.titleColor
@@ -417,7 +418,7 @@ public class SkyFloatingLabelTextField: UITextField {
         if self.hasErrorMessage {
             titleText = self.titleFormatter(errorMessage!)
         } else {
-            if self.editing {
+            if self.editingOrSelected {
                 titleText = self.selectedTitleOrTitlePlaceholder()
                 if titleText == nil {
                     titleText = self.titleOrPlaceholder()
@@ -556,7 +557,7 @@ public class SkyFloatingLabelTextField: UITextField {
         super.layoutSubviews()
         
         self.titleLabel.frame = self.titleLabelRectForBounds(self.bounds, editing: self.hasText() || _renderingInInterfaceBuilder)
-        self.lineView.frame = self.lineViewRectForBounds(self.bounds, editing: self.editing || _renderingInInterfaceBuilder)
+        self.lineView.frame = self.lineViewRectForBounds(self.bounds, editing: self.editingOrSelected || _renderingInInterfaceBuilder)
     }
     
     /**

@@ -214,9 +214,9 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         
     }
     
-    // MARK:  - editing
+    // MARK:  - editingOrSelected
     
-    func test_whenSettingSelected_toTrue_thenEditingIsTrue() {
+    func test_whenSettingSelected_toTrue_thenEditingOrSelectedIsTrue() {
         // given
         XCTAssertFalse(floatingLabelTextField.editing)
         
@@ -224,7 +224,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         floatingLabelTextField.selected = true
         
         // then
-        XCTAssertTrue(floatingLabelTextField.editing)
+        XCTAssertTrue(floatingLabelTextField.editingOrSelected)
     }
     
     // MARK:  - highlighted 
