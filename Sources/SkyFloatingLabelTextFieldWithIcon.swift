@@ -48,29 +48,29 @@ public class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
         }
     }
     
-    /// A double value that determines the width of the icon
-    @IBInspectable public var iconWidth:Double = 20 {
+    /// A float value that determines the width of the icon
+    @IBInspectable public var iconWidth:CGFloat = 20 {
         didSet {
             self.updateFrame()
         }
     }
     
-    /// A double value that determines the left margin of the icon. Use this value to position the icon more precisely horizontally.
-    @IBInspectable public var iconMarginLeft:Double = 4 {
+    /// A float value that determines the left margin of the icon. Use this value to position the icon more precisely horizontally.
+    @IBInspectable public var iconMarginLeft:CGFloat = 4 {
         didSet {
             self.updateFrame()
         }
     }
     
-    /// A double value that determines the bottom margin of the icon. Use this value to position the icon more precisely vertically.
+    /// A float value that determines the bottom margin of the icon. Use this value to position the icon more precisely vertically.
     @IBInspectable
-    public var iconMarginBottom:Double = 4 {
+    public var iconMarginBottom:CGFloat = 4 {
         didSet {
             self.updateFrame()
         }
     }
     
-    /// A dobule value that determines the rotation in degrees of the icon. Use this value to rotate the icon in either direction.
+    /// A float value that determines the rotation in degrees of the icon. Use this value to rotate the icon in either direction.
     @IBInspectable
     public var iconRotationDegrees:Double = 0 {
         didSet {
@@ -174,7 +174,6 @@ public class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     
     private func updateFrame() {
         let textHeight = self.textHeight()
-        let marginBottom = CGFloat(self.iconMarginBottom)
-        self.iconLabel.frame = CGRectMake(0, self.bounds.size.height - textHeight - marginBottom, CGFloat(iconWidth), textHeight)
+        self.iconLabel.frame = CGRectMake(0, self.bounds.size.height - textHeight - iconMarginBottom, iconWidth, textHeight)
     }
 }
