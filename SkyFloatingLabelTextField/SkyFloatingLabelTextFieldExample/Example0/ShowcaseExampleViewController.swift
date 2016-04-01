@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ShowcaseExampleViewController: UIViewController, SkyFloatingLabelTextFieldDelegate {
+class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var arrivalCityField: SkyFloatingLabelTextFieldWithIcon!
     @IBOutlet weak var departureCityField: SkyFloatingLabelTextFieldWithIcon!
@@ -77,27 +77,27 @@ class ShowcaseExampleViewController: UIViewController, SkyFloatingLabelTextField
         
         // Set custom fonts for the title, placeholder and textfield labels
         textField.titleLabel.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 12)
-        textField.placeholderLabel.font = UIFont(name: "AppleSDGothicNeo-Light", size: 18)
-        textField.textField.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 18)
+        textField.placeholderFont = UIFont(name: "AppleSDGothicNeo-Light", size: 18)
+        textField.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 18)
     }
     
     // MARK: - Validating the fields when "submit" is pressed
     
     @IBAction func submitButtonDown(sender: AnyObject) {
         // By setting the highlighted property to true, the floating title is shown
-        if (self.departureCityField.textField.text ?? "").isEmpty {
+        if (self.departureCityField.text ?? "").isEmpty {
             self.departureCityField.highlighted = true
         }
-        if (self.arrivalCityField.textField.text ?? "").isEmpty {
+        if (self.arrivalCityField.text ?? "").isEmpty {
             self.arrivalCityField.highlighted = true
         }
-        if (self.titleField.textField.text ?? "").isEmpty {
+        if (self.titleField.text ?? "").isEmpty {
             self.titleField.highlighted = true
         }
-        if (self.nameField.textField.text ?? "").isEmpty {
+        if (self.nameField.text ?? "").isEmpty {
             self.nameField.highlighted = true
         }
-        if (self.emailField.textField.text ?? "").isEmpty {
+        if (self.emailField.text ?? "").isEmpty {
             self.emailField.highlighted = true
         }
     }
@@ -113,7 +113,7 @@ class ShowcaseExampleViewController: UIViewController, SkyFloatingLabelTextField
     
     // MARK: - Delegate
     
-    func textFieldShouldReturn(textField: SkyFloatingLabelTextField) -> Bool {
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
         // Validate the email field
         if (textField == self.emailField) {
             if let email = self.emailField.text {

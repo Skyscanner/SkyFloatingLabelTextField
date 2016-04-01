@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DelegateMethodsViewController: UIViewController, SkyFloatingLabelTextFieldDelegate {
+class DelegateMethodsViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet var textField:SkyFloatingLabelTextField?
     @IBOutlet var logTextView:UITextView!
@@ -39,35 +39,35 @@ class DelegateMethodsViewController: UIViewController, SkyFloatingLabelTextField
     
     // MARK: - SkyFloatingLabelTextField delegate
     
-    func textFieldDidBeginEditing(textField: SkyFloatingLabelTextField) {
+    func textFieldDidBeginEditing(textField: UITextField) {
         self.log("textFieldDidBeginEditing:")
     }
     
-    func textField(textField: SkyFloatingLabelTextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         self.log("textField:shouldChangeCharactersInRange:replacementString:")
         return true
     }
     
-    func textFieldDidEndEditing(textField: SkyFloatingLabelTextField) {
+    func textFieldDidEndEditing(textField: UITextField) {
         self.log("textFieldDidEndEditing:")
     }
     
-    func textFieldShouldBeginEditing(textField: SkyFloatingLabelTextField) -> Bool {
+    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
         self.log("textFieldShouldBeginEditing:")
         return true
     }
     
-    func textFieldShouldClear(textField: SkyFloatingLabelTextField) -> Bool {
+    func textFieldShouldClear(textField: UITextField) -> Bool {
         self.log("textFieldShouldClear:")
         return true
     }
     
-    func textFieldShouldEndEditing(textField: SkyFloatingLabelTextField) -> Bool {
+    func textFieldShouldEndEditing(textField: UITextField) -> Bool {
         self.log("textFieldShouldEndEditing:")
         return true
     }
     
-    func textFieldShouldReturn(textField: SkyFloatingLabelTextField) -> Bool {
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
         self.log("textFieldShouldReturn")
         return true
     }

@@ -48,29 +48,29 @@ public class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
         }
     }
     
-    /// A double value that determines the width of the icon
-    @IBInspectable public var iconWidth:Double = 20 {
+    /// A float value that determines the width of the icon
+    @IBInspectable public var iconWidth:CGFloat = 20 {
         didSet {
             self.updateFrame()
         }
     }
     
-    /// A double value that determines the left margin of the icon. Use this value to position the icon more precisely horizontally.
-    @IBInspectable public var iconMarginLeft:Double = 4 {
+    /// A float value that determines the left margin of the icon. Use this value to position the icon more precisely horizontally.
+    @IBInspectable public var iconMarginLeft:CGFloat = 4 {
         didSet {
             self.updateFrame()
         }
     }
     
-    /// A double value that determines the bottom margin of the icon. Use this value to position the icon more precisely vertically.
+    /// A float value that determines the bottom margin of the icon. Use this value to position the icon more precisely vertically.
     @IBInspectable
-    public var iconMarginBottom:Double = 4 {
+    public var iconMarginBottom:CGFloat = 4 {
         didSet {
             self.updateFrame()
         }
     }
     
-    /// A dobule value that determines the rotation in degrees of the icon. Use this value to rotate the icon in either direction.
+    /// A float value that determines the rotation in degrees of the icon. Use this value to rotate the icon in either direction.
     @IBInspectable
     public var iconRotationDegrees:Double = 0 {
         didSet {
@@ -124,35 +124,43 @@ public class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
         if self.hasErrorMessage {
             self.iconLabel?.textColor = self.errorColor
         } else {
-            self.iconLabel?.textColor = self.editing ? self.selectedIconColor : self.iconColor
+            self.iconLabel?.textColor = self.editingOrSelected ? self.selectedIconColor : self.iconColor
         }
     }
     
     // MARK: Custom layout overrides
     
     /**
-    Calculate the bounds for the textfield component of the control. Override to create a custom size textbox in the control.
-    
-    - parameter bounds The current bounds of the textfield component
-    
-    -returns The rectangle that the textfield component should render in
+    Calculate the bounds for the textfield component of the control. Override to create a custom size textbox in the control.    
+    - parameter bounds: The current bounds of the textfield component
+    - returns: The rectangle that the textfield component should render in
     */
-    override public func textFieldRectForBounds(bounds: CGRect) -> CGRect {
-        var rect = super.textFieldRectForBounds(bounds)
+    override public func textRectForBounds(bounds: CGRect) -> CGRect {
+        var rect = super.textRectForBounds(bounds)
         rect.origin.x += CGFloat(iconWidth + iconMarginLeft)
         rect.size.width -= CGFloat(iconWidth + iconMarginLeft)
         return rect
     }
-    
+
+    /**
+     Calculate the rectangle for the textfield when it is being edited
+     - parameter bounds: The current bounds of the field
+     - returns: The rectangle that the textfield should render in
+     */
+    override public func editingRectForBounds(bounds: CGRect) -> CGRect {
+        var rect = super.editingRectForBounds(bounds)
+        rect.origin.x += CGFloat(iconWidth + iconMarginLeft)
+        rect.size.width -= CGFloat(iconWidth + iconMarginLeft)
+        return rect
+    }
+
     /**
      Calculates the bounds for the placeholder component of the control. Override to create a custom size textbox in the control.
-     
-     - parameter bounds The current bounds of the placeholder component
-     
-     -returns The rectangle that the placeholder component should render in
+     - parameter bounds: The current bounds of the placeholder component
+     - returns: The rectangle that the placeholder component should render in
      */
-    override public func placeholderLabelRectForBounds(bounds: CGRect) -> CGRect {
-        var rect = super.placeholderLabelRectForBounds(bounds)
+    override public func placeholderRectForBounds(bounds: CGRect) -> CGRect {
+        var rect = super.placeholderRectForBounds(bounds)
         rect.origin.x += CGFloat(iconWidth + iconMarginLeft)
         rect.size.width -= CGFloat(iconWidth + iconMarginLeft)
         return rect
@@ -166,7 +174,6 @@ public class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     
     private func updateFrame() {
         let textHeight = self.textHeight()
-        let marginBottom = CGFloat(self.iconMarginBottom)
-        self.iconLabel.frame = CGRectMake(0, self.bounds.size.height - textHeight - marginBottom, CGFloat(iconWidth), textHeight)
+        self.iconLabel.frame = CGRectMake(0, self.bounds.size.height - textHeight - iconMarginBottom, iconWidth, textHeight)
     }
 }

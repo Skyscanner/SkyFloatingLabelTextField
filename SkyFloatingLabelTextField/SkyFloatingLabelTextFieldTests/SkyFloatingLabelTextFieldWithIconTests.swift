@@ -107,30 +107,50 @@ class SkyFloatingLabelTextFieldWithIconTests: XCTestCase {
     
     // MARK: - Layout overrides
     
-    func test_whenInvokingTextFieldRectForBounds_thenReturnsValueWithIconWidthAndMarginSubtracted() {
+    func test_whenInvokingTextRectForBounds_thenReturnsValueWithIconWidthAndMarginSubtracted() {
         // given
-        floatingLabelTextFieldWithIcon.iconWidth = 10
-        floatingLabelTextFieldWithIcon.iconMarginLeft = 5
+        let iconWidth:CGFloat = 10
+        let iconMarginLeft:CGFloat = 5
+        floatingLabelTextFieldWithIcon.iconWidth = iconWidth
+        floatingLabelTextFieldWithIcon.iconMarginLeft = iconMarginLeft
         
         // when
-        let rect = floatingLabelTextFieldWithIcon.textFieldRectForBounds(CGRectMake(0, 0, 50, 30))
+        let rect = floatingLabelTextFieldWithIcon.textRectForBounds(CGRectMake(0, 0, 40, 30))
         
         // then
-        XCTAssertEqual(rect.origin.x, 15)
-        XCTAssertEqual(rect.size.width, 50 - 15)
+        XCTAssertEqual(rect.origin.x, iconWidth + iconMarginLeft)
+        XCTAssertEqual(rect.size.width, 40 - iconWidth - iconMarginLeft)
+
+    }
+    
+    func test_whenInvokingEditingRectForBounds_thenReturnsRectThatSubtractsIconWidthAndIconMarginLeft() {
+        // given
+        let iconWidth:CGFloat = 10
+        let iconMarginLeft:CGFloat = 5
+        floatingLabelTextFieldWithIcon.iconWidth = iconWidth
+        floatingLabelTextFieldWithIcon.iconMarginLeft = iconMarginLeft
+        
+        // when
+        let rect = floatingLabelTextFieldWithIcon.editingRectForBounds(CGRectMake(0, 0, 50, 30))
+        
+        // then
+        XCTAssertEqual(rect.origin.x, iconWidth + iconMarginLeft)
+        XCTAssertEqual(rect.size.width, 50 - iconWidth - iconMarginLeft)
     }
     
     func test_whenInvokingPlaceholderRectForBounds_thenReturnsValueWithIconWidthAndMarginSubtracted() {
         // given
-        floatingLabelTextFieldWithIcon.iconWidth = 10
-        floatingLabelTextFieldWithIcon.iconMarginLeft = 5
+        let iconWidth:CGFloat = 10
+        let iconMarginLeft:CGFloat = 5
+        floatingLabelTextFieldWithIcon.iconWidth = iconWidth
+        floatingLabelTextFieldWithIcon.iconMarginLeft = iconMarginLeft
         
         // when
-        let rect = floatingLabelTextFieldWithIcon.placeholderLabelRectForBounds(CGRectMake(0, 0, 60, 30))
+        let rect = floatingLabelTextFieldWithIcon.placeholderRectForBounds(CGRectMake(0, 0, 60, 30))
         
         // then
-        XCTAssertEqual(rect.origin.x, 15)
-        XCTAssertEqual(rect.size.width, 60 - 15)
+        XCTAssertEqual(rect.origin.x, iconWidth + iconMarginLeft)
+        XCTAssertEqual(rect.size.width, 60 - iconWidth - iconMarginLeft)
     }
     
     func test_whenInvokingLayoutSubviews_thenUpdatesIconLabelFrame() {
