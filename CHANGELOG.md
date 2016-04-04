@@ -1,3 +1,12 @@
+v1.1
+----------
+* Changed the control to inherit from the `UITextField` class (previously the control inherited from `UIControl`)
+* The delegate to use with the textfield is now the `UITextFieldDelegate` (removed the `delegate:SkyFloatingLabelTextFieldDelegate` class)
+* Removed `placeHolderLabel`, `textField` and `hasText` properties from `SkyFloatingLabelTextField` class
+* Removed `textRectForBounds(bounds: CGRect)` and `placeholderLabelRectForBounds(bounds:CGRect)` methods from `SkyFloatingLabelTextField`
+* The above methods have been replaced with the `UITextfield` methods `editingRectForBounds(bounds: CGRect)` and `placeholderRectForBounds(bounds: CGRect)` on `SkyFloatingLabelTextField`
+* Added `placeholderFont`, `editingOrSelected` properties to `SkyFloatingLabelTextField` class
+
 v1.0.6
 ----------
 * Removed the hideKeyboardWhenSelected property. This property seemed too specific. To hide the keyboard when selecting a field, an alternative workaround is to set the textField.inputView property to an empty view.
