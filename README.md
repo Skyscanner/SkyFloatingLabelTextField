@@ -100,12 +100,12 @@ self.view.addSubview(textField2)
 
 The textfield supports displaying an error state - this can be useful for example when validating fields on the fly. When the `errorMessage` property is set on the control, then the control is highlighted with the color set in the `errorColor` property.
 
-To get notified of different events happening on the textfield - such as the text changing, editing starting or ending - just set the `delegate` property to a class implementing the `SkyFloatingLabelTextFieldDelegate` protocol. This delegate is very similar to the [UITextFieldDelegate protocol](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UITextFieldDelegate_Protocol/):
+To get notified of different events happening on the textfield - such as the text changing, editing starting or ending - just set the `delegate` property to a class implementing the standard [UITextFieldDelegate](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UITextFieldDelegate_Protocol/) protocol:
 
 ![](/SkyFloatingLabelTextField/images/example-4.gif)
 
 ```swift
-class MyViewController: UIViewController, SkyFloatingLabelTextFieldDelegate {
+class MyViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         let textField1 = SkyFloatingLabelTextField(frame: CGRectMake(10, 10, 120, 45))
@@ -116,8 +116,8 @@ class MyViewController: UIViewController, SkyFloatingLabelTextFieldDelegate {
         self.view.addSubview(textField1)
     }
 
-    /// Implementing a method on the SkyFloatingLabelTextFieldDelegate protocol. This will notify us when something has changed on the textfield
-    func textFieldChanged(textField: SkyFloatingLabelTextField) {
+    /// Implementing a method on the UITextFieldDelegate protocol. This will notify us when something has changed on the textfield
+    func textFieldChanged(textField: UITextField) {
         if let text = textField.text {
             // Note: every time when the text of the textfield changes, the error message is reset (hence we don't need to reset it)
             if(text.characters.count < 3 || !text.containsString("@")) {
