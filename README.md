@@ -117,13 +117,14 @@ class MyViewController: UIViewController, UITextFieldDelegate {
     }
 
     /// Implementing a method on the UITextFieldDelegate protocol. This will notify us when something has changed on the textfield
-    func textFieldChanged(textField: UITextField) {
+    func func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         if let text = textField.text {
             // Note: every time when the text of the textfield changes, the error message is reset (hence we don't need to reset it)
             if(text.characters.count < 3 || !text.containsString("@")) {
                 textField.errorMessage = "Invaid email"
             }
         }
+        return true
     }
 }
 ```
