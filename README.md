@@ -117,11 +117,13 @@ class MyViewController: UIViewController, UITextFieldDelegate {
     }
 
     /// Implementing a method on the UITextFieldDelegate protocol. This will notify us when something has changed on the textfield
-    func func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         if let text = textField.text {
             // Note: every time when the text of the textfield changes, the error message is reset (hence we don't need to reset it)
             if(text.characters.count < 3 || !text.containsString("@")) {
-                textField.errorMessage = "Invaid email"
+                if let floatingLabelTextField = textField as? SkyFloatingLabelTextField {
+                    floatingLabelTextField.errorMessage = "Invaid email"
+                }
             }
         }
         return true
@@ -191,3 +193,13 @@ We welcome all contributions. Please read [this guide](/CONTRIBUTING.md) before 
 The original component was built by [Daniel Langh](https://github.com/intonarumori), [Gergely Orosz](https://github.com/gergelyorosz) and [Raimon Laupente](https://github.com/wolffan).
 
 Credits for the original design, and improving it with iconography to Matt D. Smith ([@mds](https://twitter.com/mds)).
+
+## FAQ
+
+- *Does the control work well with auto layout? What about using it programmatically?*
+
+  The control was built to support both use cases. It plays nicely with autolayout. As the control is a subclass of `UITextField`, overriding `textRectForBounds(bounds:)` or `editingRectForBounds(bounds:)` is always an option. Alternatively, overriding `intrinsiccontentsize` is also another possiblity.
+
+- *How can I remove the line from the bottom of the textfield?*
+
+  Set `lineHeight` and `selectedLineHeight` to `0`, and the line won't be displayed.
