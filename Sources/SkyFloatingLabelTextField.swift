@@ -301,9 +301,12 @@ public class SkyFloatingLabelTextField: UITextField {
      Invoked when the editing state of the textfield changes. Override to respond to this change.
      */
     public func editingChanged() {
-        resetErrorMessageIfPresent()
+        self.resetErrorMessageIfPresent()
         updateControl(true)
         updateTitleLabel(true)
+        let range = NSMakeRange(0, self.text?.characters.count ?? 0)
+        // Because of subscribing to .EditingChanged, the error message was cleared for any delegate overriding the textField:shouldChangeCharactersInRange:replacementString method. Invoke this again to enable setting the error message on text change.
+        self.delegate?.textField?(self, shouldChangeCharactersInRange: range, replacementString: self.text ?? "")
     }
     
     // MARK: create components
@@ -344,6 +347,7 @@ public class SkyFloatingLabelTextField: UITextField {
     */
     override public func becomeFirstResponder() -> Bool {
         let result = super.becomeFirstResponder()
+        self.resetErrorMessageIfPresent()
         self.updateControl(true)
         return result
     }
