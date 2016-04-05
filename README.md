@@ -136,9 +136,11 @@ class MyViewController: UIViewController, UITextFieldDelegate {
 The control was designed to allow further customization in subclasses. The control itself inherits from `UITextField`, so the standard overrides from there can all be used. A few other notable customization hooks via overriding are:
 - `updateColors`: override this method to customzie colors whenever the state of the control changes
 - Layout overrrides:
-  - `titleLabelRectForBounds`: override to change the bounds of the title label
-  - `lineViewRectForBounds`: override to change the bounds of the bottom line view
-  - `placeholderLabelRectForBounds`: override to change the bounds of the placeholder view
+  - `titleLabelRectForBounds(bounds:CGRect, editing:Bool)`:  override to change the bounds of the top title placeholder view
+  - `textRectForBounds(bounds: CGRect)`: override to change the bounds of the control (inherited from `UITextField`)
+  - `editingRectForBounds(bounds: CGRect)`: override to change the bounds of the control when editing / selected (inherited from `UITextField`)
+  - `placeholderRectForBounds(bounds: CGRect)`:  override to change the bounds of the placeholder view 
+  - `lineViewRectForBounds(bounds:CGRect, editing:Bool)`: override to change the bounds of the bottom line view
 
 ## Documentation
 
