@@ -166,6 +166,24 @@ Lastly let CocoaPods fetch the latest version of the component by running:
 $ cocoapods update
 ```
 
+#####Integrating into Objective C projects
+
+When integrating the component in Objective C project, in the Podfile add `use_frameworks!`. For example as shown in [SkyFloatingLabelTextFieldObjectiveCExample](TODO):
+
+```
+use_frameworks!
+
+target 'SkyFloatingLabelTextFieldObjectiveCExample' do
+  pod 'SkyFloatingLabelTextField', '~> 1.0'
+end
+```
+
+Then to use the component in your code, add the following line to your `.h` or `.m` files:
+
+```
+@import SkyFloatingLabelTextField;
+```
+
 #### Carthage
 The component supports [Carthage](https://github.con/Carthage/Carthage). Start by making sure you have the latest version of Carthage installed. Using [Homebrew](http://brew.sh/) run this:
 ```shell
@@ -197,6 +215,10 @@ The original component was built by [Daniel Langh](https://github.com/intonarumo
 Credits for the original design, and improving it with iconography to Matt D. Smith ([@mds](https://twitter.com/mds)).
 
 ## FAQ
+
+- *Can I use it in Objective C projects?*
+
+  Of course! Please see the [Integrating-into-Objective-C-projects](#Integrating into Objective C projects) section on how to integrate the component via CocoaPods.
 
 - *Does the control work well with auto layout? What about using it programmatically?*
 
