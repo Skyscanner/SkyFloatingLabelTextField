@@ -168,7 +168,7 @@ $ cocoapods update
 
 #####Integrating into Objective C projects
 
-When integrating the component in Objective C project, in the Podfile add `use_frameworks!`. For example as shown in [SkyFloatingLabelTextFieldObjectiveCExample](TODO):
+When integrating the component in Objective C project, in the Podfile add `use_frameworks!`. For example as shown in [SkyFloatingLabelTextFieldObjectiveCExample](https://github.com/Skyscanner/SkyFloatingLabelTextField/tree/master/SkyFloatingLabelTextFieldObjectiveCExample):
 
 ```
 use_frameworks!
