@@ -1,0 +1,5 @@
+use_frameworks!
+
+target 'SkyFloatingLabelTextFieldObjectiveCExample' do
+  pod 'SkyFloatingLabelTextField', '~> 1.0'
+end
