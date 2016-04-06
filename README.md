@@ -90,8 +90,8 @@ textField2.iconColor = UIColor.lightGrayColor()
 textField2.selectedIconColor = overcastBlueColor
 textField2.iconFont = UIFont(name: "FontAwesome", size: 15)
 textField2.iconText = "\u{f072}" // plane icon as per https://fortawesome.github.io/Font-Awesome/cheatsheet/
+textField2.iconMarginBottom = 4.0 // more precise icon positioning. Usually needed to tweak on a per font basis.
 textField2.iconRotationDegrees = 90 // rotate it 90 degrees
-textField2.iconMarginBottom = 4.0 // more precise icon positioning
 textField2.iconMarginLeft = 2.0
 self.view.addSubview(textField2)
 ```
