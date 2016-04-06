@@ -1,0 +1,385 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9E814D8A7283C31AE59EB77B /* Pods_SkyFloatingLabelTextFieldObjectiveCExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F41F65E6E2C22F39CC7FA1C7 /* Pods_SkyFloatingLabelTextFieldObjectiveCExample.framework */; };
+		F51E3BA61CB45A8300D4F0AB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F51E3BA51CB45A8300D4F0AB /* main.m */; };
+		F51E3BA91CB45A8300D4F0AB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F51E3BA81CB45A8300D4F0AB /* AppDelegate.m */; };
+		F51E3BAC1CB45A8300D4F0AB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F51E3BAB1CB45A8300D4F0AB /* ViewController.m */; };
+		F51E3BAF1CB45A8400D4F0AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F51E3BAD1CB45A8300D4F0AB /* Main.storyboard */; };
+		F51E3BB11CB45A8400D4F0AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F51E3BB01CB45A8400D4F0AB /* Assets.xcassets */; };
+		F51E3BB41CB45A8400D4F0AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F51E3BB21CB45A8400D4F0AB /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		099DB98B438619A4F0A39278 /* Pods-SkyFloatingLabelTextFieldObjectiveCExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SkyFloatingLabelTextFieldObjectiveCExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-SkyFloatingLabelTextFieldObjectiveCExample/Pods-SkyFloatingLabelTextFieldObjectiveCExample.release.xcconfig"; sourceTree = "<group>"; };
+		4F75A39684812153F43B64CF /* Pods-SkyFloatingLabelTextFieldObjectiveCExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SkyFloatingLabelTextFieldObjectiveCExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SkyFloatingLabelTextFieldObjectiveCExample/Pods-SkyFloatingLabelTextFieldObjectiveCExample.debug.xcconfig"; sourceTree = "<group>"; };
+		F41F65E6E2C22F39CC7FA1C7 /* Pods_SkyFloatingLabelTextFieldObjectiveCExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SkyFloatingLabelTextFieldObjectiveCExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F51E3BA11CB45A8300D4F0AB /* SkyFloatingLabelTextFieldObjectiveCExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkyFloatingLabelTextFieldObjectiveCExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F51E3BA51CB45A8300D4F0AB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F51E3BA71CB45A8300D4F0AB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F51E3BA81CB45A8300D4F0AB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F51E3BAA1CB45A8300D4F0AB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		F51E3BAB1CB45A8300D4F0AB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F51E3BAE1CB45A8400D4F0AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F51E3BB01CB45A8400D4F0AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F51E3BB31CB45A8400D4F0AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F51E3BB51CB45A8400D4F0AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F51E3B9E1CB45A8300D4F0AB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E814D8A7283C31AE59EB77B /* Pods_SkyFloatingLabelTextFieldObjectiveCExample.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2404076E5D487C3C515798C3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F41F65E6E2C22F39CC7FA1C7 /* Pods_SkyFloatingLabelTextFieldObjectiveCExample.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A874A87BAAAFE16838F8939C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4F75A39684812153F43B64CF /* Pods-SkyFloatingLabelTextFieldObjectiveCExample.debug.xcconfig */,
+				099DB98B438619A4F0A39278 /* Pods-SkyFloatingLabelTextFieldObjectiveCExample.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F51E3B981CB45A8300D4F0AB = {
+			isa = PBXGroup;
+			children = (
+				F51E3BA31CB45A8300D4F0AB /* SkyFloatingLabelTextFieldObjectiveCExample */,
+				F51E3BA21CB45A8300D4F0AB /* Products */,
+				A874A87BAAAFE16838F8939C /* Pods */,
+				2404076E5D487C3C515798C3 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F51E3BA21CB45A8300D4F0AB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F51E3BA11CB45A8300D4F0AB /* SkyFloatingLabelTextFieldObjectiveCExample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F51E3BA31CB45A8300D4F0AB /* SkyFloatingLabelTextFieldObjectiveCExample */ = {
+			isa = PBXGroup;
+			children = (
+				F51E3BA71CB45A8300D4F0AB /* AppDelegate.h */,
+				F51E3BA81CB45A8300D4F0AB /* AppDelegate.m */,
+				F51E3BAA1CB45A8300D4F0AB /* ViewController.h */,
+				F51E3BAB1CB45A8300D4F0AB /* ViewController.m */,
+				F51E3BAD1CB45A8300D4F0AB /* Main.storyboard */,
+				F51E3BB01CB45A8400D4F0AB /* Assets.xcassets */,
+				F51E3BB21CB45A8400D4F0AB /* LaunchScreen.storyboard */,
+				F51E3BB51CB45A8400D4F0AB /* Info.plist */,
+				F51E3BA41CB45A8300D4F0AB /* Supporting Files */,
+			);
+			path = SkyFloatingLabelTextFieldObjectiveCExample;
+			sourceTree = "<group>";
+		};
+		F51E3BA41CB45A8300D4F0AB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F51E3BA51CB45A8300D4F0AB /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F51E3BA01CB45A8300D4F0AB /* SkyFloatingLabelTextFieldObjectiveCExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F51E3BB81CB45A8400D4F0AB /* Build configuration list for PBXNativeTarget "SkyFloatingLabelTextFieldObjectiveCExample" */;
+			buildPhases = (
+				86CD9AB1916BF69E0E8F38A8 /* Check Pods Manifest.lock */,
+				F51E3B9D1CB45A8300D4F0AB /* Sources */,
+				F51E3B9E1CB45A8300D4F0AB /* Frameworks */,
+				F51E3B9F1CB45A8300D4F0AB /* Resources */,
+				EDE2A3472403BE04698EC4E8 /* Embed Pods Frameworks */,
+				AB0953914D627BB2B48446F5 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SkyFloatingLabelTextFieldObjectiveCExample;
+			productName = SkyFloatingLabelTextFieldObjectiveCExample;
+			productReference = F51E3BA11CB45A8300D4F0AB /* SkyFloatingLabelTextFieldObjectiveCExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F51E3B991CB45A8300D4F0AB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = Skyscanner;
+				TargetAttributes = {
+					F51E3BA01CB45A8300D4F0AB = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+				};
+			};
+			buildConfigurationList = F51E3B9C1CB45A8300D4F0AB /* Build configuration list for PBXProject "SkyFloatingLabelTextFieldObjectiveCExample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F51E3B981CB45A8300D4F0AB;
+			productRefGroup = F51E3BA21CB45A8300D4F0AB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F51E3BA01CB45A8300D4F0AB /* SkyFloatingLabelTextFieldObjectiveCExample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F51E3B9F1CB45A8300D4F0AB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F51E3BB41CB45A8400D4F0AB /* LaunchScreen.storyboard in Resources */,
+				F51E3BB11CB45A8400D4F0AB /* Assets.xcassets in Resources */,
+				F51E3BAF1CB45A8400D4F0AB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		86CD9AB1916BF69E0E8F38A8 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		AB0953914D627BB2B48446F5 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SkyFloatingLabelTextFieldObjectiveCExample/Pods-SkyFloatingLabelTextFieldObjectiveCExample-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EDE2A3472403BE04698EC4E8 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SkyFloatingLabelTextFieldObjectiveCExample/Pods-SkyFloatingLabelTextFieldObjectiveCExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F51E3B9D1CB45A8300D4F0AB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F51E3BAC1CB45A8300D4F0AB /* ViewController.m in Sources */,
+				F51E3BA91CB45A8300D4F0AB /* AppDelegate.m in Sources */,
+				F51E3BA61CB45A8300D4F0AB /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F51E3BAD1CB45A8300D4F0AB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F51E3BAE1CB45A8400D4F0AB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F51E3BB21CB45A8400D4F0AB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F51E3BB31CB45A8400D4F0AB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F51E3BB61CB45A8400D4F0AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F51E3BB71CB45A8400D4F0AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F51E3BB91CB45A8400D4F0AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4F75A39684812153F43B64CF /* Pods-SkyFloatingLabelTextFieldObjectiveCExample.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SkyFloatingLabelTextFieldObjectiveCExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.skyscanner.SkyFloatingLabelTextFieldObjectiveCExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F51E3BBA1CB45A8400D4F0AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 099DB98B438619A4F0A39278 /* Pods-SkyFloatingLabelTextFieldObjectiveCExample.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SkyFloatingLabelTextFieldObjectiveCExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = net.skyscanner.SkyFloatingLabelTextFieldObjectiveCExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F51E3B9C1CB45A8300D4F0AB /* Build configuration list for PBXProject "SkyFloatingLabelTextFieldObjectiveCExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F51E3BB61CB45A8400D4F0AB /* Debug */,
+				F51E3BB71CB45A8400D4F0AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F51E3BB81CB45A8400D4F0AB /* Build configuration list for PBXNativeTarget "SkyFloatingLabelTextFieldObjectiveCExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F51E3BB91CB45A8400D4F0AB /* Debug */,
+				F51E3BBA1CB45A8400D4F0AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F51E3B991CB45A8300D4F0AB /* Project object */;
+}

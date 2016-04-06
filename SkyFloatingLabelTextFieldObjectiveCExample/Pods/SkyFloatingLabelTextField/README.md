@@ -117,16 +117,13 @@ class MyViewController: UIViewController, UITextFieldDelegate {
     }
 
     /// Implementing a method on the UITextFieldDelegate protocol. This will notify us when something has changed on the textfield
-    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+    func textFieldChanged(textField: UITextField) {
         if let text = textField.text {
             // Note: every time when the text of the textfield changes, the error message is reset (hence we don't need to reset it)
             if(text.characters.count < 3 || !text.containsString("@")) {
-                if let floatingLabelTextField = textField as? SkyFloatingLabelTextField {
-                    floatingLabelTextField.errorMessage = "Invaid email"
-                }
+                textField.errorMessage = "Invaid email"
             }
         }
-        return true
     }
 }
 ```
@@ -136,11 +133,9 @@ class MyViewController: UIViewController, UITextFieldDelegate {
 The control was designed to allow further customization in subclasses. The control itself inherits from `UITextField`, so the standard overrides from there can all be used. A few other notable customization hooks via overriding are:
 - `updateColors`: override this method to customzie colors whenever the state of the control changes
 - Layout overrrides:
-  - `titleLabelRectForBounds(bounds:CGRect, editing:Bool)`:  override to change the bounds of the top title placeholder view
-  - `textRectForBounds(bounds: CGRect)`: override to change the bounds of the control (inherited from `UITextField`)
-  - `editingRectForBounds(bounds: CGRect)`: override to change the bounds of the control when editing / selected (inherited from `UITextField`)
-  - `placeholderRectForBounds(bounds: CGRect)`:  override to change the bounds of the placeholder view 
-  - `lineViewRectForBounds(bounds:CGRect, editing:Bool)`: override to change the bounds of the bottom line view
+  - `titleLabelRectForBounds`: override to change the bounds of the title label
+  - `lineViewRectForBounds`: override to change the bounds of the bottom line view
+  - `placeholderLabelRectForBounds`: override to change the bounds of the placeholder view
 
 ## Documentation
 
@@ -164,24 +159,6 @@ pod 'SkyFloatingLabelTextField', '~> 1.0'
 Lastly let CocoaPods fetch the latest version of the component by running:
 ```shell
 $ cocoapods update
-```
-
-#####Integrating into Objective C projects
-
-When integrating the component in Objective C project, in the Podfile add `use_frameworks!`. For example as shown in [SkyFloatingLabelTextFieldObjectiveCExample](https://github.com/Skyscanner/SkyFloatingLabelTextField/tree/master/SkyFloatingLabelTextFieldObjectiveCExample):
-
-```
-use_frameworks!
-
-target 'SkyFloatingLabelTextFieldObjectiveCExample' do
-  pod 'SkyFloatingLabelTextField', '~> 1.0'
-end
-```
-
-Then to use the component in your code, add the following line to your `.h` or `.m` files:
-
-```
-@import SkyFloatingLabelTextField;
 ```
 
 #### Carthage
@@ -213,17 +190,3 @@ We welcome all contributions. Please read [this guide](/CONTRIBUTING.md) before 
 The original component was built by [Daniel Langh](https://github.com/intonarumori), [Gergely Orosz](https://github.com/gergelyorosz) and [Raimon Laupente](https://github.com/wolffan).
 
 Credits for the original design, and improving it with iconography to Matt D. Smith ([@mds](https://twitter.com/mds)).
-
-## FAQ
-
-- *Can I use it in Objective C projects?*
-
-  Of course! Please see the [Integrating-into-Objective-C-projects](#Integrating into Objective C projects) section on how to integrate the component via CocoaPods.
-
-- *Does the control work well with auto layout? What about using it programmatically?*
-
-  The control was built to support both use cases. It plays nicely with autolayout. As the control is a subclass of `UITextField`, overriding `textRectForBounds(bounds:)` or `editingRectForBounds(bounds:)` is always an option. Alternatively, overriding `intrinsiccontentsize` is also another possiblity.
-
-- *How can I remove the line from the bottom of the textfield?*
-
-  Set `lineHeight` and `selectedLineHeight` to `0`, and the line won't be displayed.
