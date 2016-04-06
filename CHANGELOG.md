@@ -1,3 +1,8 @@
+v1.1.1
+----------
+* Bugfix: setting the error message via the `textField?(shouldChangeCharactersInRange:replacementString:)` method is now possible
+* Added example on how to use the control from Objective C
+
 v1.1
 ----------
 * Changed the control to inherit from the `UITextField` class (previously the control inherited from `UIControl`)
