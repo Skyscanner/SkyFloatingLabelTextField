@@ -185,7 +185,7 @@ Then to use the component in your code, add the following line to your `.h` or `
 ```
 
 #### Carthage
-The component supports [Carthage](https://github.con/Carthage/Carthage). Start by making sure you have the latest version of Carthage installed. Using [Homebrew](http://brew.sh/) run this:
+The component supports [Carthage](https://github.com/Carthage/Carthage). Start by making sure you have the latest version of Carthage installed. Using [Homebrew](http://brew.sh/) run this:
 ```shell
 $ brew update
 $ brew install carthage
