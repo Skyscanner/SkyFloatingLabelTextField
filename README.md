@@ -181,7 +181,7 @@ end
 
 Then to use the component in your code, add the following line to your `.h` or `.m` files:
 
-```swift
+```objc
 @import SkyFloatingLabelTextField;
 ```
 
