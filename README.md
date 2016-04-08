@@ -4,6 +4,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/Skyscanner/SkyFloatingLabelTextField/badge.svg?branch=master)](https://coveralls.io/github/Skyscanner/SkyFloatingLabelTextField?branch=master)
 [![Pod Platform](https://img.shields.io/cocoapods/p/SkyFloatingLabelTextField.svg?style=flat)](https://cocoapods.org/pods/SkyFloatingLabelTextField)
 [![Pod License](https://img.shields.io/cocoapods/l/SkyFloatingLabelTextField.svg?style=flat)](https://github.com/SkyFloatingLabelTextField/blob/master/LICENSE.md)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 [![Pod Version](https://img.shields.io/cocoapods/v/SkyFloatingLabelTextField.svg?style=flat)](https://cocoapods.org/pods/SkyFloatingLabelTextField)
 [![Documentation](https://img.shields.io/cocoapods/metrics/doc-percent/SkyFloatingLabelTextField.svg)](http://cocoadocs.org/docsets/SkyFloatingLabelTextField/)
@@ -180,7 +181,7 @@ end
 
 Then to use the component in your code, add the following line to your `.h` or `.m` files:
 
-```
+```objc
 @import SkyFloatingLabelTextField;
 ```
 
@@ -192,11 +193,7 @@ $ brew install carthage
 ```
 Then add `SkyFloatingLabelTextField` to your `Cartfile`:
 ```
-github 'Skyscanner/SkyFloatingLabelTextField' ~> 1.0
-```
-Afterwards have Carthage update the component by running:
-```shell
-$ carthage update
+github "Skyscanner/SkyFloatingLabelTextField"
 ```
 Finally, add the framework to the Xcode project of your App. Link the framework to your App and copy it to the App’s Frameworks directory via the “Build Phases” section.
 
