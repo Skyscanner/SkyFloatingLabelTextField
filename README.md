@@ -4,9 +4,9 @@
 [![Coverage Status](https://coveralls.io/repos/github/Skyscanner/SkyFloatingLabelTextField/badge.svg?branch=master)](https://coveralls.io/github/Skyscanner/SkyFloatingLabelTextField?branch=master)
 [![Pod Platform](https://img.shields.io/cocoapods/p/SkyFloatingLabelTextField.svg?style=flat)](https://cocoapods.org/pods/SkyFloatingLabelTextField)
 [![Pod License](https://img.shields.io/cocoapods/l/SkyFloatingLabelTextField.svg?style=flat)](https://github.com/SkyFloatingLabelTextField/blob/master/LICENSE.md)
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 [![Pod Version](https://img.shields.io/cocoapods/v/SkyFloatingLabelTextField.svg?style=flat)](https://cocoapods.org/pods/SkyFloatingLabelTextField)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Documentation](https://img.shields.io/cocoapods/metrics/doc-percent/SkyFloatingLabelTextField.svg)](http://cocoadocs.org/docsets/SkyFloatingLabelTextField/)
 [![Readme Score](http://readme-score-api.herokuapp.com/score.svg?url=https://github.com/Skyscanner/SkyFloatingLabelTextField)](http://clayallsopp.github.io/readme-score?url=https://github.com/Skyscanner/SkyFloatingLabelTextField)
 
