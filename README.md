@@ -35,7 +35,7 @@ self.view.addSubview(textField)
 
 ### Colors
 
-To customize the colors of the textfield, set a few properties - either from code, or from Interface builder. To use a textfield with an icon, utilize the `SkyFloatingLabelTextFieldWithIcon` class (and bundle the font class with your app). This example will change colors for the textfield on teh right:
+To customize the colors of the textfield, set a few properties - either from code, or from Interface builder. To use a textfield with an icon, utilize the `SkyFloatingLabelTextFieldWithIcon` class (and bundle the font class with your app). This example will change colors for the textfield on the right:
 
 ![](/SkyFloatingLabelTextField/images/example-2.gif)
 
