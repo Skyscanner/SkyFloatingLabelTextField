@@ -26,7 +26,7 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
         
         self.setupThemeColors()
         
-        self.arrivalCityField.becomeFirstResponder()
+        self.departureCityField.becomeFirstResponder()
     }
     
     // MARK: - Creating the form elements
@@ -110,19 +110,19 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func submitButtonDown(sender: AnyObject) {
         // By setting the highlighted property to true, the floating title is shown
-        if (self.departureCityField.text ?? "").isEmpty {
+        if !self.departureCityField.hasText() {
             self.departureCityField.highlighted = true
         }
-        if (self.arrivalCityField.text ?? "").isEmpty {
+        if !self.arrivalCityField.hasText() {
             self.arrivalCityField.highlighted = true
         }
-        if (self.titleField.text ?? "").isEmpty {
+        if !self.titleField.hasText() {
             self.titleField.highlighted = true
         }
-        if (self.nameField.text ?? "").isEmpty {
+        if !self.nameField.hasText() {
             self.nameField.highlighted = true
         }
-        if (self.emailField.text ?? "").isEmpty {
+        if !self.emailField.hasText() {
             self.emailField.highlighted = true
         }
     }

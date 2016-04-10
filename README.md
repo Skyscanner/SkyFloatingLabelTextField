@@ -6,6 +6,7 @@
 [![Pod License](https://img.shields.io/cocoapods/l/SkyFloatingLabelTextField.svg?style=flat)](https://github.com/SkyFloatingLabelTextField/blob/master/LICENSE.md)
 
 [![Pod Version](https://img.shields.io/cocoapods/v/SkyFloatingLabelTextField.svg?style=flat)](https://cocoapods.org/pods/SkyFloatingLabelTextField)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Documentation](https://img.shields.io/cocoapods/metrics/doc-percent/SkyFloatingLabelTextField.svg)](http://cocoadocs.org/docsets/SkyFloatingLabelTextField/)
 [![Readme Score](http://readme-score-api.herokuapp.com/score.svg?url=https://github.com/Skyscanner/SkyFloatingLabelTextField)](http://clayallsopp.github.io/readme-score?url=https://github.com/Skyscanner/SkyFloatingLabelTextField)
 
@@ -34,7 +35,7 @@ self.view.addSubview(textField)
 
 ### Colors
 
-To customize the colors of the textfield, set a few properties - either from code, or from Interface builder. To use a textfield with an icon, utilize the `SkyFloatingLabelTextFieldWithIcon` class (and bundle the font class with your app). This example will change colors for the textfield on teh right:
+To customize the colors of the textfield, set a few properties - either from code, or from Interface builder. To use a textfield with an icon, utilize the `SkyFloatingLabelTextFieldWithIcon` class (and bundle the font class with your app). This example will change colors for the textfield on the right:
 
 ![](/SkyFloatingLabelTextField/images/example-2.gif)
 
@@ -90,8 +91,8 @@ textField2.iconColor = UIColor.lightGrayColor()
 textField2.selectedIconColor = overcastBlueColor
 textField2.iconFont = UIFont(name: "FontAwesome", size: 15)
 textField2.iconText = "\u{f072}" // plane icon as per https://fortawesome.github.io/Font-Awesome/cheatsheet/
+textField2.iconMarginBottom = 4.0 // more precise icon positioning. Usually needed to tweak on a per font basis.
 textField2.iconRotationDegrees = 90 // rotate it 90 degrees
-textField2.iconMarginBottom = 4.0 // more precise icon positioning
 textField2.iconMarginLeft = 2.0
 self.view.addSubview(textField2)
 ```
@@ -180,23 +181,19 @@ end
 
 Then to use the component in your code, add the following line to your `.h` or `.m` files:
 
-```
+```objc
 @import SkyFloatingLabelTextField;
 ```
 
 #### Carthage
-The component supports [Carthage](https://github.con/Carthage/Carthage). Start by making sure you have the latest version of Carthage installed. Using [Homebrew](http://brew.sh/) run this:
+The component supports [Carthage](https://github.com/Carthage/Carthage). Start by making sure you have the latest version of Carthage installed. Using [Homebrew](http://brew.sh/) run this:
 ```shell
 $ brew update
 $ brew install carthage
 ```
 Then add `SkyFloatingLabelTextField` to your `Cartfile`:
 ```
-github 'Skyscanner/SkyFloatingLabelTextField' ~> 1.0
-```
-Afterwards have Carthage update the component by running:
-```shell
-$ carthage update
+github "Skyscanner/SkyFloatingLabelTextField"
 ```
 Finally, add the framework to the Xcode project of your App. Link the framework to your App and copy it to the App’s Frameworks directory via the “Build Phases” section.
 
