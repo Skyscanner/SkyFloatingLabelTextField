@@ -188,7 +188,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         XCTAssertFalse(floatingLabelTextField.hasText())
     }
     
-    func test_whenSettingText_withErrorMessagePresent_thenClearsErrorMessage() {
+    func test_whenSettingText_withErrorMessagePresent_thenErrorMessageIsNotChanged() {
         // given
         floatingLabelTextField.errorMessage = "error"
         floatingLabelTextField.title = "title"
@@ -198,11 +198,11 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         floatingLabelTextField.text = "hello!"
         
         // then
-        XCTAssertEqual(floatingLabelTextField.titleLabel.text, "TITLE")
-        XCTAssertNil(floatingLabelTextField.errorMessage)
+        XCTAssertEqual(floatingLabelTextField.titleLabel.text, "ERROR")
+        XCTAssertEqual(floatingLabelTextField.errorMessage, "error")
     }
     
-    func test_whenBecomeFirstResponder_thenErrorMessageIsCleared() {
+    func test_whenBecomeFirstResponder_thenErrorMessageIsNotCleared() {
         // given
         floatingLabelTextField.errorMessage = "Error"
         
@@ -210,10 +210,10 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         floatingLabelTextField.becomeFirstResponder()
         
         // then
-        XCTAssertNil(floatingLabelTextField.errorMessage)
+        XCTAssertEqual(floatingLabelTextField.errorMessage, "Error")
     }
     
-    func test_whenEditingChangedInvoked_thenErrorMessageIsCleared() {
+    func test_whenEditingChangedInvoked_thenErrorMessageIsNotCleared() {
         // given
         floatingLabelTextField.errorMessage = "Error"
         
@@ -221,12 +221,25 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         floatingLabelTextField.editingChanged()
         
         // then
-        XCTAssertNil(floatingLabelTextField.errorMessage)
+        XCTAssertEqual(floatingLabelTextField.errorMessage, "Error")
     }
     
     func test_whenEditingChangedInvoked_thenDelegateShouldChangeCharactersInRangeInvoked() {
         // given
         floatingLabelTextField.delegate = textFieldDelegateMock
+        floatingLabelTextField.text = "aa"
+        
+        // when
+        floatingLabelTextField.editingChanged()
+        
+        // then
+        XCTAssertTrue(textFieldDelegateMock.shouldChangeCharactersInRangeInvoked)
+    }
+    
+    func test_whenEditingChangedInvoked2_thenDelegateShouldChangeCharactersInRangeInvoked() {
+        // given
+        floatingLabelTextField.delegate = textFieldDelegateMock
+        floatingLabelTextField.text = nil
         
         // when
         floatingLabelTextField.editingChanged()
