@@ -163,7 +163,7 @@ public class SkyFloatingLabelTextField: UITextField {
             return _highlighted
         }
         set {
-            self.setHighlighted(_highlighted, animated: true)
+            self.setHighlighted(newValue, animated: true)
         }
     }
     

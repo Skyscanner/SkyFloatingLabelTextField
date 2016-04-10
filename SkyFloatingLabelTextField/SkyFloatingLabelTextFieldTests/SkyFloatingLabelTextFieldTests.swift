@@ -250,6 +250,17 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
     
     // MARK:  - highlighted 
     
+    func test_whenSettingHighightedFromFalseToTrue_thenHighlightedIsTrue() {
+        // given
+        XCTAssertFalse(floatingLabelTextField.highlighted)
+        
+        // when
+        floatingLabelTextField.highlighted = true
+        
+        // then
+        XCTAssertTrue(floatingLabelTextField.highlighted)
+    }
+    
     func test_whenSettingHighighted_toTrue_withoutAnimation_thenTitleAlphaSetToOne() {
         // given
         XCTAssertEqual(floatingLabelTextField.titleLabel.alpha, 0.0)
