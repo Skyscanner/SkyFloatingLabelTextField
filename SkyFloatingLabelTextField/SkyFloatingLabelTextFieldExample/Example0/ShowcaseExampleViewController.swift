@@ -53,31 +53,6 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
         self.titleField.delegate = self
         self.nameField.delegate = self
         self.emailField.delegate = self
-        
-        //self.arrivalCityField.errorMessage = "Please fill out this field"
-        
-        /*
-        Use cases:
-            - when error message is set, show it: wheter text is present, or not
-            - when text is set
-                - either clear error message
-                - or keep it
-            - when textfield is foucsed
-                - clear error message
-                - or keep it
-        
-            - default behaviour:
-                - when text is set, keep error message
-                - when textfield is focused, keep error message
-            - to change behaviour
-                - override setText to clear error message
-                - override becomeFirstResponder
-        */
-        
-        // errorMessageBehaviour
-        //  - showWhenTextI
-
-        //self.departureCityField.errorMessage = "Please fill out this field"
     }
     
     // MARK: - Styling the text fields to the Skyscanner theme
