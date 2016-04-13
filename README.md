@@ -120,10 +120,13 @@ class MyViewController: UIViewController, UITextFieldDelegate {
     /// Implementing a method on the UITextFieldDelegate protocol. This will notify us when something has changed on the textfield
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         if let text = textField.text {
-            // Note: every time when the text of the textfield changes, the error message is reset (hence we don't need to reset it)
-            if(text.characters.count < 3 || !text.containsString("@")) {
-                if let floatingLabelTextField = textField as? SkyFloatingLabelTextField {
-                    floatingLabelTextField.errorMessage = "Invaid email"
+            if let floatingLabelTextField = textField as? SkyFloatingLabelTextField {
+                if(text.characters.count < 3 || !text.containsString("@")) {
+                    floatingLabelTextField.errorMessage = "Invalid email"
+                }
+                else {
+                    // The error message will only disappear when we reset it to nil or empty string
+                    floatingLabelTextField.errorMessage = ""
                 }
             }
         }
@@ -135,12 +138,12 @@ class MyViewController: UIViewController, UITextFieldDelegate {
 ### Further customizing the control by subclassing
 
 The control was designed to allow further customization in subclasses. The control itself inherits from `UITextField`, so the standard overrides from there can all be used. A few other notable customization hooks via overriding are:
-- `updateColors`: override this method to customzie colors whenever the state of the control changes
-- Layout overrrides:
+- `updateColors`: override this method to customize colors whenever the state of the control changes
+- Layout overrides:
   - `titleLabelRectForBounds(bounds:CGRect, editing:Bool)`:  override to change the bounds of the top title placeholder view
   - `textRectForBounds(bounds: CGRect)`: override to change the bounds of the control (inherited from `UITextField`)
   - `editingRectForBounds(bounds: CGRect)`: override to change the bounds of the control when editing / selected (inherited from `UITextField`)
-  - `placeholderRectForBounds(bounds: CGRect)`:  override to change the bounds of the placeholder view 
+  - `placeholderRectForBounds(bounds: CGRect)`:  override to change the bounds of the placeholder view
   - `lineViewRectForBounds(bounds:CGRect, editing:Bool)`: override to change the bounds of the bottom line view
 
 ## Documentation
@@ -162,7 +165,7 @@ Then simply add `SkyFloatingLabelTextField` to your Podfile:
 pod 'SkyFloatingLabelTextField', '~> 1.0'
 ```
 
-Lastly let CocoaPods fetch the latest version of the component by running:
+Lastly, let CocoaPods fetch the latest version of the component by running:
 ```shell
 $ cocoapods update
 ```
@@ -219,8 +222,12 @@ Credits for the original design, and improving it with iconography to Matt D. Sm
 
 - *Does the control work well with auto layout? What about using it programmatically?*
 
-  The control was built to support both use cases. It plays nicely with autolayout. As the control is a subclass of `UITextField`, overriding `textRectForBounds(bounds:)` or `editingRectForBounds(bounds:)` is always an option. Alternatively, overriding `intrinsiccontentsize` is also another possiblity.
+  The control was built to support both use cases. It plays nicely with autolayout. As the control is a subclass of `UITextField`, overriding `textRectForBounds(bounds:)` or `editingRectForBounds(bounds:)` is always an option. Alternatively, overriding `intrinsiccontentsize` is also another possibility.
 
 - *How can I remove the line from the bottom of the textfield?*
 
   Set `lineHeight` and `selectedLineHeight` to `0`, and the line won't be displayed.
+
+- *I'd like to validate the textfield using the `errorMessage`. How can I re-validate text is typed in the textfield?*
+
+  Using a delegate implement the `textField(textField:,range:string:)` method. This method fires whenever the text is changed - do the validation here. Alternatively, using subclassing you can also override the `becomeFirstResponder` method to e.g. clear the text or error message when the textfield is selected.
