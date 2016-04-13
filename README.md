@@ -10,7 +10,7 @@
 [![Documentation](https://img.shields.io/cocoapods/metrics/doc-percent/SkyFloatingLabelTextField.svg)](http://cocoadocs.org/docsets/SkyFloatingLabelTextField/)
 [![Readme Score](http://readme-score-api.herokuapp.com/score.svg?url=https://github.com/Skyscanner/SkyFloatingLabelTextField)](http://clayallsopp.github.io/readme-score?url=https://github.com/Skyscanner/SkyFloatingLabelTextField)
 
-`SkyFloatingLabelTextField` is a beautiful, flexible and customizable implementation of the space saving **"Float Label Pattern"**. This design enables adding context to input fields that is visible at time of typing, while minimizing the additional space used to display this additional context. This component is used in the [Skyscanner TravelPro iOS application](https://itunes.apple.com/gb/app/travelpro-business-travel/id1046916687) in several places.
+`SkyFloatingLabelTextField` is a beautiful, flexible and customizable implementation of the space saving **"Float Label Pattern"**. This design enables adding context to input fields that is visible at time of typing, while minimizing the additional space used to display this additional context. This component is used in the [Skyscanner TravelPro iOS application](https://itunes.apple.com/gb/app/travelpro-business-travel/id1046916687) in several places, like when [searching for flights](http://codevoyagers.com/2016/04/06/open-sourcing-skyfloatinglabeltextfield/).
 
 On top of implementing the space-saving floating title, the component also supports using iconography, various states (error, selected, highlighted states), and is very much customizable and extensible.
 
