@@ -299,11 +299,6 @@ public class SkyFloatingLabelTextField: UITextField {
     public func editingChanged() {
         updateControl(true)
         updateTitleLabel(true)
-        if let text = self.text {
-            let range = NSMakeRange(0, text.characters.count)
-            // Because of subscribing to .EditingChanged, the error message was cleared for any delegate overriding the textField:shouldChangeCharactersInRange:replacementString method. Invoke this again to enable setting the error message on text change.
-            self.delegate?.textField?(self, shouldChangeCharactersInRange: range, replacementString: text)
-        }
     }
     
     // MARK: create components

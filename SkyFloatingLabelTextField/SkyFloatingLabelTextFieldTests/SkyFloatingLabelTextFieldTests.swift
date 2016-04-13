@@ -246,7 +246,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         XCTAssertEqual(floatingLabelTextField.errorMessage, "Error")
     }
     
-    func test_whenEditingChangedInvoked_thenDelegateShouldChangeCharactersInRangeInvoked() {
+    func test_whenEditingChangedInvoked_thenDelegateShouldChangeCharactersInRangeIsNotInvoked() {
         // given
         floatingLabelTextField.delegate = textFieldDelegateMock
         floatingLabelTextField.text = "aa"
@@ -255,19 +255,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         floatingLabelTextField.editingChanged()
         
         // then
-        XCTAssertTrue(textFieldDelegateMock.shouldChangeCharactersInRangeInvoked)
-    }
-    
-    func test_whenEditingChangedInvoked2_thenDelegateShouldChangeCharactersInRangeInvoked() {
-        // given
-        floatingLabelTextField.delegate = textFieldDelegateMock
-        floatingLabelTextField.text = nil
-        
-        // when
-        floatingLabelTextField.editingChanged()
-        
-        // then
-        XCTAssertTrue(textFieldDelegateMock.shouldChangeCharactersInRangeInvoked)
+        XCTAssertFalse(textFieldDelegateMock.shouldChangeCharactersInRangeInvoked)
     }
     
     // MARK:  - editingOrSelected
