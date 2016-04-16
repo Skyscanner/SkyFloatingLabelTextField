@@ -12,8 +12,16 @@ class CustomLayoutViewController: UIViewController {
 
     @IBOutlet var textField:IconTextField?
     
+    @IBOutlet var addErrorButton:UIButton?
+    
     @IBAction func addError() {
-        self.textField?.errorMessage = "error message"
+        if(self.addErrorButton?.titleForState(.Normal) == "Add error") {
+            self.textField?.errorMessage = "error message"
+            self.addErrorButton?.setTitle("Clear error", forState: .Normal)
+        } else {
+            self.textField?.errorMessage = ""
+            self.addErrorButton?.setTitle("Add error", forState: .Normal)
+        }
     }
     
     @IBAction func resignTextField() {

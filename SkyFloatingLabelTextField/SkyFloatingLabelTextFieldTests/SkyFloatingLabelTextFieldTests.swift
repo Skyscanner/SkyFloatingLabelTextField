@@ -83,6 +83,28 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         XCTAssertEqual(floatingLabelTextField.titleLabel.textColor, self.customColor)
     }
     
+    func test_whenSettingErrorColor_withErrorMessageBeingEmpty_thenTitleLabelTextColorIsNotChangedToThisColor() {
+        // given
+        floatingLabelTextField.errorMessage = ""
+        
+        // when
+        floatingLabelTextField.errorColor = self.customColor
+        
+        // then
+        XCTAssertNotEqual(floatingLabelTextField.titleLabel.textColor, self.customColor)
+    }
+    
+    func test_whenSettingErrorColor_withErrorMessageBeingNil_thenTitleLabelTextColorIsNotChangedToThisColor() {
+        // given
+        floatingLabelTextField.errorMessage = nil
+        
+        // when
+        floatingLabelTextField.errorColor = self.customColor
+        
+        // then
+        XCTAssertNotEqual(floatingLabelTextField.titleLabel.textColor, self.customColor)
+    }
+    
     func test_whenSettingErrorColor_withErrorMessageBeingSet_thenLineViewBackgroundColorIsChangedToThisColor() {
         // given
         floatingLabelTextField.errorMessage = "test"
@@ -188,7 +210,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         XCTAssertFalse(floatingLabelTextField.hasText())
     }
     
-    func test_whenSettingText_withErrorMessagePresent_thenClearsErrorMessage() {
+    func test_whenSettingText_withErrorMessagePresent_thenErrorMessageIsNotChanged() {
         // given
         floatingLabelTextField.errorMessage = "error"
         floatingLabelTextField.title = "title"
@@ -198,11 +220,11 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         floatingLabelTextField.text = "hello!"
         
         // then
-        XCTAssertEqual(floatingLabelTextField.titleLabel.text, "TITLE")
-        XCTAssertNil(floatingLabelTextField.errorMessage)
+        XCTAssertEqual(floatingLabelTextField.titleLabel.text, "ERROR")
+        XCTAssertEqual(floatingLabelTextField.errorMessage, "error")
     }
     
-    func test_whenBecomeFirstResponder_thenErrorMessageIsCleared() {
+    func test_whenBecomeFirstResponder_thenErrorMessageIsNotCleared() {
         // given
         floatingLabelTextField.errorMessage = "Error"
         
@@ -210,10 +232,10 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         floatingLabelTextField.becomeFirstResponder()
         
         // then
-        XCTAssertNil(floatingLabelTextField.errorMessage)
+        XCTAssertEqual(floatingLabelTextField.errorMessage, "Error")
     }
     
-    func test_whenEditingChangedInvoked_thenErrorMessageIsCleared() {
+    func test_whenEditingChangedInvoked_thenErrorMessageIsNotCleared() {
         // given
         floatingLabelTextField.errorMessage = "Error"
         
@@ -221,18 +243,19 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         floatingLabelTextField.editingChanged()
         
         // then
-        XCTAssertNil(floatingLabelTextField.errorMessage)
+        XCTAssertEqual(floatingLabelTextField.errorMessage, "Error")
     }
     
-    func test_whenEditingChangedInvoked_thenDelegateShouldChangeCharactersInRangeInvoked() {
+    func test_whenEditingChangedInvoked_thenDelegateShouldChangeCharactersInRangeIsNotInvoked() {
         // given
         floatingLabelTextField.delegate = textFieldDelegateMock
+        floatingLabelTextField.text = "aa"
         
         // when
         floatingLabelTextField.editingChanged()
         
         // then
-        XCTAssertTrue(textFieldDelegateMock.shouldChangeCharactersInRangeInvoked)
+        XCTAssertFalse(textFieldDelegateMock.shouldChangeCharactersInRangeInvoked)
     }
     
     // MARK:  - editingOrSelected

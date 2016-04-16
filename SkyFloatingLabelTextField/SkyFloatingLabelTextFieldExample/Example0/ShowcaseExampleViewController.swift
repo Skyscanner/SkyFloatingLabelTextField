@@ -116,13 +116,7 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         // Validate the email field
         if (textField == self.emailField) {
-            if let email = self.emailField.text {
-                if(!isValidEmail(email)) {
-                    self.emailField.errorMessage = "Email not valid"
-                    return false
-                }
-            }
-            
+            validateEmailTextField()
         }
         
         // When pressing return, move to the next field
@@ -133,6 +127,26 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
             textField.resignFirstResponder()
         }
         return false
+    }
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        self.validateEmailTextField()
+        return true
+    }
+    
+    func validateEmailTextField() {
+        if let email = self.emailField.text {
+            if(email.characters.count == 0) {
+                self.emailField.errorMessage = nil
+            }
+            else if(!isValidEmail(email)) {
+                self.emailField.errorMessage = "Email not valid"
+            } else {
+                self.emailField.errorMessage = nil
+            }
+        } else {
+             self.emailField.errorMessage = nil
+        }
     }
     
     func isValidEmail(str:String?) -> Bool {

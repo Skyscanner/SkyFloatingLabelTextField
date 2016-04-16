@@ -19,8 +19,16 @@ class SubclassingViewController: UIViewController {
         self.view.tintColor = UIColor(red: 0.0, green: 221.0/256.0, blue: 238.0/256.0, alpha: 1.0)
     }
     
+    @IBOutlet var addErrorButton:UIButton?
+    
     @IBAction func addError() {
-        self.textField?.errorMessage = "error message"
+        if(self.addErrorButton?.titleForState(.Normal) == "Add error") {
+            self.textField?.errorMessage = "error message"
+            self.addErrorButton?.setTitle("Clear error", forState: .Normal)
+        } else {
+            self.textField?.errorMessage = ""
+            self.addErrorButton?.setTitle("Add error", forState: .Normal)
+        }
     }
     
     @IBAction func resignTextField() {
