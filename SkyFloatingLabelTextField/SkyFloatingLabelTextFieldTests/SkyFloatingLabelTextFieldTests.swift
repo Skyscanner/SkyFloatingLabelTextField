@@ -674,7 +674,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
     func failOnTimeoutAfterSeconds(timeout: NSTimeInterval) {
         self.waitForExpectationsWithTimeout(timeout, handler: {(error: NSError?) -> Void in
             if let error = error {
-                XCTFail("Call timed out %@", file: error.localizedDescription)
+                XCTFail("Call timed out \(error.localizedDescription)")
             }
         })
     }

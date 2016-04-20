@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		934DBCFF1CC774B900E03F87 /* SkyFloatingLabelTextField.strings in Resources */ = {isa = PBXBuildFile; fileRef = 934DBD011CC774B900E03F87 /* SkyFloatingLabelTextField.strings */; };
+		934DBD021CC775D300E03F87 /* SkyFloatingLabelTextField.strings in Resources */ = {isa = PBXBuildFile; fileRef = 934DBD011CC774B900E03F87 /* SkyFloatingLabelTextField.strings */; };
 		F51232B21C7686F400FF32A6 /* IconTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51232B11C7686F400FF32A6 /* IconTextField.swift */; };
 		F52638461C72886F0068D21A /* SkyFloatingLabelTextFieldWithIconTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52638451C72886F0068D21A /* SkyFloatingLabelTextFieldWithIconTests.swift */; };
 		F538420C1C3C2B3600409083 /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F538420B1C3C2B3600409083 /* fontawesome-webfont.ttf */; };
@@ -43,6 +45,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		934DBCFB1CC76D4600E03F87 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/Main.strings; sourceTree = "<group>"; };
+		934DBCFC1CC76D4600E03F87 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		934DBD001CC774B900E03F87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/SkyFloatingLabelTextField.strings; sourceTree = "<group>"; };
+		934DBD031CC775D700E03F87 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/SkyFloatingLabelTextField.strings; sourceTree = "<group>"; };
 		F51232B11C7686F400FF32A6 /* IconTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconTextField.swift; sourceTree = "<group>"; };
 		F52638451C72886F0068D21A /* SkyFloatingLabelTextFieldWithIconTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyFloatingLabelTextFieldWithIconTests.swift; sourceTree = "<group>"; };
 		F538420B1C3C2B3600409083 /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fontawesome-webfont.ttf"; sourceTree = "<group>"; };
@@ -107,6 +113,7 @@
 		F547D4AD1C3BEA900075A0C2 /* SkyFloatingLabelTextFieldExample */ = {
 			isa = PBXGroup;
 			children = (
+				934DBD011CC774B900E03F87 /* SkyFloatingLabelTextField.strings */,
 				F538420A1C3C2B2900409083 /* Supporting Files */,
 				F547D4BE1C3BEAF40075A0C2 /* Example0 */,
 				F547D4C01C3BEAF40075A0C2 /* Example1 */,
@@ -309,6 +316,7 @@
 			knownRegions = (
 				en,
 				Base,
+				he,
 			);
 			mainGroup = F562890E1C3BE3A10082D9A6;
 			productRefGroup = F56289191C3BE3A20082D9A6 /* Products */;
@@ -331,6 +339,7 @@
 				F538420C1C3C2B3600409083 /* fontawesome-webfont.ttf in Resources */,
 				F547D4B61C3BEA900075A0C2 /* Assets.xcassets in Resources */,
 				F547D4B41C3BEA900075A0C2 /* Main.storyboard in Resources */,
+				934DBD021CC775D300E03F87 /* SkyFloatingLabelTextField.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +347,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				934DBCFF1CC774B900E03F87 /* SkyFloatingLabelTextField.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,10 +411,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		934DBD011CC774B900E03F87 /* SkyFloatingLabelTextField.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				934DBD001CC774B900E03F87 /* Base */,
+				934DBD031CC775D700E03F87 /* he */,
+			);
+			name = SkyFloatingLabelTextField.strings;
+			sourceTree = "<group>";
+		};
 		F547D4B21C3BEA900075A0C2 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				F547D4B31C3BEA900075A0C2 /* Base */,
+				934DBCFB1CC76D4600E03F87 /* he */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -413,6 +433,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				F547D4B81C3BEA900075A0C2 /* Base */,
+				934DBCFC1CC76D4600E03F87 /* he */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
