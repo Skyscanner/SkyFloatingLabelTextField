@@ -13,6 +13,8 @@ import UIKit
  */
 @IBDesignable
 public class SkyFloatingLabelTextField: UITextField {
+    // MARK: language support
+    let isLTRLanguage = UIApplication.sharedApplication().userInterfaceLayoutDirection == .LeftToRight
     
     // MARK: Animation timing
     

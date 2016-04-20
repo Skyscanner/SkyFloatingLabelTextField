@@ -1,0 +1,37 @@
+/* 
+  AppDelegate.strings
+  SkyFloatingLabelTextField
+
+  Created by Shai Shamir on 20/04/2016.
+  Copyright © 2016 Skyscanner. All rights reserved.
+*/
+
+/* Placeholder/Title for the departure city field*/
+"Departure City" = "עיר מוצא";
+
+/* Placeholder/Title for the arrival city field*/
+"Arrival City" = "עיר יעד";
+
+/* Placeholder/Title for person title field */
+"Title" = "תואר";
+
+/* Placeholder/Title for traveler name field */
+"Name" = "שם";
+
+/* Placeholder/Title for traveler Email field */
+"Email" = "דוא\"ל";
+
+/* Clear error state */
+"Clear error" = "נקה שגיאה";
+
+/* Add error state */
+"Add error" = "הוסף שגיאות";
+
+/* Placeholder for field */
+"Placeholder" = "ממלא מקום";
+
+/*  */
+"error message" = "הודעת שגיאה";
+
+/* */
+"Email not valid" = "דוא\"ל שגוי";

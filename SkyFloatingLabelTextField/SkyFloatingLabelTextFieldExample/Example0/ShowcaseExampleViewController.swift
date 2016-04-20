@@ -8,8 +8,10 @@
 
 import UIKit
 
+let isLTRLanguage = UIApplication.sharedApplication().userInterfaceLayoutDirection == .LeftToRight
+
 class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
-    
+
     @IBOutlet weak var arrivalCityField: SkyFloatingLabelTextFieldWithIcon!
     @IBOutlet weak var departureCityField: SkyFloatingLabelTextFieldWithIcon!
     @IBOutlet weak var titleField: SkyFloatingLabelTextField!
@@ -39,11 +41,35 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
         
         self.applySkyscannerThemeWithIcon(self.departureCityField)
         self.departureCityField.iconText = "\u{f072}" // plane icon as per https://fortawesome.github.io/Font-Awesome/cheatsheet/
-        
+        self.departureCityField.placeholder     = NSLocalizedString("Departure City", tableName: "SkyFloatingLabelTextField", comment: "placeholder for the departure city field")
+        self.departureCityField.selectedTitle   = NSLocalizedString("Departure City", tableName: "SkyFloatingLabelTextField", comment: "title for the departure city field")
+        self.departureCityField.title           = NSLocalizedString("Departure City", tableName: "SkyFloatingLabelTextField", comment: "title for the departure city field")
+
         self.applySkyscannerThemeWithIcon(self.arrivalCityField)
-        self.arrivalCityField.iconRotationDegrees = 90
+        if isLTRLanguage {
+            self.arrivalCityField.iconRotationDegrees = 90
+        } else { // In RTL languages the plane should point to the other side
+            self.arrivalCityField.iconRotationDegrees = 180
+            self.departureCityField.iconRotationDegrees = 270
+        }
         self.arrivalCityField.iconText = "\u{f072}"
+
+        self.arrivalCityField.placeholder     = NSLocalizedString("Arrival City", tableName: "SkyFloatingLabelTextField", comment: "placeholder for the arrival city field")
+        self.arrivalCityField.selectedTitle   = NSLocalizedString("Arrival City", tableName: "SkyFloatingLabelTextField", comment: "title for the arrival city field")
+        self.arrivalCityField.title           = NSLocalizedString("Arrival City", tableName: "SkyFloatingLabelTextField", comment: "title for the arrival city field")
         
+        self.titleField.placeholder     = NSLocalizedString("Title", tableName: "SkyFloatingLabelTextField", comment: "placeholder for person title field")
+        self.titleField.selectedTitle   = NSLocalizedString("Title", tableName: "SkyFloatingLabelTextField", comment: "selected title for person title field")
+        self.titleField.title           = NSLocalizedString("Title", tableName: "SkyFloatingLabelTextField", comment: "title for person title field")
+
+        self.nameField.placeholder     = NSLocalizedString("Name", tableName: "SkyFloatingLabelTextField", comment: "placeholder for traveler name field")
+        self.nameField.selectedTitle   = NSLocalizedString("Name", tableName: "SkyFloatingLabelTextField", comment: "selected title for traveler name field")
+        self.nameField.title           = NSLocalizedString("Name", tableName: "SkyFloatingLabelTextField", comment: "title for traveler name field")
+        
+        self.emailField.placeholder     = NSLocalizedString("Email", tableName: "SkyFloatingLabelTextField", comment: "placeholder for Email field")
+        self.emailField.selectedTitle   = NSLocalizedString("Email", tableName: "SkyFloatingLabelTextField", comment: "selected title for Email field")
+        self.emailField.title           = NSLocalizedString("Email", tableName: "SkyFloatingLabelTextField", comment: "title for Email field")
+
         self.applySkyscannerTheme(self.titleField)
         self.applySkyscannerTheme(self.nameField)
         self.applySkyscannerTheme(self.emailField)
@@ -140,7 +166,7 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
                 self.emailField.errorMessage = nil
             }
             else if(!isValidEmail(email)) {
-                self.emailField.errorMessage = "Email not valid"
+                self.emailField.errorMessage = NSLocalizedString("Email not valid", tableName: "SkyFloatingLabelTextField", comment: " ")
             } else {
                 self.emailField.errorMessage = nil
             }

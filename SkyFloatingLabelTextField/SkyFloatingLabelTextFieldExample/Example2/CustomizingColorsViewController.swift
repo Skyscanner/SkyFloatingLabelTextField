@@ -15,12 +15,12 @@ class CustomizingColorsViewController: UIViewController {
     @IBOutlet var addErrorButton:UIButton?
     
     @IBAction func addError() {
-        if(self.addErrorButton?.titleForState(.Normal) == "Add error") {
-            self.textField?.errorMessage = "error message"
-            self.addErrorButton?.setTitle("Clear error", forState: .Normal)
+        if(self.addErrorButton?.titleForState(.Normal) == NSLocalizedString("Add error", tableName: "SkyFloatingLabelTextField", comment: "add error button title")) {
+            self.textField?.errorMessage = NSLocalizedString("error message", tableName: "SkyFloatingLabelTextField", comment: "error message")
+            self.addErrorButton?.setTitle(NSLocalizedString("Clear error", tableName: "SkyFloatingLabelTextField", comment: "clear errors button title"), forState: .Normal)
         } else {
             self.textField?.errorMessage = ""
-            self.addErrorButton?.setTitle("Add error", forState: .Normal)
+            self.addErrorButton?.setTitle(NSLocalizedString("Add error", tableName: "SkyFloatingLabelTextField", comment: "add error button title"), forState: .Normal)
         }
     }
     

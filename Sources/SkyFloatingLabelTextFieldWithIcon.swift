@@ -12,7 +12,7 @@ import UIKit
  A beautiful and flexible textfield implementation with support for icon, title label, error message and placeholder.
  */
 public class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
-    
+
     /// A UILabel value that identifies the label used to display the icon
     public var iconLabel:UILabel!
     
@@ -137,7 +137,11 @@ public class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     */
     override public func textRectForBounds(bounds: CGRect) -> CGRect {
         var rect = super.textRectForBounds(bounds)
-        rect.origin.x += CGFloat(iconWidth + iconMarginLeft)
+        if isLTRLanguage {
+            rect.origin.x += CGFloat(iconWidth + iconMarginLeft)
+        } else {
+            rect.origin.x -= CGFloat(iconMarginLeft)
+        }
         rect.size.width -= CGFloat(iconWidth + iconMarginLeft)
         return rect
     }
@@ -149,7 +153,11 @@ public class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
      */
     override public func editingRectForBounds(bounds: CGRect) -> CGRect {
         var rect = super.editingRectForBounds(bounds)
-        rect.origin.x += CGFloat(iconWidth + iconMarginLeft)
+        if isLTRLanguage {
+            rect.origin.x += CGFloat(iconWidth + iconMarginLeft)
+        } else {
+            rect.origin.x -= CGFloat( iconMarginLeft - iconMarginLeft)
+        }
         rect.size.width -= CGFloat(iconWidth + iconMarginLeft)
         return rect
     }
@@ -161,7 +169,11 @@ public class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
      */
     override public func placeholderRectForBounds(bounds: CGRect) -> CGRect {
         var rect = super.placeholderRectForBounds(bounds)
-        rect.origin.x += CGFloat(iconWidth + iconMarginLeft)
+        if isLTRLanguage {
+            rect.origin.x += CGFloat(iconWidth + iconMarginLeft)
+        } else {
+            rect.origin.x -= CGFloat(iconMarginLeft - iconMarginLeft)
+        }
         rect.size.width -= CGFloat(iconWidth + iconMarginLeft)
         return rect
     }
@@ -174,6 +186,11 @@ public class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     
     private func updateFrame() {
         let textHeight = self.textHeight()
-        self.iconLabel.frame = CGRectMake(0, self.bounds.size.height - textHeight - iconMarginBottom, iconWidth, textHeight)
+        let textWidth:CGFloat = self.bounds.size.width
+        if isLTRLanguage {
+            self.iconLabel.frame = CGRectMake(0, self.bounds.size.height - textHeight - iconMarginBottom, iconWidth, textHeight)
+        } else {
+            self.iconLabel.frame = CGRect(x: textWidth - iconWidth , y: self.bounds.size.height - textHeight - iconMarginBottom, width: iconWidth, height: textHeight)
+        }
     }
 }

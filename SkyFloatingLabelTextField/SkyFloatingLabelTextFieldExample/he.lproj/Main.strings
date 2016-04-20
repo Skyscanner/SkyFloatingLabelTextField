@@ -1,0 +1,228 @@
+
+/* Class = "UILabel"; text = "Theming by subclassing"; ObjectID = "09e-P3-DiE"; */
+"09e-P3-DiE.text" = "שינוי סגנון על ידי subclassing";
+
+/* Class = "UIButton"; normalTitle = "Submit"; ObjectID = "1tu-Rl-onB"; */
+"1tu-Rl-onB.normalTitle" = "שלח";
+
+/* Class = "UILabel"; text = "None"; ObjectID = "3TY-KI-uu5"; */
+"3TY-KI-uu5.text" = "ללא";
+
+/* Class = "UIButton"; normalTitle = "Add error"; ObjectID = "5HI-11-MA2"; */
+"5HI-11-MA2.normalTitle" = "הוסף שגיאה";
+
+/* Class = "UISegmentedControl"; 6Ya-gn-vtf.segmentTitles[0] = "⚪️"; ObjectID = "6Ya-gn-vtf"; */
+"6Ya-gn-vtf.segmentTitles[0]" = "⚪️";
+
+/* Class = "UISegmentedControl"; 6Ya-gn-vtf.segmentTitles[1] = "🔴 "; ObjectID = "6Ya-gn-vtf"; */
+"6Ya-gn-vtf.segmentTitles[1]" = "🔴 ";
+
+/* Class = "UISegmentedControl"; 6Ya-gn-vtf.segmentTitles[2] = "🔵"; ObjectID = "6Ya-gn-vtf"; */
+"6Ya-gn-vtf.segmentTitles[2]" = "🔵";
+
+/* Class = "UISegmentedControl"; 6Ya-gn-vtf.segmentTitles[3] = "⚫️"; ObjectID = "6Ya-gn-vtf"; */
+"6Ya-gn-vtf.segmentTitles[3]" = "⚫️";
+
+/* Class = "UIButton"; normalTitle = "Add error"; ObjectID = "8Re-re-tpi"; */
+"8Re-re-tpi.normalTitle" = "הוסף שגיאה";
+
+/* Class = "UISegmentedControl"; AcC-l7-4xT.segmentTitles[0] = "⚪️"; ObjectID = "AcC-l7-4xT"; */
+"AcC-l7-4xT.segmentTitles[0]" = "⚪️";
+
+/* Class = "UISegmentedControl"; AcC-l7-4xT.segmentTitles[1] = "🔴 "; ObjectID = "AcC-l7-4xT"; */
+"AcC-l7-4xT.segmentTitles[1]" = "🔴 ";
+
+/* Class = "UISegmentedControl"; AcC-l7-4xT.segmentTitles[2] = "🔵"; ObjectID = "AcC-l7-4xT"; */
+"AcC-l7-4xT.segmentTitles[2]" = "🔵";
+
+/* Class = "UISegmentedControl"; AcC-l7-4xT.segmentTitles[3] = "⚫️"; ObjectID = "AcC-l7-4xT"; */
+"AcC-l7-4xT.segmentTitles[3]" = "⚫️";
+
+/* Class = "UIViewController"; title = "Setting text properties"; ObjectID = "BYZ-38-t0r"; */
+"BYZ-38-t0r.title" = "הגדר מאפייני טקסט";
+
+/* Class = "UIViewController"; title = "Customizing colors"; ObjectID = "G0q-zq-dep"; */
+"G0q-zq-dep.title" = "התאם צבעים";
+
+/* Class = "UILabel"; text = "By overriding the positioning methods you can layout the view components in a flexible manner.\n\nIn this example an icon label is added and placeholder label and textfield are positioned differently to make room for it."; ObjectID = "GwR-K6-apk"; */
+"GwR-K6-apk.text" = "By overriding the positioning methods you can layout the view components in a flexible manner.\n\nIn this example an icon label is added and placeholder label and textfield are positioned differently to make room for it.";
+
+/* Class = "UISegmentedControl"; H6F-j0-AqL.segmentTitles[0] = "None"; ObjectID = "H6F-j0-AqL"; */
+"H6F-j0-AqL.segmentTitles[0]" = "ללא";
+
+/* Class = "UISegmentedControl"; H6F-j0-AqL.segmentTitles[1] = "\"Selected title\""; ObjectID = "H6F-j0-AqL"; */
+"H6F-j0-AqL.segmentTitles[1]" = "\"כותרת בבחירה\"";
+
+/* Class = "UILabel"; text = "Setting text properties"; ObjectID = "HdC-wj-sIC"; */
+"HdC-wj-sIC.text" = "הגדר מאפייני טקסט";
+
+/* Class = "UILabel"; text = "Selected title"; ObjectID = "I1P-U3-aHP"; */
+"I1P-U3-aHP.text" = "כותרת בבחירה";
+
+/* Class = "UINavigationItem"; title = "Examples"; ObjectID = "Igw-73-W40"; */
+"Igw-73-W40.title" = "דוגמאות";
+
+/* Class = "UIButton"; normalTitle = "Add error"; ObjectID = "Iv1-md-6Bi"; */
+"Iv1-md-6Bi.normalTitle" = "הוסף שגיאה";
+
+/* Class = "UIButton"; normalTitle = "Resign first responder"; ObjectID = "JW4-8k-7cH"; */
+"JW4-8k-7cH.normalTitle" = "Resign first responder";
+
+/* Class = "UIButton"; normalTitle = "Resign first responder"; ObjectID = "LrB-X8-Rt8"; */
+"LrB-X8-Rt8.normalTitle" = "Resign first responder";
+
+/* Class = "UISegmentedControl"; OhG-wy-aBa.segmentTitles[0] = "⚪️"; ObjectID = "OhG-wy-aBa"; */
+"OhG-wy-aBa.segmentTitles[0]" = "⚪️";
+
+/* Class = "UISegmentedControl"; OhG-wy-aBa.segmentTitles[1] = "🔴 "; ObjectID = "OhG-wy-aBa"; */
+"OhG-wy-aBa.segmentTitles[1]" = "🔴 ";
+
+/* Class = "UISegmentedControl"; OhG-wy-aBa.segmentTitles[2] = "🔵"; ObjectID = "OhG-wy-aBa"; */
+"OhG-wy-aBa.segmentTitles[2]" = "🔵";
+
+/* Class = "UISegmentedControl"; OhG-wy-aBa.segmentTitles[3] = "⚫️"; ObjectID = "OhG-wy-aBa"; */
+"OhG-wy-aBa.segmentTitles[3]" = "⚫️";
+
+/* Class = "UIButton"; normalTitle = "Add error"; ObjectID = "Pgz-Tf-Rvl"; */
+"Pgz-Tf-Rvl.normalTitle" = "הוסף שגיאה";
+
+/* Class = "UILabel"; text = "None"; ObjectID = "Q1Y-Jd-kwO"; */
+"Q1Y-Jd-kwO.text" = "ללא";
+
+/* Class = "UISegmentedControl"; Q90-lp-2pi.segmentTitles[0] = "None"; ObjectID = "Q90-lp-2pi"; */
+"Q90-lp-2pi.segmentTitles[0]" = "ללא";
+
+/* Class = "UISegmentedControl"; Q90-lp-2pi.segmentTitles[1] = "\"Placeholder\""; ObjectID = "Q90-lp-2pi"; */
+"Q90-lp-2pi.segmentTitles[1]" = "\"ממלא מקום\"";
+
+/* Class = "UILabel"; text = "Tint color"; ObjectID = "QUd-Se-DoE"; */
+"QUd-Se-DoE.text" = "גוון צבע(tint)";
+
+/* Class = "UILabel"; text = "Selected title color"; ObjectID = "Tqd-y8-1jW"; */
+"Tqd-y8-1jW.text" = "צבע כותרת בבחירה";
+
+/* Class = "UILabel"; text = "Title color"; ObjectID = "VVQ-Em-Z8I"; */
+"VVQ-Em-Z8I.text" = "צבע כותרת";
+
+/* Class = "UIViewController"; title = "Custom layout by subclassing"; ObjectID = "ZOT-En-7Z8"; */
+"ZOT-En-7Z8.title" = "Custom layout by subclassing";
+
+/* Class = "UISegmentedControl"; aU8-tN-vcw.segmentTitles[0] = "⚪️"; ObjectID = "aU8-tN-vcw"; */
+"aU8-tN-vcw.segmentTitles[0]" = "⚪️";
+
+/* Class = "UISegmentedControl"; aU8-tN-vcw.segmentTitles[1] = "🔴 "; ObjectID = "aU8-tN-vcw"; */
+"aU8-tN-vcw.segmentTitles[1]" = "🔴 ";
+
+/* Class = "UISegmentedControl"; aU8-tN-vcw.segmentTitles[2] = "🔵"; ObjectID = "aU8-tN-vcw"; */
+"aU8-tN-vcw.segmentTitles[2]" = "🔵";
+
+/* Class = "UISegmentedControl"; aU8-tN-vcw.segmentTitles[3] = "⚫️"; ObjectID = "aU8-tN-vcw"; */
+"aU8-tN-vcw.segmentTitles[3]" = "⚫️";
+
+/* Class = "UISegmentedControl"; bD7-hR-7wM.segmentTitles[0] = "⚪️"; ObjectID = "bD7-hR-7wM"; */
+"bD7-hR-7wM.segmentTitles[0]" = "⚪️";
+
+/* Class = "UISegmentedControl"; bD7-hR-7wM.segmentTitles[1] = "🔴 "; ObjectID = "bD7-hR-7wM"; */
+"bD7-hR-7wM.segmentTitles[1]" = "🔴 ";
+
+/* Class = "UISegmentedControl"; bD7-hR-7wM.segmentTitles[2] = "🔵"; ObjectID = "bD7-hR-7wM"; */
+"bD7-hR-7wM.segmentTitles[2]" = "🔵";
+
+/* Class = "UISegmentedControl"; bD7-hR-7wM.segmentTitles[3] = "⚫️"; ObjectID = "bD7-hR-7wM"; */
+"bD7-hR-7wM.segmentTitles[3]" = "⚫️";
+
+/* Class = "UIButton"; normalTitle = "Resign first responder"; ObjectID = "dHd-er-tPb"; */
+"dHd-er-tPb.normalTitle" = "Resign first responder";
+
+/* Class = "UITableViewController"; title = "Examples"; ObjectID = "eOr-LN-fTQ"; */
+"eOr-LN-fTQ.title" = "דוגמאות";
+
+/* Class = "UILabel"; text = "Placeholder color"; ObjectID = "eRP-1f-9dO"; */
+"eRP-1f-9dO.text" = "צבע ממלא מקום";
+
+/* Class = "UILabel"; text = "Using delegate methods"; ObjectID = "evz-m8-4qe"; */
+"evz-m8-4qe.text" = "Using delegate methods";
+
+/* Class = "UIButton"; normalTitle = "Resign first responder"; ObjectID = "f9a-5M-ybb"; */
+"f9a-5M-ybb.normalTitle" = "Resign first responder";
+
+/* Class = "UIViewController"; title = "Delegate methods"; ObjectID = "gAs-mn-2iH"; */
+"gAs-mn-2iH.title" = "Delegate methods";
+
+/* Class = "UISegmentedControl"; iAR-Dy-4tD.segmentTitles[0] = "⚪️"; ObjectID = "iAR-Dy-4tD"; */
+"iAR-Dy-4tD.segmentTitles[0]" = "⚪️";
+
+/* Class = "UISegmentedControl"; iAR-Dy-4tD.segmentTitles[1] = "🔴 "; ObjectID = "iAR-Dy-4tD"; */
+"iAR-Dy-4tD.segmentTitles[1]" = "🔴 ";
+
+/* Class = "UISegmentedControl"; iAR-Dy-4tD.segmentTitles[2] = "🔵"; ObjectID = "iAR-Dy-4tD"; */
+"iAR-Dy-4tD.segmentTitles[2]" = "🔵";
+
+/* Class = "UISegmentedControl"; iAR-Dy-4tD.segmentTitles[3] = "⚫️"; ObjectID = "iAR-Dy-4tD"; */
+"iAR-Dy-4tD.segmentTitles[3]" = "⚫️";
+
+/* Class = "UIViewController"; title = "Theming by subclassing"; ObjectID = "ieH-5F-man"; */
+"ieH-5F-man.title" = "שינוי סגנון על ידי subclassing";
+
+/* Class = "UILabel"; text = "Customizing colors"; ObjectID = "jCk-47-jKB"; */
+"jCk-47-jKB.text" = "התאם צבעים";
+
+/* Class = "UISegmentedControl"; mZq-8q-kvm.segmentTitles[0] = "None"; ObjectID = "mZq-8q-kvm"; */
+"mZq-8q-kvm.segmentTitles[0]" = "ללא";
+
+/* Class = "UISegmentedControl"; mZq-8q-kvm.segmentTitles[1] = "\"Title\""; ObjectID = "mZq-8q-kvm"; */
+"mZq-8q-kvm.segmentTitles[1]" = "\"Title\"";
+
+/* Class = "UILabel"; text = "Placeholder"; ObjectID = "moI-xd-AVZ"; */
+"moI-xd-AVZ.text" = "ממלא מקום";
+
+/* Class = "UIButton"; normalTitle = "Add error"; ObjectID = "nJD-aY-w9P"; */
+"nJD-aY-w9P.normalTitle" = "הוסף שגיאה";
+
+/* Class = "UILabel"; text = "Text color"; ObjectID = "q1u-4f-EEP"; */
+"q1u-4f-EEP.text" = "צבע טקסט";
+
+/* Class = "UILabel"; text = "Error color"; ObjectID = "q7U-ur-hzY"; */
+"q7U-ur-hzY.text" = "צבע שגיאה";
+
+/* Class = "UILabel"; text = "Custom layout by subclassing"; ObjectID = "qSH-5l-bpY"; */
+"qSH-5l-bpY.text" = "Custom layout by subclassing";
+
+/* Class = "UISegmentedControl"; sId-82-UKI.segmentTitles[0] = "⚪️"; ObjectID = "sId-82-UKI"; */
+"sId-82-UKI.segmentTitles[0]" = "⚪️";
+
+/* Class = "UISegmentedControl"; sId-82-UKI.segmentTitles[1] = "🔴 "; ObjectID = "sId-82-UKI"; */
+"sId-82-UKI.segmentTitles[1]" = "🔴 ";
+
+/* Class = "UISegmentedControl"; sId-82-UKI.segmentTitles[2] = "🔵"; ObjectID = "sId-82-UKI"; */
+"sId-82-UKI.segmentTitles[2]" = "🔵";
+
+/* Class = "UISegmentedControl"; sId-82-UKI.segmentTitles[3] = "⚫️"; ObjectID = "sId-82-UKI"; */
+"sId-82-UKI.segmentTitles[3]" = "⚫️";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "v9J-yM-eLO"; */
+"v9J-yM-eLO.text" = "כותרת";
+
+/* Class = "UILabel"; text = "Selected title is visible when the control is editing and input text is at least 1 character long"; ObjectID = "wBj-r2-GJ8"; */
+"wBj-r2-GJ8.text" = "Selected title is visible when the control is editing and input text is at least 1 character long";
+
+/* Class = "UILabel"; text = "Title is visible when the control is not editing and input text is at least 1 character long"; ObjectID = "wjk-mj-9y9"; */
+"wjk-mj-9y9.text" = "Title is visible when the control is not editing and input text is at least 1 character long";
+
+/* Class = "UIButton"; normalTitle = "Resign first responder"; ObjectID = "wkx-Ta-RMG"; */
+"wkx-Ta-RMG.normalTitle" = "Resign first responder";
+
+/* Class = "UISegmentedControl"; xDl-bN-AMF.segmentTitles[0] = "⚪️"; ObjectID = "xDl-bN-AMF"; */
+"xDl-bN-AMF.segmentTitles[0]" = "⚪️";
+
+/* Class = "UISegmentedControl"; xDl-bN-AMF.segmentTitles[1] = "🔴 "; ObjectID = "xDl-bN-AMF"; */
+"xDl-bN-AMF.segmentTitles[1]" = "🔴 ";
+
+/* Class = "UISegmentedControl"; xDl-bN-AMF.segmentTitles[2] = "🔵"; ObjectID = "xDl-bN-AMF"; */
+"xDl-bN-AMF.segmentTitles[2]" = "🔵";
+
+/* Class = "UISegmentedControl"; xDl-bN-AMF.segmentTitles[3] = "⚫️"; ObjectID = "xDl-bN-AMF"; */
+"xDl-bN-AMF.segmentTitles[3]" = "⚫️";
+
+/* Class = "UILabel"; text = "Placeholder is visible when no input text is present or when input text is at least 1 character long and neither title nor selected title is present"; ObjectID = "yWR-GY-MZc"; */
+"yWR-GY-MZc.text" = "Placeholder is visible when no input text is present or when input text is at least 1 character long and neither title nor selected title is present";

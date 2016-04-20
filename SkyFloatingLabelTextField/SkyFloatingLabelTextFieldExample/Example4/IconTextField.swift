@@ -65,13 +65,18 @@ public class IconTextField: SkyFloatingLabelTextField {
     
     override public func textRectForBounds(bounds: CGRect) -> CGRect {
         var rect = super.textRectForBounds(bounds)
-        rect.origin.x += iconWidth
+//        rect.origin.x += iconWidth
+        if (isLTRLanguage) {
+            rect.origin.x += iconWidth
+        } else {
+            rect.origin.x = 0
+        }
         rect.size.width -= iconWidth
         return rect
     }
     override public func editingRectForBounds(bounds: CGRect) -> CGRect {
         var rect = super.textRectForBounds(bounds)
-        rect.origin.x += iconWidth
+        rect.origin.x += iconWidth - iconWidth
         rect.size.width -= iconWidth
         return rect
     }
@@ -86,6 +91,13 @@ public class IconTextField: SkyFloatingLabelTextField {
     override public func layoutSubviews() {
         super.layoutSubviews()
         let textHeight = self.textHeight()
-        self.iconLabel.frame = CGRectMake(0, self.bounds.size.height - textHeight, iconWidth, textHeight)
+        let textWidth:CGFloat = self.bounds.size.width
+
+        if (isLTRLanguage) {
+            self.iconLabel.frame = CGRectMake(0, self.bounds.size.height - textHeight, iconWidth, textHeight)
+        } else {
+            self.iconLabel.frame = CGRectMake(textWidth - iconWidth, self.bounds.size.height - textHeight, iconWidth, textHeight)
+
+        }
     }
 }
