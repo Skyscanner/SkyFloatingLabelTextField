@@ -65,7 +65,6 @@ public class IconTextField: SkyFloatingLabelTextField {
     
     override public func textRectForBounds(bounds: CGRect) -> CGRect {
         var rect = super.textRectForBounds(bounds)
-//        rect.origin.x += iconWidth
         if (isLTRLanguage) {
             rect.origin.x += iconWidth
         } else {
