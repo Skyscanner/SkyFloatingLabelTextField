@@ -12,9 +12,13 @@
 
 `SkyFloatingLabelTextField` is a beautiful, flexible and customizable implementation of the space saving **"Float Label Pattern"**. This design enables adding context to input fields that are visible at the time of typing, while minimizing the additional space used to display this additional context. This component is used in the [Skyscanner TravelPro iOS application](https://itunes.apple.com/gb/app/travelpro-business-travel/id1046916687) in several places, like when [searching for flights](http://codevoyagers.com/2016/04/06/open-sourcing-skyfloatinglabeltextfield/).
 
-On top of implementing the space-saving floating title, the component also supports using iconography, various states (error, selected, highlighted states), and is very much customizable and extensible.
+On top of implementing the space-saving floating title, the component also supports using iconography, RTL text, various states (error, selected, highlighted states), and is very much customizable and extensible.
 
 ![](/SkyFloatingLabelTextField/images/showcase-example.gif)
+
+RTL language support (e.g. Arabic & Hebrew):
+
+![](/SkyFloatingLabelTextField/images/RTL-example.png)
 
 ## Usage
 
@@ -135,6 +139,12 @@ class MyViewController: UIViewController, UITextFieldDelegate {
 }
 ```
 
+### RTL language support
+
+The component automatically detects the language writing direction. When the phone has a RTL language set (e.g. Arabic or Hebrew), then it automatically adjusts to support this style.
+
+Alternatively, set the `isLTRLanguage` property to manually change the writing direction.
+
 ### Further customizing the control by subclassing
 
 The control was designed to allow further customization in subclasses. The control itself inherits from `UITextField`, so the standard overrides from there can all be used. A few other notable customization hooks via overriding are:
@@ -210,7 +220,7 @@ We welcome all contributions. Please read [this guide](/CONTRIBUTING.md) before 
 
 ## Credits
 
-The original component was built by [Daniel Langh](https://github.com/intonarumori), [Gergely Orosz](https://github.com/gergelyorosz) and [Raimon Laupente](https://github.com/wolffan).
+The original component was built by [Daniel Langh](https://github.com/intonarumori), [Gergely Orosz](https://github.com/gergelyorosz) and [Raimon Laupente](https://github.com/wolffan). Notable contributions by [Shai Shamir](https://github.com/pichirichi) (RTL language support).
 
 Credits for the original design, and improving it with iconography to Matt D. Smith ([@mds](https://twitter.com/mds)).
 
