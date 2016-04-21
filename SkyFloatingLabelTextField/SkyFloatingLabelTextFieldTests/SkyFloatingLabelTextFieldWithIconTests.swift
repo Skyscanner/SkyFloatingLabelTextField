@@ -120,7 +120,22 @@ class SkyFloatingLabelTextFieldWithIconTests: XCTestCase {
         // then
         XCTAssertEqual(rect.origin.x, iconWidth + iconMarginLeft)
         XCTAssertEqual(rect.size.width, 40 - iconWidth - iconMarginLeft)
-
+    }
+    
+    func test_whenInvokingTextRectForBounds_withNonRTLLanguage_thenRetrunsPositionWithIncoMarginSubtracted() {
+        // given
+        let iconWidth:CGFloat = 10
+        let iconMarginLeft:CGFloat = 5
+        floatingLabelTextFieldWithIcon.iconWidth = iconWidth
+        floatingLabelTextFieldWithIcon.iconMarginLeft = iconMarginLeft
+        floatingLabelTextFieldWithIcon.isLTRLanguage = false
+        
+        // when
+        let rect = floatingLabelTextFieldWithIcon.textRectForBounds(CGRectMake(0, 0, 40, 30))
+        
+        // then
+        XCTAssertEqual(rect.origin.x, -1 * (iconWidth + iconMarginLeft))
+        XCTAssertEqual(rect.size.width, 40 - iconWidth - iconMarginLeft)
     }
     
     func test_whenInvokingEditingRectForBounds_thenReturnsRectThatSubtractsIconWidthAndIconMarginLeft() {
@@ -135,6 +150,22 @@ class SkyFloatingLabelTextFieldWithIconTests: XCTestCase {
         
         // then
         XCTAssertEqual(rect.origin.x, iconWidth + iconMarginLeft)
+        XCTAssertEqual(rect.size.width, 50 - iconWidth - iconMarginLeft)
+    }
+    
+    func test_whenInvokingEditingRectForBounds_withNonRTLLanguage_thenReturnsRectWhereStartPositionIsNotChanged() {
+        // given
+        let iconWidth:CGFloat = 10
+        let iconMarginLeft:CGFloat = 5
+        floatingLabelTextFieldWithIcon.iconWidth = iconWidth
+        floatingLabelTextFieldWithIcon.iconMarginLeft = iconMarginLeft
+        floatingLabelTextFieldWithIcon.isLTRLanguage = false
+        
+        // when
+        let rect = floatingLabelTextFieldWithIcon.editingRectForBounds(CGRectMake(0, 0, 50, 30))
+        
+        // then
+        XCTAssertEqual(rect.origin.x, 0)
         XCTAssertEqual(rect.size.width, 50 - iconWidth - iconMarginLeft)
     }
     
@@ -153,10 +184,39 @@ class SkyFloatingLabelTextFieldWithIconTests: XCTestCase {
         XCTAssertEqual(rect.size.width, 60 - iconWidth - iconMarginLeft)
     }
     
+    func test_whenInvokingPlaceholderRectForBounds_withNonRTLLanguage_thenReturnsRectWhereStartPositionIsNotChanged() {
+        // given
+        let iconWidth:CGFloat = 10
+        let iconMarginLeft:CGFloat = 5
+        floatingLabelTextFieldWithIcon.iconWidth = iconWidth
+        floatingLabelTextFieldWithIcon.iconMarginLeft = iconMarginLeft
+        floatingLabelTextFieldWithIcon.isLTRLanguage = false
+        
+        // when
+        let rect = floatingLabelTextFieldWithIcon.placeholderRectForBounds(CGRectMake(0, 0, 60, 30))
+        
+        // then
+        XCTAssertEqual(rect.origin.x, 0)
+        XCTAssertEqual(rect.size.width, 60 - iconWidth - iconMarginLeft)
+    }
+    
     func test_whenInvokingLayoutSubviews_thenUpdatesIconLabelFrame() {
         // given
         floatingLabelTextFieldWithIcon.iconLabel.frame = CGRectMake(0, 0, 0, 0)
         XCTAssertEqual(floatingLabelTextFieldWithIcon.iconLabel.frame.height, 0)
+        
+        // when
+        floatingLabelTextFieldWithIcon.layoutSubviews()
+        
+        // then
+        XCTAssertNotEqual(floatingLabelTextFieldWithIcon.iconLabel.frame.height, 0)
+    }
+    
+    func test_whenInvokingLayoutSubviews_withNonRTLLanguage_thenUpdatesIconLabelFrame() {
+        // given
+        floatingLabelTextFieldWithIcon.iconLabel.frame = CGRectMake(0, 0, 0, 0)
+        XCTAssertEqual(floatingLabelTextFieldWithIcon.iconLabel.frame.height, 0)
+        floatingLabelTextFieldWithIcon.isLTRLanguage = false
         
         // when
         floatingLabelTextFieldWithIcon.layoutSubviews()
