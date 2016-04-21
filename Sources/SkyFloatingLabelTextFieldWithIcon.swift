@@ -140,7 +140,7 @@ public class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
         if isLTRLanguage {
             rect.origin.x += CGFloat(iconWidth + iconMarginLeft)
         } else {
-            rect.origin.x -= CGFloat(iconMarginLeft)
+            rect.origin.x -= CGFloat(iconWidth + iconMarginLeft)
         }
         rect.size.width -= CGFloat(iconWidth + iconMarginLeft)
         return rect
@@ -156,7 +156,7 @@ public class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
         if isLTRLanguage {
             rect.origin.x += CGFloat(iconWidth + iconMarginLeft)
         } else {
-            rect.origin.x -= CGFloat( iconMarginLeft - iconMarginLeft)
+            // don't change the editing field X position for RTL languages
         }
         rect.size.width -= CGFloat(iconWidth + iconMarginLeft)
         return rect
@@ -172,7 +172,7 @@ public class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
         if isLTRLanguage {
             rect.origin.x += CGFloat(iconWidth + iconMarginLeft)
         } else {
-            rect.origin.x -= CGFloat(iconMarginLeft - iconMarginLeft)
+            // don't change the editing field X position for RTL languages
         }
         rect.size.width -= CGFloat(iconWidth + iconMarginLeft)
         return rect
