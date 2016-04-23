@@ -250,6 +250,7 @@ public class SkyFloatingLabelTextField: UITextField {
     override public var placeholder:String? {
         didSet {
             self.setNeedsDisplay()
+            self.updatePlaceholder()
             self.updateTitleLabel()
         }
     }
