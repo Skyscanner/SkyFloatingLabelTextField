@@ -183,25 +183,16 @@ public class SkyFloatingLabelTextField: UITextField {
      
      - parameter highlighted: Whether the field should be highlighted
      - parameter animated: Whether the change in highlighting should be animated
+     - parameter animationCompletion: Callback for when the animation completes
      */
-    public func setHighlighted(highlighted:Bool, animated:Bool) {
-        _highlighted = highlighted
-        if(self.highlighted) {
-            self.updateTitleColor()
-            _titleVisible = true
-            self.updateTitleVisibility(animated, animateFromCurrentState: true)
-            self.updateLineView()
-        } else {
-            if(animated) {
-                // Performing fading out after a short timeout to make sure the title previously faded in all the way
-                let time = dispatch_time(DISPATCH_TIME_NOW, Int64(self.titleFadeInDuration * Double(NSEC_PER_SEC)))
-                dispatch_after(time, dispatch_get_main_queue(), { () -> Void in
-                    self.fadeOutHighlightedWithAnimated(true)
-                })
-            } else {
-                self.fadeOutHighlightedWithAnimated(false)
-            }
+    public func setHighlighted(highlighted:Bool, animated:Bool, animationCompletion: (()->())? = nil) {
+        if(_highlighted == highlighted) {
+            return
         }
+        _highlighted = highlighted
+        self.updateTitleColor()
+        self.updateTitleVisibility(animated, completion: animationCompletion)
+        self.updateLineView()
     }
 
     /// A Boolean value that determines whether the textfield is being edited or is selected.
@@ -217,22 +208,8 @@ public class SkyFloatingLabelTextField: UITextField {
             return self.errorMessage != nil && self.errorMessage != ""
         }
     }
-    
-    private var _titleVisible:Bool = false
+
     private var _renderingInInterfaceBuilder:Bool = false
-    
-    /// A Boolean value determining whether the title field is shown
-    public var titleVisible:Bool {
-        get {
-            return _titleVisible
-        }
-    }
-    private func setTitleVisibile(titleVisible:Bool, animated:Bool = false) {
-        if titleVisible != _titleVisible {
-            _titleVisible = titleVisible
-            self.updateTitleVisibility(animated)
-        }
-    }
     
     /// The text content of the textfield
     @IBInspectable
@@ -440,32 +417,36 @@ public class SkyFloatingLabelTextField: UITextField {
         }
         self.titleLabel.text = titleText
         
-        self.setTitleVisibile(self.isTitleVisible(), animated: animated)
+        self.updateTitleVisibility(animated)
     }
     
+    /**
+     Returns whether the title is being displayed on the control.
+     - returns: True if the title is displayed on the control, false otherwise.
+     */
     public func isTitleVisible() -> Bool {
-        return self.hasText() || self.hasErrorMessage
+        return self.hasText() || self.hasErrorMessage || self.highlighted
     }
     
-    private func updateTitleVisibility(animated:Bool = false, animateFromCurrentState:Bool = false) {
-        let alpha:CGFloat = _titleVisible ? 1.0 : 0.0
-        let frame:CGRect = self.titleLabelRectForBounds(self.bounds, editing: _titleVisible)
+    private func updateTitleVisibility(animated:Bool = false, completion: (()->())? = nil) {
+        let alpha:CGFloat = self.isTitleVisible() ? 1.0 : 0.0
+        let frame:CGRect = self.titleLabelRectForBounds(self.bounds, editing: self.isTitleVisible())
         let updateBlock = { () -> Void in
             self.titleLabel.alpha = alpha
             self.titleLabel.frame = frame
         }
         if animated {
-            var animationOptions:UIViewAnimationOptions = .CurveEaseOut;
-            if(animateFromCurrentState) {
-                animationOptions = [.BeginFromCurrentState, .CurveEaseOut]
-            }
-            let duration = _titleVisible ? titleFadeInDuration : titleFadeOutDuration
+            let animationOptions:UIViewAnimationOptions = .CurveEaseOut;
+            let duration = self.isTitleVisible() ? titleFadeInDuration : titleFadeOutDuration
             
             UIView.animateWithDuration(duration, delay: 0, options: animationOptions, animations: { () -> Void in
                 updateBlock()
-                }, completion: nil)
+                }, completion: { _ in
+                    completion?()
+                })
         } else {
             updateBlock()
+            completion?()
         }
     }
     
@@ -584,15 +565,6 @@ public class SkyFloatingLabelTextField: UITextField {
     }
     
     // MARK: - Helpers
-    
-    private func fadeOutHighlightedWithAnimated(animated: Bool) {
-        if(!self.hasText()) {
-            self.updateTitleColor()
-            _titleVisible = false
-            self.updateTitleVisibility(animated, animateFromCurrentState: true)
-            self.updateLineView()
-        }
-    }
     
     private func titleOrPlaceholder() -> String? {
         if let title = self.title ?? self.placeholder {
