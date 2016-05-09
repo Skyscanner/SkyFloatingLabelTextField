@@ -109,32 +109,59 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Validating the fields when "submit" is pressed
     
+    var isSubmitButtonPressed = false
+    
+    var highlightingAnimationInProgress = false
+    
     @IBAction func submitButtonDown(sender: AnyObject) {
-        // By setting the highlighted property to true, the floating title is shown
+        self.isSubmitButtonPressed = true
         if !self.departureCityField.hasText() {
-            self.departureCityField.highlighted = true
+            self.highlightingAnimationInProgress = true
+            // By setting the highlighted property to true, the floating title is shown
+            self.departureCityField.setHighlighted(true, animated: false, animationCompletion: self.highligtingAnimationComplete)
         }
         if !self.arrivalCityField.hasText() {
-            self.arrivalCityField.highlighted = true
+            self.highlightingAnimationInProgress = true
+            self.arrivalCityField.setHighlighted(true, animated: false, animationCompletion: self.highligtingAnimationComplete)
         }
         if !self.titleField.hasText() {
-            self.titleField.highlighted = true
+            self.highlightingAnimationInProgress = true
+            self.titleField.setHighlighted(true, animated: false, animationCompletion: self.highligtingAnimationComplete)
         }
         if !self.nameField.hasText() {
-            self.nameField.highlighted = true
+            self.highlightingAnimationInProgress = true
+            self.nameField.setHighlighted(true, animated: false, animationCompletion: self.highligtingAnimationComplete)
         }
         if !self.emailField.hasText() {
-            self.emailField.highlighted = true
+            self.highlightingAnimationInProgress = true
+            self.emailField.setHighlighted(true, animated: false, animationCompletion: self.highligtingAnimationComplete)
         }
     }
-
+    
     @IBAction func submitButtonTouchUpInside(sender: AnyObject) {
-        // When setting the highlighted property to false, if the textfield is not selected, then the title field disappears
-        self.departureCityField.highlighted = false
-        self.arrivalCityField.highlighted = false
-        self.titleField.highlighted = false
-        self.nameField.highlighted = false
-        self.emailField.highlighted = false
+        self.isSubmitButtonPressed = false
+        if(!self.highlightingAnimationInProgress) {
+            self.departureCityField.highlighted = false
+            self.arrivalCityField.highlighted = false
+            self.titleField.highlighted = false
+            self.nameField.highlighted = false
+            self.emailField.highlighted = false
+        }
+    }
+    
+    func highligtingAnimationComplete() {
+        // If a field is not filled out, display the highlighted title for 0.3 seco
+        let displayTime: dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, Int64(0.3 * Double(NSEC_PER_SEC)))
+        dispatch_after(displayTime, dispatch_get_main_queue(), {
+            self.highlightingAnimationInProgress = false
+            if(!self.isSubmitButtonPressed) {
+                self.departureCityField.highlighted = false
+                self.arrivalCityField.highlighted = false
+                self.titleField.highlighted = false
+                self.nameField.highlighted = false
+                self.emailField.highlighted = false
+            }
+        })
     }
     
     // MARK: - Delegate
@@ -156,22 +183,18 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        self.validateEmailTextField()
+        self.validateEmailTextFieldWithText()string
         return true
     }
     
-    func validateEmailTextField() {
-        if let email = self.emailField.text {
-            if(email.characters.count == 0) {
-                self.emailField.errorMessage = nil
-            }
-            else if(!isValidEmail(email)) {
-                self.emailField.errorMessage = NSLocalizedString("Email not valid", tableName: "SkyFloatingLabelTextField", comment: " ")
-            } else {
-                self.emailField.errorMessage = nil
-            }
+    func validateEmailTextFieldWithText(email: String) {
+        if(email.characters.count == 0) {
+            self.emailField.errorMessage = nil
+        }
+        else if(!isValidEmail(email)) {
+            self.emailField.errorMessage = NSLocalizedString("Email not valid", tableName: "SkyFloatingLabelTextField", comment: " ")
         } else {
-             self.emailField.errorMessage = nil
+            self.emailField.errorMessage = nil
         }
     }
     

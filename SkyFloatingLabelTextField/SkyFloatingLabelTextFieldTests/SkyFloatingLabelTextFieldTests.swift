@@ -304,15 +304,13 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         XCTAssertEqual(floatingLabelTextField.titleLabel.alpha, 1.0)
     }
     
-    func test_whenSettingHighighted_toTrue_withAnimation_thenTitleAlphaIsSetToOne_afterOneSecond() {
+    func test_whenSettingHighighted_toTrue_withAnimation_thenTitleAlphaIsSetToOne_whenCallbackIsInvoked() {
         // given
         let expectation = self.expectationWithDescription("")
         XCTAssertEqual(floatingLabelTextField.titleLabel.alpha, 0.0)
         
         // when
-        floatingLabelTextField.setHighlighted(true, animated: false)
-        
-        self.delay(1.0, callback: { () -> Void in
+        floatingLabelTextField.setHighlighted(true, animated: false, animationCompletion: { _ in
             // then
             XCTAssertEqual(self.floatingLabelTextField.titleLabel.alpha, 1.0)
             expectation.fulfill()
@@ -321,27 +319,26 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         self.failOnTimeoutAfterSeconds(5)
     }
     
-    func test_whenSettingHighighted_toTrue_withoutAnimation_thenTitleAlphaIsVisible() {
+    func test_whenSettingHighighted_toTrue_withoutAnimation_thenTitleAlphaIsOne() {
         // given
-        XCTAssertFalse(floatingLabelTextField.titleVisible)
+        XCTAssertEqual(floatingLabelTextField.titleLabel.alpha, 0.0)
         
         // when
         floatingLabelTextField.setHighlighted(true, animated: false)
         
         // then
-        XCTAssertTrue(floatingLabelTextField.titleVisible)
+        XCTAssertEqual(floatingLabelTextField.titleLabel.alpha, 1.0)
     }
     
-    func test_whenSettingHighighted_toFalse_then_afterOneSecond_titleIsNotVisible() {
+    func test_whenSettingHighighted_toFalse_then_whenAnimationCallbackInvoked_titleIsNotVisible() {
         // given
+        floatingLabelTextField.setHighlighted(true, animated: false)
         let expectation = self.expectationWithDescription("")
         
         // when
-        floatingLabelTextField.highlighted = false;
-        
-        self.delay(1.0, callback: { () -> Void in
+        floatingLabelTextField.setHighlighted(false, animated: true, animationCompletion: { _ in
             // then
-            XCTAssertFalse(self.floatingLabelTextField.titleVisible)
+            XCTAssertEqual(self.floatingLabelTextField.titleLabel.alpha, 0.0)
             expectation.fulfill()
         })
         
