@@ -118,23 +118,23 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
         if !self.departureCityField.hasText() {
             self.highlightingAnimationInProgress = true
             // By setting the highlighted property to true, the floating title is shown
-            self.departureCityField.setHighlighted(true, animated: false, animationCompletion: self.highligtingAnimationComplete)
+            self.departureCityField.setTitleVisible(true, animated: false, animationCompletion: self.highligtingAnimationComplete)
         }
         if !self.arrivalCityField.hasText() {
             self.highlightingAnimationInProgress = true
-            self.arrivalCityField.setHighlighted(true, animated: false, animationCompletion: self.highligtingAnimationComplete)
+            self.arrivalCityField.setTitleVisible(true, animated: false, animationCompletion: self.highligtingAnimationComplete)
         }
         if !self.titleField.hasText() {
             self.highlightingAnimationInProgress = true
-            self.titleField.setHighlighted(true, animated: false, animationCompletion: self.highligtingAnimationComplete)
+            self.titleField.setTitleVisible(true, animated: false, animationCompletion: self.highligtingAnimationComplete)
         }
         if !self.nameField.hasText() {
             self.highlightingAnimationInProgress = true
-            self.nameField.setHighlighted(true, animated: false, animationCompletion: self.highligtingAnimationComplete)
+            self.nameField.setTitleVisible(true, animated: false, animationCompletion: self.highligtingAnimationComplete)
         }
         if !self.emailField.hasText() {
             self.highlightingAnimationInProgress = true
-            self.emailField.setHighlighted(true, animated: false, animationCompletion: self.highligtingAnimationComplete)
+            self.emailField.setTitleVisible(true, animated: false, animationCompletion: self.highligtingAnimationComplete)
         }
     }
     
@@ -169,7 +169,7 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         // Validate the email field
         if (textField == self.emailField) {
-            validateEmailTextField()
+            self.validateEmailTextFieldWithText(textField.text)
         }
         
         // When pressing return, move to the next field
@@ -183,16 +183,22 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        self.validateEmailTextFieldWithText()string
+        if(textField == self.emailField) {
+            self.validateEmailTextFieldWithText(string)
+        }
         return true
     }
     
-    func validateEmailTextFieldWithText(email: String) {
-        if(email.characters.count == 0) {
-            self.emailField.errorMessage = nil
-        }
-        else if(!isValidEmail(email)) {
-            self.emailField.errorMessage = NSLocalizedString("Email not valid", tableName: "SkyFloatingLabelTextField", comment: " ")
+    func validateEmailTextFieldWithText(email: String?) {
+        if let email = email {
+            if(email.characters.count == 0) {
+                self.emailField.errorMessage = nil
+            }
+            else if(!isValidEmail(email)) {
+                self.emailField.errorMessage = NSLocalizedString("Email not valid", tableName: "SkyFloatingLabelTextField", comment: " ")
+            } else {
+                self.emailField.errorMessage = nil
+            }
         } else {
             self.emailField.errorMessage = nil
         }

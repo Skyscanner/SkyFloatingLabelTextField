@@ -174,25 +174,10 @@ public class SkyFloatingLabelTextField: UITextField {
             return _highlighted
         }
         set {
-            self.setHighlighted(newValue, animated: true)
+            _highlighted = newValue
+            self.updateTitleColor()
+            self.updateLineView()
         }
-    }
-    
-    /**
-     Sets the highlighted state with specifying whether this state change should be animated
-     
-     - parameter highlighted: Whether the field should be highlighted
-     - parameter animated: Whether the change in highlighting should be animated
-     - parameter animationCompletion: Callback for when the animation completes
-     */
-    public func setHighlighted(highlighted:Bool, animated:Bool, animationCompletion: (()->())? = nil) {
-        if(_highlighted == highlighted) {
-            return
-        }
-        _highlighted = highlighted
-        self.updateTitleColor()
-        self.updateTitleVisibility(animated, completion: animationCompletion)
-        self.updateLineView()
     }
 
     /// A Boolean value that determines whether the textfield is being edited or is selected.
@@ -420,12 +405,26 @@ public class SkyFloatingLabelTextField: UITextField {
         self.updateTitleVisibility(animated)
     }
     
+    private var _titleVisible = false
+    
+    /*
+    *   Set this value to make the title visible
+    */
+    public func setTitleVisible(titleVisible:Bool, animated:Bool, animationCompletion: (()->())? = nil) {
+        if(_titleVisible == titleVisible) {
+            return
+        }
+        _titleVisible = titleVisible
+        self.updateTitleColor()
+        self.updateTitleVisibility(animated, completion: animationCompletion)
+    }
+    
     /**
      Returns whether the title is being displayed on the control.
      - returns: True if the title is displayed on the control, false otherwise.
      */
     public func isTitleVisible() -> Bool {
-        return self.hasText() || self.hasErrorMessage || self.highlighted
+        return self.hasText() || self.hasErrorMessage || _titleVisible
     }
     
     private func updateTitleVisibility(animated:Bool = false, completion: (()->())? = nil) {
