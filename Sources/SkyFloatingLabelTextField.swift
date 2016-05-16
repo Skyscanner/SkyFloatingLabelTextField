@@ -410,7 +410,7 @@ public class SkyFloatingLabelTextField: UITextField {
     /*
     *   Set this value to make the title visible
     */
-    public func setTitleVisible(titleVisible:Bool, animated:Bool, animationCompletion: (()->())? = nil) {
+    public func setTitleVisible(titleVisible:Bool, animated:Bool = false, animationCompletion: (()->())? = nil) {
         if(_titleVisible == titleVisible) {
             return
         }

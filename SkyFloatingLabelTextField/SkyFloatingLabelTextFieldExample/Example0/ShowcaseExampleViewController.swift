@@ -111,57 +111,67 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
     
     var isSubmitButtonPressed = false
     
-    var highlightingAnimationInProgress = false
+    var showingTitleInProgress = false
     
     @IBAction func submitButtonDown(sender: AnyObject) {
         self.isSubmitButtonPressed = true
         if !self.departureCityField.hasText() {
-            self.highlightingAnimationInProgress = true
-            // By setting the highlighted property to true, the floating title is shown
-            self.departureCityField.setTitleVisible(true, animated: false, animationCompletion: self.highligtingAnimationComplete)
+            self.showingTitleInProgress = true
+            self.departureCityField.setTitleVisible(true, animated: true, animationCompletion: self.showingTitleInAnimationComplete)
+            self.departureCityField.highlighted = true
         }
         if !self.arrivalCityField.hasText() {
-            self.highlightingAnimationInProgress = true
-            self.arrivalCityField.setTitleVisible(true, animated: false, animationCompletion: self.highligtingAnimationComplete)
+            self.showingTitleInProgress = true
+            self.arrivalCityField.setTitleVisible(true, animated: true, animationCompletion: self.showingTitleInAnimationComplete)
+            self.arrivalCityField.highlighted = true
         }
         if !self.titleField.hasText() {
-            self.highlightingAnimationInProgress = true
-            self.titleField.setTitleVisible(true, animated: false, animationCompletion: self.highligtingAnimationComplete)
+            self.showingTitleInProgress = true
+            self.titleField.setTitleVisible(true, animated: true, animationCompletion: self.showingTitleInAnimationComplete)
+            self.titleField.highlighted = true
         }
         if !self.nameField.hasText() {
-            self.highlightingAnimationInProgress = true
-            self.nameField.setTitleVisible(true, animated: false, animationCompletion: self.highligtingAnimationComplete)
+            self.showingTitleInProgress = true
+            self.nameField.setTitleVisible(true, animated: true, animationCompletion: self.showingTitleInAnimationComplete)
+            self.nameField.highlighted = true
         }
         if !self.emailField.hasText() {
-            self.highlightingAnimationInProgress = true
-            self.emailField.setTitleVisible(true, animated: false, animationCompletion: self.highligtingAnimationComplete)
+            self.showingTitleInProgress = true
+            self.emailField.setTitleVisible(true, animated: true, animationCompletion: self.showingTitleInAnimationComplete)
+            self.emailField.highlighted = true
         }
     }
     
     @IBAction func submitButtonTouchUpInside(sender: AnyObject) {
         self.isSubmitButtonPressed = false
-        if(!self.highlightingAnimationInProgress) {
-            self.departureCityField.highlighted = false
-            self.arrivalCityField.highlighted = false
-            self.titleField.highlighted = false
-            self.nameField.highlighted = false
-            self.emailField.highlighted = false
+        if(!self.showingTitleInProgress) {
+            self.hideTitleVisibleFromFields()
         }
     }
     
-    func highligtingAnimationComplete() {
+    func showingTitleInAnimationComplete() {
         // If a field is not filled out, display the highlighted title for 0.3 seco
         let displayTime: dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, Int64(0.3 * Double(NSEC_PER_SEC)))
         dispatch_after(displayTime, dispatch_get_main_queue(), {
-            self.highlightingAnimationInProgress = false
+            self.showingTitleInProgress = false
             if(!self.isSubmitButtonPressed) {
-                self.departureCityField.highlighted = false
-                self.arrivalCityField.highlighted = false
-                self.titleField.highlighted = false
-                self.nameField.highlighted = false
-                self.emailField.highlighted = false
+                self.hideTitleVisibleFromFields()
             }
         })
+    }
+    
+    func hideTitleVisibleFromFields() {
+        self.departureCityField.setTitleVisible(false, animated: true)
+        self.arrivalCityField.setTitleVisible(false, animated: true)
+        self.titleField.setTitleVisible(false, animated: true)
+        self.nameField.setTitleVisible(false, animated: true)
+        self.emailField.setTitleVisible(false, animated: true)
+        
+        self.departureCityField.highlighted = false
+        self.arrivalCityField.highlighted = false
+        self.titleField.highlighted = false
+        self.nameField.highlighted = false
+        self.emailField.highlighted = false
     }
     
     // MARK: - Delegate
