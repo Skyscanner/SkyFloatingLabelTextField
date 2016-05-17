@@ -13,8 +13,20 @@ import UIKit
  */
 @IBDesignable
 public class SkyFloatingLabelTextField: UITextField {
-    // MARK: language support
-    let isLTRLanguage = UIApplication.sharedApplication().userInterfaceLayoutDirection == .LeftToRight
+    /// A Boolean value that determines if the language displayed is LTR. Default value set automatically from the application language settings.
+    var isLTRLanguage = UIApplication.sharedApplication().userInterfaceLayoutDirection == .LeftToRight {
+        didSet {
+           self.updateTextAligment()
+        }
+    }
+    
+    private func updateTextAligment() {
+        if(self.isLTRLanguage) {
+            self.textAlignment = .Left
+        } else {
+            self.textAlignment = .Right
+        }
+    }
     
     // MARK: Animation timing
     
@@ -238,6 +250,7 @@ public class SkyFloatingLabelTextField: UITextField {
     override public var placeholder:String? {
         didSet {
             self.setNeedsDisplay()
+            self.updatePlaceholder()
             self.updateTitleLabel()
         }
     }
@@ -289,6 +302,7 @@ public class SkyFloatingLabelTextField: UITextField {
         self.createLineView()
         self.updateColors()
         self.addEditingChangedObserver()
+        self.updateTextAligment()
     }
     
     private func addEditingChangedObserver() {
@@ -313,8 +327,6 @@ public class SkyFloatingLabelTextField: UITextField {
         titleLabel.textColor = self.titleColor
         self.addSubview(titleLabel)
         self.titleLabel = titleLabel
-        self.titleLabel.textAlignment = .Natural
-        self.textAlignment = .Natural
     }
     
     private func createLineView() {
