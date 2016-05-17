@@ -1,3 +1,14 @@
+v1.2.0
+
+* Added RTL language support
+* Changed the behaviour of `errorMessage`, removing unnecessary business logic.
+  * Before this change there was some "hidden" business logic around the resetting of errorMessage, namely:
+    * Whenever the control was selected by a user, it got cleared (becomeFirstResponder invoked)
+    * Whenever the text changed, it also got reset (when `textField(textField:,range:string:)` was invoked)
+  * After this change what's different:
+    * The errorMessage is no longer reset by any text or focus changes. If a developer sets this message, the error will be displayed, until this property is cleared. To implement the previous functionality, just subscribe to the `textField(textField:,range:string:)` event on the delegate
+    * As a side effect of this, the workaround of double-invoking `textField(textField:,range:string:)` has been removed, fixing the bug raised by [this Issue](https://github.com/Skyscanner/SkyFloatingLabelTextField/issues/27)
+
 v1.1.1
 ----------
 * Bugfix: setting the error message via the `textField?(shouldChangeCharactersInRange:replacementString:)` method is now possible

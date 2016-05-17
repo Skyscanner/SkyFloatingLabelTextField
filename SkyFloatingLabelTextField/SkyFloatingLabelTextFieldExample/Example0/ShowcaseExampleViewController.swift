@@ -109,27 +109,64 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Validating the fields when "submit" is pressed
     
+    var isSubmitButtonPressed = false
+    
+    var showingTitleInProgress = false
+    
     @IBAction func submitButtonDown(sender: AnyObject) {
-        // By setting the highlighted property to true, the floating title is shown
+        self.isSubmitButtonPressed = true
         if !self.departureCityField.hasText() {
+            self.showingTitleInProgress = true
+            self.departureCityField.setTitleVisible(true, animated: true, animationCompletion: self.showingTitleInAnimationComplete)
             self.departureCityField.highlighted = true
         }
         if !self.arrivalCityField.hasText() {
+            self.showingTitleInProgress = true
+            self.arrivalCityField.setTitleVisible(true, animated: true, animationCompletion: self.showingTitleInAnimationComplete)
             self.arrivalCityField.highlighted = true
         }
         if !self.titleField.hasText() {
+            self.showingTitleInProgress = true
+            self.titleField.setTitleVisible(true, animated: true, animationCompletion: self.showingTitleInAnimationComplete)
             self.titleField.highlighted = true
         }
         if !self.nameField.hasText() {
+            self.showingTitleInProgress = true
+            self.nameField.setTitleVisible(true, animated: true, animationCompletion: self.showingTitleInAnimationComplete)
             self.nameField.highlighted = true
         }
         if !self.emailField.hasText() {
+            self.showingTitleInProgress = true
+            self.emailField.setTitleVisible(true, animated: true, animationCompletion: self.showingTitleInAnimationComplete)
             self.emailField.highlighted = true
         }
     }
-
+    
     @IBAction func submitButtonTouchUpInside(sender: AnyObject) {
-        // When setting the highlighted property to false, if the textfield is not selected, then the title field disappears
+        self.isSubmitButtonPressed = false
+        if(!self.showingTitleInProgress) {
+            self.hideTitleVisibleFromFields()
+        }
+    }
+    
+    func showingTitleInAnimationComplete() {
+        // If a field is not filled out, display the highlighted title for 0.3 seco
+        let displayTime: dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, Int64(0.3 * Double(NSEC_PER_SEC)))
+        dispatch_after(displayTime, dispatch_get_main_queue(), {
+            self.showingTitleInProgress = false
+            if(!self.isSubmitButtonPressed) {
+                self.hideTitleVisibleFromFields()
+            }
+        })
+    }
+    
+    func hideTitleVisibleFromFields() {
+        self.departureCityField.setTitleVisible(false, animated: true)
+        self.arrivalCityField.setTitleVisible(false, animated: true)
+        self.titleField.setTitleVisible(false, animated: true)
+        self.nameField.setTitleVisible(false, animated: true)
+        self.emailField.setTitleVisible(false, animated: true)
+        
         self.departureCityField.highlighted = false
         self.arrivalCityField.highlighted = false
         self.titleField.highlighted = false
@@ -142,7 +179,7 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         // Validate the email field
         if (textField == self.emailField) {
-            validateEmailTextField()
+            self.validateEmailTextFieldWithText(textField.text)
         }
         
         // When pressing return, move to the next field
@@ -156,12 +193,14 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        self.validateEmailTextField()
+        if(textField == self.emailField) {
+            self.validateEmailTextFieldWithText(string)
+        }
         return true
     }
     
-    func validateEmailTextField() {
-        if let email = self.emailField.text {
+    func validateEmailTextFieldWithText(email: String?) {
+        if let email = email {
             if(email.characters.count == 0) {
                 self.emailField.errorMessage = nil
             }
@@ -171,7 +210,7 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
                 self.emailField.errorMessage = nil
             }
         } else {
-             self.emailField.errorMessage = nil
+            self.emailField.errorMessage = nil
         }
     }
     
