@@ -36,6 +36,7 @@ In case of major changes please feel free to reach out to the maintainers of the
 
 * Gergely Orosz (gergely.orosz@skyscanner.net, [@GergelyOrosz](https://twitter.com/GergelyOrosz))
 * Raimon Lapuente (raimon.lapuente@skyscanner.net, [@wolffan](https://twitter.com/wolffan))
+* Daniel Langh, [@rumori](https://twitter.com/rumori))
 
 ## License
 
