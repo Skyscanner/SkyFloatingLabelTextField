@@ -314,6 +314,7 @@ public class SkyFloatingLabelTextField: UITextField {
         self.addSubview(titleLabel)
         self.titleLabel = titleLabel
         self.titleLabel.textAlignment = .Natural
+        self.textAlignment = .Natural
     }
     
     private func createLineView() {
