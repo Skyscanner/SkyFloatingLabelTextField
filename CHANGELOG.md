@@ -1,3 +1,6 @@
+v1.2.1
+* Bugfix: title was blinking when tapping the textfield.
+
 v1.2.0
 
 * Added RTL language support
