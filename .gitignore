@@ -54,6 +54,8 @@ DerivedData
 #
 # Pods/
 
+# Carthage
+Carthage/Build
 
 ### Xcode ###
 build/
