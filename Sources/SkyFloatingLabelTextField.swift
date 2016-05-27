@@ -541,7 +541,7 @@ public class SkyFloatingLabelTextField: UITextField {
     override public func prepareForInterfaceBuilder() {
         if #available(iOS 8.0, *) {
             super.prepareForInterfaceBuilder()
-        } else {}
+        }
         self.selected = true
         _renderingInInterfaceBuilder = true
         self.updateControl(false)
