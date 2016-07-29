@@ -14,7 +14,7 @@ import UIKit
 @IBDesignable
 public class SkyFloatingLabelTextField: UITextField {
     
-    let paddingX: CGFloat = 2.0
+    let paddingX: CGFloat = 4.0
     /// A Boolean value that determines if the language displayed is LTR. Default value set automatically from the application language settings.
     var isLTRLanguage = UIApplication.sharedApplication().userInterfaceLayoutDirection == .LeftToRight {
         didSet {
@@ -154,7 +154,7 @@ public class SkyFloatingLabelTextField: UITextField {
      The default implementation converts the text to uppercase.
      */
     public var titleFormatter:(String -> String) = { (text:String) -> String in
-//        return text.uppercaseString
+        //        return text.uppercaseString
         return text
     }
     
@@ -178,12 +178,12 @@ public class SkyFloatingLabelTextField: UITextField {
         }
     }
     
-//    ///A String value for the tip message to display.
-//    public var tipMessage:String? {
-//        didSet {
-//            self.updateControl(true)
-//        }
-//    }
+    //    ///A String value for the tip message to display.
+    //    public var tipMessage:String? {
+    //        didSet {
+    //            self.updateControl(true)
+    //        }
+    //    }
     
     /// The backing property for the highlighted property
     private var _highlighted = false
@@ -433,11 +433,11 @@ public class SkyFloatingLabelTextField: UITextField {
     
     private func updateTextColor() {
         super.textColor = self.cachedTextColor
-//        if self.hasErrorMessage {
-//            super.textColor = self.errorColor
-//        } else {
-//            
-//        }
+        //        if self.hasErrorMessage {
+        //            super.textColor = self.errorColor
+        //        } else {
+        //            
+        //        }
     }
     
     // MARK: - Tip handling
@@ -566,11 +566,11 @@ public class SkyFloatingLabelTextField: UITextField {
      - parameter bounds: The current bounds of the field
      - returns: The rectangle that the textfield should render in
      */
-
+    
     override public func textRectForBounds(bounds: CGRect) -> CGRect {
         super.textRectForBounds(bounds)
         let titleHeight = self.titleHeight()
-//        let tipHeight = self.tipHeight()
+        //        let tipHeight = self.tipHeight()
         let lineHeight = self.selectedLineHeight
         let rect = CGRectMake(paddingX, titleHeight, bounds.size.width - (paddingX * 2), bounds.size.height - titleHeight - lineHeight)
         return rect
@@ -583,7 +583,7 @@ public class SkyFloatingLabelTextField: UITextField {
      */
     override public func editingRectForBounds(bounds: CGRect) -> CGRect {
         let titleHeight = self.titleHeight()
-//        let tipHeight = self.tipHeight()
+        //        let tipHeight = self.tipHeight()
         let lineHeight = self.selectedLineHeight
         let rect = CGRectMake(paddingX, titleHeight, bounds.size.width - (paddingX * 2), bounds.size.height - titleHeight - lineHeight)
         return rect
@@ -596,7 +596,7 @@ public class SkyFloatingLabelTextField: UITextField {
      */
     override public func placeholderRectForBounds(bounds: CGRect) -> CGRect {
         let titleHeight = self.titleHeight()
-//        let tipHeight = self.tipHeight()
+        //        let tipHeight = self.tipHeight()
         let lineHeight = self.selectedLineHeight
         let rect = CGRectMake(paddingX, titleHeight, bounds.size.width - (paddingX * 2), bounds.size.height - titleHeight - lineHeight)
         return rect
