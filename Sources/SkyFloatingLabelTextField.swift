@@ -335,6 +335,8 @@ public class SkyFloatingLabelTextField: UITextField {
             lineView.userInteractionEnabled = false
             self.lineView = lineView
             self.configureDefaultLineHeight()
+            self.lineView.layer.cornerRadius = 4
+            self.lineView.clipsToBounds = true
         }
         lineView.autoresizingMask = [.FlexibleWidth, .FlexibleTopMargin]
         self.addSubview(lineView)
