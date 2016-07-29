@@ -318,7 +318,7 @@ public class SkyFloatingLabelTextField: UITextField {
     private func createTitleLabel() {
         let titleLabel = UILabel()
         titleLabel.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
-        titleLabel.font = UIFont.systemFontOfSize(13)
+        titleLabel.font = self.font?.fontWithSize(10)
         titleLabel.alpha = 0.0
         titleLabel.textColor = self.titleColor
         self.addSubview(titleLabel)
@@ -328,7 +328,7 @@ public class SkyFloatingLabelTextField: UITextField {
     private func createTipErrorLabel() {
         let tipErrorLabel = UILabel()
         tipErrorLabel.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
-        tipErrorLabel.font = UIFont.systemFontOfSize(13)
+        tipErrorLabel.font = self.font?.fontWithSize(10)
         tipErrorLabel.alpha = 0.0
         tipErrorLabel.textColor = self.tipColor
         self.addSubview(tipErrorLabel)
