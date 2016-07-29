@@ -13,6 +13,8 @@ import UIKit
  */
 @IBDesignable
 public class SkyFloatingLabelTextField: UITextField {
+    
+    let paddingX: CGFloat = 2.0
     /// A Boolean value that determines if the language displayed is LTR. Default value set automatically from the application language settings.
     var isLTRLanguage = UIApplication.sharedApplication().userInterfaceLayoutDirection == .LeftToRight {
         didSet {
@@ -564,12 +566,13 @@ public class SkyFloatingLabelTextField: UITextField {
      - parameter bounds: The current bounds of the field
      - returns: The rectangle that the textfield should render in
      */
+
     override public func textRectForBounds(bounds: CGRect) -> CGRect {
         super.textRectForBounds(bounds)
         let titleHeight = self.titleHeight()
 //        let tipHeight = self.tipHeight()
         let lineHeight = self.selectedLineHeight
-        let rect = CGRectMake(0, titleHeight, bounds.size.width, bounds.size.height - titleHeight - lineHeight)
+        let rect = CGRectMake(paddingX, titleHeight, bounds.size.width - (paddingX * 2), bounds.size.height - titleHeight - lineHeight)
         return rect
     }
     
@@ -582,7 +585,7 @@ public class SkyFloatingLabelTextField: UITextField {
         let titleHeight = self.titleHeight()
 //        let tipHeight = self.tipHeight()
         let lineHeight = self.selectedLineHeight
-        let rect = CGRectMake(0, titleHeight, bounds.size.width, bounds.size.height - titleHeight - lineHeight)
+        let rect = CGRectMake(paddingX, titleHeight, bounds.size.width - (paddingX * 2), bounds.size.height - titleHeight - lineHeight)
         return rect
     }
     
@@ -595,7 +598,7 @@ public class SkyFloatingLabelTextField: UITextField {
         let titleHeight = self.titleHeight()
 //        let tipHeight = self.tipHeight()
         let lineHeight = self.selectedLineHeight
-        let rect = CGRectMake(0, titleHeight, bounds.size.width, bounds.size.height - titleHeight - lineHeight)
+        let rect = CGRectMake(paddingX, titleHeight, bounds.size.width - (paddingX * 2), bounds.size.height - titleHeight - lineHeight)
         return rect
     }
     
@@ -610,14 +613,14 @@ public class SkyFloatingLabelTextField: UITextField {
     public func titleLabelRectForBounds(bounds:CGRect, editing:Bool) -> CGRect {
         let titleHeight = self.titleHeight()
         if editing {
-            return CGRectMake(0, 0, bounds.size.width, titleHeight)
+            return CGRectMake(paddingX, 0, bounds.size.width - (paddingX * 2), titleHeight)
         }
-        return CGRectMake(0, titleHeight, bounds.size.width, titleHeight)
+        return CGRectMake(paddingX, titleHeight, bounds.size.width - (paddingX * 2), titleHeight)
     }
     
     public func tipLabelRectForBounds(bounds:CGRect, editing:Bool) -> CGRect {
         let tipHeight = self.tipHeight()
-        return CGRectMake(0, CGRectGetMaxY(lineViewRectForBounds(bounds, editing: editing)), bounds.size.width, tipHeight)
+        return CGRectMake(paddingX, CGRectGetMaxY(lineViewRectForBounds(bounds, editing: editing)), bounds.size.width - (paddingX * 2), tipHeight)
     }
     
     /**
