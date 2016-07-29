@@ -176,12 +176,12 @@ public class SkyFloatingLabelTextField: UITextField {
         }
     }
     
-    ///A String value for the tip message to display.
-    public var tipMessage:String? {
-        didSet {
-            self.updateControl(true)
-        }
-    }
+//    ///A String value for the tip message to display.
+//    public var tipMessage:String? {
+//        didSet {
+//            self.updateControl(true)
+//        }
+//    }
     
     /// The backing property for the highlighted property
     private var _highlighted = false
@@ -215,7 +215,7 @@ public class SkyFloatingLabelTextField: UITextField {
     /// A Boolean value that determines whether the receiver has a tip message.
     public var hasTipMessage:Bool {
         get {
-            return (self.tipMessage != nil && self.tipMessage != "") || hasErrorMessage
+            return (self.tip != nil && self.tip != "") || hasErrorMessage
         }
     }
     
@@ -251,6 +251,13 @@ public class SkyFloatingLabelTextField: UITextField {
     
     /// The String to display when the textfield is not editing and the input is not empty.
     @IBInspectable public var title:String? {
+        didSet {
+            self.updateControl()
+        }
+    }
+    
+    /// The String to display below the textfield
+    @IBInspectable public var tip: String? {
         didSet {
             self.updateControl()
         }
@@ -434,12 +441,10 @@ public class SkyFloatingLabelTextField: UITextField {
     // MARK: - Tip handling
     private func updateTipErrorLabel(animated: Bool = false) {
         
-        var tipText:String? = nil
+        var tipText:String? = tip
         if self.hasErrorMessage {
             tipText = self.titleFormatter(errorMessage!)
         } else {
-            tipText = self.tipMessage
-            
             if tipText == nil {
                 tipText = ""
             }
