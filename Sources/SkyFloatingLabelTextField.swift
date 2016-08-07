@@ -68,7 +68,7 @@ public class SkyFloatingLabelTextField: UITextField {
     private func updatePlaceholder() {
         if let
             placeholder = self.placeholder,
-            font = self.placeholderFont ?? self.font {
+            let font = self.placeholderFont ?? self.font {
                 self.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSForegroundColorAttributeName:placeholderColor,
                     NSFontAttributeName: font])
         }
@@ -521,7 +521,7 @@ public class SkyFloatingLabelTextField: UITextField {
      */
     public func titleHeight() -> CGFloat {
         if let titleLabel = self.titleLabel,
-            font = titleLabel.font {
+            let font = titleLabel.font {
                 return font.lineHeight
         }
         return 15.0
