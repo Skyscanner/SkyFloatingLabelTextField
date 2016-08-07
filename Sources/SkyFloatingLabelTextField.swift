@@ -16,7 +16,7 @@ public class SkyFloatingLabelTextField: UITextField {
     /// A Boolean value that determines if the language displayed is LTR. Default value set automatically from the application language settings.
     var isLTRLanguage = UIApplication.shared.userInterfaceLayoutDirection == .leftToRight {
         didSet {
-           self.updateTextAligment()
+            self.updateTextAligment()
         }
     }
     
@@ -57,7 +57,7 @@ public class SkyFloatingLabelTextField: UITextField {
             self.updatePlaceholder()
         }
     }
-
+    
     /// A UIColor value that determines text color of the placeholder label
     @IBInspectable public var placeholderFont:UIFont? {
         didSet {
@@ -66,14 +66,12 @@ public class SkyFloatingLabelTextField: UITextField {
     }
     
     private func updatePlaceholder() {
-        if let
-            placeholder = self.placeholder,
-            let font = self.placeholderFont ?? self.font {
-                self.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSForegroundColorAttributeName:placeholderColor,
-                    NSFontAttributeName: font])
+        if let placeholder = self.placeholder, let font = self.placeholderFont ?? self.font {
+            self.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSForegroundColorAttributeName:placeholderColor,
+                                                                                              NSFontAttributeName: font])
         }
     }
-
+    
     /// A UIColor value that determines the text color of the title label when in the normal state
     @IBInspectable public var titleColor:UIColor = UIColor.gray {
         didSet {
@@ -138,9 +136,9 @@ public class SkyFloatingLabelTextField: UITextField {
     // MARK: Properties
     
     /**
-    The formatter to use before displaying content in the title label. This can be the `title`, `selectedTitle` or the `errorMessage`.
-    The default implementation converts the text to uppercase.
-    */
+     The formatter to use before displaying content in the title label. This can be the `title`, `selectedTitle` or the `errorMessage`.
+     The default implementation converts the text to uppercase.
+     */
     public var titleFormatter:((String) -> String) = { (text:String) -> String in
         return text.uppercased()
     }
@@ -179,7 +177,7 @@ public class SkyFloatingLabelTextField: UITextField {
             self.updateLineView()
         }
     }
-
+    
     /// A Boolean value that determines whether the textfield is being edited or is selected.
     public var editingOrSelected:Bool {
         get {
@@ -193,7 +191,7 @@ public class SkyFloatingLabelTextField: UITextField {
             return self.errorMessage != nil && self.errorMessage != ""
         }
     }
-
+    
     private var _renderingInInterfaceBuilder:Bool = false
     
     /// The text content of the textfield
@@ -241,9 +239,9 @@ public class SkyFloatingLabelTextField: UITextField {
     // MARK: - Initializers
     
     /**
-    Initializes the control
-    - parameter frame the frame of the control
-    */
+     Initializes the control
+     - parameter frame the frame of the control
+     */
     override public init(frame: CGRect) {
         super.init(frame: frame)
         self.init_SkyFloatingLabelTextField()
@@ -314,7 +312,7 @@ public class SkyFloatingLabelTextField: UITextField {
     /**
      Attempt the control to become the first responder
      - returns: True when successfull becoming the first responder
-    */
+     */
     override public func becomeFirstResponder() -> Bool {
         let result = super.becomeFirstResponder()
         self.updateControl(true)
@@ -408,8 +406,8 @@ public class SkyFloatingLabelTextField: UITextField {
     private var _titleVisible = false
     
     /*
-    *   Set this value to make the title visible
-    */
+     *   Set this value to make the title visible
+     */
     public func setTitleVisible(_ titleVisible:Bool, animated:Bool = false, animationCompletion: (()->())? = nil) {
         if(_titleVisible == titleVisible) {
             return
@@ -442,7 +440,7 @@ public class SkyFloatingLabelTextField: UITextField {
                 updateBlock()
                 }, completion: { _ in
                     completion?()
-                })
+            })
         } else {
             updateBlock()
             completion?()
@@ -451,11 +449,11 @@ public class SkyFloatingLabelTextField: UITextField {
     
     // MARK: - UITextField text/placeholder positioning overrides
     
-    /** 
-    Calculate the rectangle for the textfield when it is not being edited
-    - parameter bounds: The current bounds of the field
-    - returns: The rectangle that the textfield should render in
-    */
+    /**
+     Calculate the rectangle for the textfield when it is not being edited
+     - parameter bounds: The current bounds of the field
+     - returns: The rectangle that the textfield should render in
+     */
     override public func textRect(forBounds bounds: CGRect) -> CGRect {
         super.textRect(forBounds: bounds)
         let titleHeight = self.titleHeight()
@@ -491,11 +489,11 @@ public class SkyFloatingLabelTextField: UITextField {
     // MARK: - Positioning Overrides
     
     /**
-    Calculate the bounds for the title label. Override to create a custom size title field.
-    - parameter bounds: The current bounds of the title
-    - parameter editing: True if the control is selected or highlighted
-    - returns: The rectangle that the title label should render in
-    */
+     Calculate the bounds for the title label. Override to create a custom size title field.
+     - parameter bounds: The current bounds of the title
+     - parameter editing: True if the control is selected or highlighted
+     - returns: The rectangle that the title label should render in
+     */
     public func titleLabelRectForBounds(_ bounds:CGRect, editing:Bool) -> CGRect {
         let titleHeight = self.titleHeight()
         if editing {
@@ -503,7 +501,7 @@ public class SkyFloatingLabelTextField: UITextField {
         }
         return CGRect(x: 0, y: titleHeight, width: bounds.size.width, height: titleHeight)
     }
-
+    
     /**
      Calculate the bounds for the bottom line of the control. Override to create a custom size bottom line in the textbox.
      - parameter bounds: The current bounds of the line
@@ -522,7 +520,7 @@ public class SkyFloatingLabelTextField: UITextField {
     public func titleHeight() -> CGFloat {
         if let titleLabel = self.titleLabel,
             let font = titleLabel.font {
-                return font.lineHeight
+            return font.lineHeight
         }
         return 15.0
     }
@@ -559,7 +557,6 @@ public class SkyFloatingLabelTextField: UITextField {
      
      - returns: the content size to be used for auto layout
      */
-    
     override public var intrinsicContentSize: CGSize {
         return CGSize(width: self.bounds.size.width, height: self.titleHeight() + self.textHeight())
     }
