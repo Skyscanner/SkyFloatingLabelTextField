@@ -17,8 +17,8 @@ extension UITextField {
         // http://stackoverflow.com/questions/14220187/uitextfield-has-trailing-whitespace-after-securetextentry-toggle
         
         let beginning = self.beginningOfDocument
-        self.selectedTextRange = self.textRangeFromPosition(beginning, toPosition: beginning)
+        self.selectedTextRange = self.textRange(from: beginning, to: beginning)
         let end = self.endOfDocument
-        self.selectedTextRange = self.textRangeFromPosition(end, toPosition: end)
+        self.selectedTextRange = self.textRange(from: end, to: end)
     }
 }
