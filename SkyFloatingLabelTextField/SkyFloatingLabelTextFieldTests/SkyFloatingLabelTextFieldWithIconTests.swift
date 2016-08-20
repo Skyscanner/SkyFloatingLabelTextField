@@ -16,7 +16,7 @@ class SkyFloatingLabelTextFieldWithIconTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        floatingLabelTextFieldWithIcon = SkyFloatingLabelTextFieldWithIcon(frame: CGRectMake(0, 0, 200, 50))
+        floatingLabelTextFieldWithIcon = SkyFloatingLabelTextFieldWithIcon(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
     }
     
     // MARK: - Icons properties
@@ -60,7 +60,7 @@ class SkyFloatingLabelTextFieldWithIconTests: XCTestCase {
     func test_whenSettingSelectedIconColor_withTextFieldBeingSelected_thenColorAppliedToIconLabel() {
         // when
         floatingLabelTextFieldWithIcon.selectedIconColor = customColor
-        floatingLabelTextFieldWithIcon.selected = true
+        floatingLabelTextFieldWithIcon.isSelected = true
         
         // then
         XCTAssertEqual(floatingLabelTextFieldWithIcon.iconLabel.textColor, customColor)
@@ -80,7 +80,7 @@ class SkyFloatingLabelTextFieldWithIconTests: XCTestCase {
         floatingLabelTextFieldWithIcon.iconRotationDegrees = 45
         
         // then
-        let expectedTransform = CGAffineTransformMakeRotation(CGFloat(45.0 * M_PI / 180.0))
+        let expectedTransform = CGAffineTransform(rotationAngle: CGFloat(45.0 * M_PI / 180.0))
         XCTAssertEqual(floatingLabelTextFieldWithIcon.iconLabel.transform.a, expectedTransform.a)
         XCTAssertEqual(floatingLabelTextFieldWithIcon.iconLabel.transform.b, expectedTransform.b)
         XCTAssertEqual(floatingLabelTextFieldWithIcon.iconLabel.transform.c, expectedTransform.c)
@@ -94,9 +94,9 @@ class SkyFloatingLabelTextFieldWithIconTests: XCTestCase {
     func test_whenIntiializingWithCoder_thenIconLabelIsCreated() {
         // given
         let data = NSMutableData()
-        let archiver = NSKeyedArchiver(forWritingWithMutableData: data)
+        let archiver = NSKeyedArchiver(forWritingWith: data)
         archiver.finishEncoding()
-        let coder = NSKeyedUnarchiver(forReadingWithData: data)
+        let coder = NSKeyedUnarchiver(forReadingWith: data as Data)
         
         // when
         floatingLabelTextFieldWithIcon = SkyFloatingLabelTextFieldWithIcon(coder: coder)
@@ -115,7 +115,7 @@ class SkyFloatingLabelTextFieldWithIconTests: XCTestCase {
         floatingLabelTextFieldWithIcon.iconMarginLeft = iconMarginLeft
         
         // when
-        let rect = floatingLabelTextFieldWithIcon.textRectForBounds(CGRectMake(0, 0, 40, 30))
+        let rect = floatingLabelTextFieldWithIcon.textRect(forBounds: CGRect(x: 0, y: 0, width: 40, height: 30))
         
         // then
         XCTAssertEqual(rect.origin.x, iconWidth + iconMarginLeft)
@@ -131,7 +131,7 @@ class SkyFloatingLabelTextFieldWithIconTests: XCTestCase {
         floatingLabelTextFieldWithIcon.isLTRLanguage = false
         
         // when
-        let rect = floatingLabelTextFieldWithIcon.textRectForBounds(CGRectMake(0, 0, 40, 30))
+        let rect = floatingLabelTextFieldWithIcon.textRect(forBounds: CGRect(x: 0, y: 0, width: 40, height: 30))
         
         // then
         XCTAssertEqual(rect.origin.x, -1 * (iconWidth + iconMarginLeft))
@@ -146,7 +146,7 @@ class SkyFloatingLabelTextFieldWithIconTests: XCTestCase {
         floatingLabelTextFieldWithIcon.iconMarginLeft = iconMarginLeft
         
         // when
-        let rect = floatingLabelTextFieldWithIcon.editingRectForBounds(CGRectMake(0, 0, 50, 30))
+        let rect = floatingLabelTextFieldWithIcon.editingRect(forBounds: CGRect(x: 0, y: 0, width: 50, height: 30))
         
         // then
         XCTAssertEqual(rect.origin.x, iconWidth + iconMarginLeft)
@@ -162,7 +162,7 @@ class SkyFloatingLabelTextFieldWithIconTests: XCTestCase {
         floatingLabelTextFieldWithIcon.isLTRLanguage = false
         
         // when
-        let rect = floatingLabelTextFieldWithIcon.editingRectForBounds(CGRectMake(0, 0, 50, 30))
+        let rect = floatingLabelTextFieldWithIcon.editingRect(forBounds: CGRect(x: 0, y: 0, width: 50, height: 30))
         
         // then
         XCTAssertEqual(rect.origin.x, 0)
@@ -177,7 +177,7 @@ class SkyFloatingLabelTextFieldWithIconTests: XCTestCase {
         floatingLabelTextFieldWithIcon.iconMarginLeft = iconMarginLeft
         
         // when
-        let rect = floatingLabelTextFieldWithIcon.placeholderRectForBounds(CGRectMake(0, 0, 60, 30))
+        let rect = floatingLabelTextFieldWithIcon.placeholderRect(forBounds: CGRect(x: 0, y: 0, width: 60, height: 30))
         
         // then
         XCTAssertEqual(rect.origin.x, iconWidth + iconMarginLeft)
@@ -193,7 +193,7 @@ class SkyFloatingLabelTextFieldWithIconTests: XCTestCase {
         floatingLabelTextFieldWithIcon.isLTRLanguage = false
         
         // when
-        let rect = floatingLabelTextFieldWithIcon.placeholderRectForBounds(CGRectMake(0, 0, 60, 30))
+        let rect = floatingLabelTextFieldWithIcon.placeholderRect(forBounds: CGRect(x: 0, y: 0, width: 60, height: 30))
         
         // then
         XCTAssertEqual(rect.origin.x, 0)
@@ -202,7 +202,7 @@ class SkyFloatingLabelTextFieldWithIconTests: XCTestCase {
     
     func test_whenInvokingLayoutSubviews_thenUpdatesIconLabelFrame() {
         // given
-        floatingLabelTextFieldWithIcon.iconLabel.frame = CGRectMake(0, 0, 0, 0)
+        floatingLabelTextFieldWithIcon.iconLabel.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
         XCTAssertEqual(floatingLabelTextFieldWithIcon.iconLabel.frame.height, 0)
         
         // when
@@ -214,7 +214,7 @@ class SkyFloatingLabelTextFieldWithIconTests: XCTestCase {
     
     func test_whenInvokingLayoutSubviews_withNonRTLLanguage_thenUpdatesIconLabelFrame() {
         // given
-        floatingLabelTextFieldWithIcon.iconLabel.frame = CGRectMake(0, 0, 0, 0)
+        floatingLabelTextFieldWithIcon.iconLabel.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
         XCTAssertEqual(floatingLabelTextFieldWithIcon.iconLabel.frame.height, 0)
         floatingLabelTextFieldWithIcon.isLTRLanguage = false
         
