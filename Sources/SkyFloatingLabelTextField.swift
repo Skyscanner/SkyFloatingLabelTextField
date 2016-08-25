@@ -14,7 +14,7 @@ import UIKit
 @IBDesignable
 public class SkyFloatingLabelTextField: UITextField {
     /// A Boolean value that determines if the language displayed is LTR. Default value set automatically from the application language settings.
-    var isLTRLanguage = UIApplication.sharedApplication().userInterfaceLayoutDirection == .LeftToRight {
+    var isLTRLanguage = UIApplication.shared.userInterfaceLayoutDirection == .leftToRight {
         didSet {
            self.updateTextAligment()
         }
@@ -22,18 +22,18 @@ public class SkyFloatingLabelTextField: UITextField {
     
     private func updateTextAligment() {
         if(self.isLTRLanguage) {
-            self.textAlignment = .Left
+            self.textAlignment = .left
         } else {
-            self.textAlignment = .Right
+            self.textAlignment = .right
         }
     }
     
     // MARK: Animation timing
     
     /// The value of the title appearing duration
-    public var titleFadeInDuration:NSTimeInterval = 0.2
+    public var titleFadeInDuration:TimeInterval = 0.2
     /// The value of the title disappearing duration
-    public var titleFadeOutDuration:NSTimeInterval = 0.3
+    public var titleFadeOutDuration:TimeInterval = 0.3
     
     // MARK: Colors
     
@@ -52,7 +52,7 @@ public class SkyFloatingLabelTextField: UITextField {
     }
     
     /// A UIColor value that determines text color of the placeholder label
-    @IBInspectable public var placeholderColor:UIColor = UIColor.lightGrayColor() {
+    @IBInspectable public var placeholderColor:UIColor = UIColor.lightGray {
         didSet {
             self.updatePlaceholder()
         }
@@ -75,35 +75,35 @@ public class SkyFloatingLabelTextField: UITextField {
     }
 
     /// A UIColor value that determines the text color of the title label when in the normal state
-    @IBInspectable public var titleColor:UIColor = UIColor.grayColor() {
+    @IBInspectable public var titleColor:UIColor = UIColor.gray {
         didSet {
             self.updateTitleColor()
         }
     }
     
     /// A UIColor value that determines the color of the bottom line when in the normal state
-    @IBInspectable public var lineColor:UIColor = UIColor.lightGrayColor() {
+    @IBInspectable public var lineColor:UIColor = UIColor.lightGray {
         didSet {
             self.updateLineView()
         }
     }
     
     /// A UIColor value that determines the color used for the title label and the line when the error message is not `nil`
-    @IBInspectable public var errorColor:UIColor = UIColor.redColor() {
+    @IBInspectable public var errorColor:UIColor = UIColor.red {
         didSet {
             self.updateColors()
         }
     }
     
     /// A UIColor value that determines the text color of the title label when editing
-    @IBInspectable public var selectedTitleColor:UIColor = UIColor.blueColor() {
+    @IBInspectable public var selectedTitleColor:UIColor = UIColor.blue {
         didSet {
             self.updateTitleColor()
         }
     }
     
     /// A UIColor value that determines the color of the line in a selected state
-    @IBInspectable public var selectedLineColor:UIColor = UIColor.blackColor() {
+    @IBInspectable public var selectedLineColor:UIColor = UIColor.black {
         didSet {
             self.updateLineView()
         }
@@ -141,20 +141,20 @@ public class SkyFloatingLabelTextField: UITextField {
     The formatter to use before displaying content in the title label. This can be the `title`, `selectedTitle` or the `errorMessage`.
     The default implementation converts the text to uppercase.
     */
-    public var titleFormatter:(String -> String) = { (text:String) -> String in
-        return text.uppercaseString
+    public var titleFormatter:((String) -> String) = { (text:String) -> String in
+        return text.uppercased()
     }
     
     /**
      Identifies whether the text object should hide the text being entered.
      */
-    override public var secureTextEntry:Bool {
+    override public var isSecureTextEntry:Bool {
         set {
-            super.secureTextEntry = newValue
+            super.isSecureTextEntry = newValue
             self.fixCaretPosition()
         }
         get {
-            return super.secureTextEntry
+            return super.isSecureTextEntry
         }
     }
     
@@ -169,7 +169,7 @@ public class SkyFloatingLabelTextField: UITextField {
     private var _highlighted = false
     
     /// A Boolean value that determines whether the receiver is highlighted. When changing this value, highlighting will be done with animation
-    override public var highlighted:Bool {
+    override public var isHighlighted:Bool {
         get {
             return _highlighted
         }
@@ -183,7 +183,7 @@ public class SkyFloatingLabelTextField: UITextField {
     /// A Boolean value that determines whether the textfield is being edited or is selected.
     public var editingOrSelected:Bool {
         get {
-            return super.editing || self.selected;
+            return super.isEditing || self.isSelected;
         }
     }
     
@@ -232,7 +232,7 @@ public class SkyFloatingLabelTextField: UITextField {
     }
     
     // Determines whether the field is selected. When selected, the title floats above the textbox.
-    public override var selected:Bool {
+    public override var isSelected:Bool {
         didSet {
             self.updateControl(true)
         }
@@ -259,7 +259,7 @@ public class SkyFloatingLabelTextField: UITextField {
     }
     
     private final func init_SkyFloatingLabelTextField() {
-        self.borderStyle = .None
+        self.borderStyle = .none
         self.createTitleLabel()
         self.createLineView()
         self.updateColors()
@@ -268,7 +268,7 @@ public class SkyFloatingLabelTextField: UITextField {
     }
     
     private func addEditingChangedObserver() {
-        self.addTarget(self, action: Selector("editingChanged"), forControlEvents: .EditingChanged)
+        self.addTarget(self, action: #selector(SkyFloatingLabelTextField.editingChanged), for: .editingChanged)
     }
     
     /**
@@ -283,8 +283,8 @@ public class SkyFloatingLabelTextField: UITextField {
     
     private func createTitleLabel() {
         let titleLabel = UILabel()
-        titleLabel.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
-        titleLabel.font = UIFont.systemFontOfSize(13)
+        titleLabel.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        titleLabel.font = UIFont.systemFont(ofSize: 13)
         titleLabel.alpha = 0.0
         titleLabel.textColor = self.titleColor
         self.addSubview(titleLabel)
@@ -295,16 +295,16 @@ public class SkyFloatingLabelTextField: UITextField {
         
         if self.lineView == nil {
             let lineView = UIView()
-            lineView.userInteractionEnabled = false
+            lineView.isUserInteractionEnabled = false
             self.lineView = lineView
             self.configureDefaultLineHeight()
         }
-        lineView.autoresizingMask = [.FlexibleWidth, .FlexibleTopMargin]
+        lineView.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
         self.addSubview(lineView)
     }
     
     private func configureDefaultLineHeight() {
-        let onePixel:CGFloat = 1.0 / UIScreen.mainScreen().scale
+        let onePixel:CGFloat = 1.0 / UIScreen.main.scale
         self.lineHeight = 2.0 * onePixel
         self.selectedLineHeight = 2.0 * self.lineHeight
     }
@@ -333,7 +333,7 @@ public class SkyFloatingLabelTextField: UITextField {
     
     // MARK: - View updates
     
-    private func updateControl(animated:Bool = false) {
+    private func updateControl(_ animated:Bool = false) {
         self.updateColors()
         self.updateLineView()
         self.updateTitleLabel(animated)
@@ -367,7 +367,7 @@ public class SkyFloatingLabelTextField: UITextField {
         if self.hasErrorMessage {
             self.titleLabel.textColor = self.errorColor
         } else {
-            if self.editingOrSelected || self.highlighted {
+            if self.editingOrSelected || self.isHighlighted {
                 self.titleLabel.textColor = self.selectedTitleColor
             } else {
                 self.titleLabel.textColor = self.titleColor
@@ -385,7 +385,7 @@ public class SkyFloatingLabelTextField: UITextField {
     
     // MARK: - Title handling
     
-    private func updateTitleLabel(animated:Bool = false) {
+    private func updateTitleLabel(_ animated:Bool = false) {
         
         var titleText:String? = nil
         if self.hasErrorMessage {
@@ -410,7 +410,7 @@ public class SkyFloatingLabelTextField: UITextField {
     /*
     *   Set this value to make the title visible
     */
-    public func setTitleVisible(titleVisible:Bool, animated:Bool = false, animationCompletion: (()->())? = nil) {
+    public func setTitleVisible(_ titleVisible:Bool, animated:Bool = false, animationCompletion: (()->())? = nil) {
         if(_titleVisible == titleVisible) {
             return
         }
@@ -424,10 +424,10 @@ public class SkyFloatingLabelTextField: UITextField {
      - returns: True if the title is displayed on the control, false otherwise.
      */
     public func isTitleVisible() -> Bool {
-        return self.hasText() || self.hasErrorMessage || _titleVisible
+        return self.hasText || self.hasErrorMessage || _titleVisible
     }
     
-    private func updateTitleVisibility(animated:Bool = false, completion: (()->())? = nil) {
+    private func updateTitleVisibility(_ animated:Bool = false, completion: (()->())? = nil) {
         let alpha:CGFloat = self.isTitleVisible() ? 1.0 : 0.0
         let frame:CGRect = self.titleLabelRectForBounds(self.bounds, editing: self.isTitleVisible())
         let updateBlock = { () -> Void in
@@ -435,10 +435,10 @@ public class SkyFloatingLabelTextField: UITextField {
             self.titleLabel.frame = frame
         }
         if animated {
-            let animationOptions:UIViewAnimationOptions = .CurveEaseOut;
+            let animationOptions:UIViewAnimationOptions = .curveEaseOut;
             let duration = self.isTitleVisible() ? titleFadeInDuration : titleFadeOutDuration
             
-            UIView.animateWithDuration(duration, delay: 0, options: animationOptions, animations: { () -> Void in
+            UIView.animate(withDuration: duration, delay: 0, options: animationOptions, animations: { () -> Void in
                 updateBlock()
                 }, completion: { _ in
                     completion?()
@@ -456,11 +456,11 @@ public class SkyFloatingLabelTextField: UITextField {
     - parameter bounds: The current bounds of the field
     - returns: The rectangle that the textfield should render in
     */
-    override public func textRectForBounds(bounds: CGRect) -> CGRect {
-        super.textRectForBounds(bounds)
+    override public func textRect(forBounds bounds: CGRect) -> CGRect {
+        super.textRect(forBounds: bounds)
         let titleHeight = self.titleHeight()
         let lineHeight = self.selectedLineHeight
-        let rect = CGRectMake(0, titleHeight, bounds.size.width, bounds.size.height - titleHeight - lineHeight)
+        let rect = CGRect(x: 0, y: titleHeight, width: bounds.size.width, height: bounds.size.height - titleHeight - lineHeight)
         return rect
     }
     
@@ -469,10 +469,10 @@ public class SkyFloatingLabelTextField: UITextField {
      - parameter bounds: The current bounds of the field
      - returns: The rectangle that the textfield should render in
      */
-    override public func editingRectForBounds(bounds: CGRect) -> CGRect {
+    override public func editingRect(forBounds bounds: CGRect) -> CGRect {
         let titleHeight = self.titleHeight()
         let lineHeight = self.selectedLineHeight
-        let rect = CGRectMake(0, titleHeight, bounds.size.width, bounds.size.height - titleHeight - lineHeight)
+        let rect = CGRect(x: 0, y: titleHeight, width: bounds.size.width, height: bounds.size.height - titleHeight - lineHeight)
         return rect
     }
     
@@ -481,10 +481,10 @@ public class SkyFloatingLabelTextField: UITextField {
      - parameter bounds: The current bounds of the placeholder
      - returns: The rectangle that the placeholder should render in
      */
-    override public func placeholderRectForBounds(bounds: CGRect) -> CGRect {
+    override public func placeholderRect(forBounds bounds: CGRect) -> CGRect {
         let titleHeight = self.titleHeight()
         let lineHeight = self.selectedLineHeight
-        let rect = CGRectMake(0, titleHeight, bounds.size.width, bounds.size.height - titleHeight - lineHeight)
+        let rect = CGRect(x: 0, y: titleHeight, width: bounds.size.width, height: bounds.size.height - titleHeight - lineHeight)
         return rect
     }
     
@@ -496,12 +496,12 @@ public class SkyFloatingLabelTextField: UITextField {
     - parameter editing: True if the control is selected or highlighted
     - returns: The rectangle that the title label should render in
     */
-    public func titleLabelRectForBounds(bounds:CGRect, editing:Bool) -> CGRect {
+    public func titleLabelRectForBounds(_ bounds:CGRect, editing:Bool) -> CGRect {
         let titleHeight = self.titleHeight()
         if editing {
-            return CGRectMake(0, 0, bounds.size.width, titleHeight)
+            return CGRect(x: 0, y: 0, width: bounds.size.width, height: titleHeight)
         }
-        return CGRectMake(0, titleHeight, bounds.size.width, titleHeight)
+        return CGRect(x: 0, y: titleHeight, width: bounds.size.width, height: titleHeight)
     }
 
     /**
@@ -510,9 +510,9 @@ public class SkyFloatingLabelTextField: UITextField {
      - parameter editing: True if the control is selected or highlighted
      - returns: The rectangle that the line bar should render in
      */
-    public func lineViewRectForBounds(bounds:CGRect, editing:Bool) -> CGRect {
+    public func lineViewRectForBounds(_ bounds:CGRect, editing:Bool) -> CGRect {
         let lineHeight:CGFloat = editing ? CGFloat(self.selectedLineHeight) : CGFloat(self.lineHeight)
-        return CGRectMake(0, bounds.size.height - lineHeight, bounds.size.width, lineHeight);
+        return CGRect(x: 0, y: bounds.size.height - lineHeight, width: bounds.size.width, height: lineHeight);
     }
     
     /**
@@ -521,7 +521,7 @@ public class SkyFloatingLabelTextField: UITextField {
      */
     public func titleHeight() -> CGFloat {
         if let titleLabel = self.titleLabel,
-            font = titleLabel.font {
+            let font = titleLabel.font {
                 return font.lineHeight
         }
         return 15.0
@@ -542,7 +542,7 @@ public class SkyFloatingLabelTextField: UITextField {
         if #available(iOS 8.0, *) {
             super.prepareForInterfaceBuilder()
         }
-        self.selected = true
+        self.isSelected = true
         _renderingInInterfaceBuilder = true
         self.updateControl(false)
         self.invalidateIntrinsicContentSize()
@@ -561,8 +561,8 @@ public class SkyFloatingLabelTextField: UITextField {
      
      - returns: the content size to be used for auto layout
      */
-    override public func intrinsicContentSize() -> CGSize {
-        return CGSizeMake(self.bounds.size.width, self.titleHeight() + self.textHeight())
+    override public var intrinsicContentSize: CGSize {
+        return CGSize(width: self.bounds.size.width, height: self.titleHeight() + self.textHeight())
     }
     
     // MARK: - Helpers
