@@ -18,7 +18,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        floatingLabelTextField = SkyFloatingLabelTextField(frame: CGRectMake(0, 0, 200, 50))
+        floatingLabelTextField = SkyFloatingLabelTextField(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
     }
     
     override func tearDown() {
@@ -45,7 +45,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
     
     func test_whenSettingPlaceholderColor_thenAttributedPlaceholderTextIsSet_withColor() {
         // given
-        let customColor = UIColor.redColor()
+        let customColor = UIColor.red
         floatingLabelTextField.placeholder = "test"
         var fullRange:NSRange = NSMakeRange(0, floatingLabelTextField.placeholder!.characters.count)
         
@@ -53,7 +53,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         floatingLabelTextField.placeholderColor = customColor
         
         // then
-        XCTAssertEqual(floatingLabelTextField.attributedPlaceholder!.attribute(NSForegroundColorAttributeName, atIndex: 0, effectiveRange: &fullRange) as? UIColor, customColor)
+        XCTAssertEqual(floatingLabelTextField.attributedPlaceholder!.attribute(NSForegroundColorAttributeName, at: 0, effectiveRange: &fullRange) as? UIColor, customColor)
     }
     
     func test_whenSettingTitleColor_thenTitleLabelTextColorIsChangedToThisColor() {
@@ -119,7 +119,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
     
     func test_whenSettingSelectedTitleColor_withTextfieldBeingSelected_thenTitleLabelTextColorIsChangedToThisColor() {
         // given
-        floatingLabelTextField.selected = true
+        floatingLabelTextField.isSelected = true
         
         // when
         floatingLabelTextField.selectedTitleColor = self.customColor
@@ -140,12 +140,12 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         floatingLabelTextField.placeholderFont = customFont
         
         // then
-        XCTAssertEqual(floatingLabelTextField.attributedPlaceholder!.attribute(NSFontAttributeName, atIndex: 0, effectiveRange: &fullRange) as? UIFont, customFont)
+        XCTAssertEqual(floatingLabelTextField.attributedPlaceholder!.attribute(NSFontAttributeName, at: 0, effectiveRange: &fullRange) as? UIFont, customFont)
     }
     
     func test_whenSettingSelectedLineColor_withTextfieldBeingSelected_thenLineViewBackgroundColorIsChangedToThisColor() {
         // given
-        floatingLabelTextField.selected = true
+        floatingLabelTextField.isSelected = true
         
         // when
         floatingLabelTextField.selectedLineColor = self.customColor
@@ -159,7 +159,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
     
     func test_whenInitializingControl_thenLineHeightIsTwoPixelsOnScreen() {
         // given
-        let onePixel = 1.0 / Double(UIScreen.mainScreen().scale)
+        let onePixel = 1.0 / Double(UIScreen.main.scale)
         
         // then
         XCTAssertEqual(Double(floatingLabelTextField.lineHeight), 2.0 * onePixel)
@@ -175,7 +175,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
     
     func test_whenInitializingControl_thenSelectedLineHeightIsFourPixelsOnScreen() {
         // given
-        let onePixel = 1.0 / Double(UIScreen.mainScreen().scale)
+        let onePixel = 1.0 / Double(UIScreen.main.scale)
         
         // then
         XCTAssertEqual(Double(floatingLabelTextField.selectedLineHeight), 4.0 * onePixel)
@@ -183,7 +183,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
     
     func test_whenSettingSelectedLineHeight__withTextFieldBeingSelected_thenLineViewHeightIsChangedToThisValue() {
         // given
-        floatingLabelTextField.selected = true
+        floatingLabelTextField.isSelected = true
         
         // when
         floatingLabelTextField.selectedLineHeight = 4
@@ -199,7 +199,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         floatingLabelTextField.text = "hello";
         
         // then
-        XCTAssertTrue(floatingLabelTextField.hasText())
+        XCTAssertTrue(floatingLabelTextField.hasText)
     }
     
     func test_hasText_whenTextPropertyIsEmpty_thenReturnsFalse() {
@@ -207,7 +207,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         floatingLabelTextField.text = "";
         
         // then
-        XCTAssertFalse(floatingLabelTextField.hasText())
+        XCTAssertFalse(floatingLabelTextField.hasText)
     }
     
     func test_whenSettingText_withErrorMessagePresent_thenErrorMessageIsNotChanged() {
@@ -262,10 +262,10 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
     
     func test_whenSettingSelected_toTrue_thenEditingOrSelectedIsTrue() {
         // given
-        XCTAssertFalse(floatingLabelTextField.editing)
+        XCTAssertFalse(floatingLabelTextField.isEditing)
         
         // when
-        floatingLabelTextField.selected = true
+        floatingLabelTextField.isSelected = true
         
         // then
         XCTAssertTrue(floatingLabelTextField.editingOrSelected)
@@ -275,13 +275,13 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
     
     func test_whenSettingHighightedFromFalseToTrue_thenHighlightedIsTrue() {
         // given
-        XCTAssertFalse(floatingLabelTextField.highlighted)
+        XCTAssertFalse(floatingLabelTextField.isHighlighted)
         
         // when
-        floatingLabelTextField.highlighted = true
+        floatingLabelTextField.isHighlighted = true
         
         // then
-        XCTAssertTrue(floatingLabelTextField.highlighted)
+        XCTAssertTrue(floatingLabelTextField.isHighlighted)
     }
     
     // MARK:  - setTitleVisible()
@@ -322,7 +322,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
     
     func test_whenSettingTitleVisible_toTrue_withAnimation_thenTitleAlphaIsSetToOne_whenCallbackIsInvoked() {
         // given
-        let expectation = self.expectationWithDescription("")
+        let expectation = self.expectation(description: "")
         XCTAssertEqual(floatingLabelTextField.titleLabel.alpha, 0.0)
         
         // when
@@ -349,7 +349,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
     func test_whenSettingTitleVisible_toFalse_then_whenAnimationCallbackInvoked_titleIsNotVisible() {
         // given
         floatingLabelTextField.setTitleVisible(true, animated: false)
-        let expectation = self.expectationWithDescription("")
+        let expectation = self.expectation(description: "")
         
         // when
         floatingLabelTextField.setTitleVisible(false, animated: true, animationCompletion: { _ in
@@ -379,7 +379,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         // given
         floatingLabelTextField.title = nil
         floatingLabelTextField.selectedTitle = nil
-        floatingLabelTextField.selected = true
+        floatingLabelTextField.isSelected = true
         
         // when
         floatingLabelTextField.placeholder = "placeholderText"
@@ -392,7 +392,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
     
     func test_whenTitleAndSelectedTitleAreSet_withControlNotBeingSelected_thenTitleLabelDisplaysUppercaseTitle() {
         // given
-        floatingLabelTextField.selected = false
+        floatingLabelTextField.isSelected = false
         
         // when
         floatingLabelTextField.title = "title"
@@ -404,7 +404,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
     
     func test_whenTitleIsSetAndSelectedTitleIsNotSet_withControlBeingSelected_thenTitleLabelDisplaysUppercaseTitle() {
         // given
-        floatingLabelTextField.selected = true
+        floatingLabelTextField.isSelected = true
         
         // when
         floatingLabelTextField.title = "title"
@@ -416,7 +416,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
     
     func test_whenTitleAndSelectedTitleAreSet_withControlBeingSelected_thenTitleLabelDisplaysUppercaseSelectedTitle() {
         // given
-        floatingLabelTextField.selected = true
+        floatingLabelTextField.isSelected = true
         
         // when
         floatingLabelTextField.title = "title"
@@ -455,9 +455,9 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
     func test_whenIntiializingWithCoder_thenTextfieldUIElementsAreCreated() {
         // given
         let data = NSMutableData()
-        let archiver = NSKeyedArchiver(forWritingWithMutableData: data)
+        let archiver = NSKeyedArchiver(forWritingWith: data)
         archiver.finishEncoding()
-        let coder = NSKeyedUnarchiver(forReadingWithData: data)
+        let coder = NSKeyedUnarchiver(forReadingWith: data as Data)
         
         // when
         floatingLabelTextField = SkyFloatingLabelTextField(coder: coder)
@@ -558,7 +558,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         floatingLabelTextField.delegate = textFieldDelegateMock
         
         // when
-        let result = floatingLabelTextField.delegate!.textField!(floatingLabelTextField, shouldChangeCharactersInRange: NSRange(), replacementString:"")
+        let result = floatingLabelTextField.delegate!.textField!(floatingLabelTextField, shouldChangeCharactersIn: NSRange(), replacementString:"")
         
         // then
         XCTAssertFalse(result)
@@ -571,10 +571,10 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         // given
         floatingLabelTextField.selectedLineHeight = 4
         let boundsHeight:CGFloat = 60
-        let bounds = CGRectMake(0, 0, 200, boundsHeight)
+        let bounds = CGRect(x: 0, y: 0, width: 200, height: boundsHeight)
         
         // when
-        let rect = floatingLabelTextField.editingRectForBounds(bounds)
+        let rect = floatingLabelTextField.editingRect(forBounds: bounds)
         
         // then
         XCTAssertEqual(rect.height, boundsHeight - 4 - floatingLabelTextField.titleHeight())
@@ -584,7 +584,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
     
     func test_whenLayoutSubviewsInvoked_thenTitleLabelFrameIsUpdated() {
         // given
-        floatingLabelTextField.titleLabel.frame = CGRectMake(0, 0, 0, 0)
+        floatingLabelTextField.titleLabel.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
         XCTAssertEqual(floatingLabelTextField.titleLabel.frame.height, 0.0)
         
         // when
@@ -597,7 +597,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
     func test_whenLayoutSubviewsInvoked_thenLineViewFrameIsUpdated() {
         // given
         floatingLabelTextField.lineHeight = 2.0
-        floatingLabelTextField.lineView.frame = CGRectMake(0, 0, 0, 0)
+        floatingLabelTextField.lineView.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
         XCTAssertNotEqual(floatingLabelTextField.lineView.frame.height, 2.0)
         
         // when
@@ -657,13 +657,13 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
     
     func test_whenPrepareForInterfaceBuilderInvoked_thenSelectedSetToTrue() {
         // given
-        XCTAssertFalse(floatingLabelTextField.selected)
+        XCTAssertFalse(floatingLabelTextField.isSelected)
         
         // when
         floatingLabelTextField.prepareForInterfaceBuilder()
         
         // then
-        XCTAssertTrue(floatingLabelTextField.selected)
+        XCTAssertTrue(floatingLabelTextField.isSelected)
     }
     
     // MARK: intrinsicContentSize()
@@ -674,7 +674,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         XCTAssertNotEqual(floatingLabelTextField.textHeight(), 0)
         
         // when
-        let size = floatingLabelTextField.intrinsicContentSize()
+        let size = floatingLabelTextField.intrinsicContentSize
         
         // then
         XCTAssertEqual(size.height, floatingLabelTextField.titleHeight() + floatingLabelTextField.textHeight())
@@ -682,21 +682,17 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
     
     // MARK: - Helpers
     
-    func failOnTimeoutAfterSeconds(timeout: NSTimeInterval) {
-        self.waitForExpectationsWithTimeout(timeout, handler: {(error: NSError?) -> Void in
+    func failOnTimeoutAfterSeconds(_ timeout: TimeInterval) {
+        self.waitForExpectations(timeout: timeout, handler: {(error: Error?) -> Void in
             if let error = error {
                 XCTFail("Call timed out \(error.localizedDescription)")
             }
         })
     }
     
-    func delay(delay:Double, callback:()->()) {
-        dispatch_after(
-            dispatch_time(
-                DISPATCH_TIME_NOW,
-                Int64(delay * Double(NSEC_PER_SEC))
-            ),
-            dispatch_get_main_queue(), callback)
+    func delay(_ delay:Double, callback:()->()) {
+        DispatchQueue.main.asyncAfter(
+            deadline: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: callback)
     }
     
     class TextFieldDelegateMock:NSObject, UITextFieldDelegate {
@@ -715,39 +711,39 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         var textFieldShouldClearInvoked = false
         var shouldChangeCharactersInRangeInvoked = false
         
-        func textFieldDidBeginEditing(textField: UITextField) {
+        func textFieldDidBeginEditing(_ textField: UITextField) {
             textFieldDidBeginEditingInvoked = true
         }
         
-        func textFieldChanged(textField: UITextField) {
+        func textFieldChanged(_ textField: UITextField) {
             textFieldChangedInvoked = true
         }
         
-        func textFieldDidEndEditing(textField: UITextField) {
+        func textFieldDidEndEditing(_ textField: UITextField) {
             textFieldDidEndEditingInvoked = true
         }
         
-        func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+        func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
             textFieldShouldBeginEditingInvoked = true
             return textFieldShouldBeginEditing
         }
         
-        func textFieldShouldEndEditing(textField: UITextField) -> Bool {
+        func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
             textFieldShouldEndEditingInvoked = true
             return textFieldShouldEndEditing
         }
         
-        func textFieldShouldReturn(textField: UITextField) -> Bool {
+        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
             textFieldShouldReturnInvoked = true
             return textFieldShouldReturn
         }
         
-        func textFieldShouldClear(textField: UITextField) -> Bool {
+        func textFieldShouldClear(_ textField: UITextField) -> Bool {
             textFieldShouldClearInvoked = true
             return textFieldShouldClear
         }
         
-        func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
             shouldChangeCharactersInRangeInvoked = true
             return shouldChangeCharactersInRange
         }
