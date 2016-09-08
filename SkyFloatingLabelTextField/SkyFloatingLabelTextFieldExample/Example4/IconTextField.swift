@@ -37,9 +37,9 @@ public class IconTextField: SkyFloatingLabelTextField {
     
     func createIconLabel() {
         let iconLabel = UILabel()
-        iconLabel.backgroundColor = UIColor.clearColor()
-        iconLabel.textAlignment = .Center
-        iconLabel.autoresizingMask = [.FlexibleTopMargin, .FlexibleRightMargin]
+        iconLabel.backgroundColor = UIColor.clear
+        iconLabel.textAlignment = .center
+        iconLabel.autoresizingMask = [.flexibleTopMargin, .flexibleRightMargin]
         self.iconLabel = iconLabel
         self.addSubview(iconLabel)
 
@@ -57,14 +57,14 @@ public class IconTextField: SkyFloatingLabelTextField {
         if self.hasErrorMessage {
             self.iconLabel?.textColor = self.errorColor
         } else {
-            self.iconLabel?.textColor = self.editing ? self.selectedLineColor : self.lineColor
+            self.iconLabel?.textColor = self.isEditing ? self.selectedLineColor : self.lineColor
         }
     }
     
     // MARK: Custom layout overrides
     
-    override public func textRectForBounds(bounds: CGRect) -> CGRect {
-        var rect = super.textRectForBounds(bounds)
+    override public func textRect(forBounds bounds: CGRect) -> CGRect {
+        var rect = super.textRect(forBounds: bounds)
         if (isLTRLanguage) {
             rect.origin.x += iconWidth
         } else {
@@ -73,15 +73,15 @@ public class IconTextField: SkyFloatingLabelTextField {
         rect.size.width -= iconWidth
         return rect
     }
-    override public func editingRectForBounds(bounds: CGRect) -> CGRect {
-        var rect = super.textRectForBounds(bounds)
+    override public func editingRect(forBounds bounds: CGRect) -> CGRect {
+        var rect = super.textRect(forBounds: bounds)
         rect.origin.x += iconWidth - iconWidth
         rect.size.width -= iconWidth
         return rect
     }
     
-    override public func placeholderRectForBounds(bounds: CGRect) -> CGRect {
-        var rect = super.placeholderRectForBounds(bounds)
+    override public func placeholderRect(forBounds bounds: CGRect) -> CGRect {
+        var rect = super.placeholderRect(forBounds: bounds)
         rect.origin.x += iconWidth
         rect.size.width -= iconWidth
         return rect
@@ -93,9 +93,9 @@ public class IconTextField: SkyFloatingLabelTextField {
         let textWidth:CGFloat = self.bounds.size.width
 
         if (isLTRLanguage) {
-            self.iconLabel.frame = CGRectMake(0, self.bounds.size.height - textHeight, iconWidth, textHeight)
+            self.iconLabel.frame = CGRect(x: 0, y: self.bounds.size.height - textHeight, width: iconWidth, height: textHeight)
         } else {
-            self.iconLabel.frame = CGRectMake(textWidth - iconWidth, self.bounds.size.height - textHeight, iconWidth, textHeight)
+            self.iconLabel.frame = CGRect(x: textWidth - iconWidth, y: self.bounds.size.height - textHeight, width: iconWidth, height: textHeight)
 
         }
     }

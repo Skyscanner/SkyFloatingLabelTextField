@@ -8,7 +8,7 @@
 
 import UIKit
 
-let isLTRLanguage = UIApplication.sharedApplication().userInterfaceLayoutDirection == .LeftToRight
+let isLTRLanguage = UIApplication.shared.userInterfaceLayoutDirection == .leftToRight
 
 class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
 
@@ -34,18 +34,18 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
     // MARK: - Creating the form elements
     
     func setupThemeColors() {
-        self.submitButton.layer.borderColor = darkGreyColor.CGColor
+        self.submitButton.layer.borderColor = darkGreyColor.cgColor
         self.submitButton.layer.borderWidth = 1
         self.submitButton.layer.cornerRadius = 5
-        self.submitButton.setTitleColor(overcastBlueColor, forState: .Highlighted)
+        self.submitButton.setTitleColor(overcastBlueColor, for: .highlighted)
         
-        self.applySkyscannerThemeWithIcon(self.departureCityField)
+        self.applySkyscannerThemeWithIcon(textField: self.departureCityField)
         self.departureCityField.iconText = "\u{f072}" // plane icon as per https://fortawesome.github.io/Font-Awesome/cheatsheet/
         self.departureCityField.placeholder     = NSLocalizedString("Departure City", tableName: "SkyFloatingLabelTextField", comment: "placeholder for the departure city field")
         self.departureCityField.selectedTitle   = NSLocalizedString("Departure City", tableName: "SkyFloatingLabelTextField", comment: "title for the departure city field")
         self.departureCityField.title           = NSLocalizedString("Departure City", tableName: "SkyFloatingLabelTextField", comment: "title for the departure city field")
 
-        self.applySkyscannerThemeWithIcon(self.arrivalCityField)
+        self.applySkyscannerThemeWithIcon(textField: self.arrivalCityField)
         if isLTRLanguage {
             self.arrivalCityField.iconRotationDegrees = 90
         } else { // In RTL languages the plane should point to the other side
@@ -70,9 +70,9 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
         self.emailField.selectedTitle   = NSLocalizedString("Email", tableName: "SkyFloatingLabelTextField", comment: "selected title for Email field")
         self.emailField.title           = NSLocalizedString("Email", tableName: "SkyFloatingLabelTextField", comment: "title for Email field")
 
-        self.applySkyscannerTheme(self.titleField)
-        self.applySkyscannerTheme(self.nameField)
-        self.applySkyscannerTheme(self.emailField)
+        self.applySkyscannerTheme(textField: self.titleField)
+        self.applySkyscannerTheme(textField: self.nameField)
+        self.applySkyscannerTheme(textField: self.emailField)
         
         self.arrivalCityField.delegate = self
         self.departureCityField.delegate = self
@@ -84,7 +84,7 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
     // MARK: - Styling the text fields to the Skyscanner theme
     
     func applySkyscannerThemeWithIcon(textField: SkyFloatingLabelTextFieldWithIcon) {
-        self.applySkyscannerTheme(textField)
+        self.applySkyscannerTheme(textField: textField)
         
         textField.iconColor = lightGreyColor
         textField.selectedIconColor = overcastBlueColor
@@ -115,30 +115,30 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func submitButtonDown(sender: AnyObject) {
         self.isSubmitButtonPressed = true
-        if !self.departureCityField.hasText() {
+        if !self.departureCityField.hasText {
             self.showingTitleInProgress = true
             self.departureCityField.setTitleVisible(true, animated: true, animationCompletion: self.showingTitleInAnimationComplete)
-            self.departureCityField.highlighted = true
+            self.departureCityField.isHighlighted = true
         }
-        if !self.arrivalCityField.hasText() {
+        if !self.arrivalCityField.hasText {
             self.showingTitleInProgress = true
             self.arrivalCityField.setTitleVisible(true, animated: true, animationCompletion: self.showingTitleInAnimationComplete)
-            self.arrivalCityField.highlighted = true
+            self.arrivalCityField.isHighlighted = true
         }
-        if !self.titleField.hasText() {
+        if !self.titleField.hasText {
             self.showingTitleInProgress = true
             self.titleField.setTitleVisible(true, animated: true, animationCompletion: self.showingTitleInAnimationComplete)
-            self.titleField.highlighted = true
+            self.titleField.isHighlighted = true
         }
-        if !self.nameField.hasText() {
+        if !self.nameField.hasText {
             self.showingTitleInProgress = true
             self.nameField.setTitleVisible(true, animated: true, animationCompletion: self.showingTitleInAnimationComplete)
-            self.nameField.highlighted = true
+            self.nameField.isHighlighted = true
         }
-        if !self.emailField.hasText() {
+        if !self.emailField.hasText {
             self.showingTitleInProgress = true
             self.emailField.setTitleVisible(true, animated: true, animationCompletion: self.showingTitleInAnimationComplete)
-            self.emailField.highlighted = true
+            self.emailField.isHighlighted = true
         }
     }
     
@@ -151,13 +151,12 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
     
     func showingTitleInAnimationComplete() {
         // If a field is not filled out, display the highlighted title for 0.3 seco
-        let displayTime: dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, Int64(0.3 * Double(NSEC_PER_SEC)))
-        dispatch_after(displayTime, dispatch_get_main_queue(), {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             self.showingTitleInProgress = false
             if(!self.isSubmitButtonPressed) {
                 self.hideTitleVisibleFromFields()
             }
-        })
+        }
     }
     
     func hideTitleVisibleFromFields() {
@@ -167,19 +166,19 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
         self.nameField.setTitleVisible(false, animated: true)
         self.emailField.setTitleVisible(false, animated: true)
         
-        self.departureCityField.highlighted = false
-        self.arrivalCityField.highlighted = false
-        self.titleField.highlighted = false
-        self.nameField.highlighted = false
-        self.emailField.highlighted = false
+        self.departureCityField.isHighlighted = false
+        self.arrivalCityField.isHighlighted = false
+        self.titleField.isHighlighted = false
+        self.nameField.isHighlighted = false
+        self.emailField.isHighlighted = false
     }
     
     // MARK: - Delegate
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // Validate the email field
         if (textField == self.emailField) {
-            self.validateEmailTextFieldWithText(textField.text)
+            self.validateEmailTextFieldWithText(email: textField.text)
         }
         
         // When pressing return, move to the next field
@@ -192,9 +191,9 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
         return false
     }
     
-    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if(textField == self.emailField) {
-            self.validateEmailTextFieldWithText(string)
+            self.validateEmailTextFieldWithText(email: string)
         }
         return true
     }
@@ -204,7 +203,7 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
             if(email.characters.count == 0) {
                 self.emailField.errorMessage = nil
             }
-            else if(!isValidEmail(email)) {
+            else if(!isValidEmail(str: email)) {
                 self.emailField.errorMessage = NSLocalizedString("Email not valid", tableName: "SkyFloatingLabelTextField", comment: " ")
             } else {
                 self.emailField.errorMessage = nil
@@ -218,6 +217,6 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
         let emailRegEx = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
         
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        return emailTest.evaluateWithObject(str)
+        return emailTest.evaluate(with: str)
     }
 }
