@@ -15,12 +15,12 @@ class CustomizingColorsViewController: UIViewController {
     @IBOutlet var addErrorButton:UIButton?
     
     @IBAction func addError() {
-        if(self.addErrorButton?.titleForState(.Normal) == NSLocalizedString("Add error", tableName: "SkyFloatingLabelTextField", comment: "add error button title")) {
+        if(self.addErrorButton?.title(for: .normal) == NSLocalizedString("Add error", tableName: "SkyFloatingLabelTextField", comment: "add error button title")) {
             self.textField?.errorMessage = NSLocalizedString("error message", tableName: "SkyFloatingLabelTextField", comment: "error message")
-            self.addErrorButton?.setTitle(NSLocalizedString("Clear error", tableName: "SkyFloatingLabelTextField", comment: "clear errors button title"), forState: .Normal)
+            self.addErrorButton?.setTitle(NSLocalizedString("Clear error", tableName: "SkyFloatingLabelTextField", comment: "clear errors button title"), for: .normal)
         } else {
             self.textField?.errorMessage = ""
-            self.addErrorButton?.setTitle(NSLocalizedString("Add error", tableName: "SkyFloatingLabelTextField", comment: "add error button title"), forState: .Normal)
+            self.addErrorButton?.setTitle(NSLocalizedString("Add error", tableName: "SkyFloatingLabelTextField", comment: "add error button title"), for: .normal)
         }
     }
     
@@ -29,37 +29,37 @@ class CustomizingColorsViewController: UIViewController {
     }
     
     @IBAction func titleColorChanged(segmentedControl:UISegmentedControl) {
-        self.textField?.titleColor = self.colorForSegmentIndex(segmentedControl.selectedSegmentIndex)
+        self.textField?.titleColor = self.colorForSegmentIndex(segmentIndex: segmentedControl.selectedSegmentIndex)
     }
 
     @IBAction func selectedTitleColorChanged(segmentedControl:UISegmentedControl) {
-        self.textField?.selectedTitleColor = self.colorForSegmentIndex(segmentedControl.selectedSegmentIndex)
+        self.textField?.selectedTitleColor = self.colorForSegmentIndex(segmentIndex: segmentedControl.selectedSegmentIndex)
     }
 
     @IBAction func placeholderColorChanged(segmentedControl:UISegmentedControl) {
-        self.textField?.placeholderColor = self.colorForSegmentIndex(segmentedControl.selectedSegmentIndex)
+        self.textField?.placeholderColor = self.colorForSegmentIndex(segmentIndex: segmentedControl.selectedSegmentIndex)
     }
 
     @IBAction func textColorChanged(segmentedControl:UISegmentedControl) {
-        self.textField?.textColor = self.colorForSegmentIndex(segmentedControl.selectedSegmentIndex)
+        self.textField?.textColor = self.colorForSegmentIndex(segmentIndex: segmentedControl.selectedSegmentIndex)
     }
 
     @IBAction func errorColorChanged(segmentedControl:UISegmentedControl) {
-        self.textField?.errorColor = self.colorForSegmentIndex(segmentedControl.selectedSegmentIndex)
+        self.textField?.errorColor = self.colorForSegmentIndex(segmentIndex: segmentedControl.selectedSegmentIndex)
     }
 
     @IBAction func tintColorChanged(segmentedControl:UISegmentedControl) {
-        self.textField?.tintColor = self.colorForSegmentIndex(segmentedControl.selectedSegmentIndex)
+        self.textField?.tintColor = self.colorForSegmentIndex(segmentIndex: segmentedControl.selectedSegmentIndex)
     }
 
     // MARK: helper
     
     func colorForSegmentIndex(segmentIndex:Int) -> UIColor {
         switch segmentIndex {
-        case 0: return UIColor.whiteColor()
-        case 1: return UIColor.redColor()
-        case 2: return UIColor.blueColor()
-        default: return UIColor.blackColor()
+        case 0: return UIColor.white
+        case 1: return UIColor.red
+        case 2: return UIColor.blue
+        default: return UIColor.black
         }
     }
 }
