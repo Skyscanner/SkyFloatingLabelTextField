@@ -23,60 +23,60 @@ class DelegateMethodsViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var addErrorButton:UIButton?
     
     @IBAction func addError() {
-        if(self.addErrorButton?.titleForState(.Normal) == NSLocalizedString("Add error", tableName: "SkyFloatingLabelTextField", comment: "add error button title")) {
+        if(self.addErrorButton?.title(for: .normal) == NSLocalizedString("Add error", tableName: "SkyFloatingLabelTextField", comment: "add error button title")) {
             self.textField?.errorMessage = NSLocalizedString("error message", tableName: "SkyFloatingLabelTextField", comment: "error message")
-            self.addErrorButton?.setTitle(NSLocalizedString("Clear error", tableName: "SkyFloatingLabelTextField", comment: "clear errors button title"), forState: .Normal)
+            self.addErrorButton?.setTitle(NSLocalizedString("Clear error", tableName: "SkyFloatingLabelTextField", comment: "clear errors button title"), for: .normal)
         } else {
             self.textField?.errorMessage = ""
-            self.addErrorButton?.setTitle(NSLocalizedString("Add error", tableName: "SkyFloatingLabelTextField", comment: "add error button title"), forState: .Normal)
+            self.addErrorButton?.setTitle(NSLocalizedString("Add error", tableName: "SkyFloatingLabelTextField", comment: "add error button title"), for: .normal)
         }
     }
     
     @IBAction func resignTextField() {
-        self.textField?.resignFirstResponder()
+        _ = self.textField?.resignFirstResponder()
     }
     
     func log(text:String) {
         let date = NSDate()
-        let formatter = NSDateFormatter()
+        let formatter = DateFormatter()
         formatter.dateFormat = "HH:mm:ss"
-        let row = "\(formatter.stringFromDate(date)) : \(text)"
+        let row = "\(formatter.string(from: date as Date)) : \(text)"
         logTextView.text = "\(row)\n" + logTextView.text!
     }
 
     
     // MARK: - SkyFloatingLabelTextField delegate
     
-    func textFieldDidBeginEditing(textField: UITextField) {
-        self.log("textFieldDidBeginEditing:")
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.log(text: "textFieldDidBeginEditing:")
     }
     
-    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        self.log("textField:shouldChangeCharactersInRange:replacementString:")
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        self.log(text: "textField:shouldChangeCharactersInRange:replacementString:")
         return true
     }
     
-    func textFieldDidEndEditing(textField: UITextField) {
-        self.log("textFieldDidEndEditing:")
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        self.log(text: "textFieldDidEndEditing:")
     }
     
-    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
-        self.log("textFieldShouldBeginEditing:")
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        self.log(text: "textFieldShouldBeginEditing:")
         return true
     }
     
-    func textFieldShouldClear(textField: UITextField) -> Bool {
-        self.log("textFieldShouldClear:")
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        self.log(text: "textFieldShouldClear:")
         return true
     }
     
-    func textFieldShouldEndEditing(textField: UITextField) -> Bool {
-        self.log("textFieldShouldEndEditing:")
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        self.log(text: "textFieldShouldEndEditing:")
         return true
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        self.log("textFieldShouldReturn")
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.log(text: "textFieldShouldReturn")
         return true
     }
 }
