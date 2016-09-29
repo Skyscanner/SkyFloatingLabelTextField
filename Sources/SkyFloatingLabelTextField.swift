@@ -268,7 +268,7 @@ public class SkyFloatingLabelTextField: UITextField {
     }
     
     private func addEditingChangedObserver() {
-        self.addTarget(self, action: Selector("editingChanged"), forControlEvents: .EditingChanged)
+        self.addTarget(self, action: #selector(SkyFloatingLabelTextField.editingChanged), forControlEvents: .EditingChanged)
     }
     
     /**
