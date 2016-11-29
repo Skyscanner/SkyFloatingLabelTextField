@@ -16,6 +16,12 @@ On top of implementing the space-saving floating title, the component also suppo
 
 ![](/SkyFloatingLabelTextField/images/showcase-example.gif)
 
+## Versioning
+
+Up until version 1.2 Swift 2.2 and 2.3 compatible (and there is a Swift 2.3 branch in case you need it).
+From version 2.0 onwards only compatible with Swift 3.
+Please be midnful of the version you're using.
+
 ## Usage
 
 To start using the component add it to your project using CocoaPods, Carthage or manually as per the [Installation](#installation) section.
