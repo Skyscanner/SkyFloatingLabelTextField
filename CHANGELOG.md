@@ -1,3 +1,9 @@
+v1.4
+* Migrated project to support Swift 3.0
+
+v1.3
+* Migrated project to support Swift 2.3
+
 v1.2.1
 * Bugfix: title was blinking when tapping the textfield.
 
