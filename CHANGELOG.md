@@ -1,6 +1,10 @@
 v2.0
 * Will be Swift 3 compatible (which means if you are using swift 3 you should be using this version onwards)
 
+v1.3
+
+* Adds support for Swift 2.3. Thanks to [okipol88](https://github.com/okipol88). See [#69](https://github.com/Skyscanner/SkyFloatingLabelTextField/pull/69)
+
 v1.2.1
 * Bugfix: title was blinking when tapping the textfield.
 
