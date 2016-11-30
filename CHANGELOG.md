@@ -1,6 +1,11 @@
 v2.0
 * Will be Swift 3 compatible (which means if you are using swift 3 you should be using this version onwards)
 
+v1.3.1
+
+1.3 was not updated to actually point to the right git tag for CocoaPods. This release fixes that and points
+it to the right tag.
+
 v1.3
 
 * Adds support for Swift 2.3. Thanks to [okipol88](https://github.com/okipol88). See [#69](https://github.com/Skyscanner/SkyFloatingLabelTextField/pull/69)
