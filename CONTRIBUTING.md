@@ -34,8 +34,9 @@ If you find a bug in the project (and you don’t know how to fix it), have trou
 ## Contact
 In case of major changes please feel free to reach out to the maintainers of the project at any time - we will be happy to help.
 
-* Gergely Orosz (gergely.orosz@skyscanner.net, [@GergelyOrosz](https://twitter.com/GergelyOrosz))
+* Hugo Tunius (hugo.tunius@skyscanner.net, [@K0nserv](https://twitter.com/K0nserv))
 * Raimon Lapuente (raimon.lapuente@skyscanner.net, [@wolffan](https://twitter.com/wolffan))
+* Emil Bogren [@bogrenemil](https://twitter.com/bogrenemil)
 * Daniel Langh, [@rumori](https://twitter.com/rumori))
 
 ## License
