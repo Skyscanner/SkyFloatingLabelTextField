@@ -139,10 +139,9 @@ open class SkyFloatingLabelTextField: UITextField {
 
     /**
     The formatter to use before displaying content in the title label. This can be the `title`, `selectedTitle` or the `errorMessage`.
-    The default implementation converts the text to uppercase.
     */
     open var titleFormatter:((String) -> String) = { (text:String) -> String in
-        return text.uppercased()
+        return text
     }
 
     /**
