@@ -176,7 +176,7 @@ $ gem install cocoapods
 Then simply add `SkyFloatingLabelTextField` to your Podfile:
 
 ```
-pod 'SkyFloatingLabelTextField', '~> 1.0'
+pod 'SkyFloatingLabelTextField', '~> 2.0.0'
 ```
 
 Lastly, let CocoaPods fetch the latest version of the component by running:
@@ -192,7 +192,7 @@ When integrating the component into an Objective C project, in the Podfile add `
 use_frameworks!
 
 target 'SkyFloatingLabelTextFieldObjectiveCExample' do
-  pod 'SkyFloatingLabelTextField', '~> 1.0'
+  pod 'SkyFloatingLabelTextField', '~> 2.0.0'
 end
 ```
 
