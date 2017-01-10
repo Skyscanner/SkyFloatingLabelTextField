@@ -74,6 +74,13 @@ open class SkyFloatingLabelTextField: UITextField {
         }
     }
 
+    /// A UIFont value that determines font of the title label
+    @IBInspectable open var titleFont:UIFont? = UIFont.systemFont(ofSize: 13.0){
+        didSet {
+            self.updateTitleLabel()
+        }
+    }
+
     /// A UIColor value that determines the text color of the title label when in the normal state
     @IBInspectable open var titleColor:UIColor = UIColor.gray {
         didSet {
