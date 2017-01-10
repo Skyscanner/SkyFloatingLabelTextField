@@ -71,7 +71,7 @@
 		F56289221C3BE3A20082D9A6 /* SkyFloatingLabelTextFieldTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SkyFloatingLabelTextFieldTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F56289271C3BE3A20082D9A6 /* SkyFloatingLabelTextFieldTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyFloatingLabelTextFieldTests.swift; sourceTree = "<group>"; };
 		F56289291C3BE3A20082D9A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F5B6E1021C8604C2003D4DB9 /* SkyFloatingLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SkyFloatingLabelTextField.swift; path = ../../Sources/SkyFloatingLabelTextField.swift; sourceTree = "<group>"; usesTabs = 0; };
+		F5B6E1021C8604C2003D4DB9 /* SkyFloatingLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SkyFloatingLabelTextField.swift; path = ../../Sources/SkyFloatingLabelTextField.swift; sourceTree = "<group>"; };
 		F5B6E1041C8604C2003D4DB9 /* SkyFloatingLabelTextFieldWithIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SkyFloatingLabelTextFieldWithIcon.swift; path = ../../Sources/SkyFloatingLabelTextFieldWithIcon.swift; sourceTree = "<group>"; };
 		F5B6E1051C8604C2003D4DB9 /* UITextField+fixCaretPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UITextField+fixCaretPosition.swift"; path = "../../Sources/UITextField+fixCaretPosition.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
