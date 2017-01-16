@@ -1,7 +1,7 @@
 Master(unreleased)
 -----------------
 
-
+* Added `@discardableResult` to `becomeFirstResponder` and `resignFirstResponder`. This silences Xcode warnings about unused results of those functions and brings the implementation closer to the iOS API.
 
 v2.0
 ----
