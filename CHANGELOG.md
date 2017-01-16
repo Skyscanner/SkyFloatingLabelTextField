@@ -1,5 +1,5 @@
-Master(unreleased)
------------------
+v2.0.1
+------
 
 * Added `@discardableResult` to `becomeFirstResponder` and `resignFirstResponder`. This silences Xcode warnings about unused results of those functions and brings the implementation closer to the iOS API [#98](https://github.com/Skyscanner/SkyFloatingLabelTextField/pull/98). Thanks to [bennokress](https://github.com/bennokress)
 * Disable `GCC_GENERATE_TEST_COVERAGE_FILES` and `GCC_INSTRUMENT_PROGRAM_FLOW_ARCS` in release configs. This was causing rejections when submitting to Apple when the library is integrated manually or with Carthage [#97](https://github.com/Skyscanner/SkyFloatingLabelTextField/pull/97). Thanks to [vytautasgimbutas](https://github.com/vytautasgimbutas)
