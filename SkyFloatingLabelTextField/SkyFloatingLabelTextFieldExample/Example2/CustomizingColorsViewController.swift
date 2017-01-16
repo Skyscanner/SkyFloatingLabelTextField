@@ -25,7 +25,7 @@ class CustomizingColorsViewController: UIViewController {
     }
     
     @IBAction func resignTextField() {
-        _ = self.textField?.resignFirstResponder()
+        self.textField?.resignFirstResponder()
     }
     
     @IBAction func titleColorChanged(_ segmentedControl:UISegmentedControl) {

@@ -25,7 +25,7 @@ class CustomLayoutViewController: UIViewController {
     }
     
     @IBAction func resignTextField() {
-        _ = self.textField?.resignFirstResponder()
+        self.textField?.resignFirstResponder()
     }
 
 }

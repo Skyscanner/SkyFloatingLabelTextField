@@ -25,7 +25,7 @@ class SettingTextsViewController: UIViewController {
     }
     
     @IBAction func resignTextField() {
-        _ = self.textField?.resignFirstResponder()
+        self.textField?.resignFirstResponder()
     }
     
     @IBAction func selectedTitleChanged(_ segmentedControl:UISegmentedControl) {
