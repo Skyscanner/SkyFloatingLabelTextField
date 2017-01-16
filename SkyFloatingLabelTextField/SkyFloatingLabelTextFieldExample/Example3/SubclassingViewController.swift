@@ -33,6 +33,6 @@ class SubclassingViewController: UIViewController {
     }
     
     @IBAction func resignTextField() {
-        _ = self.textField?.resignFirstResponder()
+        self.textField?.resignFirstResponder()
     }
 }

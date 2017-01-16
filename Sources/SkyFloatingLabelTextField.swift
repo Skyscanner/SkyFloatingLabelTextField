@@ -315,6 +315,7 @@ open class SkyFloatingLabelTextField: UITextField {
      Attempt the control to become the first responder
      - returns: True when successfull becoming the first responder
     */
+    @discardableResult
     override open func becomeFirstResponder() -> Bool {
         let result = super.becomeFirstResponder()
         self.updateControl(true)
@@ -325,6 +326,7 @@ open class SkyFloatingLabelTextField: UITextField {
      Attempt the control to resign being the first responder
      - returns: True when successfull resigning being the first responder
      */
+    @discardableResult
     override open func resignFirstResponder() -> Bool {
         let result =  super.resignFirstResponder()
         self.updateControl(true)

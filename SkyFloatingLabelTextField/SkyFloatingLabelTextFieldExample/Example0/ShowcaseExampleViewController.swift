@@ -28,7 +28,7 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
         
         self.setupThemeColors()
         
-        _ = self.departureCityField.becomeFirstResponder()
+        self.departureCityField.becomeFirstResponder()
     }
     
     // MARK: - Creating the form elements

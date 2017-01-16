@@ -229,7 +229,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         floatingLabelTextField.errorMessage = "Error"
         
         // when
-        _ = floatingLabelTextField.becomeFirstResponder()
+        floatingLabelTextField.becomeFirstResponder()
         
         // then
         XCTAssertEqual(floatingLabelTextField.errorMessage, "Error")
@@ -433,7 +433,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         let floatingLabelTextFieldSpy = SkyFloatingLabelTextFieldSpy()
         
         // when
-        _ = floatingLabelTextFieldSpy.becomeFirstResponder()
+        floatingLabelTextFieldSpy.becomeFirstResponder()
         
         // then
         XCTAssertTrue(floatingLabelTextFieldSpy.updateColorsInvoked)
@@ -444,7 +444,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         let floatingLabelTextFieldSpy = SkyFloatingLabelTextFieldSpy()
         
         // when
-        _ = floatingLabelTextFieldSpy.resignFirstResponder()
+        floatingLabelTextFieldSpy.resignFirstResponder()
         
         // then
         XCTAssertTrue(floatingLabelTextFieldSpy.updateColorsInvoked)

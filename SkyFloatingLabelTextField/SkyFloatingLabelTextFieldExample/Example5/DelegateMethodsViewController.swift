@@ -33,7 +33,7 @@ class DelegateMethodsViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func resignTextField() {
-        _ = self.textField?.resignFirstResponder()
+        self.textField?.resignFirstResponder()
     }
     
     func log(text:String) {
