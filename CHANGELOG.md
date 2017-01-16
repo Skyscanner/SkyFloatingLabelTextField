@@ -1,11 +1,20 @@
+Master(unreleased)
+-----------------
+
+
+
 v2.0
+----
 
 + Adds swift 3 support. Thanks to [@DenHeadless](https://github.com/DenHeadless). See [#67](https://github.com/Skyscanner/SkyFloatingLabelTextField/pull/67)
 
 v1.2.1
+-----
+
 * Bugfix: title was blinking when tapping the textfield.
 
 v1.2.0
+------
 
 * Added RTL language support
 * Changed the behaviour of `errorMessage`, removing unnecessary business logic.
