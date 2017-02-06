@@ -199,11 +199,11 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="alE-Hq-VDg">
                                 <rect key="frame" x="20" y="219" width="180" height="323"/>
                                 <subviews>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" translatesAutoresizingMaskIntoConstraints="NO" id="OhG-wy-aBa">
-                                        <rect key="frame" x="15" y="57" width="151" height="29"/>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="OhG-wy-aBa">
+                                        <rect key="frame" x="23" y="57" width="135" height="29"/>
                                         <segments>
                                             <segment title="⚪️"/>
-                                            <segment title="🔴 "/>
+                                            <segment title="🔴"/>
                                             <segment title="🔵"/>
                                             <segment title="⚫️"/>
                                         </segments>
