@@ -200,10 +200,10 @@
                                 <rect key="frame" x="20" y="219" width="180" height="323"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="OhG-wy-aBa">
-                                        <rect key="frame" x="15" y="57" width="151" height="29"/>
+                                        <rect key="frame" x="23" y="57" width="135" height="29"/>
                                         <segments>
                                             <segment title="⚪️"/>
-                                            <segment title="🔴 "/>
+                                            <segment title="🔴"/>
                                             <segment title="🔵"/>
                                             <segment title="⚫️"/>
                                         </segments>
@@ -218,10 +218,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="6Ya-gn-vtf">
-                                        <rect key="frame" x="15" y="137" width="151" height="29"/>
+                                        <rect key="frame" x="23" y="137" width="135" height="29"/>
                                         <segments>
                                             <segment title="⚪️"/>
-                                            <segment title="🔴 "/>
+                                            <segment title="🔴"/>
                                             <segment title="🔵"/>
                                             <segment title="⚫️"/>
                                         </segments>
@@ -236,10 +236,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="bD7-hR-7wM">
-                                        <rect key="frame" x="14" y="216" width="151" height="29"/>
+                                        <rect key="frame" x="22" y="216" width="135" height="29"/>
                                         <segments>
                                             <segment title="⚪️"/>
-                                            <segment title="🔴 "/>
+                                            <segment title="🔴"/>
                                             <segment title="🔵"/>
                                             <segment title="⚫️"/>
                                         </segments>
@@ -260,10 +260,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="xDl-bN-AMF">
-                                        <rect key="frame" x="15" y="290" width="151" height="29"/>
+                                        <rect key="frame" x="23" y="290" width="135" height="29"/>
                                         <segments>
                                             <segment title="⚪️"/>
-                                            <segment title="🔴 "/>
+                                            <segment title="🔴"/>
                                             <segment title="🔵"/>
                                             <segment title="⚫️"/>
                                         </segments>
@@ -297,10 +297,10 @@
                                 <rect key="frame" x="200" y="219" width="180" height="323"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" translatesAutoresizingMaskIntoConstraints="NO" id="sId-82-UKI">
-                                        <rect key="frame" x="15" y="57" width="151" height="29"/>
+                                        <rect key="frame" x="23" y="57" width="135" height="29"/>
                                         <segments>
                                             <segment title="⚪️"/>
-                                            <segment title="🔴 "/>
+                                            <segment title="🔴"/>
                                             <segment title="🔵"/>
                                             <segment title="⚫️"/>
                                         </segments>
@@ -315,10 +315,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="iAR-Dy-4tD">
-                                        <rect key="frame" x="15" y="137" width="151" height="29"/>
+                                        <rect key="frame" x="23" y="137" width="135" height="29"/>
                                         <segments>
                                             <segment title="⚪️"/>
-                                            <segment title="🔴 "/>
+                                            <segment title="🔴"/>
                                             <segment title="🔵"/>
                                             <segment title="⚫️"/>
                                         </segments>
@@ -333,10 +333,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="aU8-tN-vcw">
-                                        <rect key="frame" x="14" y="216" width="151" height="29"/>
+                                        <rect key="frame" x="22" y="216" width="135" height="29"/>
                                         <segments>
                                             <segment title="⚪️"/>
-                                            <segment title="🔴 "/>
+                                            <segment title="🔴"/>
                                             <segment title="🔵"/>
                                             <segment title="⚫️"/>
                                         </segments>
@@ -354,10 +354,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="AcC-l7-4xT">
-                                        <rect key="frame" x="15" y="290" width="151" height="29"/>
+                                        <rect key="frame" x="23" y="290" width="135" height="29"/>
                                         <segments>
                                             <segment title="⚪️"/>
-                                            <segment title="🔴 "/>
+                                            <segment title="🔴"/>
                                             <segment title="🔵"/>
                                             <segment title="⚫️"/>
                                         </segments>
@@ -412,12 +412,18 @@
                     <size key="freeformSize" width="400" height="600"/>
                     <connections>
                         <outlet property="addErrorButton" destination="8Re-re-tpi" id="ZOl-cL-8Hs"/>
+                        <outlet property="errorColorControl" destination="xDl-bN-AMF" id="gsP-LC-Qc9"/>
+                        <outlet property="placeholderColorControl" destination="6Ya-gn-vtf" id="Jhi-Tp-ius"/>
+                        <outlet property="selectedTitleColorControl" destination="OhG-wy-aBa" id="3tm-r5-1D7"/>
+                        <outlet property="textColorControl" destination="bD7-hR-7wM" id="u1L-bL-cHs"/>
                         <outlet property="textField" destination="uNV-WR-pyn" id="Gre-9c-B1w"/>
+                        <outlet property="tintColorControl" destination="iAR-Dy-4tD" id="H3L-aM-SEj"/>
+                        <outlet property="titleColorControl" destination="sId-82-UKI" id="IKg-qz-aTS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IG7-qn-geJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2086" y="723"/>
+            <point key="canvasLocation" x="1301" y="758"/>
         </scene>
         <!--Theming by subclassing-->
         <scene sceneID="V2D-Nh-VJ0">
@@ -477,7 +483,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xe6-FW-KsI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="88" y="1615"/>
+            <point key="canvasLocation" x="-22" y="1615"/>
         </scene>
         <!--Delegate methods-->
         <scene sceneID="kse-UE-Fz5">
@@ -545,7 +551,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HMG-za-ok5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2085" y="1615"/>
+            <point key="canvasLocation" x="1562" y="1615"/>
         </scene>
         <!--Custom layout by subclassing-->
         <scene sceneID="f8u-NG-Yv7">
@@ -618,7 +624,7 @@ In this example an icon label is added and placeholder label and textfield are p
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cYG-aS-6hW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1093" y="1615"/>
+            <point key="canvasLocation" x="803" y="1615"/>
         </scene>
         <!--Examples-->
         <scene sceneID="fbY-4c-FNX">
@@ -780,7 +786,7 @@ In this example an icon label is added and placeholder label and textfield are p
                 <navigationController id="hHc-fl-Wyp" sceneMemberID="viewController">
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="400" height="600"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="6ue-GB-GBh">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6ue-GB-GBh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
