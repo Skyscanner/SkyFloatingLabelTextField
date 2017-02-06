@@ -12,7 +12,33 @@ class CustomizingColorsViewController: UIViewController {
 
     @IBOutlet weak var textField:SkyFloatingLabelTextField?
     
+    @IBOutlet weak var selectedTitleColorControl: UISegmentedControl?
+    @IBOutlet weak var titleColorControl: UISegmentedControl?
+    @IBOutlet weak var placeholderColorControl: UISegmentedControl?
+    @IBOutlet weak var tintColorControl: UISegmentedControl?
+    @IBOutlet weak var textColorControl: UISegmentedControl?
+    @IBOutlet weak var errorColorControl: UISegmentedControl?
+    
     @IBOutlet var addErrorButton:UIButton?
+    
+    // MARK: - view lifecycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // NOTE: For emojis to appear properly we need to set the color to white
+        // http://stackoverflow.com/a/38195951
+        
+        let attributes:[String: Any] = [NSForegroundColorAttributeName:UIColor.white]
+        selectedTitleColorControl?.setTitleTextAttributes(attributes, for: .selected)
+        titleColorControl?.setTitleTextAttributes(attributes, for: .selected)
+        textColorControl?.setTitleTextAttributes(attributes, for: .selected)
+        errorColorControl?.setTitleTextAttributes(attributes, for: .selected)
+        tintColorControl?.setTitleTextAttributes(attributes, for: .selected)
+    }
+    
+    
+    // MARK: - user actions
     
     @IBAction func addError() {
         if(self.addErrorButton?.title(for: .normal) == NSLocalizedString("Add error", tableName: "SkyFloatingLabelTextField", comment: "add error button title")) {
