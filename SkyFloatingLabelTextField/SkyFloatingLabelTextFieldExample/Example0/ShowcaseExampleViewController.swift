@@ -178,7 +178,7 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // Validate the email field
         if (textField == self.emailField) {
-            self.validateEmailTextFieldWithText(email: textField.text)
+            validateEmailField()
         }
         
         // When pressing return, move to the next field
@@ -191,11 +191,8 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
         return false
     }
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if(textField == self.emailField) {
-            self.validateEmailTextFieldWithText(email: string)
-        }
-        return true
+    @IBAction func validateEmailField() {
+        validateEmailTextFieldWithText(email: emailField.text)
     }
     
     func validateEmailTextFieldWithText(email: String?) {
@@ -203,7 +200,7 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
             if(email.characters.count == 0) {
                 self.emailField.errorMessage = nil
             }
-            else if(!isValidEmail(str: email)) {
+            else if validateEmail(email) == false {
                 self.emailField.errorMessage = NSLocalizedString("Email not valid", tableName: "SkyFloatingLabelTextField", comment: " ")
             } else {
                 self.emailField.errorMessage = nil
@@ -213,10 +210,12 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func isValidEmail(str:String?) -> Bool {
-        let emailRegEx = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
+    // MARK: - validation
+
+    // NOTE: source: http://emailregex.com
+    func validateEmail(_ candidate: String) -> Bool {
         
-        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        return emailTest.evaluate(with: str)
+        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        return NSPredicate(format: "SELF MATCHES %@", emailRegex).evaluate(with: candidate)
     }
 }
