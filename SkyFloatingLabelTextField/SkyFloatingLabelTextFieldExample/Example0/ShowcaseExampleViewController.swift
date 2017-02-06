@@ -212,8 +212,11 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - validation
 
-    // NOTE: source: http://emailregex.com
     func validateEmail(_ candidate: String) -> Bool {
+
+        // NOTE: validating email addresses with regex is usually not the best idea.
+        // This implementation is for demonstration purposes only and is not recommended for production use.
+        // Regex source and more information here: http://emailregex.com
         
         let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         return NSPredicate(format: "SELF MATCHES %@", emailRegex).evaluate(with: candidate)
