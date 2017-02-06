@@ -864,6 +864,9 @@ In this example an icon label is added and placeholder label and textfield are p
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Email"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="validateEmailField" destination="Xf7-hu-W0W" eventType="editingChanged" id="WrZ-ny-ewr"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1tu-Rl-onB">
                                 <rect key="frame" x="280" y="156" width="100" height="30"/>
