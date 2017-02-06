@@ -544,6 +544,9 @@ open class SkyFloatingLabelTextField: UITextField {
         if #available(iOS 8.0, *) {
             super.prepareForInterfaceBuilder()
         }
+        
+        self.borderStyle = .none
+        
         self.isSelected = true
         _renderingInInterfaceBuilder = true
         self.updateControl(false)
