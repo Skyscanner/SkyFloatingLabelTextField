@@ -810,7 +810,7 @@ In this example an icon label is added and placeholder label and textfield are p
                                     <constraint firstAttribute="height" constant="43" id="wj1-vc-MMi"/>
                                 </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Departure City"/>
@@ -822,7 +822,7 @@ In this example an icon label is added and placeholder label and textfield are p
                                     <constraint firstAttribute="height" constant="43" id="6bd-aa-7iG"/>
                                 </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Arrival City"/>
@@ -835,7 +835,7 @@ In this example an icon label is added and placeholder label and textfield are p
                                     <constraint firstAttribute="height" constant="43" id="jV2-NI-7eO"/>
                                 </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Title"/>
@@ -847,7 +847,7 @@ In this example an icon label is added and placeholder label and textfield are p
                                     <constraint firstAttribute="height" constant="43" id="tg1-wG-kuz"/>
                                 </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Name"/>
@@ -859,7 +859,7 @@ In this example an icon label is added and placeholder label and textfield are p
                                     <constraint firstAttribute="height" constant="43" id="aLO-rq-CQS"/>
                                 </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Email"/>
