@@ -149,7 +149,7 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func showingTitleInAnimationComplete() {
+    func showingTitleInAnimationComplete(_ completed: Bool) {
         // If a field is not filled out, display the highlighted title for 0.3 seco
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.3) {
             self.showingTitleInProgress = false
