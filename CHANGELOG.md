@@ -1,6 +1,28 @@
 Master(unreleased)
 -----------------
 
+### Breaking
+
+Change implementation of anmimation callbacks to include boolean completed flag. 
+
+#### Before
+```swift
+textfield.setTitleVisible(false, animated: true) {
+	// Perform callback actions
+}
+```
+
+#### Now
+
+```swift
+textfield.setTitleVisible(false, animated: true) { completed in
+	// Do callback actions using completed flag 
+}
+```
+
+See (#112)[https://github.com/Skyscanner/SkyFloatingLabelTextField/pull/112]
+
+
 v2.0.1
 ------
 
