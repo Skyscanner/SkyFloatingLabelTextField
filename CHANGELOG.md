@@ -1,9 +1,9 @@
-Master(unreleased)
+v3.0.0
 -----------------
 
 ### Breaking
 
-Change implementation of anmimation callbacks to include boolean completed flag. 
+Change implementation of amimation callbacks to include boolean completed flag.
 
 #### Before
 ```swift
@@ -16,7 +16,7 @@ textfield.setTitleVisible(false, animated: true) {
 
 ```swift
 textfield.setTitleVisible(false, animated: true) { completed in
-	// Do callback actions using completed flag 
+	// Perform callback actions using completed flag
 }
 ```
 
