@@ -80,7 +80,7 @@ class SkyFloatingLabelTextFieldWithIconTests: XCTestCase {
         floatingLabelTextFieldWithIcon.iconRotationDegrees = 45
         
         // then
-        let expectedTransform = CGAffineTransform(rotationAngle: CGFloat(45.0 * M_PI / 180.0))
+        let expectedTransform = CGAffineTransform(rotationAngle: CGFloat(45.0 * .pi / 180.0))
         XCTAssertEqual(floatingLabelTextFieldWithIcon.iconLabel.transform.a, expectedTransform.a)
         XCTAssertEqual(floatingLabelTextFieldWithIcon.iconLabel.transform.b, expectedTransform.b)
         XCTAssertEqual(floatingLabelTextFieldWithIcon.iconLabel.transform.c, expectedTransform.c)
