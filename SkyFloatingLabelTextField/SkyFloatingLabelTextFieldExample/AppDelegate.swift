@@ -15,7 +15,53 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        // MARK: - Appearance
+        
+        if #available(iOS 9.0, *) {
+            
+            // Apply styles for text fields contained in AppearanceViewController
+            let styles = SkyFloatingLabelTextField.appearance(whenContainedInInstancesOf: [AppearanceViewController.self])
+            
+            // Text-, placeholder- and tintcolor
+            styles.textColor          = UIColor.brown
+            styles.tintColor          = UIColor.brown
+            styles.placeholderColor   = UIColor.darkGray
+            styles.selectedTitleColor = UIColor.orange
+            styles.errorColor         = UIColor.purple
+            
+            // Fonts
+            styles.font               = UIFont.systemFont(ofSize: 14, weight: 1.0)
+            styles.placeholderFont    = UIFont.systemFont(ofSize: 14, weight: 0.1)
+            
+            // Line
+            styles.lineHeight         = 2
+            styles.lineColor          = UIColor.brown
+            
+            // Selected line
+            styles.selectedLineHeight = 3
+            styles.selectedLineColor  = UIColor.orange
+        }
+        
+        // MARK: - Icon appearance
+        
+        if #available(iOS 9.0, *) {
+            
+            // Apply icon styles
+            let iconStyles = SkyFloatingLabelTextFieldWithIcon.appearance(whenContainedInInstancesOf: [AppearanceViewController.self])
+            
+            // Icon colors
+            iconStyles.iconColor          = UIColor.brown
+            iconStyles.selectedIconColor  = UIColor.orange
+            
+            // Icon font
+            iconStyles.iconFont           = UIFont(name: "FontAwesome", size: 15)
+            
+            // Icon margins
+            iconStyles.iconMarginLeft     = 5
+            iconStyles.iconMarginBottom   = 5
+        }
+        
         return true
     }
 
