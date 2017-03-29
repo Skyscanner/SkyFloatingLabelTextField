@@ -18,7 +18,7 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     
     /// A UIFont value that determines the font that the icon is using
     @IBInspectable
-    open var iconFont:UIFont? {
+    dynamic open var iconFont:UIFont? {
         didSet {
             self.iconLabel?.font = iconFont
         }
@@ -34,7 +34,7 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     
     /// A UIColor value that determines the color of the icon in the normal state
     @IBInspectable
-    open var iconColor:UIColor = UIColor.gray {
+    dynamic open var iconColor:UIColor = UIColor.gray {
         didSet {
             self.updateIconLabelColor()
         }
@@ -42,21 +42,23 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     
     /// A UIColor value that determines the color of the icon when the control is selected
     @IBInspectable
-    open var selectedIconColor:UIColor = UIColor.gray {
+    dynamic open var selectedIconColor:UIColor = UIColor.gray {
         didSet {
             self.updateIconLabelColor()
         }
     }
     
     /// A float value that determines the width of the icon
-    @IBInspectable open var iconWidth:CGFloat = 20 {
+    @IBInspectable
+    dynamic open var iconWidth:CGFloat = 20 {
         didSet {
             self.updateFrame()
         }
     }
     
     /// A float value that determines the left margin of the icon. Use this value to position the icon more precisely horizontally.
-    @IBInspectable open var iconMarginLeft:CGFloat = 4 {
+    @IBInspectable
+    dynamic open var iconMarginLeft:CGFloat = 4 {
         didSet {
             self.updateFrame()
         }
@@ -64,7 +66,7 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     
     /// A float value that determines the bottom margin of the icon. Use this value to position the icon more precisely vertically.
     @IBInspectable
-    open var iconMarginBottom:CGFloat = 4 {
+    dynamic open var iconMarginBottom:CGFloat = 4 {
         didSet {
             self.updateFrame()
         }
