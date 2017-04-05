@@ -14,7 +14,7 @@ import UIKit
 @IBDesignable
 open class SkyFloatingLabelTextField: UITextField {
     /// A Boolean value that determines if the language displayed is LTR. Default value set automatically from the application language settings.
-    var isLTRLanguage = UIApplication.shared.userInterfaceLayoutDirection == .leftToRight {
+    open var isLTRLanguage = UIApplication.shared.userInterfaceLayoutDirection == .leftToRight {
         didSet {
            self.updateTextAligment()
         }
