@@ -1,7 +1,53 @@
+Master
+------
+
+* Made `isLTRLanguage` `open` so it can actually be set by users [#121](https://github.com/Skyscanner/SkyFloatingLabelTextField/pull/121).
+* Fix for animation layout issue [#99](https://github.com/Skyscanner/SkyFloatingLabelTextField/issues/99) [#101](https://github.com/Skyscanner/SkyFloatingLabelTextField/pull/101). Thanks to [@skerkewitz](https://github.com/skerkewitz).
+* Silence warnings due to `M_PI` being deprecated in Xcode 8.3 [#116](https://github.com/Skyscanner/SkyFloatingLabelTextField/pull/116). Thanks to [@z3bi](https://github.com/z3bi).
+
+v3.0.0
+-----------------
+
+### Breaking
+
+Change implementation of amimation callbacks to include boolean completed flag.
+
+#### Before
+```swift
+textfield.setTitleVisible(false, animated: true) {
+	// Perform callback actions
+}
+```
+
+#### Now
+
+```swift
+textfield.setTitleVisible(false, animated: true) { completed in
+	// Perform callback actions using completed flag
+}
+```
+
+See [#112](https://github.com/Skyscanner/SkyFloatingLabelTextField/pull/112)
+
+
+v2.0.1
+------
+
+* Added `@discardableResult` to `becomeFirstResponder` and `resignFirstResponder`. This silences Xcode warnings about unused results of those functions and brings the implementation closer to the iOS API [#98](https://github.com/Skyscanner/SkyFloatingLabelTextField/pull/98). Thanks to [bennokress](https://github.com/bennokress)
+* Disable `GCC_GENERATE_TEST_COVERAGE_FILES` and `GCC_INSTRUMENT_PROGRAM_FLOW_ARCS` in release configs. This was causing rejections when submitting to Apple when the library is integrated manually or with Carthage [#97](https://github.com/Skyscanner/SkyFloatingLabelTextField/pull/97). Thanks to [vytautasgimbutas](https://github.com/vytautasgimbutas)
+
+v2.0
+----
+
++ Adds swift 3 support. Thanks to [@DenHeadless](https://github.com/DenHeadless). See [#67](https://github.com/Skyscanner/SkyFloatingLabelTextField/pull/67)
+
 v1.2.1
+-----
+
 * Bugfix: title was blinking when tapping the textfield.
 
 v1.2.0
+------
 
 * Added RTL language support
 * Changed the behaviour of `errorMessage`, removing unnecessary business logic.

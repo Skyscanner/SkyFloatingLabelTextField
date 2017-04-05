@@ -6,16 +6,18 @@ branches:
 
 xcode_project: SkyFloatingLabelTextField/SkyFloatingLabelTextField.xcodeproj
 xcode_scheme: SkyFloatingLabelTextField
-osx_image: xcode7.3
-xcode_sdk: iphonesimulator9.3
+osx_image: xcode8.1
+xcode_sdk: iphonesimulator10.1
 
 before_install:
     - gem install specific_install
     - gem specific_install -l https://github.com/venmo/slather.git
-#    - gem install slather --no-rdoc --no-ri --no-document --quiet
+    - export IOS_SIMULATOR_UDID=$(instruments -s devices | grep "$ios_device ($ios_version)" | sed -E 's/.*\[([0-9A-F-]+)\].*/\1/g')
+    - echo "Prelaunching iOS simulator $IOS_SIMULATOR_UDID"
+    - open -a "simulator" --args -CurrentDeviceUDID $IOS_SIMULATOR_UDID
 
 script:
-- xcodebuild clean build test -project SkyFloatingLabelTextField/SkyFloatingLabelTextField.xcodeproj -scheme SkyFloatingLabelTextField -destination 'platform=iOS Simulator,name=iPhone 6,OS=9.3' GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES
+- xcodebuild clean build test -project SkyFloatingLabelTextField/SkyFloatingLabelTextField.xcodeproj -scheme SkyFloatingLabelTextField -destination 'platform=iOS Simulator,name=iPhone 6' GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES
 
 after_success:
   - cd $TRAVIS_BUILD_DIR && slather
