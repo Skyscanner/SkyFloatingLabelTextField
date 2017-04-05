@@ -1,7 +1,9 @@
 Master
 ------
 
-* Made `isLTRLanguage` `open` so it can actually be set by users [#121](https://github.com/Skyscanner/SkyFloatingLabelTextField/pull/121)
+* Made `isLTRLanguage` `open` so it can actually be set by users [#121](https://github.com/Skyscanner/SkyFloatingLabelTextField/pull/121).
+* Fix for animation layout issue [#99](https://github.com/Skyscanner/SkyFloatingLabelTextField/issues/99) [#101](https://github.com/Skyscanner/SkyFloatingLabelTextField/pull/101). Thanks to [@skerkewitz](https://github.com/skerkewitz).
+* Silence warnings due to `M_PI` being deprecated in Xcode 8.3 [#116](https://github.com/Skyscanner/SkyFloatingLabelTextField/pull/116). Thanks to [@z3bi](https://github.com/z3bi).
 
 v3.0.0
 -----------------
@@ -25,7 +27,7 @@ textfield.setTitleVisible(false, animated: true) { completed in
 }
 ```
 
-See (#112)[https://github.com/Skyscanner/SkyFloatingLabelTextField/pull/112]
+See [#112](https://github.com/Skyscanner/SkyFloatingLabelTextField/pull/112)
 
 
 v2.0.1
