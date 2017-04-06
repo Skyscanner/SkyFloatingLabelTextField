@@ -19,6 +19,8 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailField: SkyFloatingLabelTextField!
     @IBOutlet weak var submitButton: UIButton!
     
+    var textFields : [SkyFloatingLabelTextField]!
+    
     let lightGreyColor = UIColor(red: 197/255, green: 205/255, blue: 205/255, alpha: 1.0)
     let darkGreyColor = UIColor(red: 52/255, green: 42/255, blue: 61/255, alpha: 1.0)
     let overcastBlueColor = UIColor(red: 0, green: 187/255, blue: 204/255, alpha: 1.0)
@@ -26,6 +28,8 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        textFields = [arrivalCityField, departureCityField, titleField, nameField, emailField]
+
         self.setupThemeColors()
         
         self.departureCityField.becomeFirstResponder()
@@ -74,11 +78,9 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
         self.applySkyscannerTheme(textField: self.nameField)
         self.applySkyscannerTheme(textField: self.emailField)
         
-        self.arrivalCityField.delegate = self
-        self.departureCityField.delegate = self
-        self.titleField.delegate = self
-        self.nameField.delegate = self
-        self.emailField.delegate = self
+        for textField in textFields {
+            textField.delegate = self
+        }
     }
     
     // MARK: - Styling the text fields to the Skyscanner theme
@@ -115,30 +117,13 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func submitButtonDown(_ sender: AnyObject) {
         self.isSubmitButtonPressed = true
-        if !self.departureCityField.hasText {
-            self.showingTitleInProgress = true
-            self.departureCityField.setTitleVisible(true, animated: true, animationCompletion: self.showingTitleInAnimationComplete)
-            self.departureCityField.isHighlighted = true
-        }
-        if !self.arrivalCityField.hasText {
-            self.showingTitleInProgress = true
-            self.arrivalCityField.setTitleVisible(true, animated: true, animationCompletion: self.showingTitleInAnimationComplete)
-            self.arrivalCityField.isHighlighted = true
-        }
-        if !self.titleField.hasText {
-            self.showingTitleInProgress = true
-            self.titleField.setTitleVisible(true, animated: true, animationCompletion: self.showingTitleInAnimationComplete)
-            self.titleField.isHighlighted = true
-        }
-        if !self.nameField.hasText {
-            self.showingTitleInProgress = true
-            self.nameField.setTitleVisible(true, animated: true, animationCompletion: self.showingTitleInAnimationComplete)
-            self.nameField.isHighlighted = true
-        }
-        if !self.emailField.hasText {
-            self.showingTitleInProgress = true
-            self.emailField.setTitleVisible(true, animated: true, animationCompletion: self.showingTitleInAnimationComplete)
-            self.emailField.isHighlighted = true
+      
+        for textField in textFields {
+            if !textField.hasText() {
+                self.showingTitleInProgress = true
+                textField.setTitleVisible(true, animated: true, animationCompletion: self.showingTitleInAnimationComplete)
+                textField.highlighted = true
+            }
         }
     }
     
@@ -160,17 +145,12 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
     }
     
     func hideTitleVisibleFromFields() {
-        self.departureCityField.setTitleVisible(false, animated: true)
-        self.arrivalCityField.setTitleVisible(false, animated: true)
-        self.titleField.setTitleVisible(false, animated: true)
-        self.nameField.setTitleVisible(false, animated: true)
-        self.emailField.setTitleVisible(false, animated: true)
-        
-        self.departureCityField.isHighlighted = false
-        self.arrivalCityField.isHighlighted = false
-        self.titleField.isHighlighted = false
-        self.nameField.isHighlighted = false
-        self.emailField.isHighlighted = false
+
+        for textField in textFields {
+            textField.setTitleVisible(false, animated: true)
+            textField.highlighted = false
+        }
+
     }
     
     // MARK: - Delegate
