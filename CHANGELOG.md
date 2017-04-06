@@ -20,7 +20,9 @@ textfield.setTitleVisible(false, animated: true) { completed in
 }
 ```
 
-See (#112)[https://github.com/Skyscanner/SkyFloatingLabelTextField/pull/112]
+See [#112](https://github.com/Skyscanner/SkyFloatingLabelTextField/pull/112)
+
+* Adds UIAppearance support. Thanks to [mwfire](https://github.com/mwfire). See [#118](https://github.com/Skyscanner/SkyFloatingLabelTextField/pull/118)
 
 
 v2.0.1
