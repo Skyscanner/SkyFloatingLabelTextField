@@ -184,7 +184,7 @@ Lastly, let CocoaPods fetch the latest version of the component by running:
 $ cocoapods update
 ```
 
-#####Integrating into Objective C projects
+##### Integrating into Objective C projects
 
 When integrating the component into an Objective C project, in the Podfile add `use_frameworks!`. For example as shown in [SkyFloatingLabelTextFieldObjectiveCExample](https://github.com/Skyscanner/SkyFloatingLabelTextField/tree/master/SkyFloatingLabelTextFieldObjectiveCExample):
 
