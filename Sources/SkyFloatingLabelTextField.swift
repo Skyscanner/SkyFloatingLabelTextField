@@ -31,9 +31,9 @@ open class SkyFloatingLabelTextField: UITextField {
     // MARK: Animation timing
 
     /// The value of the title appearing duration
-    open var titleFadeInDuration:TimeInterval = 0.2
+    dynamic open var titleFadeInDuration:TimeInterval = 0.2
     /// The value of the title disappearing duration
-    open var titleFadeOutDuration:TimeInterval = 0.3
+    dynamic open var titleFadeOutDuration:TimeInterval = 0.3
 
     // MARK: Colors
 
@@ -41,7 +41,7 @@ open class SkyFloatingLabelTextField: UITextField {
 
     /// A UIColor value that determines the text color of the editable text
     @IBInspectable
-    override open var textColor:UIColor? {
+    override dynamic open var textColor:UIColor? {
         set {
             self.cachedTextColor = newValue
             self.updateControl(false)
@@ -52,14 +52,14 @@ open class SkyFloatingLabelTextField: UITextField {
     }
 
     /// A UIColor value that determines text color of the placeholder label
-    @IBInspectable open var placeholderColor:UIColor = UIColor.lightGray {
+    @IBInspectable dynamic open var placeholderColor:UIColor = UIColor.lightGray {
         didSet {
             self.updatePlaceholder()
         }
     }
 
     /// A UIColor value that determines text color of the placeholder label
-    @IBInspectable open var placeholderFont:UIFont? {
+    @IBInspectable dynamic open var placeholderFont:UIFont? {
         didSet {
             self.updatePlaceholder()
         }
@@ -75,35 +75,35 @@ open class SkyFloatingLabelTextField: UITextField {
     }
 
     /// A UIColor value that determines the text color of the title label when in the normal state
-    @IBInspectable open var titleColor:UIColor = UIColor.gray {
+    @IBInspectable dynamic open var titleColor:UIColor = UIColor.gray {
         didSet {
             self.updateTitleColor()
         }
     }
 
     /// A UIColor value that determines the color of the bottom line when in the normal state
-    @IBInspectable open var lineColor:UIColor = UIColor.lightGray {
+    @IBInspectable dynamic open var lineColor:UIColor = UIColor.lightGray {
         didSet {
             self.updateLineView()
         }
     }
 
     /// A UIColor value that determines the color used for the title label and the line when the error message is not `nil`
-    @IBInspectable open var errorColor:UIColor = UIColor.red {
+    @IBInspectable dynamic open var errorColor:UIColor = UIColor.red {
         didSet {
             self.updateColors()
         }
     }
 
     /// A UIColor value that determines the text color of the title label when editing
-    @IBInspectable open var selectedTitleColor:UIColor = UIColor.blue {
+    @IBInspectable dynamic open var selectedTitleColor:UIColor = UIColor.blue {
         didSet {
             self.updateTitleColor()
         }
     }
 
     /// A UIColor value that determines the color of the line in a selected state
-    @IBInspectable open var selectedLineColor:UIColor = UIColor.black {
+    @IBInspectable dynamic open var selectedLineColor:UIColor = UIColor.black {
         didSet {
             self.updateLineView()
         }
@@ -112,7 +112,7 @@ open class SkyFloatingLabelTextField: UITextField {
     // MARK: Line height
 
     /// A CGFloat value that determines the height for the bottom line when the control is in the normal state
-    @IBInspectable open var lineHeight:CGFloat = 0.5 {
+    @IBInspectable dynamic open var lineHeight:CGFloat = 0.5 {
         didSet {
             self.updateLineView()
             self.setNeedsDisplay()
@@ -120,7 +120,7 @@ open class SkyFloatingLabelTextField: UITextField {
     }
 
     /// A CGFloat value that determines the height for the bottom line when the control is in a selected state
-    @IBInspectable open var selectedLineHeight:CGFloat = 1.0 {
+    @IBInspectable dynamic open var selectedLineHeight:CGFloat = 1.0 {
         didSet {
             self.updateLineView()
             self.setNeedsDisplay()
