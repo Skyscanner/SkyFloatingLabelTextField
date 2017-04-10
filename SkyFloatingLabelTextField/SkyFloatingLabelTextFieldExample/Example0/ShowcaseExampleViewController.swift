@@ -119,10 +119,10 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
         self.isSubmitButtonPressed = true
       
         for textField in textFields {
-            if !textField.hasText() {
+            if !textField.hasText {
                 self.showingTitleInProgress = true
                 textField.setTitleVisible(true, animated: true, animationCompletion: self.showingTitleInAnimationComplete)
-                textField.highlighted = true
+                textField.isHighlighted = true
             }
         }
     }
@@ -148,7 +148,7 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
 
         for textField in textFields {
             textField.setTitleVisible(false, animated: true)
-            textField.highlighted = false
+            textField.isHighlighted = false
         }
 
     }
