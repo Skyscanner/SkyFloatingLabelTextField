@@ -89,7 +89,7 @@ public class IconTextField: SkyFloatingLabelTextField {
     
     override public func layoutSubviews() {
         super.layoutSubviews()
-        let textHeight = self.textHeight()
+        let textHeight = self.textHeight
         let textWidth:CGFloat = self.bounds.size.width
 
         if (isLTRLanguage) {

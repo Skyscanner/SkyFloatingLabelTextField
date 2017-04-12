@@ -137,6 +137,19 @@ open class SkyFloatingLabelTextField: UITextField {
 
     // MARK: Properties
 
+    /// The computed height of the title label. Override to size the title with a different height
+    open var titleHeight: CGFloat {
+        guard let titleLabel = titleLabel, let font = titleLabel.font else {
+            return 15.0
+        }
+        return font.lineHeight
+    }
+
+    // The computed height of the text field. Override to size the textfield with a different height
+    open var textHeight: CGFloat {
+        return font!.lineHeight + 7.0
+    }
+
     /**
     The formatter to use before displaying content in the title label. This can be the `title`, `selectedTitle` or the `errorMessage`.
     The default implementation converts the text to uppercase.
@@ -460,7 +473,7 @@ open class SkyFloatingLabelTextField: UITextField {
     */
     override open func textRect(forBounds bounds: CGRect) -> CGRect {
         super.textRect(forBounds: bounds)
-        let rect = CGRect(x: 0, y: titleHeight(), width: bounds.size.width, height: bounds.size.height - titleHeight() - selectedLineHeight)
+        let rect = CGRect(x: 0, y: titleHeight, width: bounds.size.width, height: bounds.size.height - titleHeight - selectedLineHeight)
         return rect
     }
 
@@ -470,7 +483,7 @@ open class SkyFloatingLabelTextField: UITextField {
      - returns: The rectangle that the textfield should render in
      */
     override open func editingRect(forBounds bounds: CGRect) -> CGRect {
-        let rect = CGRect(x: 0, y: titleHeight(), width: bounds.size.width, height: bounds.size.height - titleHeight() - selectedLineHeight)
+        let rect = CGRect(x: 0, y: titleHeight, width: bounds.size.width, height: bounds.size.height - titleHeight - selectedLineHeight)
         return rect
     }
 
@@ -480,7 +493,7 @@ open class SkyFloatingLabelTextField: UITextField {
      - returns: The rectangle that the placeholder should render in
      */
     override open func placeholderRect(forBounds bounds: CGRect) -> CGRect {
-        let rect = CGRect(x: 0, y: titleHeight(), width: bounds.size.width, height: bounds.size.height - titleHeight() - selectedLineHeight)
+        let rect = CGRect(x: 0, y: titleHeight, width: bounds.size.width, height: bounds.size.height - titleHeight - selectedLineHeight)
         return rect
     }
 
@@ -494,9 +507,9 @@ open class SkyFloatingLabelTextField: UITextField {
     */
     open func titleLabelRectForBounds(_ bounds: CGRect, editing: Bool) -> CGRect {
         if editing {
-            return CGRect(x: 0, y: 0, width: bounds.size.width, height: titleHeight())
+            return CGRect(x: 0, y: 0, width: bounds.size.width, height: titleHeight)
         }
-        return CGRect(x: 0, y: titleHeight(), width: bounds.size.width, height: titleHeight())
+        return CGRect(x: 0, y: titleHeight, width: bounds.size.width, height: titleHeight)
     }
 
     /**
@@ -510,25 +523,6 @@ open class SkyFloatingLabelTextField: UITextField {
         return CGRect(x: 0, y: bounds.size.height - height, width: bounds.size.width, height: height);
     }
 
-    /**
-     Calculate the height of the title label.
-     -returns: the calculated height of the title label. Override to size the title with a different height
-     */
-    open func titleHeight() -> CGFloat {
-        if let titleLabel = titleLabel,
-            let font = titleLabel.font {
-                return font.lineHeight
-        }
-        return 15.0
-    }
-
-    /**
-     Calcualte the height of the textfield.
-     -returns: the calculated height of the textfield. Override to size the textfield with a different height
-     */
-    open func textHeight() -> CGFloat {
-        return font!.lineHeight + 7.0
-    }
 
     // MARK: - Layout
 
@@ -560,22 +554,22 @@ open class SkyFloatingLabelTextField: UITextField {
      - returns: the content size to be used for auto layout
      */
     override open var intrinsicContentSize: CGSize {
-        return CGSize(width: bounds.size.width, height: titleHeight() + textHeight())
+        return CGSize(width: bounds.size.width, height: titleHeight + textHeight)
     }
 
     // MARK: - Helpers
 
     fileprivate func titleOrPlaceholder() -> String? {
-        if let title = title ?? placeholder {
-            return titleFormatter(title)
+        guard let title = title ?? placeholder else {
+            return nil
         }
-        return nil
+        return titleFormatter(title)
     }
 
     fileprivate func selectedTitleOrTitlePlaceholder() -> String? {
-        if let title = selectedTitle ?? title ?? placeholder {
-            return titleFormatter(title)
+        guard let title = selectedTitle ?? title ?? placeholder else {
+            return nil
         }
-        return nil
+        return titleFormatter(title)
     }
 }

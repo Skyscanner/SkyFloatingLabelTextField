@@ -187,7 +187,6 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     }
     
     fileprivate func updateFrame() {
-        let textHeight = self.textHeight()
         let textWidth: CGFloat = bounds.size.width
         if isLTRLanguage {
             iconLabel.frame = CGRect(x: 0, y: bounds.size.height - textHeight - iconMarginBottom, width: iconWidth, height: textHeight)

@@ -71,7 +71,7 @@ class SkyFloatingLabelTextFieldWithIconTests: XCTestCase {
         floatingLabelTextFieldWithIcon.iconMarginBottom = 5
         
         // then
-        let expectedHeight = floatingLabelTextFieldWithIcon.bounds.size.height - floatingLabelTextFieldWithIcon.textHeight() - 5
+        let expectedHeight = floatingLabelTextFieldWithIcon.bounds.size.height - floatingLabelTextFieldWithIcon.textHeight - 5
         XCTAssertEqual(floatingLabelTextFieldWithIcon.iconLabel.frame.origin.y, expectedHeight)
     }
     
