@@ -15,6 +15,8 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
     var floatingLabelTextField: SkyFloatingLabelTextField!
     let customColor = UIColor(red: 125/255, green: 120/255, blue: 50/255, alpha: 1.0)
     let textFieldDelegateMock = TextFieldDelegateMock()
+    let naturalTextAligment = NSTextAlignment.Natural
+    let rightTextAligment = NSTextAlignment.Right
     
     override func setUp() {
         super.setUp()
@@ -154,6 +156,31 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         XCTAssertEqual(floatingLabelTextField.lineView.backgroundColor, self.customColor)
     }
     
+    // MARK: - aligment
+
+    func test_whenSettingInitialTextAligment_thenTextFieldTextAligmentIsNatural() {
+        // when
+        // initial settings with no changes
+        
+        // then
+        XCTAssertEqual(floatingLabelTextField.textAlignment, naturalTextAligment)
+    }
+
+    func test_whenSettingChangingInitialTextAligment_thenTextFieldTextAligmentIsChanged() {
+        // when
+        floatingLabelTextField.textAlignment = rightTextAligment
+        
+        // then
+        XCTAssertEqual(floatingLabelTextField.textAlignment, rightTextAligment)
+    }
+    
+    func test_whenSettingLabelInitialTextAligment_thenTextFieldLabelTextAligmentIsChanged() {
+        // when
+        floatingLabelTextField.titleLabel.textAlignment = rightTextAligment
+        
+        // then
+        XCTAssertEqual(floatingLabelTextField.titleLabel.textAlignment, rightTextAligment)
+    }
     
     // MARK:  - line height
     
