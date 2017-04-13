@@ -97,14 +97,14 @@ public class IconTextField: SkyFloatingLabelTextField {
 
         if isLTRLanguage {
             iconLabel.frame = CGRect(x: 0,
-                                     y: bounds.size.height - textHeight,
+                                     y: bounds.size.height - textHeight(),
                                      width: iconWidth,
-                                     height: textHeight)
+                                     height: textHeight())
         } else {
             iconLabel.frame = CGRect(x: textWidth - iconWidth,
-                                     y: bounds.size.height - textHeight,
+                                     y: bounds.size.height - textHeight(),
                                      width: iconWidth,
-                                     height: textHeight)
+                                     height: textHeight())
         }
     }
 }

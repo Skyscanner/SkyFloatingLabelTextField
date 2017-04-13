@@ -589,7 +589,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this typ
         let rect = floatingLabelTextField.editingRect(forBounds: bounds)
 
         // then
-        XCTAssertEqual(rect.height, boundsHeight - 4 - floatingLabelTextField.titleHeight)
+        XCTAssertEqual(rect.height, boundsHeight - 4 - floatingLabelTextField.titleHeight())
     }
 
     // MARK: - control lifecycle events
@@ -626,7 +626,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this typ
         floatingLabelTextField.titleLabel = nil
 
         // then
-        XCTAssertEqual(floatingLabelTextField.titleHeight, 15)
+        XCTAssertEqual(floatingLabelTextField.titleHeight(), 15)
     }
 
     func test_whenTitleLabelHasFontSet_thenTitleHeightReturnsFontHeight() {
@@ -635,7 +635,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this typ
         floatingLabelTextField.titleLabel.font = font
 
         // then
-        XCTAssertEqual(floatingLabelTextField.titleHeight, font!.lineHeight)
+        XCTAssertEqual(floatingLabelTextField.titleHeight(), font!.lineHeight)
     }
 
     func test_whenTitleLabelHasFontSetToNil_thenFontSetToDefault() {
@@ -654,7 +654,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this typ
         floatingLabelTextField.font = font
 
         // then
-        XCTAssertEqual(floatingLabelTextField.textHeight, font!.lineHeight + 7)
+        XCTAssertEqual(floatingLabelTextField.textHeight(), font!.lineHeight + 7)
     }
 
     func test_whenTextFieldHasFontSetToNil_thenFontSetToDefault() {
@@ -682,14 +682,14 @@ class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this typ
 
     func test_whenIntristicContentSizeInvoked_thenHeightIsTitleHeightAndContentHeightSize() {
         // given
-        XCTAssertNotEqual(floatingLabelTextField.titleHeight, 0)
-        XCTAssertNotEqual(floatingLabelTextField.textHeight, 0)
+        XCTAssertNotEqual(floatingLabelTextField.titleHeight(), 0)
+        XCTAssertNotEqual(floatingLabelTextField.textHeight(), 0)
 
         // when
         let size = floatingLabelTextField.intrinsicContentSize
 
         // then
-        XCTAssertEqual(size.height, floatingLabelTextField.titleHeight + floatingLabelTextField.textHeight)
+        XCTAssertEqual(size.height, floatingLabelTextField.titleHeight() + floatingLabelTextField.textHeight())
     }
 
     // MARK: - Helpers
