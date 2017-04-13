@@ -52,7 +52,7 @@ open class SkyFloatingLabelTextField: UITextField {
     }
 
     /// A UIColor value that determines text color of the placeholder label
-    @IBInspectable dynamic open var placeholderColor:UIColor = UIColor.lightGray {
+    @IBInspectable dynamic open var placeholderColor: UIColor = UIColor.lightGray {
         didSet {
             updatePlaceholder()
         }
@@ -279,7 +279,7 @@ open class SkyFloatingLabelTextField: UITextField {
         addEditingChangedObserver()
         updateTextAligment()
     }
-    
+
     fileprivate func addEditingChangedObserver() {
         self.addTarget(self, action: #selector(SkyFloatingLabelTextField.editingChanged), for: .editingChanged)
     }
@@ -452,7 +452,7 @@ open class SkyFloatingLabelTextField: UITextField {
             self.titleLabel.frame = frame
         }
         if animated {
-            let animationOptions: UIViewAnimationOptions = .curveEaseOut;
+            let animationOptions: UIViewAnimationOptions = .curveEaseOut
             let duration = isTitleVisible() ? titleFadeInDuration : titleFadeOutDuration
             layoutIfNeeded()
             UIView.animate(withDuration: duration, delay: 0, options: animationOptions, animations: { () -> Void in
@@ -520,9 +520,8 @@ open class SkyFloatingLabelTextField: UITextField {
      */
     open func lineViewRectForBounds(_ bounds: CGRect, editing: Bool) -> CGRect {
         let height = editing ? selectedLineHeight : lineHeight
-        return CGRect(x: 0, y: bounds.size.height - height, width: bounds.size.width, height: height);
+        return CGRect(x: 0, y: bounds.size.height - height, width: bounds.size.width, height: height)
     }
-
 
     // MARK: - Layout
 
@@ -531,9 +530,9 @@ open class SkyFloatingLabelTextField: UITextField {
         if #available(iOS 8.0, *) {
             super.prepareForInterfaceBuilder()
         }
-        
+
         borderStyle = .none
-        
+
         isSelected = true
         _renderingInInterfaceBuilder = true
         updateControl(false)
