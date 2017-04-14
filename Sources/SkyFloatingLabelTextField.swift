@@ -76,6 +76,13 @@ open class SkyFloatingLabelTextField: UITextField {
         }
     }
 
+    /// A UIFont value that determines font of the title label
+    @IBInspectable open var titleFont:UIFont? = UIFont.systemFont(ofSize: 13.0){
+        didSet {
+            self.updateTitleLabel()
+        }
+    }
+
     /// A UIColor value that determines the text color of the title label when in the normal state
     @IBInspectable dynamic open var titleColor:UIColor = UIColor.gray {
         didSet {
@@ -286,7 +293,7 @@ open class SkyFloatingLabelTextField: UITextField {
     fileprivate func createTitleLabel() {
         let titleLabel = UILabel()
         titleLabel.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        titleLabel.font = UIFont.systemFont(ofSize: 13)
+        titleLabel.font = self.titleFont
         titleLabel.alpha = 0.0
         titleLabel.textColor = self.titleColor
         self.addSubview(titleLabel)
