@@ -5,6 +5,7 @@ Master
 * Fix for animation layout issue [#99](https://github.com/Skyscanner/SkyFloatingLabelTextField/issues/99) [#101](https://github.com/Skyscanner/SkyFloatingLabelTextField/pull/101). Thanks to [@skerkewitz](https://github.com/skerkewitz).
 * Silence warnings due to `M_PI` being deprecated in Xcode 8.3 [#116](https://github.com/Skyscanner/SkyFloatingLabelTextField/pull/116). Thanks to [@z3bi](https://github.com/z3bi).
 * Adds UIAppearance support [#118](https://github.com/Skyscanner/SkyFloatingLabelTextField/pull/118). Thanks to [mwfire](https://github.com/mwfire).
+* Fix for RTL issue while editing texts [#126](https://github.com/Skyscanner/SkyFloatingLabelTextField/pull/126). Thanks to [@mehrdadmaskull](https://github.com/Mehrdadmaskull)
 
 v3.0.0
 -----------------

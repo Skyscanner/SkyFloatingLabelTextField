@@ -29,8 +29,10 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
     fileprivate func updateTextAligment() {
         if isLTRLanguage {
             textAlignment = .left
+            titleLabel.textAlignment = .left
         } else {
             textAlignment = .right
+            titleLabel.textAlignment = .right
         }
     }
 
