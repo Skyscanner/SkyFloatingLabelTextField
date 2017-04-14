@@ -61,18 +61,21 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
 
         // plane icon as per https://fortawesome.github.io/Font-Awesome/cheatsheet/
         departureCityField.iconText = "\u{f072}"
-        departureCityField.placeholder =
-            NSLocalizedString("Departure City",
-                              tableName: "SkyFloatingLabelTextField",
-                              comment: "placeholder for the departure city field")
-        departureCityField.selectedTitle =
-            NSLocalizedString("Departure City",
-                              tableName: "SkyFloatingLabelTextField",
-                              comment: "title for the departure city field")
-        departureCityField.title =
-            NSLocalizedString("Departure City",
-                              tableName: "SkyFloatingLabelTextField",
-                              comment: "title for the departure city field")
+        departureCityField.placeholder = NSLocalizedString(
+            "Departure City",
+            tableName: "SkyFloatingLabelTextField",
+            comment: "placeholder for the departure city field"
+        )
+        departureCityField.selectedTitle = NSLocalizedString(
+            "Departure City",
+            tableName: "SkyFloatingLabelTextField",
+            comment: "title for the departure city field"
+        )
+        departureCityField.title = NSLocalizedString(
+            "Departure City",
+            tableName: "SkyFloatingLabelTextField",
+            comment: "title for the departure city field"
+        )
 
         applySkyscannerThemeWithIcon(textField: arrivalCityField)
 
@@ -85,48 +88,72 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
 
         arrivalCityField.iconText = "\u{f072}"
 
-        arrivalCityField.placeholder = NSLocalizedString("Arrival City",
-                                                         tableName: "SkyFloatingLabelTextField",
-                                                         comment: "placeholder for the arrival city field")
-        arrivalCityField.selectedTitle = NSLocalizedString("Arrival City",
-                                                           tableName: "SkyFloatingLabelTextField",
-                                                           comment: "title for the arrival city field")
-        arrivalCityField.title = NSLocalizedString("Arrival City",
-                                                   tableName: "SkyFloatingLabelTextField",
-                                                   comment: "title for the arrival city field")
+        arrivalCityField.placeholder = NSLocalizedString(
+            "Arrival City",
+            tableName: "SkyFloatingLabelTextField",
+            comment: "placeholder for the arrival city field"
+        )
+        arrivalCityField.selectedTitle = NSLocalizedString(
+            "Arrival City",
+            tableName: "SkyFloatingLabelTextField",
+            comment: "title for the arrival city field"
+        )
+        arrivalCityField.title = NSLocalizedString(
+            "Arrival City",
+            tableName: "SkyFloatingLabelTextField",
+            comment: "title for the arrival city field"
+        )
     }
 
     func setupUser() {
 
-        titleField.placeholder = NSLocalizedString("Title",
-                                                   tableName: "SkyFloatingLabelTextField",
-                                                   comment: "placeholder for person title field")
-        titleField.selectedTitle = NSLocalizedString("Title",
-                                                     tableName: "SkyFloatingLabelTextField",
-                                                     comment: "selected title for person title field")
-        titleField.title = NSLocalizedString("Title",
-                                             tableName: "SkyFloatingLabelTextField",
-                                             comment: "title for person title field")
+        titleField.placeholder = NSLocalizedString(
+            "Title",
+            tableName: "SkyFloatingLabelTextField",
+            comment: "placeholder for person title field"
+        )
+        titleField.selectedTitle = NSLocalizedString(
+            "Title",
+            tableName: "SkyFloatingLabelTextField",
+            comment: "selected title for person title field"
+        )
+        titleField.title = NSLocalizedString(
+            "Title",
+            tableName: "SkyFloatingLabelTextField",
+            comment: "title for person title field"
+        )
 
-        nameField.placeholder = NSLocalizedString("Name",
-                                                  tableName: "SkyFloatingLabelTextField",
-                                                  comment: "placeholder for traveler name field")
-        nameField.selectedTitle = NSLocalizedString("Name",
-                                                    tableName: "SkyFloatingLabelTextField",
-                                                    comment: "selected title for traveler name field")
-        nameField.title = NSLocalizedString("Name",
-                                            tableName: "SkyFloatingLabelTextField",
-                                            comment: "title for traveler name field")
+        nameField.placeholder = NSLocalizedString(
+            "Name",
+            tableName: "SkyFloatingLabelTextField",
+            comment: "placeholder for traveler name field"
+        )
+        nameField.selectedTitle = NSLocalizedString(
+            "Name",
+            tableName: "SkyFloatingLabelTextField",
+            comment: "selected title for traveler name field"
+        )
+        nameField.title = NSLocalizedString(
+            "Name",
+            tableName: "SkyFloatingLabelTextField",
+            comment: "title for traveler name field"
+        )
 
-        emailField.placeholder = NSLocalizedString("Email",
-                                                   tableName: "SkyFloatingLabelTextField",
-                                                   comment: "placeholder for Email field")
-        emailField.selectedTitle = NSLocalizedString("Email",
-                                                     tableName: "SkyFloatingLabelTextField",
-                                                     comment: "selected title for Email field")
-        emailField.title = NSLocalizedString("Email",
-                                             tableName: "SkyFloatingLabelTextField",
-                                             comment: "title for Email field")
+        emailField.placeholder = NSLocalizedString(
+            "Email",
+            tableName: "SkyFloatingLabelTextField",
+            comment: "placeholder for Email field"
+        )
+        emailField.selectedTitle = NSLocalizedString(
+            "Email",
+            tableName: "SkyFloatingLabelTextField",
+            comment: "selected title for Email field"
+        )
+        emailField.title = NSLocalizedString(
+            "Email",
+            tableName: "SkyFloatingLabelTextField",
+            comment: "title for Email field"
+        )
 
         applySkyscannerTheme(textField: titleField)
         applySkyscannerTheme(textField: nameField)
@@ -170,11 +197,13 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
         self.isSubmitButtonPressed = true
 
         for textField in textFields where !textField.hasText {
-                showingTitleInProgress = true
-                textField.setTitleVisible(true,
-                                          animated: true,
-                                          animationCompletion: showingTitleInAnimationComplete)
-                textField.isHighlighted = true
+            showingTitleInProgress = true
+            textField.setTitleVisible(
+                true,
+                animated: true,
+                animationCompletion: showingTitleInAnimationComplete
+            )
+            textField.isHighlighted = true
         }
     }
 
@@ -235,9 +264,11 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
         if email.characters.count == 0 {
             emailField.errorMessage = nil
         } else if !validateEmail(email) {
-            emailField.errorMessage = NSLocalizedString("Email not valid",
-                                                        tableName: "SkyFloatingLabelTextField",
-                                                        comment: " ")
+            emailField.errorMessage = NSLocalizedString(
+                "Email not valid",
+                tableName: "SkyFloatingLabelTextField",
+                comment: " "
+            )
         } else {
             emailField.errorMessage = nil
         }

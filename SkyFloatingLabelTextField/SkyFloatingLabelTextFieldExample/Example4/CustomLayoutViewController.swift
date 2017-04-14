@@ -20,22 +20,36 @@ class CustomLayoutViewController: UIViewController {
     @IBOutlet var addErrorButton: UIButton?
 
     @IBAction func addError() {
-        let localizedAddError = NSLocalizedString("Add error",
-                                                  tableName: "SkyFloatingLabelTextField",
-                                                  comment: "add error button title")
+        let localizedAddError = NSLocalizedString(
+            "Add error",
+            tableName: "SkyFloatingLabelTextField",
+            comment: "add error button title"
+        )
 
         if addErrorButton?.title(for: .normal) == localizedAddError {
-            textField?.errorMessage = NSLocalizedString("error message",
-                                                        tableName: "SkyFloatingLabelTextField",
-                                                        comment: "error message")
-            addErrorButton?.setTitle(NSLocalizedString("Clear error",
-                                                       tableName: "SkyFloatingLabelTextField",
-                                                       comment: "clear errors button title"), for: .normal)
+            textField?.errorMessage = NSLocalizedString(
+                "error message",
+                tableName: "SkyFloatingLabelTextField",
+                comment: "error message"
+            )
+            addErrorButton?.setTitle(
+                NSLocalizedString(
+                    "Clear error",
+                    tableName: "SkyFloatingLabelTextField",
+                    comment: "clear errors button title"
+                ),
+                for: .normal
+            )
         } else {
             textField?.errorMessage = ""
-            addErrorButton?.setTitle(NSLocalizedString("Add error",
-                                                       tableName: "SkyFloatingLabelTextField",
-                                                       comment: "add error button title"), for: .normal)
+            addErrorButton?.setTitle(
+                NSLocalizedString(
+                    "Add error",
+                    tableName: "SkyFloatingLabelTextField",
+                    comment: "add error button title"
+                ),
+                for: .normal
+            )
         }
     }
 

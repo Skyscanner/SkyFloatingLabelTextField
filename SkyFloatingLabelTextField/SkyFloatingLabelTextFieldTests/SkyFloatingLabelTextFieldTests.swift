@@ -61,7 +61,10 @@ class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this typ
         // then
         XCTAssertEqual(
             floatingLabelTextField.attributedPlaceholder!.attribute(
-                NSForegroundColorAttributeName, at: 0, effectiveRange: &fullRange) as? UIColor, customColor)
+                NSForegroundColorAttributeName, at: 0, effectiveRange: &fullRange
+            ) as? UIColor,
+            customColor
+        )
     }
 
     func test_whenSettingTitleColor_thenTitleLabelTextColorIsChangedToThisColor() {
@@ -150,7 +153,12 @@ class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this typ
         // then
         XCTAssertEqual(
             floatingLabelTextField.attributedPlaceholder!.attribute(
-                NSFontAttributeName, at: 0, effectiveRange: &fullRange) as? UIFont, customFont)
+                NSFontAttributeName,
+                at: 0,
+                effectiveRange: &fullRange
+            ) as? UIFont,
+            customFont
+        )
     }
 
     func test_whenSettingSelectedLineColor_withTextfieldBeingSelected_thenLineViewBackgroundColorIsChangedToThisColor() { // swiftlint:disable:this line_length
@@ -567,10 +575,11 @@ class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this typ
         floatingLabelTextField.delegate = textFieldDelegateMock
 
         // when
-        let result =
-            floatingLabelTextField.delegate!.textField!(floatingLabelTextField,
-                                                        shouldChangeCharactersIn: NSRange(),
-                                                        replacementString:"")
+        let result = floatingLabelTextField.delegate!.textField!(
+            floatingLabelTextField,
+            shouldChangeCharactersIn: NSRange(),
+            replacementString:""
+        )
 
         // then
         XCTAssertFalse(result)
@@ -705,7 +714,9 @@ class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this typ
     func delay(_ delay: Double, callback: @escaping () -> Void) {
         let time = Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
         DispatchQueue.main.asyncAfter(
-            deadline: DispatchTime.now() + time, execute: callback)
+            deadline: DispatchTime.now() + time,
+            execute: callback
+        )
     }
 
     class TextFieldDelegateMock: NSObject, UITextFieldDelegate {
@@ -756,8 +767,11 @@ class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this typ
             return textFieldShouldClear
         }
 
-        func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
-                       replacementString string: String) -> Bool {
+        func textField(
+            _ textField: UITextField,
+            shouldChangeCharactersIn range: NSRange,
+            replacementString string: String
+        ) -> Bool {
             shouldChangeCharactersInRangeInvoked = true
             return shouldChangeCharactersInRange
         }

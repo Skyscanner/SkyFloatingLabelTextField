@@ -45,24 +45,36 @@ class CustomizingColorsViewController: UIViewController {
     // MARK: - user actions
 
     @IBAction func addError() {
-        let localizedAddError = NSLocalizedString("Add error",
-                                                  tableName: "SkyFloatingLabelTextField",
-                                                  comment: "add error button title")
+        let localizedAddError = NSLocalizedString(
+            "Add error",
+            tableName: "SkyFloatingLabelTextField",
+            comment: "add error button title"
+        )
 
         if self.addErrorButton?.title(for: .normal) == localizedAddError {
-            textField?.errorMessage = NSLocalizedString("error message",
-                                                        tableName: "SkyFloatingLabelTextField",
-                                                        comment: "error message")
+            textField?.errorMessage = NSLocalizedString(
+                "error message",
+                tableName: "SkyFloatingLabelTextField",
+                comment: "error message"
+            )
             addErrorButton?.setTitle(
-                NSLocalizedString("Clear error",
-                                  tableName: "SkyFloatingLabelTextField",
-                                  comment: "clear errors button title"), for: .normal)
+                NSLocalizedString(
+                    "Clear error",
+                    tableName: "SkyFloatingLabelTextField",
+                    comment: "clear errors button title"
+                ),
+                for: .normal
+            )
         } else {
             self.textField?.errorMessage = ""
             self.addErrorButton?.setTitle(
-                NSLocalizedString("Add error",
-                                  tableName: "SkyFloatingLabelTextField",
-                                  comment: "add error button title"), for: .normal)
+                NSLocalizedString(
+                    "Add error",
+                    tableName: "SkyFloatingLabelTextField",
+                    comment: "add error button title"
+                ),
+                for: .normal
+            )
         }
     }
 

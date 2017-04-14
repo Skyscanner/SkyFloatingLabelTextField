@@ -96,15 +96,19 @@ public class IconTextField: SkyFloatingLabelTextField {
         let textWidth: CGFloat = bounds.size.width
 
         if isLTRLanguage {
-            iconLabel.frame = CGRect(x: 0,
-                                     y: bounds.size.height - textHeight(),
-                                     width: iconWidth,
-                                     height: textHeight())
+            iconLabel.frame = CGRect(
+                x: 0,
+                y: bounds.size.height - textHeight(),
+                width: iconWidth,
+                height: textHeight()
+            )
         } else {
-            iconLabel.frame = CGRect(x: textWidth - iconWidth,
-                                     y: bounds.size.height - textHeight(),
-                                     width: iconWidth,
-                                     height: textHeight())
+            iconLabel.frame = CGRect(
+                x: textWidth - iconWidth,
+                y: bounds.size.height - textHeight(),
+                width: iconWidth,
+                height: textHeight()
+            )
         }
     }
 }

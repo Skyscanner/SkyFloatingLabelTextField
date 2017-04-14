@@ -29,22 +29,35 @@ class AppearanceViewController: UIViewController {
     }
 
     @IBAction func addError(_ sender: UIButton) {
-        let localizedAddError = NSLocalizedString("Add error",
-                                                  tableName: "SkyFloatingLabelTextField",
-                                                  comment: "add error button title")
+        let localizedAddError = NSLocalizedString(
+            "Add error",
+            tableName: "SkyFloatingLabelTextField",
+            comment: "add error button title"
+        )
         if addErrorButton?.title(for: .normal) == localizedAddError {
-            label.errorMessage = NSLocalizedString("error message",
-                                                   tableName: "SkyFloatingLabelTextField",
-                                                   comment: "error message")
+            label.errorMessage = NSLocalizedString(
+                "error message",
+                tableName: "SkyFloatingLabelTextField",
+                comment: "error message"
+            )
             addErrorButton.setTitle(
-                NSLocalizedString("Clear error",
-                                  tableName: "SkyFloatingLabelTextField",
-                                  comment: "clear errors button title"), for: .normal)
+                NSLocalizedString(
+                    "Clear error",
+                    tableName: "SkyFloatingLabelTextField",
+                    comment: "clear errors button title"
+                ),
+                for: .normal
+            )
         } else {
             label.errorMessage = ""
-            addErrorButton?.setTitle(NSLocalizedString("Add error",
-                                                       tableName: "SkyFloatingLabelTextField",
-                                                       comment: "add error button title"), for: .normal)
+            addErrorButton?.setTitle(
+                NSLocalizedString(
+                    "Add error",
+                    tableName: "SkyFloatingLabelTextField",
+                    comment: "add error button title"
+                ),
+                for: .normal
+            )
         }
     }
 }

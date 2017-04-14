@@ -26,18 +26,29 @@ class SettingTextsViewController: UIViewController {
             comment: "add error button title"
         )
         if addErrorButton?.title(for: .normal) == localizedAddError {
-            textField?.errorMessage = NSLocalizedString("error message",
-                                                        tableName: "SkyFloatingLabelTextField",
-                                                        comment: "error message")
+            textField?.errorMessage = NSLocalizedString(
+                "error message",
+                tableName: "SkyFloatingLabelTextField",
+                comment: "error message"
+            )
             addErrorButton?.setTitle(
-                NSLocalizedString("Clear error",
-                                  tableName: "SkyFloatingLabelTextField",
-                                  comment: "clear errors button title"), for: .normal)
+                NSLocalizedString(
+                    "Clear error",
+                    tableName: "SkyFloatingLabelTextField",
+                    comment: "clear errors button title"
+                ),
+                for: .normal
+            )
         } else {
             textField?.errorMessage = ""
-            addErrorButton?.setTitle(NSLocalizedString("Add error",
-                                                       tableName: "SkyFloatingLabelTextField",
-                                                       comment: "add error button title"), for: .normal)
+            addErrorButton?.setTitle(
+                NSLocalizedString(
+                    "Add error",
+                    tableName: "SkyFloatingLabelTextField",
+                    comment: "add error button title"
+                ),
+                for: .normal
+            )
         }
     }
 
@@ -72,9 +83,11 @@ class SettingTextsViewController: UIViewController {
         case 0:
             textField?.placeholder = nil
         case 1:
-            textField?.placeholder = NSLocalizedString("Placeholder",
-                                                       tableName: "SkyFloatingLabelTextField",
-                                                       comment: "placeholder for field")
+            textField?.placeholder = NSLocalizedString(
+                "Placeholder",
+                tableName: "SkyFloatingLabelTextField",
+                comment: "placeholder for field"
+            )
         default:
             break
         }

@@ -423,8 +423,8 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
     open func setTitleVisible(
         _ titleVisible: Bool,
         animated: Bool = false,
-        animationCompletion: ((_ completed: Bool) -> Void)? = nil) {
-
+        animationCompletion: ((_ completed: Bool) -> Void)? = nil
+    ) {
         if _titleVisible == titleVisible {
             return
         }
@@ -470,10 +470,12 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
     */
     override open func textRect(forBounds bounds: CGRect) -> CGRect {
         super.textRect(forBounds: bounds)
-        let rect = CGRect(x: 0,
-                          y: titleHeight(),
-                          width: bounds.size.width,
-                          height: bounds.size.height - titleHeight() - selectedLineHeight)
+        let rect = CGRect(
+            x: 0,
+            y: titleHeight(),
+            width: bounds.size.width,
+            height: bounds.size.height - titleHeight() - selectedLineHeight
+        )
         return rect
     }
 
@@ -483,10 +485,12 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
      - returns: The rectangle that the textfield should render in
      */
     override open func editingRect(forBounds bounds: CGRect) -> CGRect {
-        let rect = CGRect(x: 0,
-                          y: titleHeight(),
-                          width: bounds.size.width,
-                          height: bounds.size.height - titleHeight() - selectedLineHeight)
+        let rect = CGRect(
+            x: 0,
+            y: titleHeight(),
+            width: bounds.size.width,
+            height: bounds.size.height - titleHeight() - selectedLineHeight
+        )
         return rect
     }
 
@@ -496,10 +500,12 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
      - returns: The rectangle that the placeholder should render in
      */
     override open func placeholderRect(forBounds bounds: CGRect) -> CGRect {
-        let rect = CGRect(x: 0,
-                          y: titleHeight(),
-                          width: bounds.size.width,
-                          height: bounds.size.height - titleHeight() - selectedLineHeight)
+        let rect = CGRect(
+            x: 0,
+            y: titleHeight(),
+            width: bounds.size.width,
+            height: bounds.size.height - titleHeight() - selectedLineHeight
+        )
         return rect
     }
 

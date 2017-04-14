@@ -34,18 +34,29 @@ class SubclassingViewController: UIViewController {
             comment: "add error button title"
         )
         if addErrorButton?.title(for: .normal) == localizedAddError {
-            textField?.errorMessage = NSLocalizedString("error message",
-                                                        tableName: "SkyFloatingLabelTextField",
-                                                        comment: "")
-            addErrorButton?.setTitle(NSLocalizedString("Clear error",
-                                                       tableName: "SkyFloatingLabelTextField",
-                                                       comment: "clear errors button title"), for: .normal)
+            textField?.errorMessage = NSLocalizedString(
+                "error message",
+                tableName: "SkyFloatingLabelTextField",
+                comment: ""
+            )
+            addErrorButton?.setTitle(
+                NSLocalizedString(
+                    "Clear error",
+                    tableName: "SkyFloatingLabelTextField",
+                    comment: "clear errors button title"
+                ),
+                for: .normal
+            )
         } else {
             textField?.errorMessage = ""
             addErrorButton?.setTitle(
-                NSLocalizedString("Add error",
-                                  tableName: "SkyFloatingLabelTextField",
-                                  comment: "add error button title"), for: .normal)
+                NSLocalizedString(
+                    "Add error",
+                    tableName: "SkyFloatingLabelTextField",
+                    comment: "add error button title"
+                ),
+                for: .normal
+            )
         }
     }
 
