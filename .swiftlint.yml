@@ -1,7 +1,7 @@
 disabled_rules:
 opt_in_rules:
 included:
-        - Sources
-        - SkyFloatingLabelTextField
+        - ../Sources
+        - .
 excluded:
 

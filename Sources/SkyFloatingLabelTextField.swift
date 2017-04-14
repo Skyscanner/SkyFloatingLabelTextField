@@ -1,10 +1,13 @@
 //  Copyright 2016 Skyscanner Ltd
 //
-//  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
+//  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance 
+//  with the License. You may obtain a copy of the License at
 //
 //  http://www.apache.org/licenses/LICENSE-2.0
 //
-//  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+//  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed 
+//  on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License 
+//  for the specific language governing permissions and limitations under the License.
 
 import UIKit
 
@@ -12,8 +15,11 @@ import UIKit
  A beautiful and flexible textfield implementation with support for title label, error message and placeholder.
  */
 @IBDesignable
-open class SkyFloatingLabelTextField: UITextField {
-    /// A Boolean value that determines if the language displayed is LTR. Default value set automatically from the application language settings.
+open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this type_body_length
+    /**
+     A Boolean value that determines if the language displayed is LTR. 
+     Default value set automatically from the application language settings.
+     */
     open var isLTRLanguage = UIApplication.shared.userInterfaceLayoutDirection == .leftToRight {
         didSet {
            updateTextAligment()
@@ -59,18 +65,18 @@ open class SkyFloatingLabelTextField: UITextField {
     }
 
     /// A UIColor value that determines text color of the placeholder label
-    @IBInspectable dynamic open var placeholderFont: UIFont? {
+    dynamic open var placeholderFont: UIFont? {
         didSet {
             updatePlaceholder()
         }
     }
 
     fileprivate func updatePlaceholder() {
-        if let
-            placeholder = placeholder,
-            let font = placeholderFont ?? font {
-                attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSForegroundColorAttributeName: placeholderColor,
-                    NSFontAttributeName: font])
+        if let placeholder = placeholder, let font = placeholderFont ?? font {
+                attributedPlaceholder = NSAttributedString(
+                    string: placeholder,
+                    attributes: [NSForegroundColorAttributeName: placeholderColor, NSFontAttributeName: font]
+                )
         }
     }
 
@@ -88,7 +94,7 @@ open class SkyFloatingLabelTextField: UITextField {
         }
     }
 
-    /// A UIColor value that determines the color used for the title label and the line when the error message is not `nil`
+    /// A UIColor value that determines the color used for the title label and line when the error message is not `nil`
     @IBInspectable dynamic open var errorColor: UIColor = .red {
         didSet {
             updateColors()
@@ -132,13 +138,14 @@ open class SkyFloatingLabelTextField: UITextField {
     /// The internal `UIView` to display the line below the text input.
     open var lineView: UIView!
 
-    /// The internal `UILabel` that displays the selected, deselected title or the error message based on the current state.
+    /// The internal `UILabel` that displays the selected, deselected title or error message based on the current state.
     open var titleLabel: UILabel!
 
     // MARK: Properties
 
     /**
-    The formatter to use before displaying content in the title label. This can be the `title`, `selectedTitle` or the `errorMessage`.
+    The formatter used before displaying content in the title label. 
+    This can be the `title`, `selectedTitle` or the `errorMessage`.
     The default implementation converts the text to uppercase.
     */
     open var titleFormatter: ((String) -> String) = { (text: String) -> String in
@@ -168,7 +175,10 @@ open class SkyFloatingLabelTextField: UITextField {
     /// The backing property for the highlighted property
     fileprivate var _highlighted = false
 
-    /// A Boolean value that determines whether the receiver is highlighted. When changing this value, highlighting will be done with animation
+    /**
+     A Boolean value that determines whether the receiver is highlighted.
+     When changing this value, highlighting will be done with animation
+     */
     override open var isHighlighted: Bool {
         get {
             return _highlighted
@@ -182,16 +192,12 @@ open class SkyFloatingLabelTextField: UITextField {
 
     /// A Boolean value that determines whether the textfield is being edited or is selected.
     open var editingOrSelected: Bool {
-        get {
-            return super.isEditing || isSelected
-        }
+        return super.isEditing || isSelected
     }
 
     /// A Boolean value that determines whether the receiver has an error message.
     open var hasErrorMessage: Bool {
-        get {
-            return errorMessage != nil && errorMessage != ""
-        }
+        return errorMessage != nil && errorMessage != ""
     }
 
     fileprivate var _renderingInInterfaceBuilder: Bool = false
@@ -414,7 +420,11 @@ open class SkyFloatingLabelTextField: UITextField {
     /*
     *   Set this value to make the title visible
     */
-    open func setTitleVisible(_ titleVisible: Bool, animated: Bool = false, animationCompletion: ((_ completed: Bool) -> Void)? = nil) {
+    open func setTitleVisible(
+        _ titleVisible: Bool,
+        animated: Bool = false,
+        animationCompletion: ((_ completed: Bool) -> Void)? = nil) {
+
         if _titleVisible == titleVisible {
             return
         }
@@ -509,7 +519,8 @@ open class SkyFloatingLabelTextField: UITextField {
     }
 
     /**
-     Calculate the bounds for the bottom line of the control. Override to create a custom size bottom line in the textbox.
+     Calculate the bounds for the bottom line of the control. 
+     Override to create a custom size bottom line in the textbox.
      - parameter bounds: The current bounds of the line
      - parameter editing: True if the control is selected or highlighted
      - returns: The rectangle that the line bar should render in
@@ -559,8 +570,8 @@ open class SkyFloatingLabelTextField: UITextField {
     override open func layoutSubviews() {
         super.layoutSubviews()
 
-        titleLabel.frame = self.titleLabelRectForBounds(bounds, editing: isTitleVisible() || _renderingInInterfaceBuilder)
-        lineView.frame = self.lineViewRectForBounds(bounds, editing: editingOrSelected || _renderingInInterfaceBuilder)
+        titleLabel.frame = titleLabelRectForBounds(bounds, editing: isTitleVisible() || _renderingInInterfaceBuilder)
+        lineView.frame = lineViewRectForBounds(bounds, editing: editingOrSelected || _renderingInInterfaceBuilder)
     }
 
     /**
@@ -587,4 +598,4 @@ open class SkyFloatingLabelTextField: UITextField {
         }
         return titleFormatter(title)
     }
-}
+} // swiftlint:disable:this file_length
