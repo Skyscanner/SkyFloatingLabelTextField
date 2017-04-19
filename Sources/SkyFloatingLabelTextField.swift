@@ -453,7 +453,6 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
         if animated {
             let animationOptions: UIViewAnimationOptions = .curveEaseOut
             let duration = isTitleVisible() ? titleFadeInDuration : titleFadeOutDuration
-            layoutIfNeeded()
             UIView.animate(withDuration: duration, delay: 0, options: animationOptions, animations: { () -> Void in
                 updateBlock()
                 }, completion: completion)
