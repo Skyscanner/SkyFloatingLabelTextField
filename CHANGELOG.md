@@ -1,6 +1,9 @@
 Master
 ------
 
+v3.1.0
+------
+
 ### Improvements
 
 * Made `isLTRLanguage` `open` so it can actually be set by users [#121](https://github.com/Skyscanner/SkyFloatingLabelTextField/pull/121).
