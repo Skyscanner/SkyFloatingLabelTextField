@@ -1,10 +1,16 @@
 Master
 ------
 
+### Improvements
+
 * Made `isLTRLanguage` `open` so it can actually be set by users [#121](https://github.com/Skyscanner/SkyFloatingLabelTextField/pull/121).
 * Silence warnings due to `M_PI` being deprecated in Xcode 8.3 [#116](https://github.com/Skyscanner/SkyFloatingLabelTextField/pull/116). Thanks to [@z3bi](https://github.com/z3bi).
 * Adds UIAppearance support [#118](https://github.com/Skyscanner/SkyFloatingLabelTextField/pull/118). Thanks to [mwfire](https://github.com/mwfire).
 * Fix for RTL issue while editing texts [#126](https://github.com/Skyscanner/SkyFloatingLabelTextField/pull/126). Thanks to [@mehrdadmaskull](https://github.com/Mehrdadmaskull)
+
+### No Functional Change
+
+* Added swiftlint and cleaned up the source code to conform with it [#125](https://github.com/Skyscanner/SkyFloatingLabelTextField/pull/125). Thanks to [@moogle19](https://github.com/moogle19)
 
 v3.0.0
 -----------------
