@@ -15,7 +15,7 @@ import UIKit
  A beautiful and flexible textfield implementation with support for title label, error message and placeholder.
  */
 @IBDesignable
-open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this type_body_length
+open class SkyFloatingLabelTextField: SearchTextField { // swiftlint:disable:this type_body_length
     /**
      A Boolean value that determines if the language displayed is LTR. 
      Default value set automatically from the application language settings.

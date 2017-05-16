@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		934DBCFF1CC774B900E03F87 /* SkyFloatingLabelTextField.strings in Resources */ = {isa = PBXBuildFile; fileRef = 934DBD011CC774B900E03F87 /* SkyFloatingLabelTextField.strings */; };
 		934DBD021CC775D300E03F87 /* SkyFloatingLabelTextField.strings in Resources */ = {isa = PBXBuildFile; fileRef = 934DBD011CC774B900E03F87 /* SkyFloatingLabelTextField.strings */; };
+		A1C992951ECB6C5A006134DA /* SearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C992941ECB6C5A006134DA /* SearchTextField.swift */; };
 		C70C15ED1E8C433000E0673B /* SkyFloatingLabelTextFieldAppearanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70C15EC1E8C433000E0673B /* SkyFloatingLabelTextFieldAppearanceTests.swift */; };
 		C70C15EF1E8C4F3300E0673B /* AppearanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70C15EE1E8C4F3300E0673B /* AppearanceViewController.swift */; };
 		F51232B21C7686F400FF32A6 /* IconTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51232B11C7686F400FF32A6 /* IconTextField.swift */; };
@@ -58,6 +59,7 @@
 		934DBCFC1CC76D4600E03F87 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		934DBD001CC774B900E03F87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/SkyFloatingLabelTextField.strings; sourceTree = "<group>"; };
 		934DBD031CC775D700E03F87 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/SkyFloatingLabelTextField.strings; sourceTree = "<group>"; };
+		A1C992941ECB6C5A006134DA /* SearchTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTextField.swift; sourceTree = "<group>"; };
 		C70C15EC1E8C433000E0673B /* SkyFloatingLabelTextFieldAppearanceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyFloatingLabelTextFieldAppearanceTests.swift; sourceTree = "<group>"; };
 		C70C15EE1E8C4F3300E0673B /* AppearanceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppearanceViewController.swift; path = Example4b/AppearanceViewController.swift; sourceTree = "<group>"; };
 		F51232B11C7686F400FF32A6 /* IconTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconTextField.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 		F562891A1C3BE3A20082D9A6 /* SkyFloatingLabelTextField */ = {
 			isa = PBXGroup;
 			children = (
+				A1C992941ECB6C5A006134DA /* SearchTextField.swift */,
 				F5B6E1021C8604C2003D4DB9 /* SkyFloatingLabelTextField.swift */,
 				F5B6E1041C8604C2003D4DB9 /* SkyFloatingLabelTextFieldWithIcon.swift */,
 				F5B6E1051C8604C2003D4DB9 /* UITextField+fixCaretPosition.swift */,
@@ -327,7 +330,7 @@
 					};
 					F56289171C3BE3A20082D9A6 = {
 						CreatedOnToolsVersion = 7.2;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0830;
 					};
 					F56289211C3BE3A20082D9A6 = {
 						CreatedOnToolsVersion = 7.2;
@@ -433,6 +436,7 @@
 				F5B6E1061C8604C2003D4DB9 /* SkyFloatingLabelTextField.swift in Sources */,
 				F5B6E1081C8604C2003D4DB9 /* SkyFloatingLabelTextFieldWithIcon.swift in Sources */,
 				F5B6E1091C8604C2003D4DB9 /* UITextField+fixCaretPosition.swift in Sources */,
+				A1C992951ECB6C5A006134DA /* SearchTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
