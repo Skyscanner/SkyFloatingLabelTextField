@@ -116,6 +116,20 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
             updateLineView()
         }
     }
+    
+    /// The internal `titleAllCaps` that displays the title in capital letters
+    @IBInspectable dynamic open var titleAllCaps: Bool = true {
+        didSet {
+            updateLineView()
+        }
+    }
+    
+    /// The internal `errorAllCaps` that displays the error in capital letters
+    @IBInspectable dynamic open var errorAllCaps: Bool = true {
+        didSet {
+            updateLineView()
+        }
+    }
 
     // MARK: Line height
 
@@ -142,12 +156,6 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
 
     /// The internal `UILabel` that displays the selected, deselected title or error message based on the current state.
     open var titleLabel: UILabel!
-    
-    /// The internal `allCaps` that displays the title in capital letters
-    open var titleAllCaps: Bool = true
-    
-    /// The internal `allCaps` that displays the error in capital letters
-    open var errorAllCaps: Bool = true
 
     // MARK: Properties
 
