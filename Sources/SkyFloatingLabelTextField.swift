@@ -142,6 +142,12 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
 
     /// The internal `UILabel` that displays the selected, deselected title or error message based on the current state.
     open var titleLabel: UILabel!
+    
+    /// The internal `allCaps` that displays the title in capital letters
+    open var titleAllCaps: Bool = true
+    
+    /// The internal `allCaps` that displays the error in capital letters
+    open var errorAllCaps: Bool = true
 
     // MARK: Properties
 
@@ -150,8 +156,8 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
     This can be the `title`, `selectedTitle` or the `errorMessage`.
     The default implementation converts the text to uppercase.
     */
-    open var titleFormatter: ((String) -> String) = { (text: String) -> String in
-        return text.uppercased()
+    open var titleFormatter: ((String, Bool) -> String) = { (text: String, allCaps: Bool) -> String in
+        return allCaps ? text.uppercased() : text
     }
 
     /**
@@ -401,7 +407,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
 
         var titleText: String? = nil
         if hasErrorMessage {
-            titleText = titleFormatter(errorMessage!)
+            titleText = titleFormatter(errorMessage!, errorAllCaps)
         } else {
             if editingOrSelected {
                 titleText = selectedTitleOrTitlePlaceholder()
@@ -596,13 +602,13 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
         guard let title = title ?? placeholder else {
             return nil
         }
-        return titleFormatter(title)
+        return titleFormatter(title, titleAllCaps)
     }
 
     fileprivate func selectedTitleOrTitlePlaceholder() -> String? {
         guard let title = selectedTitle ?? title ?? placeholder else {
             return nil
         }
-        return titleFormatter(title)
+        return titleFormatter(title, titleAllCaps)
     }
 } // swiftlint:disable:this file_length
