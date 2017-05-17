@@ -173,6 +173,7 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
         }
         emailField.autocorrectionType = .no
         emailField.filterStrings(["@gmail.com","@hotmail.com", "@icloud.com"])
+        emailField.showResults()
 
         applySkyscannerTheme(textField: titleField)
         applySkyscannerTheme(textField: nameField)
