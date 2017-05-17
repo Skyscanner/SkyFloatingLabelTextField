@@ -167,7 +167,7 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
                 let splitResult = inputText.components(separatedBy: "@")
                 self.emailField.text? = "\(splitResult[0])\(item.title)"
             } else {
-                if var currentInput = self.emailField.text? {
+                if var currentInput = self.emailField.text {
                     currentInput += item.title
                     self.emailField.text? = item.title
                 } else {
