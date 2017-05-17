@@ -76,6 +76,9 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
             tableName: "SkyFloatingLabelTextField",
             comment: "title for the departure city field"
         )
+        
+        departureCityField.autocorrectionType = .no
+        departureCityField.filterStrings(["London","Paris", "New York", "Copenhagen", "Oslo", "Madrid", "Barcelona", "Rio", "Rome", "Atlanta", "Los Angeles"])
 
         applySkyscannerThemeWithIcon(textField: arrivalCityField)
 
@@ -103,6 +106,9 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
             tableName: "SkyFloatingLabelTextField",
             comment: "title for the arrival city field"
         )
+        arrivalCityField.titleAllCaps = false
+        arrivalCityField.autocorrectionType = .no
+        arrivalCityField.filterStrings(["London","Paris", "New York", "Copenhagen", "Oslo", "Madrid", "Barcelona", "Rio", "Rome", "Atlanta", "Los Angeles"])
     }
 
     func setupUser() {
@@ -154,6 +160,19 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
             tableName: "SkyFloatingLabelTextField",
             comment: "title for Email field"
         )
+        
+        emailField.keyboardType = .emailAddress
+        emailField.itemSelectionHandler = {item, itemPosition in
+            if let inputText = self.emailField.text{
+                let splitResult = inputText.components(separatedBy: "@")
+                self.emailField.text? = "\(splitResult[0])\(item.title)"
+            } else {
+                self.emailField.text? += item.title
+            }
+            self.validateEmailField()
+        }
+        emailField.autocorrectionType = .no
+        emailField.filterStrings(["@gmail.com","@hotmail.com", "@icloud.com"])
 
         applySkyscannerTheme(textField: titleField)
         applySkyscannerTheme(textField: nameField)
