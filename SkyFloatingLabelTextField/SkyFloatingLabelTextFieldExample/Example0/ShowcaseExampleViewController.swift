@@ -76,6 +76,9 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
             tableName: "SkyFloatingLabelTextField",
             comment: "title for the departure city field"
         )
+        
+        departureCityField.autocorrectionType = .no
+        departureCityField.filterStrings(["London","Paris", "New York", "Copenhagen", "Oslo", "Madrid", "Barcelona", "Rio", "Rome", "Atlanta", "Los Angeles"])
 
         applySkyscannerThemeWithIcon(textField: arrivalCityField)
 
@@ -99,10 +102,13 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
             comment: "title for the arrival city field"
         )
         arrivalCityField.title = NSLocalizedString(
-            "Arrival City",
+            "Arrival City", 
             tableName: "SkyFloatingLabelTextField",
             comment: "title for the arrival city field"
         )
+        arrivalCityField.titleAllCaps = false
+        arrivalCityField.autocorrectionType = .no
+        arrivalCityField.filterStrings(["London","Paris", "New York", "Copenhagen", "Oslo", "Madrid", "Barcelona", "Rio", "Rome", "Atlanta", "Los Angeles"])
     }
 
     func setupUser() {
@@ -154,6 +160,9 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
             tableName: "SkyFloatingLabelTextField",
             comment: "title for Email field"
         )
+        
+        emailField.autocorrectionType = .no
+        emailField.filterStrings(["@gmail","@hotmail", "@icloud"])
 
         applySkyscannerTheme(textField: titleField)
         applySkyscannerTheme(textField: nameField)
