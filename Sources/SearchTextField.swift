@@ -1,19 +1,12 @@
 //
 //  SearchTextField.swift
-//  SkyFloatingLabelTextField
-//
-//  Created by Tristan Richard on 16/05/2017.
-//  Copyright © 2017 Skyscanner. All rights reserved.
-//
-
-
-//
-//  SearchTextField.swift
 //  SearchTextField
 //
 //  Created by Alejandro Pasccon on 4/20/16.
 //  Copyright © 2016 Alejandro Pasccon. All rights reserved.
+//  Edited  by Tristan Richard
 //
+
 import UIKit
 
 open class SearchTextField: UITextField {
