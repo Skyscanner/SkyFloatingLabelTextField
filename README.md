@@ -186,7 +186,12 @@ The control was designed to allow further customization in subclasses. The contr
   ```swift
   emailField.keyboardType = .emailAddress
   emailField.itemSelectionHandler = {item, itemPosition in
-              self.emailField.text? += item.title
+      if let inputText = self.emailField.text{
+        let splitResult = inputText.components(separatedBy: "@")
+        self.emailField.text? = "\(splitResult[0])\(item.title)"
+      } else {
+        self.emailField.text? += item.title
+      }
   }
   emailField.autocorrectionType = .no
   emailField.filterStrings(["@gmail.com","@hotmail.com", "@icloud.com"])
