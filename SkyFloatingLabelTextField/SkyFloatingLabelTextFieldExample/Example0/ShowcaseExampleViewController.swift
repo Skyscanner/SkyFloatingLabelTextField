@@ -102,7 +102,7 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
             comment: "title for the arrival city field"
         )
         arrivalCityField.title = NSLocalizedString(
-            "Arrival City", 
+            "Arrival City",
             tableName: "SkyFloatingLabelTextField",
             comment: "title for the arrival city field"
         )
