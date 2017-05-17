@@ -363,10 +363,26 @@ open class SearchTextField: UITextField {
             
             var item = filterDataSource[i]
             
+            var tempText = text!
+            if keyboardType == .emailAddress {
+                if tempText.contains("@") {
+                    let emailsplit = tempText.components(separatedBy: "@")
+                    if (emailsplit.count > 1) {
+                        tempText = "@\(emailsplit[1])"
+                    } else {
+                        tempText = "@"
+                    }
+                } else {
+                    return
+                }
+            }
+
+            
             if !inlineMode {
+    
                 // Find text in title and subtitle
-                let titleFilterRange = (item.title as NSString).range(of: text!, options: comparisonOptions)
-                let subtitleFilterRange = item.subtitle != nil ? (item.subtitle! as NSString).range(of: text!, options: comparisonOptions) : NSMakeRange(NSNotFound, 0)
+                let titleFilterRange = (item.title as NSString).range(of: tempText, options: comparisonOptions)
+                let subtitleFilterRange = item.subtitle != nil ? (item.subtitle! as NSString).range(of: tempText, options: comparisonOptions) : NSMakeRange(NSNotFound, 0)
                 
                 if titleFilterRange.location != NSNotFound || subtitleFilterRange.location != NSNotFound || addAll {
                     item.attributedTitle = NSMutableAttributedString(string: item.title)
@@ -381,7 +397,7 @@ open class SearchTextField: UITextField {
                     filteredResults.append(item)
                 }
             } else {
-                var textToFilter = text!.lowercased()
+                var textToFilter = tempText.lowercased()
                 
                 if inlineMode, let filterAfter = startFilteringAfter {
                     if let suffixToFilter = textToFilter.components(separatedBy: filterAfter).last, suffixToFilter != "", textToFilter != suffixToFilter {

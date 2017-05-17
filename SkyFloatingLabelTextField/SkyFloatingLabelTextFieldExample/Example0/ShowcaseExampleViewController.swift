@@ -161,8 +161,12 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
             comment: "title for Email field"
         )
         
+        emailField.keyboardType = .emailAddress
+        emailField.itemSelectionHandler = {item, itemPosition in
+            self.emailField.text? += item.title
+        }
         emailField.autocorrectionType = .no
-        emailField.filterStrings(["@gmail","@hotmail", "@icloud"])
+        emailField.filterStrings(["@gmail.com","@hotmail.com", "@icloud.com"])
 
         applySkyscannerTheme(textField: titleField)
         applySkyscannerTheme(textField: nameField)

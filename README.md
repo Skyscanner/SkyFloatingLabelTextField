@@ -182,7 +182,17 @@ The control was designed to allow further customization in subclasses. The contr
   // Set the array of strings you want to suggest
   mySearchTextField.filterStrings(["Red", "Blue", "Yellow"])
   ```
-  ### ...or you can customize it as you want
+## Use for email...
+  ```swift
+  emailField.keyboardType = .emailAddress
+  emailField.itemSelectionHandler = {item, itemPosition in
+              self.emailField.text? += item.title
+  }
+  emailField.autocorrectionType = .no
+  emailField.filterStrings(["@gmail.com","@hotmail.com", "@icloud.com"])
+  ```
+
+### ...or you can customize it as you want
 
   ```swift
   // Show also a subtitle and an image for each suggestion:
