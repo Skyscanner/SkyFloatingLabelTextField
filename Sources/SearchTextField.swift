@@ -275,9 +275,9 @@ open class SearchTextField: UITextField {
     
     // Handle keyboard events
     open func keyboardWillShow(_ notification: Notification) {
-        if !keyboardIsShowing && isEditing {
+        if !keyboardIsShowing && isEditing, let keyboardRect = ((notification as NSNotification).userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             keyboardIsShowing = true
-            keyboardFrame = ((notification as NSNotification).userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+            keyboardFrame = keyboardRect
             interactedWith = true
             prepareDrawTableResult()
         }
@@ -293,8 +293,10 @@ open class SearchTextField: UITextField {
     
     open func keyboardDidChangeFrame(_ notification: Notification) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [weak self] in
-            self?.keyboardFrame = ((notification as NSNotification).userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-            self?.prepareDrawTableResult()
+            if let keyboardRect = ((notification as NSNotification).userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+                self?.keyboardFrame = keyboardRect
+                self?.prepareDrawTableResult()
+            }
         }
     }
     
@@ -376,10 +378,10 @@ open class SearchTextField: UITextField {
                     return
                 }
             }
-
+            
             
             if !inlineMode {
-    
+                
                 // Find text in title and subtitle
                 let titleFilterRange = (item.title as NSString).range(of: tempText, options: comparisonOptions)
                 let subtitleFilterRange = item.subtitle != nil ? (item.subtitle! as NSString).range(of: tempText, options: comparisonOptions) : NSMakeRange(NSNotFound, 0)
@@ -434,9 +436,9 @@ open class SearchTextField: UITextField {
         var highlightAttributesForSubtitle = [String: AnyObject]()
         
         for attr in highlightAttributes {
-            if attr.0 == NSFontAttributeName {
-                let fontName = (attr.1 as! UIFont).fontName
-                let pointSize = (attr.1 as! UIFont).pointSize * fontConversionRate
+            if attr.0 == NSFontAttributeName, let font = attr.1 as? UIFont {
+                let fontName = font.fontName
+                let pointSize = font.pointSize * fontConversionRate
                 highlightAttributesForSubtitle[attr.0] = UIFont(name: fontName, size: pointSize)
             } else {
                 highlightAttributesForSubtitle[attr.0] = attr.1
