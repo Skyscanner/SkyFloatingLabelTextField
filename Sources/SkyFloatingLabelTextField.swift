@@ -130,6 +130,13 @@ open class SkyFloatingLabelTextField: SearchTextField { // swiftlint:disable:thi
             updateLineView()
         }
     }
+    
+    /// The internal `animateOnBecomingFirstResponder` that animates title on field focus
+    @IBInspectable dynamic open var animateOnBecomingFirstResponder: Bool = false {
+        didSet {
+            updateLineView()
+        }
+    }
 
     // MARK: Line height
 
@@ -454,7 +461,7 @@ open class SkyFloatingLabelTextField: SearchTextField { // swiftlint:disable:thi
      - returns: True if the title is displayed on the control, false otherwise.
      */
     open func isTitleVisible() -> Bool {
-        return hasText || hasErrorMessage || _titleVisible
+        return (self.isFirstResponder && animateOnBecomingFirstResponder) || hasText || hasErrorMessage || _titleVisible
     }
 
     fileprivate func updateTitleVisibility(_ animated: Bool = false, completion: ((_ completed: Bool) -> Void)? = nil) {
