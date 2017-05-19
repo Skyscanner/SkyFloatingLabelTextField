@@ -240,14 +240,14 @@ open class SkyFloatingLabelTextField: SearchTextField { // swiftlint:disable:thi
     @IBInspectable
     override open var placeholder: String? {
         didSet {
-            if self.tempPlaceholder == nil {
-                setNeedsDisplay()
+            if self.tempPlaceholder == "-1" {
                 updatePlaceholder()
                 updateTitleLabel()
             }
+            setNeedsDisplay()
         }
     }
-    fileprivate var tempPlaceholder: String?
+    fileprivate var tempPlaceholder: String = "-1"
     
     /// The String to display when the textfield is editing and the input is not empty.
     @IBInspectable open var selectedTitle: String? {
@@ -473,11 +473,14 @@ open class SkyFloatingLabelTextField: SearchTextField { // swiftlint:disable:thi
         
         if animateOnBecomingFirstResponder {
             if  isTitleVisible() {
-                self.tempPlaceholder = self.placeholder
-                self.placeholder = ""
-            } else if self.tempPlaceholder != nil {
-                self.placeholder = self.tempPlaceholder
-                self.tempPlaceholder = nil
+                if self.tempPlaceholder == "-1" {
+                    self.tempPlaceholder = self.placeholder ?? "-1"
+                    self.placeholder = ""
+                }
+            } else if self.tempPlaceholder != "-1" {
+                let temp = self.tempPlaceholder
+                self.tempPlaceholder = "-1"
+                self.placeholder = temp
             }
         }
         
