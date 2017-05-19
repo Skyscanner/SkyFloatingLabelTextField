@@ -113,6 +113,7 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
 
     func setupUser() {
 
+        titleField.animateOnBecomingFirstResponder = true
         titleField.placeholder = NSLocalizedString(
             "Title",
             tableName: "SkyFloatingLabelTextField",
