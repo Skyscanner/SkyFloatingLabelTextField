@@ -374,21 +374,11 @@ open class SearchTextField: UITextField {
             
             
             if !inlineMode {
-                
-                // Find text in title and subtitle
-                let titleFilterRange = (item.title as NSString).range(of: tempText, options: comparisonOptions)
-                let subtitleFilterRange = item.subtitle != nil ? (item.subtitle! as NSString).range(of: tempText, options: comparisonOptions) : NSMakeRange(NSNotFound, 0)
-                
-                if titleFilterRange.location != NSNotFound || subtitleFilterRange.location != NSNotFound || addAll {
+                var textToFilter = tempText.lowercased()
+                if !textToFilter.isEmpty && item.title.lowercased().hasPrefix(textToFilter) {
                     item.attributedTitle = NSMutableAttributedString(string: item.title)
                     item.attributedSubtitle = NSMutableAttributedString(string: (item.subtitle != nil ? item.subtitle! : ""))
-                    
-                    item.attributedTitle!.setAttributes(highlightAttributes, range: titleFilterRange)
-                    
-                    if subtitleFilterRange.location != NSNotFound {
-                        item.attributedSubtitle!.setAttributes(highlightAttributesForSubtitle(), range: subtitleFilterRange)
-                    }
-                    
+
                     filteredResults.append(item)
                 }
             } else {
