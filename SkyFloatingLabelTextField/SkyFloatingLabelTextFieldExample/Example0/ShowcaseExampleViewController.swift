@@ -164,17 +164,7 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
         
         emailField.keyboardType = .emailAddress
         emailField.itemSelectionHandler = {item, itemPosition in
-            if let inputText = self.emailField.text{
-                let splitResult = inputText.components(separatedBy: "@")
-                self.emailField.text? = "\(splitResult[0])\(item.title)"
-            } else {
-                if var currentInput = self.emailField.text {
-                    currentInput += item.title
-                    self.emailField.text? = item.title
-                } else {
-                    self.emailField.text? = item.title
-                }
-            }
+            self.emailField.text? = item.title
             self.validateEmailField()
         }
         emailField.autocorrectionType = .no

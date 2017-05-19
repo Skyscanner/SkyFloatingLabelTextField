@@ -387,14 +387,33 @@ open class SearchTextField: UITextField {
                 }
             }
             
-            
             if !inlineMode {
                 let textToFilter = tempText.lowercased()
-                if !textToFilter.isEmpty && item.title.lowercased().hasPrefix(textToFilter) {
-                    item.attributedTitle = NSMutableAttributedString(string: item.title)
-                    item.attributedSubtitle = NSMutableAttributedString(string: (item.subtitle != nil ? item.subtitle! : ""))
-
-                    filteredResults.append(item)
+                
+                var tempText = text!
+                if keyboardType == .emailAddress {
+                    if tempText.contains("@") {
+                        let emailsplit = tempText.components(separatedBy: "@")
+                        if (emailsplit.count > 1) {
+                            tempText = "@\(emailsplit[1])"
+                        } else {
+                            tempText = "@"
+                        }
+                        
+                        if !textToFilter.isEmpty && item.title.lowercased().hasPrefix(textToFilter) {
+                            var newItem = SearchTextFieldItem(title: "\(emailsplit[0])\(item.title)")
+                            newItem.attributedTitle = NSMutableAttributedString(string: newItem.title)
+                            filteredResults.append(newItem)
+                        }
+                    } else {
+                        return
+                    }
+                } else {
+                    if !textToFilter.isEmpty && item.title.lowercased().hasPrefix(textToFilter) {
+                        item.attributedTitle = NSMutableAttributedString(string: item.title)
+                        item.attributedSubtitle = NSMutableAttributedString(string: (item.subtitle != nil ? item.subtitle! : ""))
+                        filteredResults.append(item)
+                    }
                 }
             } else {
                 var textToFilter = tempText.lowercased()
