@@ -166,13 +166,28 @@ open class SearchTextField: UITextField {
             shadowView.layer.shadowOffset = CGSize.zero
             shadowView.layer.shadowOpacity = 1
             
-            self.window?.addSubview(tableView)
+            self.topViewController()?.view.addSubview(tableView)
         } else {
             tableView = UITableView(frame: CGRect.zero)
             shadowView = UIView(frame: CGRect.zero)
         }
         
         redrawSearchTableView()
+    }
+    
+    func topViewController(controller: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+        if let navigationController = controller as? UINavigationController {
+            return topViewController(controller: navigationController.visibleViewController)
+        }
+        if let tabController = controller as? UITabBarController {
+            if let selected = tabController.selectedViewController {
+                return topViewController(controller: selected)
+            }
+        }
+        if let presented = controller?.presentedViewController {
+            return topViewController(controller: presented)
+        }
+        return controller
     }
     
     fileprivate func buildPlaceholderLabel() {
@@ -374,7 +389,7 @@ open class SearchTextField: UITextField {
             
             
             if !inlineMode {
-                var textToFilter = tempText.lowercased()
+                let textToFilter = tempText.lowercased()
                 if !textToFilter.isEmpty && item.title.lowercased().hasPrefix(textToFilter) {
                     item.attributedTitle = NSMutableAttributedString(string: item.title)
                     item.attributedSubtitle = NSMutableAttributedString(string: (item.subtitle != nil ? item.subtitle! : ""))
