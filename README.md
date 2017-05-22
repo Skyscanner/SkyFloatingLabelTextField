@@ -83,6 +83,8 @@ textField1.placeholder = "Departure"
 textField1.title = "Flying from"
 textField1.iconFont = UIFont(name: "FontAwesome", size: 15)
 textField1.iconText = "\u{f072}" // plane icon as per https://fortawesome.github.io/Font-Awesome/cheatsheet/
+textField1.autocorrectionType = .no
+textField1.filterStrings(["London","Paris", "New York", "Copenhagen", "Oslo", "Madrid", "Barcelona", "Rio", "Rome", "Atlanta", "Los Angeles"])
 self.view.addSubview(textField1)
 
 let textField2 = SkyFloatingLabelTextFieldWithIcon(frame: CGRectMake(150, 10, 120, 45))
@@ -91,6 +93,9 @@ textField2.title = "Flying to"
 textField2.tintColor = overcastBlueColor
 textField2.selectedTitleColor = overcastBlueColor
 textField2.selectedLineColor = overcastBlueColor
+textField2.autocorrectionType = .no
+textField2.titleAllCaps = false
+textField2.filterStrings(["London","Paris", "New York", "Copenhagen", "Oslo", "Madrid", "Barcelona", "Rio", "Rome", "Atlanta", "Los Angeles"])
 
 // Set icon properties
 textField2.iconColor = UIColor.lightGrayColor()
@@ -149,6 +154,7 @@ Alternatively, set the `isLTRLanguage` property to manually change the writing d
 
 ![](/SkyFloatingLabelTextField/images/RTL-example.png)
 
+
 ### Further customizing the control by subclassing
 
 The control was designed to allow further customization in subclasses. The control itself inherits from `UITextField`, so the standard overrides from there can all be used. A few other notable customization hooks via overriding are:
@@ -159,6 +165,99 @@ The control was designed to allow further customization in subclasses. The contr
   - `editingRectForBounds(bounds: CGRect)`: override to change the bounds of the control when editing / selected (inherited from `UITextField`)
   - `placeholderRectForBounds(bounds: CGRect)`:  override to change the bounds of the placeholder view
   - `lineViewRectForBounds(bounds:CGRect, editing:Bool)`: override to change the bounds of the bottom line view
+
+# Suggestion usage
+
+## You can use it in the simplest way...
+
+  ```swift
+  import SearchTextField
+
+  // Connect your IBOutlet...
+  @IBOutlet weak var mySearchTextField: SearchTextField!
+
+  // ...or create it manually
+  let mySearchTextField = SearchTextField(frame: CGRectMake(10, 100, 200, 40))
+
+  // Set the array of strings you want to suggest
+  mySearchTextField.filterStrings(["Red", "Blue", "Yellow"])
+  ```
+## Use for email...
+  ```swift
+  emailField.keyboardType = .emailAddress
+  emailField.itemSelectionHandler = {item, itemPosition in
+      if let inputText = self.emailField.text{
+        let splitResult = inputText.components(separatedBy: "@")
+        self.emailField.text? = "\(splitResult[0])\(item.title)"
+      } else {
+        self.emailField.text? += item.title
+      }
+  }
+  emailField.autocorrectionType = .no
+  emailField.filterStrings(["@gmail.com","@hotmail.com", "@icloud.com"])
+  ```
+
+### ...or you can customize it as you want
+
+  ```swift
+  // Show also a subtitle and an image for each suggestion:
+
+  let item1 = SearchTextFieldItem(title: "Blue", subtitle: "Color", image: UIImage(named: "icon_blue"))
+  let item2 = SearchTextFieldItem(title: "Red", subtitle: "Color", image: UIImage(named: "icon_red"))
+  let item3 = SearchTextFieldItem(title: "Yellow", subtitle: "Color", image: UIImage(named: "icon_yellow"))
+  mySearchTextField.filterItems([item1, item2, item3])
+
+  // Set a visual theme (SearchTextFieldTheme). By default it's the light theme
+  mySearchTextField.theme = SearchTextFieldTheme.darkTheme()
+
+  // Modify current theme properties
+  mySearchTextField.theme.font = UIFont.systemFontOfSize(12)
+  mySearchTextField.theme.bgColor = UIColor (red: 0.9, green: 0.9, blue: 0.9, alpha: 0.3)
+  mySearchTextField.theme.borderColor = UIColor (red: 0.9, green: 0.9, blue: 0.9, alpha: 1)
+  mySearchTextField.theme.placeholderColor = UIColor.gray
+  mySearchTextField.theme.separatorColor = UIColor (red: 0.9, green: 0.9, blue: 0.9, alpha: 0.5)
+  mySearchTextField.theme.cellHeight = 50
+
+  // Set specific comparision options - Default: .caseInsensitive
+  mySearchTextField.comparisonOptions = [.caseInsensitive]
+
+  // Set the max number of results. By default it's not limited
+  mySearchTextField.maxNumberOfResults = 5
+
+  // You can also limit the max height of the results list
+  mySearchTextField.maxResultsListHeight = 200
+
+  // Customize the way it highlights the search string. By default it bolds the string
+  mySearchTextField.highlightAttributes = [NSBackgroundColorAttributeName: UIColor.yellowColor(), NSFontAttributeName:UIFont.boldSystemFontOfSize(12)]
+
+  // Handle what happens when the user picks an item. By default the title is set to the text field
+  mySearchTextField.itemSelectionHandler = {item, itemPosition in
+      mySearchTextField.text = item.title
+  }
+
+  /**
+  * Update data source when the user stops typing.
+  * It's useful when you want to retrieve results from a remote server while typing
+  * (but only when the user stops doing it)
+  **/
+  mySearchTextField.userStoppedTypingHandler = {
+      if let criteria = self.mySearchTextField.text {
+          if criteria.characters.count > 1 {
+
+          // Show the loading indicator
+          self.mySearchTextField.showLoadingIndicator()
+
+          self.searchMoreItemsInBackground(criteria) { results in
+              // Set new items to filter
+              self.acronymTextField.filterItems(results)
+
+              // Hide loading indicator
+              self.mySearchTextField.stopLoadingIndicator()
+          }
+      }
+  }
+
+  ```
 
 ## Documentation
 
