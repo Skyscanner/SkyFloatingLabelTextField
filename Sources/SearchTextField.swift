@@ -367,7 +367,13 @@ open class SearchTextField: UITextField {
     }
     
     open func showAllSuggestions() {
-        self.filteredResults = self.filterDataSource
+        self.clearResults()
+        for i in 0 ..< filterDataSource.count {
+            var item = filterDataSource[i]
+            item.attributedTitle = NSMutableAttributedString(string: item.title)
+            item.attributedSubtitle = NSMutableAttributedString(string: (item.subtitle != nil ? item.subtitle! : ""))
+            filteredResults.append(item)
+        }
         self.tableView?.reloadData()
     }
     
