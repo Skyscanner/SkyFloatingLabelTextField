@@ -268,9 +268,9 @@ open class SearchTextField: UITextField {
             superview?.bringSubview(toFront: tableView)
             superview?.bringSubview(toFront: shadowView!)
             
-            if self.isFirstResponder {
-                superview?.bringSubview(toFront: self)
-            }
+//            if self.isFirstResponder {
+//                superview?.bringSubview(toFront: self)
+//            }
             
             tableView.layer.borderColor = theme.borderColor.cgColor
             tableView.layer.cornerRadius = 2
