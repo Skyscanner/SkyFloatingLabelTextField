@@ -366,6 +366,11 @@ open class SearchTextField: UITextField {
         }
     }
     
+    open func showAllSuggestions() {
+        self.filterItems(self.filterDataSource)
+        self.tableView?.reloadData()
+    }
+    
     fileprivate func filter(_ addAll: Bool) {
         clearResults()
         
