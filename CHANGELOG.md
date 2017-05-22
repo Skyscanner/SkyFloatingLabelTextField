@@ -1,6 +1,8 @@
 Master
 ------
 
+* Added `titleFont` as open var to set another font in `titleLabel` [#141](https://github.com/Skyscanner/SkyFloatingLabelTextField/pull/141). Thanks to [@rabenson](https://github.com/rabenson) and [@rubenadlm](https://github.com/rubenadlm).
+
 v3.1.0
 ------
 
