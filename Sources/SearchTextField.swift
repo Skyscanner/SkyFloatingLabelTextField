@@ -367,7 +367,7 @@ open class SearchTextField: UITextField {
     }
     
     open func showAllSuggestions() {
-        self.filterItems(self.filterDataSource)
+        self.filteredResults = self.filterDataSource
         self.tableView?.reloadData()
     }
     
