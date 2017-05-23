@@ -66,7 +66,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
         }
     }
 
-    /// A UIColor value that determines text color of the placeholder label
+    /// A UIFont value that determines text color of the placeholder label
     dynamic open var placeholderFont: UIFont? {
         didSet {
             updatePlaceholder()
@@ -79,6 +79,13 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
                     string: placeholder,
                     attributes: [NSForegroundColorAttributeName: placeholderColor, NSFontAttributeName: font]
                 )
+        }
+    }
+
+    /// A UIFont value that determines the text font of the title label
+    dynamic open var titleFont: UIFont = .systemFont(ofSize: 13) {
+        didSet {
+            updateTitleLabel()
         }
     }
 
@@ -292,7 +299,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
     fileprivate func createTitleLabel() {
         let titleLabel = UILabel()
         titleLabel.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        titleLabel.font = .systemFont(ofSize: 13)
+        titleLabel.font = titleFont
         titleLabel.alpha = 0.0
         titleLabel.textColor = titleColor
 
@@ -413,6 +420,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
             }
         }
         titleLabel.text = titleText
+        titleLabel.font = titleFont
 
         updateTitleVisibility(animated)
     }
