@@ -53,7 +53,8 @@ public class IconTextField: SkyFloatingLabelTextField {
     // MARK: Handling the icon color
 
     override public func updateColors() {
-        updateColors()
+        super.updateColors()
+
         updateIconLabelColor()
     }
 
