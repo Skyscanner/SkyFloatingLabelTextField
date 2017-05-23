@@ -80,7 +80,7 @@ public class IconTextField: SkyFloatingLabelTextField {
     }
     override public func editingRect(forBounds bounds: CGRect) -> CGRect {
         var rect = super.textRect(forBounds: bounds)
-        rect.origin.x += iconWidth - iconWidth
+        rect.origin.x += iconWidth
         rect.size.width -= iconWidth
         return rect
     }
