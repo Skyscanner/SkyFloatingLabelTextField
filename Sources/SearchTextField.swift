@@ -446,6 +446,10 @@ open class SearchTextField: UITextField {
             }
         }
         
+        if self.filteredResults.first?.title == self.text {
+            self.clearResults()
+        }
+        
         tableView?.reloadData()
         
         if inlineMode {
