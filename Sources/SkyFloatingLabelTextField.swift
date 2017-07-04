@@ -488,16 +488,17 @@ open class SkyFloatingLabelTextField: SearchTextField { // swiftlint:disable:thi
             self.titleLabel.alpha = alpha
             self.titleLabel.frame = frame
         }
-        if animated {
-            let animationOptions: UIViewAnimationOptions = .curveEaseOut
-            let duration = isTitleVisible() ? titleFadeInDuration : titleFadeOutDuration
-            UIView.animate(withDuration: duration, delay: 0, options: animationOptions, animations: { () -> Void in
-                updateBlock()
-            }, completion: completion)
-        } else {
+//        if animated {
+        let animationOptions: UIViewAnimationOptions = .curveEaseInOut
+        let delay = isTitleVisible() ? 0 : 0.1
+        let duration = isTitleVisible() ? titleFadeInDuration : titleFadeOutDuration
+        UIView.animate(withDuration: duration, delay: delay, options: animationOptions, animations: { () -> Void in
             updateBlock()
-            completion?(true)
-        }
+        }, completion: completion)
+//        } else {
+//            updateBlock()
+//            completion?(true)
+//        }
     }
     
     // MARK: - UITextField text/placeholder positioning overrides
@@ -560,7 +561,7 @@ open class SkyFloatingLabelTextField: SearchTextField { // swiftlint:disable:thi
         if editing {
             return CGRect(x: 0, y: 0, width: bounds.size.width, height: titleHeight())
         }
-        return CGRect(x: 0, y: titleHeight(), width: bounds.size.width, height: titleHeight())
+        return CGRect(x: 0, y: titleHeight() * 2, width: bounds.size.width, height: titleHeight())
     }
     
     /**
