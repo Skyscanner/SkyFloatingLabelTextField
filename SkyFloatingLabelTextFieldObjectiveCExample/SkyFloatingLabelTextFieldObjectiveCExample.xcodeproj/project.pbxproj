@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9E814D8A7283C31AE59EB77B /* Pods_SkyFloatingLabelTextFieldObjectiveCExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F41F65E6E2C22F39CC7FA1C7 /* Pods_SkyFloatingLabelTextFieldObjectiveCExample.framework */; };
+		B56C0F93DB8FAB4336F082FE /* Pods_SkyFloatingLabelTextFieldObjectiveCExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F08931E0BCD729FDF5E9843 /* Pods_SkyFloatingLabelTextFieldObjectiveCExample.framework */; };
 		F51E3BA61CB45A8300D4F0AB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F51E3BA51CB45A8300D4F0AB /* main.m */; };
 		F51E3BA91CB45A8300D4F0AB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F51E3BA81CB45A8300D4F0AB /* AppDelegate.m */; };
 		F51E3BAC1CB45A8300D4F0AB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F51E3BAB1CB45A8300D4F0AB /* ViewController.m */; };
@@ -17,9 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		099DB98B438619A4F0A39278 /* Pods-SkyFloatingLabelTextFieldObjectiveCExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SkyFloatingLabelTextFieldObjectiveCExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-SkyFloatingLabelTextFieldObjectiveCExample/Pods-SkyFloatingLabelTextFieldObjectiveCExample.release.xcconfig"; sourceTree = "<group>"; };
-		4F75A39684812153F43B64CF /* Pods-SkyFloatingLabelTextFieldObjectiveCExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SkyFloatingLabelTextFieldObjectiveCExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SkyFloatingLabelTextFieldObjectiveCExample/Pods-SkyFloatingLabelTextFieldObjectiveCExample.debug.xcconfig"; sourceTree = "<group>"; };
-		F41F65E6E2C22F39CC7FA1C7 /* Pods_SkyFloatingLabelTextFieldObjectiveCExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SkyFloatingLabelTextFieldObjectiveCExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0F08931E0BCD729FDF5E9843 /* Pods_SkyFloatingLabelTextFieldObjectiveCExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SkyFloatingLabelTextFieldObjectiveCExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7DEBDC1CBCBCB4673C2F2A22 /* Pods-SkyFloatingLabelTextFieldObjectiveCExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SkyFloatingLabelTextFieldObjectiveCExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-SkyFloatingLabelTextFieldObjectiveCExample/Pods-SkyFloatingLabelTextFieldObjectiveCExample.release.xcconfig"; sourceTree = "<group>"; };
+		94F712D546AFE4DBD7E17CBE /* Pods-SkyFloatingLabelTextFieldObjectiveCExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SkyFloatingLabelTextFieldObjectiveCExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SkyFloatingLabelTextFieldObjectiveCExample/Pods-SkyFloatingLabelTextFieldObjectiveCExample.debug.xcconfig"; sourceTree = "<group>"; };
 		F51E3BA11CB45A8300D4F0AB /* SkyFloatingLabelTextFieldObjectiveCExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkyFloatingLabelTextFieldObjectiveCExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F51E3BA51CB45A8300D4F0AB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F51E3BA71CB45A8300D4F0AB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -37,26 +37,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9E814D8A7283C31AE59EB77B /* Pods_SkyFloatingLabelTextFieldObjectiveCExample.framework in Frameworks */,
+				B56C0F93DB8FAB4336F082FE /* Pods_SkyFloatingLabelTextFieldObjectiveCExample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2404076E5D487C3C515798C3 /* Frameworks */ = {
+		7E71695CAE1AA2968FE677E0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F41F65E6E2C22F39CC7FA1C7 /* Pods_SkyFloatingLabelTextFieldObjectiveCExample.framework */,
+				0F08931E0BCD729FDF5E9843 /* Pods_SkyFloatingLabelTextFieldObjectiveCExample.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A874A87BAAAFE16838F8939C /* Pods */ = {
+		ECBAA7AB28F31BD34A65C239 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				4F75A39684812153F43B64CF /* Pods-SkyFloatingLabelTextFieldObjectiveCExample.debug.xcconfig */,
-				099DB98B438619A4F0A39278 /* Pods-SkyFloatingLabelTextFieldObjectiveCExample.release.xcconfig */,
+				94F712D546AFE4DBD7E17CBE /* Pods-SkyFloatingLabelTextFieldObjectiveCExample.debug.xcconfig */,
+				7DEBDC1CBCBCB4673C2F2A22 /* Pods-SkyFloatingLabelTextFieldObjectiveCExample.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -66,8 +66,8 @@
 			children = (
 				F51E3BA31CB45A8300D4F0AB /* SkyFloatingLabelTextFieldObjectiveCExample */,
 				F51E3BA21CB45A8300D4F0AB /* Products */,
-				A874A87BAAAFE16838F8939C /* Pods */,
-				2404076E5D487C3C515798C3 /* Frameworks */,
+				ECBAA7AB28F31BD34A65C239 /* Pods */,
+				7E71695CAE1AA2968FE677E0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -110,12 +110,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F51E3BB81CB45A8400D4F0AB /* Build configuration list for PBXNativeTarget "SkyFloatingLabelTextFieldObjectiveCExample" */;
 			buildPhases = (
-				86CD9AB1916BF69E0E8F38A8 /* Check Pods Manifest.lock */,
+				5D7D4E7294F3603BB7E2050D /* [CP] Check Pods Manifest.lock */,
 				F51E3B9D1CB45A8300D4F0AB /* Sources */,
 				F51E3B9E1CB45A8300D4F0AB /* Frameworks */,
 				F51E3B9F1CB45A8300D4F0AB /* Resources */,
-				EDE2A3472403BE04698EC4E8 /* Embed Pods Frameworks */,
-				AB0953914D627BB2B48446F5 /* Copy Pods Resources */,
+				2EDFA7633288D78190A2B09A /* [CP] Embed Pods Frameworks */,
+				5C35F9D65729FEE699B25562 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -132,7 +132,7 @@
 		F51E3B991CB45A8300D4F0AB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = Skyscanner;
 				TargetAttributes = {
 					F51E3BA01CB45A8300D4F0AB = {
@@ -172,29 +172,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		86CD9AB1916BF69E0E8F38A8 /* Check Pods Manifest.lock */ = {
+		2EDFA7633288D78190A2B09A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SkyFloatingLabelTextFieldObjectiveCExample/Pods-SkyFloatingLabelTextFieldObjectiveCExample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		AB0953914D627BB2B48446F5 /* Copy Pods Resources */ = {
+		5C35F9D65729FEE699B25562 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -202,19 +202,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SkyFloatingLabelTextFieldObjectiveCExample/Pods-SkyFloatingLabelTextFieldObjectiveCExample-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EDE2A3472403BE04698EC4E8 /* Embed Pods Frameworks */ = {
+		5D7D4E7294F3603BB7E2050D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SkyFloatingLabelTextFieldObjectiveCExample/Pods-SkyFloatingLabelTextFieldObjectiveCExample-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -265,8 +265,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -308,8 +310,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -334,8 +338,9 @@
 		};
 		F51E3BB91CB45A8400D4F0AB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4F75A39684812153F43B64CF /* Pods-SkyFloatingLabelTextFieldObjectiveCExample.debug.xcconfig */;
+			baseConfigurationReference = 94F712D546AFE4DBD7E17CBE /* Pods-SkyFloatingLabelTextFieldObjectiveCExample.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SkyFloatingLabelTextFieldObjectiveCExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -347,8 +352,9 @@
 		};
 		F51E3BBA1CB45A8400D4F0AB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 099DB98B438619A4F0A39278 /* Pods-SkyFloatingLabelTextFieldObjectiveCExample.release.xcconfig */;
+			baseConfigurationReference = 7DEBDC1CBCBCB4673C2F2A22 /* Pods-SkyFloatingLabelTextFieldObjectiveCExample.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SkyFloatingLabelTextFieldObjectiveCExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

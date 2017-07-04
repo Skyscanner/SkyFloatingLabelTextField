@@ -3,17 +3,24 @@
 [![Build Status](https://travis-ci.org/Skyscanner/SkyFloatingLabelTextField.svg?branch=master)](https://travis-ci.org/Skyscanner/SkyFloatingLabelTextField)
 [![Coverage Status](https://coveralls.io/repos/github/Skyscanner/SkyFloatingLabelTextField/badge.svg?branch=master)](https://coveralls.io/github/Skyscanner/SkyFloatingLabelTextField?branch=master)
 [![Pod Platform](https://img.shields.io/cocoapods/p/SkyFloatingLabelTextField.svg?style=flat)](https://cocoapods.org/pods/SkyFloatingLabelTextField)
-[![Pod License](https://img.shields.io/cocoapods/l/SkyFloatingLabelTextField.svg?style=flat)](https://github.com/SkyFloatingLabelTextField/blob/master/LICENSE)
+[![Pod License](https://img.shields.io/cocoapods/l/SkyFloatingLabelTextField.svg?style=flat)](https://github.com/SkyFloatingLabelTextField/blob/master/LICENSE.md)
 
 [![Pod Version](https://img.shields.io/cocoapods/v/SkyFloatingLabelTextField.svg?style=flat)](https://cocoapods.org/pods/SkyFloatingLabelTextField)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Documentation](https://img.shields.io/cocoapods/metrics/doc-percent/SkyFloatingLabelTextField.svg)](http://cocoadocs.org/docsets/SkyFloatingLabelTextField/)
 [![Readme Score](http://readme-score-api.herokuapp.com/score.svg?url=https://github.com/Skyscanner/SkyFloatingLabelTextField)](http://clayallsopp.github.io/readme-score?url=https://github.com/Skyscanner/SkyFloatingLabelTextField)
 
-`SkyFloatingLabelTextField` is a beautiful, flexible and customizable implementation of the space saving **"Float Label Pattern"**. This design enables adding context to input fields that is visible at time of typing, while minimizing the additional space used to display this additional context. This component is used in the [Skyscanner TravelPro iOS application](https://itunes.apple.com/gb/app/travelpro-business-travel/id1046916687) in several places.
+`SkyFloatingLabelTextField` is a beautiful, flexible and customizable implementation of the space saving **"Float Label Pattern"**. This design enables adding context to input fields that are visible at the time of typing, while minimizing the additional space used to display this additional context. This component is used in the [Skyscanner TravelPro iOS application](https://itunes.apple.com/gb/app/travelpro-business-travel/id1046916687) in several places, like when [searching for flights](http://codevoyagers.com/2016/04/06/open-sourcing-skyfloatinglabeltextfield/).
 
-On top of implementing the space-saving floating title, the component also supports using iconography, various states (error, selected, highlighted states), and is very much customizable and extensible.
+On top of implementing the space-saving floating title, the component also supports using iconography, RTL text support (e.g. Arabic & Hebrew), various states (error, selected, highlighted states), and is very much customizable and extensible.
 
 ![](/SkyFloatingLabelTextField/images/showcase-example.gif)
+
+## Versioning
+
+Up until version 1.2 Swift 2.2 and 2.3 compatible (and there is a Swift 2.3 branch in case you need it).
+From version 2.0 onwards only compatible with Swift 3.
+Please be mindful of the version you're using.
 
 ## Usage
 
@@ -34,7 +41,7 @@ self.view.addSubview(textField)
 
 ### Colors
 
-To customize the colors of the textfield, set a few properties - either from code, or from Interface builder. To use a textfield with an icon, utilize the `SkyFloatingLabelTextFieldWithIcon` class (and bundle the font class with your app). This example will change colors for the textfield on teh right:
+To customize the colors of the textfield, set a few properties - either from code, or from Interface builder. To use a textfield with an icon, utilize the `SkyFloatingLabelTextFieldWithIcon` class (and bundle the font class with your app). This example will change colors for the textfield on the right:
 
 ![](/SkyFloatingLabelTextField/images/example-2.gif)
 
@@ -64,7 +71,7 @@ textField2.selectedLineHeight = 2.0
 
 ### Icons and fonts
 
-Use the `SkyFloatingLabelTextFieldWithIcon` field to display icons next to the textfields. You will have to set the `iconFont` property and bundle your icon with your app (if its not a built in one). Icons can be rotated and more precise positioning is also supported:
+Use the `SkyFloatingLabelTextFieldWithIcon` field to display icons next to the textfields. You will have to set the `iconFont` property and bundle your icon with your app (if it's not a built in one). Icons can be rotated and more precise positioning is also supported:
 
 ![](/SkyFloatingLabelTextField/images/example-3.gif)
 
@@ -90,8 +97,8 @@ textField2.iconColor = UIColor.lightGrayColor()
 textField2.selectedIconColor = overcastBlueColor
 textField2.iconFont = UIFont(name: "FontAwesome", size: 15)
 textField2.iconText = "\u{f072}" // plane icon as per https://fortawesome.github.io/Font-Awesome/cheatsheet/
+textField2.iconMarginBottom = 4.0 // more precise icon positioning. Usually needed to tweak on a per font basis.
 textField2.iconRotationDegrees = 90 // rotate it 90 degrees
-textField2.iconMarginBottom = 4.0 // more precise icon positioning
 textField2.iconMarginLeft = 2.0
 self.view.addSubview(textField2)
 ```
@@ -117,25 +124,41 @@ class MyViewController: UIViewController, UITextFieldDelegate {
     }
 
     /// Implementing a method on the UITextFieldDelegate protocol. This will notify us when something has changed on the textfield
-    func textFieldChanged(textField: UITextField) {
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         if let text = textField.text {
-            // Note: every time when the text of the textfield changes, the error message is reset (hence we don't need to reset it)
-            if(text.characters.count < 3 || !text.containsString("@")) {
-                textField.errorMessage = "Invaid email"
+            if let floatingLabelTextField = textField as? SkyFloatingLabelTextField {
+                if(text.characters.count < 3 || !text.containsString("@")) {
+                    floatingLabelTextField.errorMessage = "Invalid email"
+                }
+                else {
+                    // The error message will only disappear when we reset it to nil or empty string
+                    floatingLabelTextField.errorMessage = ""
+                }
             }
         }
+        return true
     }
 }
 ```
 
+### RTL language support
+
+The component automatically detects the language writing direction. When the phone has a RTL language set (e.g. Arabic or Hebrew), then it automatically adjusts to support this style.
+
+Alternatively, set the `isLTRLanguage` property to manually change the writing direction.
+
+![](/SkyFloatingLabelTextField/images/RTL-example.png)
+
 ### Further customizing the control by subclassing
 
 The control was designed to allow further customization in subclasses. The control itself inherits from `UITextField`, so the standard overrides from there can all be used. A few other notable customization hooks via overriding are:
-- `updateColors`: override this method to customzie colors whenever the state of the control changes
-- Layout overrrides:
-  - `titleLabelRectForBounds`: override to change the bounds of the title label
-  - `lineViewRectForBounds`: override to change the bounds of the bottom line view
-  - `placeholderLabelRectForBounds`: override to change the bounds of the placeholder view
+- `updateColors`: override this method to customize colors whenever the state of the control changes
+- Layout overrides:
+  - `titleLabelRectForBounds(bounds:CGRect, editing:Bool)`:  override to change the bounds of the top title placeholder view
+  - `textRectForBounds(bounds: CGRect)`: override to change the bounds of the control (inherited from `UITextField`)
+  - `editingRectForBounds(bounds: CGRect)`: override to change the bounds of the control when editing / selected (inherited from `UITextField`)
+  - `placeholderRectForBounds(bounds: CGRect)`:  override to change the bounds of the placeholder view
+  - `lineViewRectForBounds(bounds:CGRect, editing:Bool)`: override to change the bounds of the bottom line view
 
 ## Documentation
 
@@ -153,27 +176,41 @@ $ gem install cocoapods
 Then simply add `SkyFloatingLabelTextField` to your Podfile:
 
 ```
-pod 'SkyFloatingLabelTextField', '~> 1.0'
+pod 'SkyFloatingLabelTextField', '~> 2.0.0'
 ```
 
-Lastly let CocoaPods fetch the latest version of the component by running:
+Lastly, let CocoaPods fetch the latest version of the component by running:
 ```shell
 $ cocoapods update
 ```
 
+##### Integrating into Objective C projects
+
+When integrating the component into an Objective C project, in the Podfile add `use_frameworks!`. For example as shown in [SkyFloatingLabelTextFieldObjectiveCExample](https://github.com/Skyscanner/SkyFloatingLabelTextField/tree/master/SkyFloatingLabelTextFieldObjectiveCExample):
+
+```
+use_frameworks!
+
+target 'SkyFloatingLabelTextFieldObjectiveCExample' do
+  pod 'SkyFloatingLabelTextField', '~> 2.0.0'
+end
+```
+
+Then to use the component in your code, add the following line to your `.h` or `.m` files:
+
+```objc
+@import SkyFloatingLabelTextField;
+```
+
 #### Carthage
-The component supports [Carthage](https://github.con/Carthage/Carthage). Start by making sure you have the latest version of Carthage installed. Using [Homebrew](http://brew.sh/) run this:
+The component supports [Carthage](https://github.com/Carthage/Carthage). Start by making sure you have the latest version of Carthage installed. Using [Homebrew](http://brew.sh/) run this:
 ```shell
 $ brew update
 $ brew install carthage
 ```
 Then add `SkyFloatingLabelTextField` to your `Cartfile`:
 ```
-github 'Skyscanner/SkyFloatingLabelTextField' ~> 1.0
-```
-Afterwards have Carthage update the component by running:
-```shell
-$ carthage update
+github "Skyscanner/SkyFloatingLabelTextField"
 ```
 Finally, add the framework to the Xcode project of your App. Link the framework to your App and copy it to the App’s Frameworks directory via the “Build Phases” section.
 
@@ -187,6 +224,24 @@ We welcome all contributions. Please read [this guide](/CONTRIBUTING.md) before 
 
 ## Credits
 
-The original component was built by [Daniel Langh](https://github.com/intonarumori), [Gergely Orosz](https://github.com/gergelyorosz) and [Raimon Laupente](https://github.com/wolffan).
+The original component was built by [Daniel Langh](https://github.com/intonarumori), [Gergely Orosz](https://github.com/gergelyorosz) and [Raimon Laupente](https://github.com/wolffan). Notable contributions by [Shai Shamir](https://github.com/pichirichi) (RTL language support).
 
 Credits for the original design, and improving it with iconography to Matt D. Smith ([@mds](https://twitter.com/mds)).
+
+## FAQ
+
+- *Can I use it in Objective C projects?*
+
+  Of course! Please see the [Integrating-into-Objective-C-projects](#Integrating into Objective C projects) section on how to integrate the component via CocoaPods.
+
+- *Does the control work well with auto layout? What about using it programmatically?*
+
+  The control was built to support both use cases. It plays nicely with autolayout. As the control is a subclass of `UITextField`, overriding `textRectForBounds(bounds:)` or `editingRectForBounds(bounds:)` is always an option. Alternatively, overriding `intrinsiccontentsize` is also another possibility.
+
+- *How can I remove the line from the bottom of the textfield?*
+
+  Set `lineHeight` and `selectedLineHeight` to `0`, and the line won't be displayed.
+
+- *I'd like to validate the textfield using the `errorMessage`. How can I re-validate text is typed in the textfield?*
+
+  Using a delegate implement the `textField(textField:,range:string:)` method. This method fires whenever the text is changed - do the validation here. Alternatively, using subclassing you can also override the `becomeFirstResponder` method to e.g. clear the text or error message when the textfield is selected.
