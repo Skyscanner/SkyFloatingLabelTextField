@@ -8,6 +8,13 @@
 
 import UIKit
 
+protocol Validator : class {
+    func validateAlphanumericalValue() -> Bool
+    func validateAlphabeticalValue() -> Bool
+    func validateEmailValue() -> Bool
+    func validateCustomRegexExspresion(regex: String) -> Bool
+}
+
 /**
  A beautiful and flexible textfield implementation with support for title label, error message and placeholder.
  */
@@ -27,7 +34,7 @@ open class SkyFloatingLabelTextField: UITextField {
             self.textAlignment = .right
         }
     }
-
+    
     // MARK: Animation timing
 
     /// The value of the title appearing duration
@@ -567,7 +574,7 @@ open class SkyFloatingLabelTextField: UITextField {
     override open var intrinsicContentSize : CGSize {
         return CGSize(width: self.bounds.size.width, height: self.titleHeight() + self.textHeight())
     }
-
+    
     // MARK: - Helpers
 
     fileprivate func titleOrPlaceholder() -> String? {
@@ -582,5 +589,29 @@ open class SkyFloatingLabelTextField: UITextField {
             return self.titleFormatter(title)
         }
         return nil
+    }
+}
+
+extension SkyFloatingLabelTextField : Validator {
+    func validateAlphabeticalValue() -> Bool {
+        return !self.text!.isEmpty && self.text!.rangeOfCharacter(from: CharacterSet.letters.inverted) == nil
+    }
+    
+    func validateAlphanumericalValue() -> Bool {
+        return !self.text!.isEmpty && self.text!.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil
+    }
+    
+    func validateEmailValue() -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        
+        return emailTest.evaluate(with: self.text!)
+    }
+    
+    func validateCustomRegexExspresion(regex: String) -> Bool {
+        let regexTest = NSPredicate(format:"SELF MATCHES %@", regex)
+        
+        return regexTest.evaluate(with: self.text!)
     }
 }

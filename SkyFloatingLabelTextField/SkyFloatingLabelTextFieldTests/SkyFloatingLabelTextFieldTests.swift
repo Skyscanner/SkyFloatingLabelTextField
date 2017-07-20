@@ -680,6 +680,32 @@ class SkyFloatingLabelTextFieldTests: XCTestCase {
         XCTAssertEqual(size.height, floatingLabelTextField.titleHeight() + floatingLabelTextField.textHeight())
     }
     
+    // MARK: - Validation Protocol
+    
+    func test_whenAlphanumericalValue_thenTrueValidator() {
+        // given
+        floatingLabelTextField.text = "1234567689"
+        
+        // then
+        XCTAssertTrue(floatingLabelTextField.validateAlphanumericalValue())
+    }
+    
+    func test_whenAlphabeticalValue_thenTrueValidator() {
+        // given
+        floatingLabelTextField.text = "asdfghjkl"
+        
+        // then
+        XCTAssertTrue(floatingLabelTextField.validateAlphabeticalValue())
+    }
+    
+    func test_whenEmailValue_thenTrueValidator() {
+        // given
+        floatingLabelTextField.text = "test.test@test.com"
+        
+        // then
+        XCTAssertTrue(floatingLabelTextField.validateEmailValue())
+    }
+    
     // MARK: - Helpers
     
     func failOnTimeoutAfterSeconds(_ timeout: TimeInterval) {
