@@ -12,9 +12,68 @@
 import UIKit
 
 /**
+ Enum to identify the type of icon
+ */
+public enum IconType: Int {
+
+    case font
+    case image
+
+}
+
+/**
  A beautiful and flexible textfield implementation with support for icon, title label, error message and placeholder.
  */
 open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
+    
+    /// A enum determining if user wants to use iconFont or iconImage
+    
+    @IBInspectable
+    var iconTypeAdapter:Int {
+        
+        get {
+            
+            return self.iconType.rawValue
+            
+        }
+        
+        set(iconIndex) {
+            
+            self.iconType = IconType(rawValue: iconIndex) ?? .font
+            
+        }
+        
+    }
+            
+    open var iconType: IconType = .font {
+    
+        didSet {
+        
+            switch self.iconType {
+            case .font:
+                self.iconLabel.isHidden = false
+                self.iconImageView.isHidden = true
+                
+            case .image:
+                self.iconLabel.isHidden = true
+                self.iconImageView.isHidden = false
+                
+            }
+        
+        }
+    
+    }
+    
+    /// A UIImageView value that identifies the view used to display the icon
+    open var iconImageView: UIImageView!
+    
+    /// A UIImage value that determines the image that the icon is using
+    @IBInspectable
+    dynamic open var iconImage: UIImage? {
+        didSet {
+            iconImageView?.image = iconImage
+        }
+    }
 
     /// A UILabel value that identifies the label used to display the icon
     open var iconLabel: UILabel!
@@ -92,6 +151,17 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     }
 
     // MARK: Initializers
+    /**
+     Initializes the control
+     - parameter type the type of icon
+     */
+    convenience public init(frame: CGRect, iconType: IconType) {
+        self.init(frame: frame)
+        
+        self.iconType = iconType
+        
+    }
+    
 
     /**
     Initializes the control
@@ -100,6 +170,7 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     override public init(frame: CGRect) {
         super.init(frame: frame)
         createIconLabel()
+        createIconImageView()
     }
 
     /**
@@ -109,6 +180,19 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         createIconLabel()
+        createIconImageView()
+        
+        switch self.iconType {
+        case .font:
+            self.iconLabel.isHidden = false
+            self.iconImageView.isHidden = true
+        
+        case .image:
+            self.iconLabel.isHidden = true
+            self.iconImageView.isHidden = false
+            
+        }
+        
     }
 
     // MARK: Creating the icon label
@@ -123,6 +207,19 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
         addSubview(iconLabel)
 
         updateIconLabelColor()
+    }
+    
+    // MARK: Creating the icon image view
+    
+    /// Creates the icon label
+    fileprivate func createIconImageView() {
+        let iconImageView = UIImageView()
+        iconImageView.backgroundColor = .clear
+        iconImageView.contentMode = .scaleAspectFit
+        iconImageView.autoresizingMask = [.flexibleTopMargin, .flexibleRightMargin]
+        self.iconImageView = iconImageView
+        addSubview(iconImageView)
+        
     }
 
     // MARK: Handling the icon color
@@ -202,19 +299,48 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     fileprivate func updateFrame() {
         let textWidth: CGFloat = bounds.size.width
         if isLTRLanguage {
-            iconLabel.frame = CGRect(
-                x: 0,
-                y: bounds.size.height - textHeight() - iconMarginBottom,
-                width: iconWidth,
-                height: textHeight()
-            )
+            
+            switch self.iconType {
+            case .font:
+                iconLabel.frame = CGRect(
+                    x: 0,
+                    y: bounds.size.height - textHeight() - iconMarginBottom,
+                    width: iconWidth,
+                    height: textHeight()
+                )
+            
+            case .image:
+                iconImageView.frame = CGRect(
+                    x: 0,
+                    y: bounds.size.height - textHeight() - iconMarginBottom,
+                    width: iconWidth,
+                    height: textHeight()
+                )
+                
+            }
+            
+            
         } else {
-            iconLabel.frame = CGRect(
-                x: textWidth - iconWidth,
-                y: bounds.size.height - textHeight() - iconMarginBottom,
-                width: iconWidth,
-                height: textHeight()
-            )
+            
+            switch self.iconType {
+            case .font:
+                iconLabel.frame = CGRect(
+                    x: textWidth - iconWidth,
+                    y: bounds.size.height - textHeight() - iconMarginBottom,
+                    width: iconWidth,
+                    height: textHeight()
+                )
+                
+            case .image:
+                iconImageView.frame = CGRect(
+                    x: textWidth - iconWidth,
+                    y: bounds.size.height - textHeight() - iconMarginBottom,
+                    width: iconWidth,
+                    height: textHeight()
+                )
+                
+            }
+            
         }
     }
 }
