@@ -71,7 +71,7 @@ textField2.selectedLineHeight = 2.0
 
 ### Icons and fonts
 
-Use the `SkyFloatingLabelTextFieldWithIcon` field to display icons next to the textfields. You will have to set the `iconFont` property and bundle your icon with your app (if it's not a built in one). Icons can be rotated and more precise positioning is also supported:
+Use the `SkyFloatingLabelTextFieldWithIcon` field to display icons next to the textfields. You have the option of using an UIImage or a font as the icon by setting the `iconType` property (Default = `IconType.font`). If using an UIImage as icon, you will have to set the `iconImage` property. If using a font as icon, you will have to set the `iconFont` property and bundle your icon with your app (if it's not a built in one). Icons can be rotated and more precise positioning is also supported:
 
 ![](/SkyFloatingLabelTextField/images/example-3.gif)
 
