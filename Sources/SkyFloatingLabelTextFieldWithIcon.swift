@@ -14,7 +14,7 @@ import UIKit
 /**
  Enum to identify the type of icon
  */
-public enum IconType {
+public enum IconType: Int {
 
     case font
     case image
@@ -27,7 +27,24 @@ public enum IconType {
 open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     
     /// A enum determining if user wants to use iconFont or iconImage
+    
     @IBInspectable
+    var iconTypeAdapter:Int {
+        
+        get {
+            
+            return self.iconType.rawValue
+            
+        }
+        
+        set(iconIndex) {
+            
+            self.iconType = IconType(rawValue: iconIndex) ?? .font
+            
+        }
+        
+    }
+            
     open var iconType: IconType = .font {
     
         didSet {
@@ -140,7 +157,7 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     convenience public init(frame: CGRect, iconType: IconType) {
         self.init(frame: frame)
         
-        self.iconType = iconType       
+        self.iconType = iconType
         
     }
     
