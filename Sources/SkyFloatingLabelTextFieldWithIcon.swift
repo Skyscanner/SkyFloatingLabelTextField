@@ -68,6 +68,7 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     open var iconImageView: UIImageView!
     
     /// A UIImage value that determines the image that the icon is using
+    @IBInspectable
     dynamic open var iconImage: UIImage? {
         didSet {
             iconImageView?.image = iconImage
