@@ -12,13 +12,13 @@
 import UIKit
 
 /**
- Enum to identify the type of icon
+ Identify the type of icon. 
+    - font: Set your icon by setting the font of iconLabel
+    - image: Set your icon by setting the image of iconImageView
  */
 public enum IconType: Int {
-
     case font
     case image
-
 }
 
 /**
@@ -26,40 +26,22 @@ public enum IconType: Int {
  */
 open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     
-    /// A enum determining if user wants to use iconFont or iconImage
-    
     @IBInspectable
-    var iconTypeAdapter:Int {
-        
+    var iconTypeAdapter: Int {
         get {
-            
             return self.iconType.rawValue
             
         }
         
         set(iconIndex) {
-            
             self.iconType = IconType(rawValue: iconIndex) ?? .font
-            
         }
-        
     }
             
     open var iconType: IconType = .font {
     
         didSet {
-        
-            switch self.iconType {
-            case .font:
-                self.iconLabel.isHidden = false
-                self.iconImageView.isHidden = true
-                
-            case .image:
-                self.iconLabel.isHidden = true
-                self.iconImageView.isHidden = false
-                
-            }
-        
+            updateIconViewHiddenState()
         }
     
     }
@@ -152,17 +134,15 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     }
 
     // MARK: Initializers
+    
     /**
      Initializes the control
      - parameter type the type of icon
      */
     convenience public init(frame: CGRect, iconType: IconType) {
         self.init(frame: frame)
-        
         self.iconType = iconType
-        
     }
-    
 
     /**
     Initializes the control
@@ -170,8 +150,7 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     */
     override public init(frame: CGRect) {
         super.init(frame: frame)
-        createIconLabel()
-        createIconImageView()
+        createIcon()
     }
 
     /**
@@ -180,20 +159,16 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
      */
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        createIcon()
+        updateIconViewHiddenState()
+    }
+    
+    // MARK: Creating the icon
+    
+    /// Creates the both icon label and icon image view
+    fileprivate func createIcon() {
         createIconLabel()
         createIconImageView()
-        
-        switch self.iconType {
-        case .font:
-            self.iconLabel.isHidden = false
-            self.iconImageView.isHidden = true
-        
-        case .image:
-            self.iconLabel.isHidden = true
-            self.iconImageView.isHidden = false
-            
-        }
-        
     }
 
     // MARK: Creating the icon label
@@ -212,7 +187,7 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     
     // MARK: Creating the icon image view
     
-    /// Creates the icon label
+    /// Creates the icon image view
     fileprivate func createIconImageView() {
         let iconImageView = UIImageView()
         iconImageView.backgroundColor = .clear
@@ -221,6 +196,21 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
         self.iconImageView = iconImageView
         addSubview(iconImageView)
         
+    }
+    
+    // MARK: Set icon hidden property
+    
+    /// Shows the corresponding icon depending on iconType property
+    fileprivate func updateIconViewHiddenState() {
+        switch iconType {
+        case .font:
+            self.iconLabel.isHidden = false
+            self.iconImageView.isHidden = true
+        case .image:
+            self.iconLabel.isHidden = true
+            self.iconImageView.isHidden = false
+            
+        }
     }
 
     // MARK: Handling the icon color
