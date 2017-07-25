@@ -61,7 +61,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this typ
         // then
         XCTAssertEqual(
             floatingLabelTextField.attributedPlaceholder!.attribute(
-                NSForegroundColorAttributeName, at: 0, effectiveRange: &fullRange
+                NSAttributedStringKey.foregroundColor, at: 0, effectiveRange: &fullRange
             ) as? UIColor,
             customColor
         )
@@ -153,7 +153,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this typ
         // then
         XCTAssertEqual(
             floatingLabelTextField.attributedPlaceholder!.attribute(
-                NSFontAttributeName,
+                NSAttributedStringKey.font,
                 at: 0,
                 effectiveRange: &fullRange
             ) as? UIFont,

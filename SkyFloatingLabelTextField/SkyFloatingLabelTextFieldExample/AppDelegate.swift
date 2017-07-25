@@ -40,8 +40,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             styles.errorColor         = .purple
 
             // Fonts
-            styles.font               = .systemFont(ofSize: 14, weight: 1.0)
-            styles.placeholderFont    = .systemFont(ofSize: 14, weight: 0.1)
+            styles.font               = .systemFont(ofSize: 14, weight: UIFont.Weight(rawValue: 1.0))
+            styles.placeholderFont    = .systemFont(ofSize: 14, weight: UIFont.Weight(rawValue: 0.1))
 
             // Line
             styles.lineHeight = 2
