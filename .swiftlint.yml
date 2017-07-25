@@ -3,5 +3,6 @@ opt_in_rules:
 included:
         - ../Sources
         - .
+        - Package.swift
 excluded:
 
