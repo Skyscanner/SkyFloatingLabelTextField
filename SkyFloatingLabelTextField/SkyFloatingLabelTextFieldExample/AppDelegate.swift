@@ -44,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             styles.placeholderFont    = .systemFont(ofSize: 14, weight: 0.1)
 
             // Line
-            styles.lineHeight         = 2
+            styles.lineHeight = 2
             styles.lineColor          = .brown
 
             // Selected line
@@ -66,11 +66,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             iconStyles.selectedIconColor  = .orange
 
             // Icon font
-            iconStyles.iconFont           = UIFont(name: "FontAwesome", size: 15)
+            iconStyles.iconFont = UIFont(name: "FontAwesome", size: 15)
 
             // Icon margins
-            iconStyles.iconMarginLeft     = 5
-            iconStyles.iconMarginBottom   = 5
+            iconStyles.iconMarginLeft = 5
+            iconStyles.iconMarginBottom = 5
         }
 
         return true

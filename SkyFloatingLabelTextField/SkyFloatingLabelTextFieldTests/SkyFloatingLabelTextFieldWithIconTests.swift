@@ -12,7 +12,7 @@ import XCTest
 class SkyFloatingLabelTextFieldWithIconTests: XCTestCase {
 
     var floatingLabelTextFieldWithIcon: SkyFloatingLabelTextFieldWithIcon!
-    let customColor = UIColor(red: 125/255, green: 120/255, blue: 50/255, alpha: 1.0)
+    let customColor: UIColor = UIColor(red: 125 / 255, green: 120 / 255, blue: 50 / 255, alpha: 1.0)
 
     override func setUp() {
         super.setUp()

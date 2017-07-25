@@ -1,8 +1,19 @@
 disabled_rules:
 opt_in_rules:
+  - closure_end_indentation
+  - closure_spacing
+  - conditional_returns_on_newline
+  - empty_count
+  - explicit_type_interface
+  - first_where
+  - implicit_return
+  - let_var_whitespace
+  - multiline_parameters
+  - number_separator
+  - operator_usage_whitespace
 included:
-        - ../Sources
-        - .
-        - Package.swift
+  - ../Sources
+  - .
+  - Package.swift
 excluded:
 
