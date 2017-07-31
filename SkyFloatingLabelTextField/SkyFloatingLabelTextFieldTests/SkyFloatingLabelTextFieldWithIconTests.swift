@@ -46,7 +46,7 @@ class SkyFloatingLabelTextFieldWithIconTests: XCTestCase {
         floatingLabelTextFieldWithIcon.iconImage = #imageLiteral(resourceName: "SkyScannerIcon")
         
         // then
-        XCTAssertEqual(floatingLabelTextFieldWithIcon.iconImageView, #imageLiteral(resourceName: "SkyScannerIcon"))
+        XCTAssertEqual(floatingLabelTextFieldWithIcon.iconImageView.image, #imageLiteral(resourceName: "SkyScannerIcon"))
     }
 
     func test_whenSettingIconColor_thenColorAppliedToIconLabel() {

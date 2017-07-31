@@ -142,6 +142,7 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     convenience public init(frame: CGRect, iconType: IconType) {
         self.init(frame: frame)
         self.iconType = iconType
+        updateIconViewHiddenState()
     }
 
     /**
@@ -151,6 +152,7 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     override public init(frame: CGRect) {
         super.init(frame: frame)
         createIcon()
+        updateIconViewHiddenState()
     }
 
     /**
@@ -291,46 +293,36 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
         let textWidth: CGFloat = bounds.size.width
         if isLTRLanguage {
             
-            switch self.iconType {
-            case .font:
-                iconLabel.frame = CGRect(
-                    x: 0,
-                    y: bounds.size.height - textHeight() - iconMarginBottom,
-                    width: iconWidth,
-                    height: textHeight()
-                )
+            iconLabel.frame = CGRect(
+                x: 0,
+                y: bounds.size.height - textHeight() - iconMarginBottom,
+                width: iconWidth,
+                height: textHeight()
+            )
             
-            case .image:
-                iconImageView.frame = CGRect(
-                    x: 0,
-                    y: bounds.size.height - textHeight() - iconMarginBottom,
-                    width: iconWidth,
-                    height: textHeight()
-                )
-                
-            }
+            iconImageView.frame = CGRect(
+                x: 0,
+                y: bounds.size.height - textHeight() - iconMarginBottom,
+                width: iconWidth,
+                height: textHeight()
+            )
             
             
         } else {
             
-            switch self.iconType {
-            case .font:
-                iconLabel.frame = CGRect(
-                    x: textWidth - iconWidth,
-                    y: bounds.size.height - textHeight() - iconMarginBottom,
-                    width: iconWidth,
-                    height: textHeight()
-                )
-                
-            case .image:
-                iconImageView.frame = CGRect(
-                    x: textWidth - iconWidth,
-                    y: bounds.size.height - textHeight() - iconMarginBottom,
-                    width: iconWidth,
-                    height: textHeight()
-                )
-                
-            }
+            iconLabel.frame = CGRect(
+                x: textWidth - iconWidth,
+                y: bounds.size.height - textHeight() - iconMarginBottom,
+                width: iconWidth,
+                height: textHeight()
+            )
+            
+            iconImageView.frame = CGRect(
+                x: textWidth - iconWidth,
+                y: bounds.size.height - textHeight() - iconMarginBottom,
+                width: iconWidth,
+                height: textHeight()
+            )
             
         }
     }
