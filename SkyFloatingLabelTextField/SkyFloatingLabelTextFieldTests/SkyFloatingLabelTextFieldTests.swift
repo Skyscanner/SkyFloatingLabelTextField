@@ -18,8 +18,8 @@ import XCTest
 class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this type_body_length
 
     var floatingLabelTextField: SkyFloatingLabelTextField!
-    let customColor = UIColor(red: 125/255, green: 120/255, blue: 50/255, alpha: 1.0)
-    let textFieldDelegateMock = TextFieldDelegateMock()
+    let customColor: UIColor = UIColor(red: 125 / 255, green: 120 / 255, blue: 50 / 255, alpha: 1.0)
+    let textFieldDelegateMock: TextFieldDelegateMock = TextFieldDelegateMock()
 
     override func setUp() {
         super.setUp()
@@ -720,20 +720,20 @@ class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this typ
     }
 
     class TextFieldDelegateMock: NSObject, UITextFieldDelegate {
-        var textFieldShouldBeginEditing = false
-        var textFieldShouldEndEditing = false
-        var textFieldShouldReturn = false
-        var textFieldShouldClear = false
-        var shouldChangeCharactersInRange = false
+        var textFieldShouldBeginEditing: Bool = false
+        var textFieldShouldEndEditing: Bool = false
+        var textFieldShouldReturn: Bool = false
+        var textFieldShouldClear: Bool = false
+        var shouldChangeCharactersInRange: Bool = false
 
-        var textFieldChangedInvoked = false
-        var textFieldShouldBeginEditingInvoked = false
-        var textFieldShouldEndEditingInvoked = false
-        var textFieldDidBeginEditingInvoked = false
-        var textFieldDidEndEditingInvoked = false
-        var textFieldShouldReturnInvoked = false
-        var textFieldShouldClearInvoked = false
-        var shouldChangeCharactersInRangeInvoked = false
+        var textFieldChangedInvoked: Bool = false
+        var textFieldShouldBeginEditingInvoked: Bool = false
+        var textFieldShouldEndEditingInvoked: Bool = false
+        var textFieldDidBeginEditingInvoked: Bool = false
+        var textFieldDidEndEditingInvoked: Bool = false
+        var textFieldShouldReturnInvoked: Bool = false
+        var textFieldShouldClearInvoked: Bool = false
+        var shouldChangeCharactersInRangeInvoked: Bool = false
 
         func textFieldDidBeginEditing(_ textField: UITextField) {
             textFieldDidBeginEditingInvoked = true
@@ -778,7 +778,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this typ
     }
 
     class SkyFloatingLabelTextFieldSpy: SkyFloatingLabelTextField {
-        var updateColorsInvoked = false
+        var updateColorsInvoked: Bool = false
 
         override func updateColors() {
             updateColorsInvoked = true

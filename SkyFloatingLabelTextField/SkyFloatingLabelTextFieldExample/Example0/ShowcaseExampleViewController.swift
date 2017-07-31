@@ -24,11 +24,11 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailField: SkyFloatingLabelTextField!
     @IBOutlet weak var submitButton: UIButton!
 
-    var textFields: [SkyFloatingLabelTextField]!
+    var textFields: [SkyFloatingLabelTextField] = []
 
-    let lightGreyColor = UIColor(red: 197/255, green: 205/255, blue: 205/255, alpha: 1.0)
-    let darkGreyColor = UIColor(red: 52/255, green: 42/255, blue: 61/255, alpha: 1.0)
-    let overcastBlueColor = UIColor(red: 0, green: 187/255, blue: 204/255, alpha: 1.0)
+    let lightGreyColor: UIColor = UIColor(red: 197 / 255, green: 205 / 255, blue: 205 / 255, alpha: 1.0)
+    let darkGreyColor: UIColor = UIColor(red: 52 / 255, green: 42 / 255, blue: 61 / 255, alpha: 1.0)
+    let overcastBlueColor: UIColor = UIColor(red: 0, green: 187 / 255, blue: 204 / 255, alpha: 1.0)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -190,9 +190,9 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
 
     // MARK: - Validating the fields when "submit" is pressed
 
-    var isSubmitButtonPressed = false
+    var isSubmitButtonPressed: Bool = false
 
-    var showingTitleInProgress = false
+    var showingTitleInProgress: Bool = false
 
     @IBAction func submitButtonDown(_ sender: AnyObject) {
         self.isSubmitButtonPressed = true
@@ -262,7 +262,7 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
             return
         }
 
-        if email.characters.count == 0 {
+        if email.characters.isEmpty {
             emailField.errorMessage = nil
         } else if !validateEmail(email) {
             emailField.errorMessage = NSLocalizedString(
