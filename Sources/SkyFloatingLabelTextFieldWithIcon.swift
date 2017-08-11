@@ -38,7 +38,7 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
         }
     }
             
-    internal var _iconType: IconType = .font {
+    open var _iconType: IconType = .font {
         didSet {
             updateIconViewHiddenState()
         }
