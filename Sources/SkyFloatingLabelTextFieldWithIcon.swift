@@ -30,7 +30,6 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     var _iconType: Int {
         get {
             return self.iconType.rawValue
-            
         }
         
         set(iconIndex) {
@@ -185,7 +184,6 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
         iconLabel.autoresizingMask = [.flexibleTopMargin, .flexibleRightMargin]
         self.iconLabel = iconLabel
         addSubview(iconLabel)
-
         updateIconLabelColor()
     }
     
@@ -199,7 +197,6 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
         iconImageView.autoresizingMask = [.flexibleTopMargin, .flexibleRightMargin]
         self.iconImageView = iconImageView
         addSubview(iconImageView)
-        
     }
     
     // MARK: Set icon hidden property
@@ -213,7 +210,6 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
         case .image:
             self.iconLabel.isHidden = true
             self.iconImageView.isHidden = false
-            
         }
     }
 
@@ -294,38 +290,31 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     fileprivate func updateFrame() {
         let textWidth: CGFloat = bounds.size.width
         if isLTRLanguage {
-            
             iconLabel.frame = CGRect(
                 x: 0,
                 y: bounds.size.height - textHeight() - iconMarginBottom,
                 width: iconWidth,
                 height: textHeight()
             )
-            
             iconImageView.frame = CGRect(
                 x: 0,
                 y: bounds.size.height - textHeight() - iconMarginBottom,
                 width: iconWidth,
                 height: textHeight()
             )
-            
-            
         } else {
-            
             iconLabel.frame = CGRect(
                 x: textWidth - iconWidth,
                 y: bounds.size.height - textHeight() - iconMarginBottom,
                 width: iconWidth,
                 height: textHeight()
             )
-            
             iconImageView.frame = CGRect(
                 x: textWidth - iconWidth,
                 y: bounds.size.height - textHeight() - iconMarginBottom,
                 width: iconWidth,
                 height: textHeight()
             )
-            
         }
     }
 }
