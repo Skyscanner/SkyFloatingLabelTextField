@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F2073" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hHc-fl-Wyp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hHc-fl-Wyp">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -903,7 +903,7 @@ In this example an icon label is added and placeholder label and textfield are p
                 <navigationController id="hHc-fl-Wyp" sceneMemberID="viewController">
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="400" height="600"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6ue-GB-GBh">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="6ue-GB-GBh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -937,7 +937,7 @@ In this example an icon label is added and placeholder label and textfield are p
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Departure City"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iconTypeAdapter">
+                                    <userDefinedRuntimeAttribute type="number" keyPath="_iconType">
                                         <integer key="value" value="0"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
@@ -952,7 +952,7 @@ In this example an icon label is added and placeholder label and textfield are p
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Arrival City"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iconTypeAdapter">
+                                    <userDefinedRuntimeAttribute type="number" keyPath="_iconType">
                                         <integer key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>

@@ -27,23 +27,21 @@ public enum IconType: Int {
 open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     
     @IBInspectable
-    var iconTypeAdapter: Int {
+    var iconType: Int {
         get {
-            return self.iconType.rawValue
+            return self._iconType.rawValue
             
         }
         
         set(iconIndex) {
-            self.iconType = IconType(rawValue: iconIndex) ?? .font
+            self._iconType = IconType(rawValue: iconIndex) ?? .font
         }
     }
             
-    open var iconType: IconType = .font {
-    
+    internal var _iconType: IconType = .font {
         didSet {
             updateIconViewHiddenState()
         }
-    
     }
     
     /// A UIImageView value that identifies the view used to display the icon
@@ -53,6 +51,8 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     @IBInspectable
     dynamic open var iconImage: UIImage? {
         didSet {
+            // Show a warning if setting an image while the iconType is IconType.font
+            if self._iconType == .font { NSLog("WARNING - Did set iconImage when the iconType is set to IconType.font. The image will not be displayed.") }
             iconImageView?.image = iconImage
         }
     }
@@ -71,6 +71,8 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     @IBInspectable
     open var iconText: String? {
         didSet {
+            // Show a warning if setting an icon text while the iconType is IconType.image
+            if self._iconType == .image { NSLog("WARNING - Did set iconText when the iconType is set to IconType.image. The icon with the specified text will not be displayed.") }
             iconLabel?.text = iconText
         }
     }
@@ -141,7 +143,7 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
      */
     convenience public init(frame: CGRect, iconType: IconType) {
         self.init(frame: frame)
-        self.iconType = iconType
+        self._iconType = iconType
         updateIconViewHiddenState()
     }
 
@@ -204,7 +206,7 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     
     /// Shows the corresponding icon depending on iconType property
     fileprivate func updateIconViewHiddenState() {
-        switch iconType {
+        switch _iconType {
         case .font:
             self.iconLabel.isHidden = false
             self.iconImageView.isHidden = true
