@@ -152,7 +152,7 @@ class SkyFloatingLabelTextFieldWithIconTests: XCTestCase {
         
         // when
         floatingLabelTextFieldWithIcon = SkyFloatingLabelTextFieldWithIcon(coder: coder)
-        
+
         // then
         let iconLabelIsHidden = floatingLabelTextFieldWithIcon.iconLabel.isHidden
         let iconImageViewIsHidden = floatingLabelTextFieldWithIcon.iconImageView.isHidden
