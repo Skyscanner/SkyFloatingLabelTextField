@@ -87,6 +87,7 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
             departureCityField.iconRotationDegrees = 270
         }
 
+        arrivalCityField.iconType = .image
         arrivalCityField.iconImage = #imageLiteral(resourceName: "PlaneIcon")
 
         arrivalCityField.placeholder = NSLocalizedString(
