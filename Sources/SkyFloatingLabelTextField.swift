@@ -132,7 +132,7 @@ open class SkyFloatingLabelTextField: SearchTextField { // swiftlint:disable:thi
     }
     
     /// The internal `animateOnBecomingFirstResponder` that animates title on field focus
-    @IBInspectable dynamic open var animateOnBecomingFirstResponder: Bool = true {
+    @IBInspectable dynamic open var animateOnBecomingFirstResponder: Bool = false {
         didSet {
             updateLineView()
         }
@@ -316,7 +316,7 @@ open class SkyFloatingLabelTextField: SearchTextField { // swiftlint:disable:thi
     fileprivate func createTitleLabel() {
         let titleLabel = UILabel()
         titleLabel.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        titleLabel.font = .systemFont(ofSize: 13)
+        titleLabel.font = .systemFont(ofSize: 18)
         titleLabel.alpha = 0.0
         titleLabel.textColor = titleColor
         
@@ -352,7 +352,7 @@ open class SkyFloatingLabelTextField: SearchTextField { // swiftlint:disable:thi
     @discardableResult
     override open func becomeFirstResponder() -> Bool {
         let result = super.becomeFirstResponder()
-        updateControl(true)
+        //        updateControl(true)
         return result
     }
     
@@ -363,7 +363,7 @@ open class SkyFloatingLabelTextField: SearchTextField { // swiftlint:disable:thi
     @discardableResult
     override open func resignFirstResponder() -> Bool {
         let result =  super.resignFirstResponder()
-        updateControl(true)
+        //        updateControl(true)
         return result
     }
     
@@ -468,11 +468,11 @@ open class SkyFloatingLabelTextField: SearchTextField { // swiftlint:disable:thi
     }
     
     fileprivate func updateTitleVisibility(_ animated: Bool = false, completion: ((_ completed: Bool) -> Void)? = nil) {
-        let alpha: CGFloat = isTitleVisible() ? 1.0 : 0.0
+        let alpha: CGFloat = 1.0// isTitleVisible() ? 1.0 : 0.0
         let frame: CGRect = titleLabelRectForBounds(bounds, editing: isTitleVisible())
         
         if animateOnBecomingFirstResponder {
-            if  isTitleVisible() {
+            if isTitleVisible() {
                 if self.tempPlaceholder == "-1" {
                     self.tempPlaceholder = self.placeholder ?? "-1"
                     self.placeholder = ""
@@ -488,17 +488,25 @@ open class SkyFloatingLabelTextField: SearchTextField { // swiftlint:disable:thi
             self.titleLabel.alpha = alpha
             self.titleLabel.frame = frame
         }
-//        if animated {
+        //        if animated {
         let animationOptions: UIViewAnimationOptions = .curveEaseInOut
         let delay = isTitleVisible() ? 0 : 0.1
         let duration = isTitleVisible() ? titleFadeInDuration : titleFadeOutDuration
         UIView.animate(withDuration: duration, delay: delay, options: animationOptions, animations: { () -> Void in
             updateBlock()
+            if self.isTitleVisible() {
+                // Move up
+                self.titleLabel.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
+            } else {
+                // Move down
+                self.titleLabel.transform = CGAffineTransform(scaleX: 1, y: 1)
+            }
+            
         }, completion: completion)
-//        } else {
-//            updateBlock()
-//            completion?(true)
-//        }
+        //        } else {
+        //            updateBlock()
+        //            completion?(true)
+        //        }
     }
     
     // MARK: - UITextField text/placeholder positioning overrides
@@ -559,9 +567,9 @@ open class SkyFloatingLabelTextField: SearchTextField { // swiftlint:disable:thi
      */
     open func titleLabelRectForBounds(_ bounds: CGRect, editing: Bool) -> CGRect {
         if editing {
-            return CGRect(x: 0, y: 0, width: bounds.size.width, height: titleHeight())
+            return CGRect(x: 0, y: 0, width: bounds.size.width / 1.333, height: titleHeight())
         }
-        return CGRect(x: 0, y: titleHeight() * 2, width: bounds.size.width, height: titleHeight())
+        return CGRect(x: 0, y: titleHeight(), width: bounds.size.width, height: titleHeight())
     }
     
     /**
