@@ -132,7 +132,7 @@ open class SkyFloatingLabelTextField: SearchTextField { // swiftlint:disable:thi
     }
     
     /// The internal `animateOnBecomingFirstResponder` that animates title on field focus
-    @IBInspectable dynamic open var animateOnBecomingFirstResponder: Bool = false {
+    @IBInspectable dynamic open var animateOnBecomingFirstResponder: Bool = true {
         didSet {
             updateLineView()
         }
