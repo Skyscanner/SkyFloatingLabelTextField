@@ -567,7 +567,7 @@ open class SkyFloatingLabelTextField: SearchTextField { // swiftlint:disable:thi
      */
     open func titleLabelRectForBounds(_ bounds: CGRect, editing: Bool) -> CGRect {
         if editing {
-            return CGRect(x: 0, y: 0, width: bounds.size.width / 1.333, height: titleHeight())
+            return CGRect(x: 0, y: 3, width: bounds.size.width / 1.333, height: titleHeight())
         }
         return CGRect(x: 0, y: titleHeight(), width: bounds.size.width, height: titleHeight())
     }
