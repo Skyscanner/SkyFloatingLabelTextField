@@ -492,6 +492,7 @@ open class SkyFloatingLabelTextField: SearchTextField { // swiftlint:disable:thi
         let animationOptions: UIViewAnimationOptions = .curveEaseInOut
         let delay = isTitleVisible() ? 0 : 0.1
         let duration = isTitleVisible() ? titleFadeInDuration : titleFadeOutDuration
+        
         UIView.animate(withDuration: duration, delay: delay, options: animationOptions, animations: { () -> Void in
             updateBlock()
             if self.isTitleVisible() {
@@ -567,7 +568,12 @@ open class SkyFloatingLabelTextField: SearchTextField { // swiftlint:disable:thi
      */
     open func titleLabelRectForBounds(_ bounds: CGRect, editing: Bool) -> CGRect {
         if editing {
-            return CGRect(x: 0, y: 3, width: bounds.size.width / 1.333, height: titleHeight())
+            if self.isLTRLanguage {
+                return CGRect(x: 0, y: 3, width: bounds.size.width / 1.333, height: titleHeight())
+            } else {
+                return CGRect(x: bounds.size.width - bounds.size.width / 1.333, y: 3, width: bounds.size.width / 1.333, height: titleHeight())
+            }
+            
         }
         return CGRect(x: 0, y: titleHeight(), width: bounds.size.width, height: titleHeight())
     }
