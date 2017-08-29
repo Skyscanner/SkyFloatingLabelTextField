@@ -495,7 +495,6 @@ open class SkyFloatingLabelTextField: SearchTextField { // swiftlint:disable:thi
         let duration = isTitleVisible() ? titleFadeInDuration : titleFadeOutDuration
         
         UIView.animate(withDuration: duration, delay: delay, options: animationOptions, animations: { () -> Void in
-            updateBlock()
             if self.isTitleVisible() {
                 // Move up
                 self.titleLabel.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
@@ -503,6 +502,8 @@ open class SkyFloatingLabelTextField: SearchTextField { // swiftlint:disable:thi
                 // Move down
                 self.titleLabel.transform = CGAffineTransform(scaleX: 1, y: 1)
             }
+            
+            updateBlock()
             
         }, completion: completion)
         //        } else {
