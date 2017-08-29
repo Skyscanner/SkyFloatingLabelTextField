@@ -363,6 +363,7 @@ open class SkyFloatingLabelTextField: SearchTextField { // swiftlint:disable:thi
     @discardableResult
     override open func resignFirstResponder() -> Bool {
         let result =  super.resignFirstResponder()
+        self.layoutIfNeeded()
         //        updateControl(true)
         return result
     }
