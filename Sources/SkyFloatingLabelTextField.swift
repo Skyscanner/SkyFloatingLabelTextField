@@ -36,6 +36,8 @@ open class SkyFloatingLabelTextField: SearchTextField { // swiftlint:disable:thi
         }
     }
     
+    fileprivate var shouldAnimateDown = false
+    fileprivate var titleHasBeenAdded = false
     // MARK: Animation timing
     
     /// The value of the title appearing duration
@@ -352,6 +354,8 @@ open class SkyFloatingLabelTextField: SearchTextField { // swiftlint:disable:thi
     @discardableResult
     override open func becomeFirstResponder() -> Bool {
         let result = super.becomeFirstResponder()
+        
+        self.shouldAnimateDown = false
         //        updateControl(true)
         return result
     }
@@ -364,7 +368,10 @@ open class SkyFloatingLabelTextField: SearchTextField { // swiftlint:disable:thi
     override open func resignFirstResponder() -> Bool {
         let result =  super.resignFirstResponder()
         self.layoutIfNeeded()
-        //        updateControl(true)
+        
+        self.shouldAnimateDown = true
+        
+        updateControl(true)
         return result
     }
     
@@ -469,8 +476,9 @@ open class SkyFloatingLabelTextField: SearchTextField { // swiftlint:disable:thi
     }
     
     fileprivate func updateTitleVisibility(_ animated: Bool = false, completion: ((_ completed: Bool) -> Void)? = nil) {
+        let editing = self.isTitleVisible()
         let alpha: CGFloat = 1.0// isTitleVisible() ? 1.0 : 0.0
-        let frame: CGRect = titleLabelRectForBounds(bounds, editing: isTitleVisible())
+        let frame: CGRect = titleLabelRectForBounds(bounds, editing: editing)
         
         if animateOnBecomingFirstResponder {
             if isTitleVisible() {
@@ -484,6 +492,13 @@ open class SkyFloatingLabelTextField: SearchTextField { // swiftlint:disable:thi
                 self.placeholder = temp
             }
         }
+        
+        if self.titleHasBeenAdded && !editing && !self.shouldAnimateDown {
+            completion?(false)
+            return
+        }
+        
+        self.titleHasBeenAdded = true
         
         let updateBlock = { () -> Void in
             self.titleLabel.alpha = alpha
@@ -632,7 +647,7 @@ open class SkyFloatingLabelTextField: SearchTextField { // swiftlint:disable:thi
     override open func layoutSubviews() {
         super.layoutSubviews()
         
-        titleLabel.frame = titleLabelRectForBounds(bounds, editing: isTitleVisible() || _renderingInInterfaceBuilder)
+        //        titleLabel.frame = titleLabelRectForBounds(bounds, editing: isTitleVisible() || _renderingInInterfaceBuilder)
         lineView.frame = lineViewRectForBounds(bounds, editing: editingOrSelected || _renderingInInterfaceBuilder)
     }
     
