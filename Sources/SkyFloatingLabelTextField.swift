@@ -319,7 +319,7 @@ open class SkyFloatingLabelTextField: SearchTextField { // swiftlint:disable:thi
         let titleLabel = UILabel()
         titleLabel.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         titleLabel.font = .systemFont(ofSize: 18)
-        titleLabel.alpha = 0.0
+        titleLabel.alpha = 1
         titleLabel.textColor = titleColor
         
         addSubview(titleLabel)
@@ -501,15 +501,6 @@ open class SkyFloatingLabelTextField: SearchTextField { // swiftlint:disable:thi
         self.titleHasBeenAdded = true
         
         let updateBlock = { () -> Void in
-            self.titleLabel.alpha = alpha
-            self.titleLabel.frame = frame
-        }
-        //        if animated {
-        let animationOptions: UIViewAnimationOptions = .curveEaseInOut
-        let delay = isTitleVisible() ? 0 : 0.1
-        let duration = isTitleVisible() ? titleFadeInDuration : titleFadeOutDuration
-        
-        UIView.animate(withDuration: duration, delay: delay, options: animationOptions, animations: { () -> Void in
             if self.isTitleVisible() {
                 // Move up
                 self.titleLabel.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
@@ -518,13 +509,22 @@ open class SkyFloatingLabelTextField: SearchTextField { // swiftlint:disable:thi
                 self.titleLabel.transform = CGAffineTransform(scaleX: 1, y: 1)
             }
             
-            updateBlock()
+            self.titleLabel.alpha = alpha
+            self.titleLabel.frame = frame
+        }
+        if animated {
+            let animationOptions: UIViewAnimationOptions = .curveEaseInOut
+            let delay = isTitleVisible() ? 0 : 0.1
+            let duration = isTitleVisible() ? titleFadeInDuration : titleFadeOutDuration
             
-        }, completion: completion)
-        //        } else {
-        //            updateBlock()
-        //            completion?(true)
-        //        }
+            UIView.animate(withDuration: duration, delay: delay, options: animationOptions, animations: { () -> Void in
+                updateBlock()
+                
+            }, completion: completion)
+        } else {
+            updateBlock()
+            completion?(true)
+        }
     }
     
     // MARK: - UITextField text/placeholder positioning overrides
