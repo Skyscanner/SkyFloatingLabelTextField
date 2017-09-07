@@ -375,6 +375,7 @@ open class SearchTextField: UITextField {
             filteredResults.append(item)
         }
         self.tableView?.reloadData()
+        self.buildSearchTableView()
     }
     
     fileprivate func filter(_ addAll: Bool) {
