@@ -22,37 +22,37 @@ class SkyFloatingLabelTextFieldAppearanceTests: XCTestCase {
         let styles = SkyFloatingLabelTextField.appearance()
 
         // Text-, placeholder- and tintcolor
-        styles.textColor          = UIColor.brown
-        styles.tintColor          = UIColor.brown
-        styles.placeholderColor   = UIColor.darkGray
+        styles.textColor = UIColor.brown
+        styles.tintColor = UIColor.brown
+        styles.placeholderColor = UIColor.darkGray
         styles.selectedTitleColor = UIColor.orange
-        styles.errorColor         = UIColor.purple
+        styles.errorColor = UIColor.purple
 
         // Fonts
-        styles.font               = UIFont(name: "HelveticaNeue-Bold", size: 14)!
-        styles.placeholderFont    = UIFont(name: "HelveticaNeue-Medium", size: 14)!
+        styles.font = UIFont(name: "HelveticaNeue-Bold", size: 14)!
+        styles.placeholderFont = UIFont(name: "HelveticaNeue-Medium", size: 14)!
 
         // Line
-        styles.lineHeight         = 2
-        styles.lineColor          = UIColor.brown
+        styles.lineHeight = 2
+        styles.lineColor = UIColor.brown
 
         // Selected line
         styles.selectedLineHeight = 3
-        styles.selectedLineColor  = UIColor.orange
+        styles.selectedLineColor = UIColor.orange
 
         // Apply icon styles
         let iconStyles = SkyFloatingLabelTextFieldWithIcon.appearance()
 
         // Icon colors
-        iconStyles.iconColor          = UIColor.brown
-        iconStyles.selectedIconColor  = UIColor.orange
+        iconStyles.iconColor = UIColor.brown
+        iconStyles.selectedIconColor = UIColor.orange
 
         // Icon font
-        iconStyles.iconFont           = UIFont(name: "FontAwesome", size: 15)
+        iconStyles.iconFont = UIFont(name: "FontAwesome", size: 15)
 
         // Icon margins
-        iconStyles.iconMarginLeft     = 5
-        iconStyles.iconMarginBottom   = 5
+        iconStyles.iconMarginLeft = 5
+        iconStyles.iconMarginBottom = 5
     }
 
     override func tearDown() {

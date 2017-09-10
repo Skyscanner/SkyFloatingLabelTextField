@@ -20,7 +20,7 @@ open class SkyFloatingLabelTextField: SearchTextField { // swiftlint:disable:thi
      A Boolean value that determines if the language displayed is LTR.
      Default value set automatically from the application language settings.
      */
-    open var isLTRLanguage = UIApplication.shared.userInterfaceLayoutDirection == .leftToRight {
+    open var isLTRLanguage: Bool = UIApplication.shared.userInterfaceLayoutDirection == .leftToRight {
         didSet {
             updateTextAligment()
         }
@@ -67,8 +67,9 @@ open class SkyFloatingLabelTextField: SearchTextField { // swiftlint:disable:thi
             updatePlaceholder()
         }
     }
-    
-    /// A UIColor value that determines text color of the placeholder label
+
+
+    /// A UIFont value that determines text color of the placeholder label
     dynamic open var placeholderFont: UIFont? {
         didSet {
             updatePlaceholder()
@@ -83,7 +84,14 @@ open class SkyFloatingLabelTextField: SearchTextField { // swiftlint:disable:thi
             )
         }
     }
-    
+
+    /// A UIFont value that determines the text font of the title label
+    dynamic open var titleFont: UIFont = .systemFont(ofSize: 13) {
+        didSet {
+            updateTitleLabel()
+        }
+    }
+
     /// A UIColor value that determines the text color of the title label when in the normal state
     @IBInspectable dynamic open var titleColor: UIColor = .gray {
         didSet {
@@ -198,8 +206,8 @@ open class SkyFloatingLabelTextField: SearchTextField { // swiftlint:disable:thi
     }
     
     /// The backing property for the highlighted property
-    fileprivate var _highlighted = false
-    
+    fileprivate var _highlighted: Bool = false
+
     /**
      A Boolean value that determines whether the receiver is highlighted.
      When changing this value, highlighting will be done with animation
@@ -318,8 +326,8 @@ open class SkyFloatingLabelTextField: SearchTextField { // swiftlint:disable:thi
     fileprivate func createTitleLabel() {
         let titleLabel = UILabel()
         titleLabel.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        titleLabel.font = .systemFont(ofSize: 18)
-        titleLabel.alpha = 1
+        titleLabel.font = titleFont
+        titleLabel.alpha = 0.0
         titleLabel.textColor = titleColor
         
         addSubview(titleLabel)
@@ -366,11 +374,14 @@ open class SkyFloatingLabelTextField: SearchTextField { // swiftlint:disable:thi
      */
     @discardableResult
     override open func resignFirstResponder() -> Bool {
-        let result =  super.resignFirstResponder()
-        self.layoutIfNeeded()
+// <<<<<<< master
+//         let result =  super.resignFirstResponder()
+//         self.layoutIfNeeded()
         
-        self.shouldAnimateDown = true
+//         self.shouldAnimateDown = true
         
+// =======
+        let result = super.resignFirstResponder()
         updateControl(true)
         return result
     }
@@ -445,12 +456,13 @@ open class SkyFloatingLabelTextField: SearchTextField { // swiftlint:disable:thi
             }
         }
         titleLabel.text = titleText
-        
+        titleLabel.font = titleFont
+
         updateTitleVisibility(animated)
     }
-    
-    fileprivate var _titleVisible = false
-    
+
+    fileprivate var _titleVisible: Bool = false
+
     /*
      *   Set this value to make the title visible
      */
@@ -535,12 +547,14 @@ open class SkyFloatingLabelTextField: SearchTextField { // swiftlint:disable:thi
      - returns: The rectangle that the textfield should render in
      */
     override open func textRect(forBounds bounds: CGRect) -> CGRect {
-        super.textRect(forBounds: bounds)
+        let superRect = super.textRect(forBounds: bounds)
+        let titleHeight = self.titleHeight()
+
         let rect = CGRect(
-            x: 0,
-            y: titleHeight(),
-            width: bounds.size.width,
-            height: bounds.size.height - titleHeight() - selectedLineHeight
+            x: superRect.origin.x,
+            y: titleHeight,
+            width: superRect.size.width,
+            height: superRect.size.height - titleHeight - selectedLineHeight
         )
         return rect
     }
@@ -551,11 +565,14 @@ open class SkyFloatingLabelTextField: SearchTextField { // swiftlint:disable:thi
      - returns: The rectangle that the textfield should render in
      */
     override open func editingRect(forBounds bounds: CGRect) -> CGRect {
+        let superRect = super.editingRect(forBounds: bounds)
+        let titleHeight = self.titleHeight()
+
         let rect = CGRect(
-            x: 0,
-            y: titleHeight(),
-            width: bounds.size.width,
-            height: bounds.size.height - titleHeight() - selectedLineHeight
+            x: superRect.origin.x,
+            y: titleHeight,
+            width: superRect.size.width,
+            height: superRect.size.height - titleHeight - selectedLineHeight
         )
         return rect
     }

@@ -17,7 +17,8 @@ before_install:
     - open -a "simulator" --args -CurrentDeviceUDID $IOS_SIMULATOR_UDID
 
 script:
-- xcodebuild clean build test -project SkyFloatingLabelTextField/SkyFloatingLabelTextField.xcodeproj -scheme SkyFloatingLabelTextField -destination 'platform=iOS Simulator,name=iPhone 6' GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES
+  - xcodebuild clean build test -project SkyFloatingLabelTextField/SkyFloatingLabelTextField.xcodeproj -scheme SkyFloatingLabelTextField -destination 'platform=iOS Simulator,name=iPhone 6' GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES
+  - swiftlint
 
 after_success:
   - cd $TRAVIS_BUILD_DIR && slather

@@ -39,7 +39,7 @@ In case of major changes please feel free to reach out to the maintainers of the
 
 ## License
 
-By contributing your code, you agree to license your contribution under the terms of the APLv2: https://github.com/Skyscanner/SkyFloatingLabelTextField/blob/master/LICENSE.md
+By contributing your code, you agree to license your contribution under the terms of the APLv2: https://github.com/Skyscanner/SkyFloatingLabelTextField/blob/master/LICENSE
 
 All files are released with the Apache 2.0 license.
 

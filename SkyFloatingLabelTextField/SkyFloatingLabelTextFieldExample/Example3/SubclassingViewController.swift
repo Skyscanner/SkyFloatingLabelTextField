@@ -21,7 +21,7 @@ class SubclassingViewController: UIViewController {
         super.viewDidLoad()
 
         // SkyFloatingLabelTextField will inherit it's superview's `tintColor`.
-        self.view.tintColor = UIColor(red: 0.0, green: 221.0/256.0, blue: 238.0/256.0, alpha: 1.0)
+        self.view.tintColor = UIColor(red: 0.0, green: 221.0 / 256.0, blue: 238.0 / 256.0, alpha: 1.0)
         textField?.placeholder = NSLocalizedString("Placeholder", tableName: "SkyFloatingLabelTextField", comment: "")
     }
 
