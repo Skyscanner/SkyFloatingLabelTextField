@@ -290,6 +290,11 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
      Invoked when the editing state of the textfield changes. Override to respond to this change.
      */
     open func editingChanged() {
+        //Remove Error Message
+        if self.hasErrorMessage {
+            self.errorMessage = ""
+        }
+        
         updateControl(true)
         updateTitleLabel(true)
     }
