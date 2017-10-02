@@ -59,12 +59,21 @@ class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this typ
         floatingLabelTextField.placeholderColor = customColor
 
         // then
-        XCTAssertEqual(
-            floatingLabelTextField.attributedPlaceholder!.attribute(
-                NSForegroundColorAttributeName, at: 0, effectiveRange: &fullRange
-            ) as? UIColor,
+        #if swift(>=4.0)
+            XCTAssertEqual(
+                floatingLabelTextField.attributedPlaceholder!.attribute(
+                    NSAttributedStringKey.foregroundColor, at: 0, effectiveRange: &fullRange
+                ) as? UIColor,
+                customColor
+            )
+        #else
+            XCTAssertEqual(
+                floatingLabelTextField.attributedPlaceholder!.attribute(
+                    NSForegroundColorAttributeName, at: 0, effectiveRange: &fullRange
+                ) as? UIColor,
             customColor
-        )
+            )
+        #endif
     }
 
     func test_whenSettingTitleColor_thenTitleLabelTextColorIsChangedToThisColor() {
@@ -151,14 +160,25 @@ class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this typ
         floatingLabelTextField.placeholderFont = customFont
 
         // then
-        XCTAssertEqual(
-            floatingLabelTextField.attributedPlaceholder!.attribute(
-                NSFontAttributeName,
-                at: 0,
-                effectiveRange: &fullRange
-            ) as? UIFont,
-            customFont
-        )
+        #if swift(>=4.0)
+            XCTAssertEqual(
+                floatingLabelTextField.attributedPlaceholder!.attribute(
+                    NSAttributedStringKey.font,
+                    at: 0,
+                    effectiveRange: &fullRange
+                ) as? UIFont,
+                customFont
+            )
+        #else
+            XCTAssertEqual(
+                floatingLabelTextField.attributedPlaceholder!.attribute(
+                    NSFontAttributeName,
+                    at: 0,
+                    effectiveRange: &fullRange
+                ) as? UIFont,
+                customFont
+            )
+        #endif
     }
 
     func test_whenSettingSelectedLineColor_withTextfieldBeingSelected_thenLineViewBackgroundColorIsChangedToThisColor() { // swiftlint:disable:this line_length
