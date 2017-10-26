@@ -123,8 +123,8 @@
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="hTF-PN-MR1">
                                         <rect key="frame" x="133" y="421.5" width="133" height="29"/>
                                         <segments>
-                                            <segment title="enabled"/>
                                             <segment title="disabled"/>
+                                            <segment title="enabled"/>
                                         </segments>
                                         <connections>
                                             <action selector="enabledChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="lsr-VN-qnf"/>
