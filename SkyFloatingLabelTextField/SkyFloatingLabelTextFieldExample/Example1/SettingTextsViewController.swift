@@ -92,4 +92,10 @@ class SettingTextsViewController: UIViewController {
             break
         }
     }
+    
+    @IBAction func enabledChanged(_ sender: Any) {
+        if let textField = textField {
+            textField.isEnabled = !textField.isEnabled
+        }
+    }
 }
