@@ -141,6 +141,12 @@ class MyViewController: UIViewController, UITextFieldDelegate {
 }
 ```
 
+### Disabled state
+The textfield also supports displaying a disabled state. When the `isEnabled` property is set on the control, then the control is highlighted with the color set in the `disabledColor` property.
+```swift
+    textField.disabledColor = disabledColor
+    textField.isEnabled = false
+```
 ### RTL language support
 
 The component automatically detects the language writing direction. When the phone has a RTL language set (e.g. Arabic or Hebrew), then it automatically adjusts to support this style.

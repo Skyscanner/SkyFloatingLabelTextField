@@ -134,7 +134,9 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     }
 
     fileprivate func updateIconLabelColor() {
-        if self.hasErrorMessage {
+        if !isEnabled {
+            iconLabel?.textColor = disabledColor
+        } else if hasErrorMessage {
             iconLabel?.textColor = errorColor
         } else {
             iconLabel?.textColor = editingOrSelected ? selectedIconColor : iconColor
