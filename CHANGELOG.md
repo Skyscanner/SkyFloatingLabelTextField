@@ -1,6 +1,16 @@
 Master
 ------
 
+
+v3.3.0
+------
+
+* Added support for a disabled state of the field [#177](https://github.com/Skyscanner/SkyFloatingLabelTextField/pull/177). Big thanks to [kanjanaSi](https://github.com/kanjanaSi).
+
+v3.2.1
+------
+* Add support for both Swift 3 and 4 simultaneously.
+
 v3.2.0
 ------
 * Fixed editing rect size when clear button is present to no overlap [#148](https://github.com/Skyscanner/SkyFloatingLabelTextField/pull/148)

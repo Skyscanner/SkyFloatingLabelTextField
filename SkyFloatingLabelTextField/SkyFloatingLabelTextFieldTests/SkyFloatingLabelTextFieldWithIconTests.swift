@@ -65,7 +65,16 @@ class SkyFloatingLabelTextFieldWithIconTests: XCTestCase {
         // then
         XCTAssertEqual(floatingLabelTextFieldWithIcon.iconLabel.textColor, customColor)
     }
-
+    
+    func test_whenSettingDisabledColor_withTextFieldBeingDisabled_thenColorAppliedToIconLabel() {
+        // when
+        floatingLabelTextFieldWithIcon.disabledColor = customColor
+        floatingLabelTextFieldWithIcon.isEnabled = false
+        
+        // then
+        XCTAssertEqual(floatingLabelTextFieldWithIcon.iconLabel.textColor, customColor)
+    }
+    
     func test_whenSettingSelectedIconColor_withTextFieldBeingSelected_thenColorAppliedToIconLabel() {
         // when
         floatingLabelTextFieldWithIcon.selectedIconColor = customColor

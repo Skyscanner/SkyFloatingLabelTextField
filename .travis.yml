@@ -6,8 +6,8 @@ branches:
 
 xcode_project: SkyFloatingLabelTextField/SkyFloatingLabelTextField.xcodeproj
 xcode_scheme: SkyFloatingLabelTextField
-osx_image: xcode8.3
-xcode_sdk: iphonesimulator10.1
+osx_image: xcode9
+xcode_sdk: iphonesimulator11.1
 
 before_install:
     - gem install specific_install

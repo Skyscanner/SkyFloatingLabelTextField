@@ -25,7 +25,8 @@ class CustomizingColorsViewController: UIViewController {
     @IBOutlet weak var errorColorControl: UISegmentedControl?
 
     @IBOutlet var addErrorButton: UIButton?
-
+    @IBOutlet var enableButton: UIButton?
+    
     // MARK: - view lifecycle
 
     override func viewDidLoad() {
@@ -34,7 +35,14 @@ class CustomizingColorsViewController: UIViewController {
         // NOTE: For emojis to appear properly we need to set the color to white
         // http://stackoverflow.com/a/38195951
 
-        let attributes: [String: Any] = [NSForegroundColorAttributeName: UIColor.white]
+        var attributes: [String: Any] = [:]
+
+        #if swift(>=4.0)
+            attributes = [NSAttributedStringKey.foregroundColor.rawValue: UIColor.white]
+        #else
+            attributes = [NSForegroundColorAttributeName: UIColor.white]
+        #endif
+
         selectedTitleColorControl?.setTitleTextAttributes(attributes, for: .selected)
         titleColorControl?.setTitleTextAttributes(attributes, for: .selected)
         textColorControl?.setTitleTextAttributes(attributes, for: .selected)
@@ -78,6 +86,29 @@ class CustomizingColorsViewController: UIViewController {
         }
     }
 
+    @IBAction func toggleEnable(_ sender: Any) {
+        if let textField = textField {
+            textField.isEnabled = !textField.isEnabled
+            if textField.isEnabled {
+                enableButton?.setTitle(
+                    NSLocalizedString(
+                        "Enable text field",
+                        tableName: "SkyFloatingLabelTextField",
+                        comment: "enable button title"
+                    ),
+                    for: .normal)
+            } else {
+                enableButton?.setTitle(
+                    NSLocalizedString(
+                        "Disable text field",
+                        tableName: "SkyFloatingLabelTextField",
+                        comment: "enable button title"
+                    ),
+                    for: .normal)
+            }
+        }
+    }
+    
     @IBAction func resignTextField() {
         textField?.resignFirstResponder()
     }
@@ -112,6 +143,10 @@ class CustomizingColorsViewController: UIViewController {
             colorForSegmentIndex(segmentIndex: segmentedControl.selectedSegmentIndex)
     }
 
+    @IBAction func disabledColorChanged(_ segmentedControl: UISegmentedControl) {
+        textField?.disabledColor =
+            colorForSegmentIndex(segmentIndex: segmentedControl.selectedSegmentIndex)
+    }
     // MARK: helper
 
     func colorForSegmentIndex(segmentIndex: Int) -> UIColor {
