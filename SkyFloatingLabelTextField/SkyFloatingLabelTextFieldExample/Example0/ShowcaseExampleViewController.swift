@@ -79,7 +79,7 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
 
         applySkyscannerThemeWithIcon(textField: arrivalCityField)
         arrivalCityField.iconWidth = 12.5 // Control the size of the image
-        
+
         if isLTRLanguage {
             arrivalCityField.iconRotationDegrees = 90
         } else { // In RTL languages the plane should point to the other side

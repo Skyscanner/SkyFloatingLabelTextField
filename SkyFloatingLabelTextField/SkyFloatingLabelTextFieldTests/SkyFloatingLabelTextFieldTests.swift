@@ -146,14 +146,14 @@ class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this typ
         // then
         XCTAssertEqual(floatingLabelTextField.titleLabel.textColor, self.customColor)
     }
-  
+
     func test_whenSettingDisabledColor_withTextFieldBeingEnabled_thenTitleLabelTextColorIsNotChangedToThisColor() {
         // given
         floatingLabelTextField.isEnabled = true
-        
+
         // when
         floatingLabelTextField.disabledColor = self.customColor
-        
+
         // then
         XCTAssertNotEqual(floatingLabelTextField.titleLabel.textColor, self.customColor)
     }
@@ -164,10 +164,10 @@ class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this typ
         floatingLabelTextField.placeholder = "test"
         var fullRange =
             NSRange(location: 0, length: floatingLabelTextField.placeholder!.characters.count)
-        
+
         // when
         floatingLabelTextField.disabledColor = self.customColor
-        
+
         // then
         #if swift(>=4.0)
             XCTAssertNotEqual(
@@ -189,25 +189,25 @@ class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this typ
     func test_whenSettingDisabledColor_withTextFieldBeingEnabled_thenLineViewBackgroundColorIsNotChangedToThisColor() {
         // given
         floatingLabelTextField.isEnabled = true
-        
+
         // when
         floatingLabelTextField.disabledColor = self.customColor
-        
+
         // then
         XCTAssertNotEqual(floatingLabelTextField.lineView.backgroundColor, self.customColor)
     }
-    
+
     func test_whenSettingDisabledColor_withTextFieldBeingDisabled_thenTitleLabelTextColorIsChangedToThisColor() {
         // given
         floatingLabelTextField.isEnabled = false
-        
+
         // when
         floatingLabelTextField.disabledColor = self.customColor
-        
+
         // then
         XCTAssertEqual(floatingLabelTextField.titleLabel.textColor, self.customColor)
     }
-    
+
     func test_whenSettingDisabledColor_withTextFieldBeingDisabled_thenPlaceholderColorIsChangedToThisColor() {
         // given
         floatingLabelTextField.isEnabled = false
@@ -217,7 +217,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this typ
 
         // when
         floatingLabelTextField.disabledColor = self.customColor
-        
+
         // then
         #if swift(>=4.0)
             XCTAssertEqual(
@@ -235,18 +235,18 @@ class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this typ
             )
         #endif
     }
-    
+
     func test_whenSettingDisabledColor_withTextFieldBeingDisabled_thenLineViewBackgroundColorIsChangedToThisColor() {
         // given
         floatingLabelTextField.isEnabled = false
-        
+
         // when
         floatingLabelTextField.disabledColor = self.customColor
-        
+
         // then
         XCTAssertEqual(floatingLabelTextField.lineView.backgroundColor, self.customColor)
     }
-    
+
     // MARK: - fonts
 
     func test_whenSettingPlaceholderFont_thenAttributedPlaceholderTextIsSet_withFont() {

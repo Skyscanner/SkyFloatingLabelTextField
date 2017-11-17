@@ -26,7 +26,7 @@ class CustomizingColorsViewController: UIViewController {
 
     @IBOutlet var addErrorButton: UIButton?
     @IBOutlet var enableButton: UIButton?
-    
+
     // MARK: - view lifecycle
 
     override func viewDidLoad() {
@@ -108,7 +108,7 @@ class CustomizingColorsViewController: UIViewController {
             }
         }
     }
-    
+
     @IBAction func resignTextField() {
         textField?.resignFirstResponder()
     }
