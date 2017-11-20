@@ -27,7 +27,7 @@ public enum IconType: Int {
 open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
 
     @IBInspectable
-    var iconTypeValue: Int { // swiftlint:disable:this identifier_name
+    var iconTypeValue: Int {
         get {
             return self.iconType.rawValue
         }
