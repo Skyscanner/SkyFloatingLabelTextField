@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hHc-fl-Wyp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hHc-fl-Wyp">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -503,14 +503,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Osc-Na-BFz" customClass="ThemedTextField" customModule="SkyFloatingLabelTextFieldExample" customModuleProvider="target">
-                                <rect key="frame" x="70" y="104" width="260" height="44"/>
+                                <rect key="frame" x="70" y="84" width="260" height="44"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Placeholder"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nJD-aY-w9P">
-                                <rect key="frame" x="168" y="222" width="65" height="30"/>
+                                <rect key="frame" x="168" y="202" width="65" height="30"/>
                                 <state key="normal" title="Add error"/>
                                 <connections>
                                     <action selector="addError" destination="ieH-5F-man" eventType="touchUpInside" id="V8o-Ai-S8E"/>
@@ -519,7 +519,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JW4-8k-7cH">
-                                <rect key="frame" x="125" y="188" width="151" height="30"/>
+                                <rect key="frame" x="125" y="168" width="151" height="30"/>
                                 <state key="normal" title="Resign first responder"/>
                                 <connections>
                                     <action selector="resignTextField" destination="G0q-zq-dep" eventType="touchUpInside" id="0vQ-13-HhG"/>
@@ -559,11 +559,11 @@
                         <viewControllerLayoutGuide type="bottom" id="zCR-18-dT0"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="y9M-9v-Vlb">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aQ4-29-KTa" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextFieldExample" customModuleProvider="target">
-                                <rect key="frame" x="66" y="84" width="243" height="43"/>
+                                <rect key="frame" x="70" y="84" width="260" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43" id="ipw-ng-kym"/>
                                 </constraints>
@@ -575,7 +575,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tWa-S9-gch" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextFieldExample" customModuleProvider="target">
-                                <rect key="frame" x="66" y="147" width="243" height="43"/>
+                                <rect key="frame" x="70" y="147" width="260" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43" id="k6T-Mu-DEn"/>
                                 </constraints>
@@ -587,7 +587,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="svg-QJ-UMa">
-                                <rect key="frame" x="155" y="252" width="65" height="30"/>
+                                <rect key="frame" x="167.5" y="252" width="65" height="30"/>
                                 <state key="normal" title="Add error"/>
                                 <connections>
                                     <action selector="addError" destination="G0q-zq-dep" eventType="touchUpInside" id="Yfx-UQ-1Hf"/>
@@ -597,7 +597,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="71p-IK-W4j">
-                                <rect key="frame" x="112" y="214" width="151" height="30"/>
+                                <rect key="frame" x="124.5" y="214" width="151" height="30"/>
                                 <state key="normal" title="Resign first responder"/>
                                 <connections>
                                     <action selector="resignFirstResponder:" destination="yz5-rC-Z5c" eventType="touchUpInside" id="UuU-GU-wKH"/>
@@ -607,7 +607,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F53-Tb-OwE">
-                                <rect key="frame" x="50" y="307" width="275" height="150.5"/>
+                                <rect key="frame" x="50" y="307" width="300" height="134"/>
                                 <string key="text">You can define styles globally via UIAppearance. The styles applied to this example can be found in the AppDelegate. Please note that for the purpose of this demo, only iOS 9+ is supported. This way, styles can be restricted to this view controller. Other than that, global appearance settings are also available for iOS 8+</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -804,11 +804,11 @@ In this example an icon label is added and placeholder label and textfield are p
                                         <rect key="frame" x="0.0" y="289" width="400" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9Ic-jU-0kD" id="n5V-PH-Xpt">
-                                            <rect key="frame" x="0.0" y="0.0" width="367" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="362" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Setting text properties" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HdC-wj-sIC">
-                                                    <rect key="frame" x="18" y="11" width="172" height="21"/>
+                                                    <rect key="frame" x="30" y="11" width="172" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -828,11 +828,11 @@ In this example an icon label is added and placeholder label and textfield are p
                                         <rect key="frame" x="0.0" y="333" width="400" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Y6b-WS-83A" id="nF8-7o-rtc">
-                                            <rect key="frame" x="0.0" y="0.0" width="367" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="362" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Customizing colors" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jCk-47-jKB">
-                                                    <rect key="frame" x="18" y="11" width="147" height="21"/>
+                                                    <rect key="frame" x="30" y="11" width="147" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -852,11 +852,11 @@ In this example an icon label is added and placeholder label and textfield are p
                                         <rect key="frame" x="0.0" y="377" width="400" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rOq-H4-quk" id="hT2-6u-XHh">
-                                            <rect key="frame" x="0.0" y="0.0" width="367" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="362" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Theming by subclassing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="09e-P3-DiE">
-                                                    <rect key="frame" x="18" y="11" width="185" height="21"/>
+                                                    <rect key="frame" x="30" y="11" width="185" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -876,11 +876,11 @@ In this example an icon label is added and placeholder label and textfield are p
                                         <rect key="frame" x="0.0" y="421" width="400" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8WT-hs-Q8B" id="yRp-Wf-Xvd">
-                                            <rect key="frame" x="0.0" y="0.0" width="367" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="362" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Theming with UIAppearance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="14L-ND-bS0">
-                                                    <rect key="frame" x="18" y="11" width="217" height="21"/>
+                                                    <rect key="frame" x="30" y="11" width="217" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -900,11 +900,11 @@ In this example an icon label is added and placeholder label and textfield are p
                                         <rect key="frame" x="0.0" y="465" width="400" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8oo-Gf-1XP" id="381-SW-Nym">
-                                            <rect key="frame" x="0.0" y="0.0" width="367" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="362" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Custom layout by subclassing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qSH-5l-bpY">
-                                                    <rect key="frame" x="18" y="11" width="228" height="21"/>
+                                                    <rect key="frame" x="30" y="11" width="228" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -924,11 +924,11 @@ In this example an icon label is added and placeholder label and textfield are p
                                         <rect key="frame" x="0.0" y="509" width="400" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RAK-ye-rqX" id="Lst-at-xEK">
-                                            <rect key="frame" x="0.0" y="0.0" width="367" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="362" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Using delegate methods" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="evz-m8-4qe">
-                                                    <rect key="frame" x="18" y="11" width="187" height="21"/>
+                                                    <rect key="frame" x="30" y="11" width="187" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>

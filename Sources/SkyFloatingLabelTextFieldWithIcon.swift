@@ -12,9 +12,49 @@
 import UIKit
 
 /**
+ Identify the type of icon. 
+    - font: Set your icon by setting the font of iconLabel
+    - image: Set your icon by setting the image of iconImageView
+ */
+public enum IconType: Int {
+    case font
+    case image
+}
+
+/**
  A beautiful and flexible textfield implementation with support for icon, title label, error message and placeholder.
  */
 open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
+
+    @IBInspectable
+    var iconTypeValue: Int {
+        get {
+            return self.iconType.rawValue
+        }
+
+        set(iconIndex) {
+            self.iconType = IconType(rawValue: iconIndex) ?? .font
+        }
+    }
+
+    open var iconType: IconType = .font {
+        didSet {
+            updateIconViewHiddenState()
+        }
+    }
+
+    /// A UIImageView value that identifies the view used to display the icon
+    open var iconImageView: UIImageView!
+
+    /// A UIImage value that determines the image that the icon is using
+    @IBInspectable
+    dynamic open var iconImage: UIImage? {
+        didSet {
+            // Show a warning if setting an image while the iconType is IconType.font
+            if self.iconType == .font { NSLog("WARNING - Did set iconImage when the iconType is set to IconType.font. The image will not be displayed.") } // swiftlint:disable:this line_length
+            iconImageView?.image = iconImage
+        }
+    }
 
     /// A UILabel value that identifies the label used to display the icon
     open var iconLabel: UILabel!
@@ -30,6 +70,8 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     @IBInspectable
     open var iconText: String? {
         didSet {
+            // Show a warning if setting an icon text while the iconType is IconType.image
+            if self.iconType == .image { NSLog("WARNING - Did set iconText when the iconType is set to IconType.image. The icon with the specified text will not be displayed.") } // swiftlint:disable:this line_length
             iconLabel?.text = iconText
         }
     }
@@ -88,10 +130,21 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     open var iconRotationDegrees: Double = 0 {
         didSet {
             iconLabel.transform = CGAffineTransform(rotationAngle: CGFloat(iconRotationDegrees * .pi / 180.0))
+            iconImageView.transform = CGAffineTransform(rotationAngle: CGFloat(iconRotationDegrees * .pi / 180.0))
         }
     }
 
     // MARK: Initializers
+
+    /**
+     Initializes the control
+     - parameter type the type of icon
+     */
+    convenience public init(frame: CGRect, iconType: IconType) {
+        self.init(frame: frame)
+        self.iconType = iconType
+        updateIconViewHiddenState()
+    }
 
     /**
     Initializes the control
@@ -99,7 +152,8 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     */
     override public init(frame: CGRect) {
         super.init(frame: frame)
-        createIconLabel()
+        createIcon()
+        updateIconViewHiddenState()
     }
 
     /**
@@ -108,7 +162,16 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
      */
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        createIcon()
+        updateIconViewHiddenState()
+    }
+
+    // MARK: Creating the icon
+
+    /// Creates the both icon label and icon image view
+    fileprivate func createIcon() {
         createIconLabel()
+        createIconImageView()
     }
 
     // MARK: Creating the icon label
@@ -121,8 +184,33 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
         iconLabel.autoresizingMask = [.flexibleTopMargin, .flexibleRightMargin]
         self.iconLabel = iconLabel
         addSubview(iconLabel)
-
         updateIconLabelColor()
+    }
+
+    // MARK: Creating the icon image view
+
+    /// Creates the icon image view
+    fileprivate func createIconImageView() {
+        let iconImageView = UIImageView()
+        iconImageView.backgroundColor = .clear
+        iconImageView.contentMode = .scaleAspectFit
+        iconImageView.autoresizingMask = [.flexibleTopMargin, .flexibleRightMargin]
+        self.iconImageView = iconImageView
+        addSubview(iconImageView)
+    }
+
+    // MARK: Set icon hidden property
+
+    /// Shows the corresponding icon depending on iconType property
+    fileprivate func updateIconViewHiddenState() {
+        switch iconType {
+        case .font:
+            self.iconLabel.isHidden = false
+            self.iconImageView.isHidden = true
+        case .image:
+            self.iconLabel.isHidden = true
+            self.iconImageView.isHidden = false
+        }
     }
 
     // MARK: Handling the icon color
@@ -210,8 +298,20 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
                 width: iconWidth,
                 height: textHeight()
             )
+            iconImageView.frame = CGRect(
+                x: 0,
+                y: bounds.size.height - textHeight() - iconMarginBottom,
+                width: iconWidth,
+                height: textHeight()
+            )
         } else {
             iconLabel.frame = CGRect(
+                x: textWidth - iconWidth,
+                y: bounds.size.height - textHeight() - iconMarginBottom,
+                width: iconWidth,
+                height: textHeight()
+            )
+            iconImageView.frame = CGRect(
                 x: textWidth - iconWidth,
                 y: bounds.size.height - textHeight() - iconMarginBottom,
                 width: iconWidth,

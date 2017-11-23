@@ -41,6 +41,14 @@ class SkyFloatingLabelTextFieldWithIconTests: XCTestCase {
         XCTAssertEqual(floatingLabelTextFieldWithIcon.iconLabel.text, "customIconText")
     }
 
+    func test_whenSettingIconImage_thenImageAppliedToIconImageView() {
+        // when
+        floatingLabelTextFieldWithIcon.iconImage = #imageLiteral(resourceName: "SkyScannerIcon")
+
+        // then
+        XCTAssertEqual(floatingLabelTextFieldWithIcon.iconImageView.image, #imageLiteral(resourceName: "SkyScannerIcon"))
+    }
+
     func test_whenSettingIconColor_thenColorAppliedToIconLabel() {
         // when
         floatingLabelTextFieldWithIcon.iconColor = customColor
@@ -57,16 +65,16 @@ class SkyFloatingLabelTextFieldWithIconTests: XCTestCase {
         // then
         XCTAssertEqual(floatingLabelTextFieldWithIcon.iconLabel.textColor, customColor)
     }
-    
+
     func test_whenSettingDisabledColor_withTextFieldBeingDisabled_thenColorAppliedToIconLabel() {
         // when
         floatingLabelTextFieldWithIcon.disabledColor = customColor
         floatingLabelTextFieldWithIcon.isEnabled = false
-        
+
         // then
         XCTAssertEqual(floatingLabelTextFieldWithIcon.iconLabel.textColor, customColor)
     }
-    
+
     func test_whenSettingSelectedIconColor_withTextFieldBeingSelected_thenColorAppliedToIconLabel() {
         // when
         floatingLabelTextFieldWithIcon.selectedIconColor = customColor
@@ -100,9 +108,23 @@ class SkyFloatingLabelTextFieldWithIconTests: XCTestCase {
         XCTAssertEqual(floatingLabelTextFieldWithIcon.iconLabel.transform.ty, expectedTransform.ty)
     }
 
+    func test_whenSettingIconRotationDegrees_thenRotationAppliedToIconImageView() {
+        // when
+        floatingLabelTextFieldWithIcon.iconRotationDegrees = 45
+
+        // then
+        let expectedTransform = CGAffineTransform(rotationAngle: CGFloat(45.0 * .pi / 180.0))
+        XCTAssertEqual(floatingLabelTextFieldWithIcon.iconImageView.transform.a, expectedTransform.a)
+        XCTAssertEqual(floatingLabelTextFieldWithIcon.iconImageView.transform.b, expectedTransform.b)
+        XCTAssertEqual(floatingLabelTextFieldWithIcon.iconImageView.transform.c, expectedTransform.c)
+        XCTAssertEqual(floatingLabelTextFieldWithIcon.iconImageView.transform.d, expectedTransform.d)
+        XCTAssertEqual(floatingLabelTextFieldWithIcon.iconImageView.transform.tx, expectedTransform.tx)
+        XCTAssertEqual(floatingLabelTextFieldWithIcon.iconImageView.transform.ty, expectedTransform.ty)
+    }
+
     // MARK: - Init
 
-    func test_whenIntiializingWithCoder_thenIconLabelIsCreated() {
+    func test_whenInitializingWithCoder_thenIconLabelIsCreated() {
         // given
         let data = NSMutableData()
         let archiver = NSKeyedArchiver(forWritingWith: data)
@@ -114,6 +136,70 @@ class SkyFloatingLabelTextFieldWithIconTests: XCTestCase {
 
         // then
         XCTAssertNotNil(floatingLabelTextFieldWithIcon.iconLabel)
+    }
+
+    func test_whenInitializingWithCoder_thenIconImageViewIsCreated() {
+        // given
+        let data = NSMutableData()
+        let archiver = NSKeyedArchiver(forWritingWith: data)
+        archiver.finishEncoding()
+        let coder = NSKeyedUnarchiver(forReadingWith: data as Data)
+
+        // when
+        floatingLabelTextFieldWithIcon = SkyFloatingLabelTextFieldWithIcon(coder: coder)
+
+        // then
+        XCTAssertNotNil(floatingLabelTextFieldWithIcon.iconImageView)
+    }
+
+    func test_whenInitializingWithCoder_thenSelectedIconTypeIsPresented() {
+        // given
+        let data = NSMutableData()
+        let archiver = NSKeyedArchiver(forWritingWith: data)
+        archiver.finishEncoding()
+        let coder = NSKeyedUnarchiver(forReadingWith: data as Data)
+
+        // when
+        floatingLabelTextFieldWithIcon = SkyFloatingLabelTextFieldWithIcon(coder: coder)
+
+        // then
+        let iconLabelIsHidden = floatingLabelTextFieldWithIcon.iconLabel.isHidden
+        let iconImageViewIsHidden = floatingLabelTextFieldWithIcon.iconImageView.isHidden
+
+        switch floatingLabelTextFieldWithIcon.iconType {
+        case .font:
+            XCTAssertTrue(!iconLabelIsHidden && iconImageViewIsHidden)
+        case .image:
+            XCTAssertTrue(iconLabelIsHidden && !iconImageViewIsHidden)
+        }
+    }
+
+    func test_whenInitializingWithIconTypeAsFont_thenIconLabelIsPresented() {
+        // given
+        let frame = CGRect(x: 0, y: 0, width: 200, height: 50)
+
+        // when
+        floatingLabelTextFieldWithIcon = SkyFloatingLabelTextFieldWithIcon(frame: frame, iconType: .font)
+
+        // then
+        let iconLabelIsHidden = floatingLabelTextFieldWithIcon.iconLabel.isHidden
+        let iconImageViewIsHidden = floatingLabelTextFieldWithIcon.iconImageView.isHidden
+
+        XCTAssertTrue(!iconLabelIsHidden && iconImageViewIsHidden)
+    }
+
+    func test_whenInitializingWithIconTypeAsImage_thenIconImageViewIsPresented() {
+        // given
+        let frame = CGRect(x: 0, y: 0, width: 200, height: 50)
+
+        // when
+        floatingLabelTextFieldWithIcon = SkyFloatingLabelTextFieldWithIcon(frame: frame, iconType: .image)
+
+        // then
+        let iconLabelIsHidden = floatingLabelTextFieldWithIcon.iconLabel.isHidden
+        let iconImageViewIsHidden = floatingLabelTextFieldWithIcon.iconImageView.isHidden
+
+        XCTAssertTrue(iconLabelIsHidden && !iconImageViewIsHidden)
     }
 
     // MARK: - Layout overrides
@@ -223,6 +309,18 @@ class SkyFloatingLabelTextFieldWithIconTests: XCTestCase {
         XCTAssertNotEqual(floatingLabelTextFieldWithIcon.iconLabel.frame.height, 0)
     }
 
+    func test_whenInvokingLayoutSubviews_thenUpdatesIconImageViewFrame() {
+        // given
+        floatingLabelTextFieldWithIcon.iconImageView.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
+        XCTAssertEqual(floatingLabelTextFieldWithIcon.iconImageView.frame.height, 0)
+
+        // when
+        floatingLabelTextFieldWithIcon.layoutSubviews()
+
+        // then
+        XCTAssertNotEqual(floatingLabelTextFieldWithIcon.iconLabel.frame.height, 0)
+    }
+
     func test_whenInvokingLayoutSubviews_withNonRTLLanguage_thenUpdatesIconLabelFrame() {
         // given
         floatingLabelTextFieldWithIcon.iconLabel.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
@@ -234,5 +332,18 @@ class SkyFloatingLabelTextFieldWithIconTests: XCTestCase {
 
         // then
         XCTAssertNotEqual(floatingLabelTextFieldWithIcon.iconLabel.frame.height, 0)
+    }
+
+    func test_whenInvokingLayoutSubviews_withNonRTLLanguage_thenUpdatesIconImageViewFrame() {
+        // given
+        floatingLabelTextFieldWithIcon.iconImageView.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
+        XCTAssertEqual(floatingLabelTextFieldWithIcon.iconImageView.frame.height, 0)
+        floatingLabelTextFieldWithIcon.isLTRLanguage = false
+
+        // when
+        floatingLabelTextFieldWithIcon.layoutSubviews()
+
+        // then
+        XCTAssertNotEqual(floatingLabelTextFieldWithIcon.iconImageView.frame.height, 0)
     }
 }

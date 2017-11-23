@@ -1,6 +1,10 @@
 Master
 ------
 
+v3.4.0
+------
+
+* Added support for using an image as icon. Big thanks to [PedroAnibarro1](https://github.com/pedroanibarro1).
 
 v3.3.0
 ------

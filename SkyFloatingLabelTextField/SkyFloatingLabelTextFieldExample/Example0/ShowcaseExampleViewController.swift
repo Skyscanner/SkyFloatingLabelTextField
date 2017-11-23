@@ -78,6 +78,7 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
         )
 
         applySkyscannerThemeWithIcon(textField: arrivalCityField)
+        arrivalCityField.iconWidth = 12.5 // Control the size of the image
 
         if isLTRLanguage {
             arrivalCityField.iconRotationDegrees = 90
@@ -86,7 +87,8 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
             departureCityField.iconRotationDegrees = 270
         }
 
-        arrivalCityField.iconText = "\u{f072}"
+        arrivalCityField.iconType = .image
+        arrivalCityField.iconImage = #imageLiteral(resourceName: "PlaneIcon")
 
         arrivalCityField.placeholder = NSLocalizedString(
             "Arrival City",
