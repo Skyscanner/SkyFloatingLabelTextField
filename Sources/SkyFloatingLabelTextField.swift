@@ -25,6 +25,10 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
            updateTextAligment()
         }
     }
+    
+    class var flwBlushFive: UIColor {
+        return UIColor(red: 243.0 / 255.0, green: 145.0 / 255.0, blue: 122.0 / 255.0, alpha: 1.0)
+    }
 
     fileprivate func updateTextAligment() {
         if isLTRLanguage {
@@ -60,7 +64,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
     }
 
     /// A UIColor value that determines text color of the placeholder label
-    @IBInspectable dynamic open var placeholderColor: UIColor = UIColor.lightGray {
+    @IBInspectable dynamic open var placeholderColor: UIColor = flwBlushFive {
         didSet {
             updatePlaceholder()
         }
@@ -83,14 +87,14 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
     }
 
     /// A UIFont value that determines the text font of the title label
-    dynamic open var titleFont: UIFont = .systemFont(ofSize: 13) {
+    dynamic open var titleFont: UIFont = .systemFont(ofSize: 12) {
         didSet {
             updateTitleLabel()
         }
     }
 
     /// A UIColor value that determines the text color of the title label when in the normal state
-    @IBInspectable dynamic open var titleColor: UIColor = .gray {
+    @IBInspectable dynamic open var titleColor: UIColor = flwBlushFive {
         didSet {
             updateTitleColor()
         }
@@ -111,7 +115,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
     }
 
     /// A UIColor value that determines the text color of the title label when editing
-    @IBInspectable dynamic open var selectedTitleColor: UIColor = .blue {
+    @IBInspectable dynamic open var selectedTitleColor: UIColor = flwBlushFive {
         didSet {
             updateTitleColor()
         }
