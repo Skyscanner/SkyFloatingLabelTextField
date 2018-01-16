@@ -67,6 +67,7 @@ textField2.selectedLineColor = overcastBlueColor
 
 textField2.lineHeight = 1.0 // bottom line height in points
 textField2.selectedLineHeight = 2.0
+self.view.addSubview(textField2)
 ```
 
 ### Icons and fonts
