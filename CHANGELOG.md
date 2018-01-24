@@ -1,6 +1,11 @@
 Master
 ------
 
+v3.4.1
+------
+
+* Added support for different colors for line, title, text when error is set.
+
 v3.4.0
 ------
 
