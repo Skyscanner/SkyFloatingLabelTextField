@@ -9,5 +9,5 @@ xcode_scheme: SkyFloatingLabelTextField
 osx_image: xcode9
 xcode_sdk: iphonesimulator11.2
 script:
-  - bundle exec ci
+  - bundle exec rake ci
 
