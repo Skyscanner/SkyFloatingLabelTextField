@@ -45,7 +45,7 @@ end
 task ci: [:lint, :test]
 
 # task release: :test do
-task :release do
+task release: :ci do
   abort red 'Must be on master branch' unless current_branch == 'master'
   abort red 'Must have push access to SKYFloatingLabelTextField on CocoaPods trunk' unless has_trunk_push
 
@@ -85,13 +85,13 @@ task :release do
   abort red "No entry for version #{version_string} in CHANGELOG.md" unless has_changelog_entry
 
   puts "Comitting, tagging, and pushing"
-  # message = "[Release] Version #{version_string}"
-  # sh "git commit -am '#{message}'"
-  # sh "git tag v#{version_string} -m '#{message}'"
-  # sh "git push  --follow-tags"
+  message = "[Release] Version #{version_string}"
+  sh "git commit -am '#{message}'"
+  sh "git tag v#{version_string} -m '#{message}'"
+  sh "git push  --follow-tags"
 
-  # puts "Pushing to CocoaPods trunk."
-  # sh "bundle exec pod trunk push #{PODSPEC}"
+  puts "Pushing to CocoaPods trunk."
+  sh "bundle exec pod trunk push #{PODSPEC}"
 
   puts green("🎉 All went well. Version #{version_string} published.")
 end
