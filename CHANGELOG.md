@@ -1,6 +1,11 @@
 Master
 ------
 
+v.3.4.1
+-------
+
+* Use `localizedUppercase` for `titleFormatter` by default when available. Thanks to [canaksoy](https://github.com/canaksoy).
+
 v3.4.0
 ------
 
