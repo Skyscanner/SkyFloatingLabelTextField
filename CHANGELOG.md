@@ -1,6 +1,8 @@
 Master
 ------
 
+* Marked `isLTRLanguage` with `@objc` so it can be set from Objective-C code [#200](https://github.com/Skyscanner/SkyFloatingLabelTextField/pull/200). 
+
 v.3.4.1
 -------
 
