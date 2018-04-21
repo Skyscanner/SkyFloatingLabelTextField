@@ -821,6 +821,48 @@ class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this typ
         XCTAssertEqual(size.height, floatingLabelTextField.titleHeight() + floatingLabelTextField.textHeight())
     }
 
+    // MARK: updateTextAligment()
+
+    func test_whenTextAligmentIsNatural_thenSetIsLTRLanguageToFalse() {
+        // given
+        floatingLabelTextField.textAlignment = .natural
+        XCTAssertEqual(floatingLabelTextField.textAlignment, .natural)
+
+        // when
+         floatingLabelTextField.isLTRLanguage = false
+
+        // then
+        XCTAssertEqual(floatingLabelTextField.textAlignment, .right)
+
+    }
+
+    func test_whenTextAligmentIsCentered() {
+        // given
+        floatingLabelTextField.textAlignment = .center
+        XCTAssertEqual(floatingLabelTextField.textAlignment, .center)
+
+        // when
+        floatingLabelTextField.isLTRLanguage = false
+
+        // then
+        XCTAssertEqual(floatingLabelTextField.textAlignment, .center)
+
+    }
+
+    func test_whenTextAligmentForcedToRight_thenChangeItToLeft() {
+        // given
+        floatingLabelTextField.textAlignment = .right
+        XCTAssertEqual(floatingLabelTextField.textAlignment, .right)
+
+        // when
+        floatingLabelTextField.isLTRLanguage = false
+
+        // then
+        XCTAssertEqual(floatingLabelTextField.textAlignment, .right)
+
+    }
+
+
     // MARK: - Helpers
 
     func failOnTimeoutAfterSeconds(_ timeout: TimeInterval) {
