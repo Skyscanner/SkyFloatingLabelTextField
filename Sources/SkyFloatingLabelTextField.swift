@@ -421,7 +421,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
         } else if hasErrorMessage {
             titleLabel.textColor = errorColor
         } else {
-            if editingOrSelected || isHighlighted {
+            if editingOrSelected {
                 titleLabel.textColor = selectedTitleColor
             } else {
                 titleLabel.textColor = titleColor
