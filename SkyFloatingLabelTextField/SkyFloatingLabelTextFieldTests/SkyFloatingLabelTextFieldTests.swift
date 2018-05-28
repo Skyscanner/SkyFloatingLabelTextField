@@ -103,6 +103,17 @@ class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this typ
         XCTAssertEqual(floatingLabelTextField.titleLabel.textColor, self.customColor)
     }
 
+    func test_whenSettingTitleErrorColor_withErrorMessageBeingSet_thenTitleLabelTextColorIsChangedToThisColor() {
+        // given
+        floatingLabelTextField.errorMessage = "test"
+        
+        // when
+        floatingLabelTextField.titleErrorColor = self.customColor
+        
+        // then
+        XCTAssertEqual(floatingLabelTextField.titleLabel.textColor, self.customColor)
+    }
+    
     func test_whenSettingErrorColor_withErrorMessageBeingEmpty_thenTitleLabelTextColorIsNotChangedToThisColor() {
         // given
         floatingLabelTextField.errorMessage = ""
@@ -114,6 +125,17 @@ class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this typ
         XCTAssertNotEqual(floatingLabelTextField.titleLabel.textColor, self.customColor)
     }
 
+    func test_whenSettingTitleErrorColor_withErrorMessageBeingEmpty_thenTitleLabelTextColorIsNotChangedToThisColor() {
+        // given
+        floatingLabelTextField.errorMessage = ""
+        
+        // when
+        floatingLabelTextField.titleErrorColor = self.customColor
+        
+        // then
+        XCTAssertNotEqual(floatingLabelTextField.titleLabel.textColor, self.customColor)
+    }
+    
     func test_whenSettingErrorColor_withErrorMessageBeingNil_thenTitleLabelTextColorIsNotChangedToThisColor() {
         // given
         floatingLabelTextField.errorMessage = nil
@@ -125,6 +147,17 @@ class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this typ
         XCTAssertNotEqual(floatingLabelTextField.titleLabel.textColor, self.customColor)
     }
 
+    func test_whenSettingTitleErrorColor_withErrorMessageBeingNil_thenTitleLabelTextColorIsNotChangedToThisColor() {
+        // given
+        floatingLabelTextField.errorMessage = nil
+        
+        // when
+        floatingLabelTextField.titleErrorColor = self.customColor
+        
+        // then
+        XCTAssertNotEqual(floatingLabelTextField.titleLabel.textColor, self.customColor)
+    }
+    
     func test_whenSettingErrorColor_withErrorMessageBeingSet_thenLineViewBackgroundColorIsChangedToThisColor() {
         // given
         floatingLabelTextField.errorMessage = "test"
@@ -136,6 +169,17 @@ class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this typ
         XCTAssertEqual(floatingLabelTextField.lineView.backgroundColor, self.customColor)
     }
 
+    func test_whenSettingLineErrorColor_withErrorMessageBeingSet_thenLineViewBackgroundColorIsChangedToThisColor() {
+        // given
+        floatingLabelTextField.errorMessage = "test"
+        
+        // when
+        floatingLabelTextField.lineErrorColor = self.customColor
+        
+        // then
+        XCTAssertEqual(floatingLabelTextField.lineView.backgroundColor, self.customColor)
+    }
+    
     func test_whenSettingSelectedTitleColor_withTextfieldBeingSelected_thenTitleLabelTextColorIsChangedToThisColor() {
         // given
         floatingLabelTextField.isSelected = true

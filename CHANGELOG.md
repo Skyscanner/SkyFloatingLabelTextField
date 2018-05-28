@@ -1,12 +1,9 @@
 Master
 ------
 
+* Added support for different colors for line, title, text when error is set.
 * Marked `isLTRLanguage` with `@objc` so it can be set from Objective-C code [#200](https://github.com/Skyscanner/SkyFloatingLabelTextField/pull/200). 
 
-v.3.4.1
--------
-
-* Use `localizedUppercase` for `titleFormatter` by default when available. Thanks to [canaksoy](https://github.com/canaksoy).
 
 v3.4.0
 ------
