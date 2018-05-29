@@ -94,6 +94,7 @@ task release: :ci do
   sh "bundle exec pod trunk push #{PODSPEC}"
 
   puts green("🎉 All went well. Version #{version_string} published.")
+  puts yellow("Don't forget to create a Github release") # TODO: Automate
 end
 
 # Helpers
