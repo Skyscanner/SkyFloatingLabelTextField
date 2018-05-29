@@ -1,6 +1,9 @@
 Master
 ------
 
+v3.5.1
+------
+
 * Prevent potential crash when `self.font` is `nil`. This might cause the component to render incorrectly, but it will not crash which is preferable. See [#186](https://github.com/Skyscanner/SkyFloatingLabelTextField/issues/186)
 
 v3.5.0
