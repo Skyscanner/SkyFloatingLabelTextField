@@ -625,7 +625,11 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
      -returns: the calculated height of the textfield. Override to size the textfield with a different height
      */
     open func textHeight() -> CGFloat {
-        return self.font!.lineHeight + 7.0
+        guard let font = self.font else {
+            return 0.0
+        }
+
+        return font.lineHeight + 7.0;
     }
 
     // MARK: - Layout
