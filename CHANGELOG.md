@@ -1,6 +1,8 @@
 Master
 ------
 
+* Fixed crash when overriding certain properties [#216](https://github.com/Skyscanner/SkyFloatingLabelTextField/pull/216). Thanks to [alextov](https://github.com/alextov).
+
 v3.5.1
 ------
 
