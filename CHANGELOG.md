@@ -2,6 +2,7 @@ Master
 ------
 
 * Fixed crash when overriding certain properties [#216](https://github.com/Skyscanner/SkyFloatingLabelTextField/pull/216). Thanks to [alextov](https://github.com/alextov).
+* Add support for Swift 4.2 [#220](https://github.com/Skyscanner/SkyFloatingLabelTextField/pull/220). Thanks to [djbe](https://github.com/djbe).
 
 v3.5.1
 ------
