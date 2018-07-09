@@ -62,7 +62,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this typ
         #if swift(>=4.0)
             XCTAssertEqual(
                 floatingLabelTextField.attributedPlaceholder!.attribute(
-                    NSAttributedStringKey.foregroundColor, at: 0, effectiveRange: &fullRange
+					NSAttributedString.Key.foregroundColor, at: 0, effectiveRange: &fullRange
                 ) as? UIColor,
                 customColor
             )
@@ -216,7 +216,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this typ
         #if swift(>=4.0)
             XCTAssertNotEqual(
                 floatingLabelTextField.attributedPlaceholder!.attribute(
-                    NSAttributedStringKey.foregroundColor, at: 0, effectiveRange: &fullRange
+					NSAttributedString.Key.foregroundColor, at: 0, effectiveRange: &fullRange
                     ) as? UIColor,
                 customColor
             )
@@ -266,7 +266,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this typ
         #if swift(>=4.0)
             XCTAssertEqual(
                 floatingLabelTextField.attributedPlaceholder!.attribute(
-                    NSAttributedStringKey.foregroundColor, at: 0, effectiveRange: &fullRange
+					NSAttributedString.Key.foregroundColor, at: 0, effectiveRange: &fullRange
                     ) as? UIColor,
                 customColor
             )
@@ -307,7 +307,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this typ
         #if swift(>=4.0)
             XCTAssertEqual(
                 floatingLabelTextField.attributedPlaceholder!.attribute(
-                    NSAttributedStringKey.font,
+					NSAttributedString.Key.font,
                     at: 0,
                     effectiveRange: &fullRange
                 ) as? UIFont,
@@ -949,4 +949,12 @@ class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this typ
             super.updateColors()
         }
     }
-} // swiftlint:disable:this file_length
+}
+
+/// Swift < 4.2 support
+#if !(swift(>=4.2))
+private extension NSAttributedString {
+    typealias Key = NSAttributedStringKey
+}
+#endif
+// swiftlint:disable:this file_length

@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(
         _ application: UIApplication,
-        didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?
+        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
 
         // MARK: - Appearance
@@ -92,3 +92,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) { }
 
 }
+
+/// Swift < 4.2 support
+#if !(swift(>=4.2))
+extension UIApplication {
+    typealias LaunchOptionsKey = UIApplicationLaunchOptionsKey
+}
+#endif
