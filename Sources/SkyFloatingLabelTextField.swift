@@ -11,6 +11,33 @@
 
 import UIKit
 
+open class DisplayLinkHelper {
+
+    private let displayLink: CADisplayLink?
+    private(set) var timeInterval: CFTimeInterval?
+
+    private let target: Any
+    private let selector: Selector
+
+    init(target: Any, selector: Selector) {
+        self.target = target
+        self.selector = selector
+
+        displayLink = CADisplayLink(target: target, selector: selector)
+        displayLink?.add(to: .main, forMode: .commonModes)
+    }
+
+    func start() {
+        timeInterval = CFAbsoluteTimeGetCurrent()
+        displayLink?.isPaused = false
+    }
+
+    func stop() {
+        timeInterval = nil
+        displayLink?.isPaused = true
+    }
+}
+
 /**
  A beautiful and flexible textfield implementation with support for title label, error message and placeholder.
  */
@@ -25,6 +52,8 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
            updateTextAligment()
         }
     }
+
+    private lazy var displayLink = DisplayLinkHelper(target: self, selector: #selector(setupTitleVisibility))
 
     fileprivate func updateTextAligment() {
         if isLTRLanguage {
@@ -522,21 +551,28 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
         return hasText || hasErrorMessage || _titleVisible
     }
 
-    fileprivate func updateTitleVisibility(_ animated: Bool = false, completion: ((_ completed: Bool) -> Void)? = nil) {
+    @objc fileprivate func setupTitleVisibility()  {
         let alpha: CGFloat = isTitleVisible() ? 1.0 : 0.0
         let frame: CGRect = titleLabelRectForBounds(bounds, editing: isTitleVisible())
-        let updateBlock = { () -> Void in
-            self.titleLabel.alpha = alpha
-            self.titleLabel.frame = frame
-        }
+
+        self.layoutIfNeeded()
+
+        self.titleLabel.alpha = alpha
+        self.titleLabel.frame = frame
+    }
+
+    fileprivate func updateTitleVisibility(_ animated: Bool = false, completion: ((_ completed: Bool) -> Void)? = nil) {
         if animated {
             let animationOptions: UIViewAnimationOptions = .curveEaseOut
             let duration = isTitleVisible() ? titleFadeInDuration : titleFadeOutDuration
             UIView.animate(withDuration: duration, delay: 0, options: animationOptions, animations: { () -> Void in
-                updateBlock()
-                }, completion: completion)
+                self.displayLink.start()
+            }, completion: { res in
+                self.displayLink.stop()
+                completion?(res)
+            })
         } else {
-            updateBlock()
+            setupTitleVisibility()
             completion?(true)
         }
     }
