@@ -219,6 +219,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
     }
 
     /// A String value for the error message to display.
+    @IBInspectable
     open var errorMessage: String? {
         didSet {
             updateControl(true)
