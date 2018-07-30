@@ -134,7 +134,7 @@ class MyViewController: UIViewController, UITextFieldDelegate {
         let textField1 = SkyFloatingLabelTextField(frame: CGRectMake(10, 10, 120, 45))
         textField1.placeholder = "Email"
         textField1.title = "Email address"
-        textField1.errorColor = UIColor.redColor()
+        textField1.errorColor = UIColor.red
         textField1.delegate = self
         self.view.addSubview(textField1)
     }
@@ -143,7 +143,7 @@ class MyViewController: UIViewController, UITextFieldDelegate {
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         if let text = textField.text {
             if let floatingLabelTextField = textField as? SkyFloatingLabelTextField {
-                if(text.characters.count < 3 || !text.containsString("@")) {
+                if(text.count < 3 || !text.contains("@")) {
                     floatingLabelTextField.errorMessage = "Invalid email"
                 }
                 else {
