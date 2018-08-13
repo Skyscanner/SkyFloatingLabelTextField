@@ -254,7 +254,7 @@ Credits for the original design, and improving it with iconography to Matt D. Sm
 
 - *Can I use it in Objective C projects?*
 
-  Of course! Please see the [Integrating-into-Objective-C-projects](#Integrating into Objective C projects) section on how to integrate the component via CocoaPods.
+  Of course! Please see the [Integrating-into-Objective-C-projects](#integrating-into-objective-c-projects) section on how to integrate the component via CocoaPods.
 
 - *Does the control work well with auto layout? What about using it programmatically?*
 
