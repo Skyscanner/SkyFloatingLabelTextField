@@ -105,3 +105,7 @@ end
 def red(string)
   "\033[0;31m#{string}\e[0m"
 end
+
+def yellow(string)
+  "\033[0;33m#{string}\e[0m"
+end
