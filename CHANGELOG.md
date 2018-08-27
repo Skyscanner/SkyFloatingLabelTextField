@@ -1,7 +1,3 @@
-------
-* Fixed animation layout issue. When user switch between fields too quick 2 placeholders was shown. Please see more details https://www.dropbox.com/s/wsknnpu17yrbzoa/SkyLabel.mov?dl=0 .
-
-
 Master
 ------
 
