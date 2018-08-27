@@ -1,6 +1,6 @@
 require 'semver'
 
-BUILD_SDK = 'iphonesimulator11.2'
+BUILD_SDK = ENV['BUILD_SDK'] || 'iphonesimulator11.2'
 EXAMPLE_PROJECT = 'SkyFloatingLabelTextField/SkyFloatingLabelTextField.xcodeproj'
 EXAMPLE_SCHEMA = 'SkyFloatingLabelTextField'
 VERSION_FORMAT = '%M.%m.%p%s%d'
