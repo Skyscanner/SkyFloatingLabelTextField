@@ -1,6 +1,9 @@
 Master
 ------
 
+v3.5.2
+------
+
 * Fixed crash when overriding certain properties [#216](https://github.com/Skyscanner/SkyFloatingLabelTextField/pull/216). Thanks to [alextov](https://github.com/alextov).
 * Expose `errorMessage` to Objective-C and Storyboard [#218](https://github.com/Skyscanner/SkyFloatingLabelTextField/pull/218). Thanks to [niveuseverto](https://github.com/niveuseverto).
 
