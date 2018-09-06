@@ -203,7 +203,7 @@ pod 'SkyFloatingLabelTextField', '~> 3.0'
 
 Lastly, let CocoaPods fetch the latest version of the component by running:
 ```shell
-$ cocoapods update
+$ pod update
 ```
 
 ##### Integrating into Objective C projects
