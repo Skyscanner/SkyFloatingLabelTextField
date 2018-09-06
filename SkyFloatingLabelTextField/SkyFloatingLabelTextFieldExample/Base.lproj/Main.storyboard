@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hHc-fl-Wyp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hHc-fl-Wyp">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -944,6 +944,30 @@ In this example an icon label is added and placeholder label and textfield are p
                                             <segue destination="gAs-mn-2iH" kind="show" id="cJM-xe-mSl"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ListCell" id="o2H-zX-N2L">
+                                        <rect key="frame" x="0.0" y="553" width="400" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o2H-zX-N2L" id="dlT-Gu-p2M">
+                                            <rect key="frame" x="0.0" y="0.0" width="362" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ZJ-Gg-dff">
+                                                    <rect key="frame" x="18" y="11" width="109.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="4ZJ-Gg-dff" firstAttribute="centerY" secondItem="dlT-Gu-p2M" secondAttribute="centerY" id="Cly-J6-rmK"/>
+                                                <constraint firstItem="4ZJ-Gg-dff" firstAttribute="leading" secondItem="dlT-Gu-p2M" secondAttribute="leadingMargin" constant="10" id="N6o-vQ-uP3"/>
+                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="4ZJ-Gg-dff" secondAttribute="trailing" constant="20" id="vf4-jK-bjW"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="OlN-IY-Y97" kind="show" id="qGw-Ff-vMp"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -959,6 +983,40 @@ In this example an icon label is added and placeholder label and textfield are p
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jua-Xt-nxl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-887" y="1483"/>
+        </scene>
+        <!--Message label-->
+        <scene sceneID="7e7-FM-ff1">
+            <objects>
+                <viewController title="Message label" id="OlN-IY-Y97" customClass="MessageViewController" customModule="SkyFloatingLabelTextFieldExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eBW-FU-Gx5"/>
+                        <viewControllerLayoutGuide type="bottom" id="tx8-sG-QK9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pr0-W4-8v1">
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vhb-2A-o4l" customClass="SkyFloatingLabelTextFieldWithMessage" customModule="SkyFloatingLabelTextFieldExample" customModuleProvider="target">
+                                <rect key="frame" x="70" y="114" width="260" height="58.5"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="message" value="test test"/>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="vhb-2A-o4l" firstAttribute="leading" secondItem="pr0-W4-8v1" secondAttribute="leadingMargin" constant="50" id="Db8-Jq-thG"/>
+                            <constraint firstItem="vhb-2A-o4l" firstAttribute="top" secondItem="eBW-FU-Gx5" secondAttribute="bottom" constant="50" id="MDp-Xd-Beq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="vhb-2A-o4l" secondAttribute="trailing" constant="50" id="QVS-VY-cYz"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ktu-OX-jaT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1138" y="2274"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="z6g-pe-JTF">
