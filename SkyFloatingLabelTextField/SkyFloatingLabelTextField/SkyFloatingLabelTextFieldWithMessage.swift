@@ -13,15 +13,26 @@ class SkyFloatingLabelTextFieldWithMessage: SkyFloatingLabelTextField {
     private var messageLabel: UILabel!
     
     @IBInspectable
-    private let topMargin: CGFloat = 5
+    var topMargin: CGFloat = 5 {
+        didSet {
+            triggerLayoutSubviews()
+        }
+    }
     
     /// The message content of the textfield
     @IBInspectable
     var message: String? {
         didSet {
             messageLabel.text = message
-            setNeedsLayout()
-            layoutIfNeeded()
+            triggerLayoutSubviews()
+        }
+    }
+    
+    @IBInspectable
+    /// A UIColor value that determines the text color of the message label
+    var messageColor: UIColor = .gray {
+        didSet {
+            messageLabel.textColor = messageColor
         }
     }
     
@@ -29,17 +40,6 @@ class SkyFloatingLabelTextFieldWithMessage: SkyFloatingLabelTextField {
     var messageFont: UIFont = .systemFont(ofSize: 12) {
         didSet {
             messageLabel.font = messageFont
-            setNeedsLayout()
-            layoutIfNeeded()
-        }
-    }
-    
-    /// A UIColor value that determines the text color of the message label
-    var messageColor: UIColor = .gray {
-        didSet {
-            messageLabel.textColor = messageColor
-            setNeedsLayout()
-            layoutIfNeeded()
         }
     }
     
@@ -86,12 +86,24 @@ class SkyFloatingLabelTextFieldWithMessage: SkyFloatingLabelTextField {
         return 0
     }
     
+    private var messageLabelHeightWithTopMargin: CGFloat {
+        return messageLabelHeight + topMargin
+    }
+    
     private var hasMessage: Bool {
         return message != nil
     }
     
-    private var messageLabelHeightWithMargin: CGFloat {
-        return messageLabelHeight + topMargin
+    private func triggerLayoutSubviews() {
+        setNeedsLayout()
+        layoutIfNeeded()
+    }
+    
+    /// Invoked by layoutIfNeeded automatically
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        messageLabel.frame = messageLabelRectForBounds(bounds)
+        invalidateIntrinsicContentSize()
     }
     
     /**
@@ -100,11 +112,12 @@ class SkyFloatingLabelTextFieldWithMessage: SkyFloatingLabelTextField {
      - returns: The rectangle that the message label should render in
      */
     private func messageLabelRectForBounds(_ bounds: CGRect) -> CGRect {
-        if !hasMessage {
-            return .zero
+        if hasMessage {
+            return CGRect(x: 0, y: bounds.size.height - messageLabelHeight,
+                          width: bounds.size.width, height: messageLabelHeight)
         }
-        return CGRect(x: 0, y: bounds.size.height - messageLabelHeight,
-                      width: bounds.size.width, height: messageLabelHeight)
+
+        return .zero
     }
     
     /**
@@ -114,7 +127,7 @@ class SkyFloatingLabelTextFieldWithMessage: SkyFloatingLabelTextField {
      */
     override func textRect(forBounds bounds: CGRect) -> CGRect {
         var rect = super.textRect(forBounds: bounds)
-        rect.size.height -= messageLabelHeightWithMargin
+        rect.size.height -= messageLabelHeightWithTopMargin
         return rect
     }
     
@@ -125,7 +138,7 @@ class SkyFloatingLabelTextFieldWithMessage: SkyFloatingLabelTextField {
      */
     override func editingRect(forBounds bounds: CGRect) -> CGRect {
         var rect = super.editingRect(forBounds: bounds)
-        rect.size.height -= messageLabelHeightWithMargin
+        rect.size.height -= messageLabelHeightWithTopMargin
         return rect
     }
     
@@ -136,7 +149,7 @@ class SkyFloatingLabelTextFieldWithMessage: SkyFloatingLabelTextField {
      */
     override func placeholderRect(forBounds bounds: CGRect) -> CGRect {
         var rect = super.placeholderRect(forBounds: bounds)
-        rect.size.height -= messageLabelHeightWithMargin
+        rect.size.height -= messageLabelHeightWithTopMargin
         return rect
     }
     
@@ -148,7 +161,7 @@ class SkyFloatingLabelTextFieldWithMessage: SkyFloatingLabelTextField {
      */
     override func lineViewRectForBounds(_ bounds: CGRect, editing: Bool) -> CGRect {
         var rect = super.lineViewRectForBounds(bounds, editing: editing)
-        rect.origin.y -= messageLabelHeightWithMargin
+        rect.origin.y -= messageLabelHeightWithTopMargin
         return rect
     }
     
@@ -158,12 +171,6 @@ class SkyFloatingLabelTextFieldWithMessage: SkyFloatingLabelTextField {
      */
     override var intrinsicContentSize: CGSize {
         return CGSize(width: super.intrinsicContentSize.width,
-                      height: super.intrinsicContentSize.height + messageLabelHeightWithMargin)
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        messageLabel.frame = messageLabelRectForBounds(bounds)
-        invalidateIntrinsicContentSize()
+                      height: super.intrinsicContentSize.height + messageLabelHeightWithTopMargin)
     }
 }

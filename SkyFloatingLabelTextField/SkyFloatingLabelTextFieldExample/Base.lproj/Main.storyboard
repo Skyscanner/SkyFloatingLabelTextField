@@ -997,22 +997,37 @@ In this example an icon label is added and placeholder label and textfield are p
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vhb-2A-o4l" customClass="SkyFloatingLabelTextFieldWithMessage" customModule="SkyFloatingLabelTextFieldExample" customModuleProvider="target">
-                                <rect key="frame" x="70" y="114" width="260" height="58.5"/>
+                                <rect key="frame" x="70" y="114" width="260" height="44"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="message" value="test test"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="messageColor">
+                                        <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Enter text"/>
                                 </userDefinedRuntimeAttributes>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eGB-TX-Qwf">
+                                <rect key="frame" x="154" y="178" width="93" height="30"/>
+                                <state key="normal" title="Add Message"/>
+                                <connections>
+                                    <action selector="addMessageClicked:" destination="OlN-IY-Y97" eventType="touchUpInside" id="v1F-h3-6hV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="eGB-TX-Qwf" firstAttribute="centerX" secondItem="pr0-W4-8v1" secondAttribute="centerX" id="7Ad-xX-St0"/>
+                            <constraint firstItem="eGB-TX-Qwf" firstAttribute="top" secondItem="vhb-2A-o4l" secondAttribute="bottom" constant="20" id="Bwz-46-msh"/>
                             <constraint firstItem="vhb-2A-o4l" firstAttribute="leading" secondItem="pr0-W4-8v1" secondAttribute="leadingMargin" constant="50" id="Db8-Jq-thG"/>
                             <constraint firstItem="vhb-2A-o4l" firstAttribute="top" secondItem="eBW-FU-Gx5" secondAttribute="bottom" constant="50" id="MDp-Xd-Beq"/>
                             <constraint firstAttribute="trailingMargin" secondItem="vhb-2A-o4l" secondAttribute="trailing" constant="50" id="QVS-VY-cYz"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="textField" destination="vhb-2A-o4l" id="W4V-Eq-mld"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ktu-OX-jaT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
