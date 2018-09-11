@@ -17,3 +17,7 @@ included:
   - Package.swift
 excluded:
 
+explicit_type_interface:
+  excluded: 
+    - local
+  severity: warning
