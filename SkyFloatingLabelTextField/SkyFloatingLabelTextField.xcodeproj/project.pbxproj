@@ -209,7 +209,10 @@
 				F547D4AD1C3BEA900075A0C2 /* SkyFloatingLabelTextFieldExample */,
 				F56289191C3BE3A20082D9A6 /* Products */,
 			);
+			indentWidth = 4;
 			sourceTree = "<group>";
+			tabWidth = 4;
+			usesTabs = 0;
 		};
 		F56289191C3BE3A20082D9A6 /* Products */ = {
 			isa = PBXGroup;
