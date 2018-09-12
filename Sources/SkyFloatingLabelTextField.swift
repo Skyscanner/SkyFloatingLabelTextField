@@ -127,21 +127,21 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
             updateColors()
         }
     }
-    
+
     /// A UIColor value that determines the color used for the text when error message is not `nil`
     @IBInspectable dynamic open var textErrorColor: UIColor? {
         didSet {
             updateColors()
         }
     }
-    
+
     /// A UIColor value that determines the color used for the title label when error message is not `nil`
     @IBInspectable dynamic open var titleErrorColor: UIColor? {
         didSet {
             updateColors()
         }
     }
-    
+
     /// A UIColor value that determines the color used for the title label and line when text field is disabled
     @IBInspectable dynamic open var disabledColor: UIColor = UIColor(white: 0.88, alpha: 1.0) {
         didSet {
@@ -478,7 +478,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
             return
         }
 
-        var titleText: String? = nil
+        var titleText: String?
         if hasErrorMessage {
             titleText = titleFormatter(errorMessage!)
         } else {
@@ -643,7 +643,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
             return 0.0
         }
 
-        return font.lineHeight + 7.0;
+        return font.lineHeight + 7.0
     }
 
     // MARK: - Layout

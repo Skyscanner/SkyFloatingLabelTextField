@@ -58,12 +58,12 @@ class SettingTextsViewController: UIViewController {
 
     @IBAction func selectedTitleChanged(_ segmentedControl: UISegmentedControl) {
         switch segmentedControl.selectedSegmentIndex {
-            case 0:
-                textField?.selectedTitle = nil
-            case 1:
-                textField?.selectedTitle = "Selected title"
-            default:
-                break
+        case 0:
+            textField?.selectedTitle = nil
+        case 1:
+            textField?.selectedTitle = "Selected title"
+        default:
+            break
         }
     }
 

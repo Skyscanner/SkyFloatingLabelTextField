@@ -399,7 +399,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
 
     fileprivate func updateTitleLabel(_ animated: Bool = false) {
 
-        var titleText: String? = nil
+        var titleText: String?
         if hasErrorMessage {
             titleText = titleFormatter(errorMessage!)
         } else {
