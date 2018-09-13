@@ -23,8 +23,7 @@ class SkyFloatingLabelTextFieldWithMessage: SkyFloatingLabelTextField {
     @IBInspectable
     var message: String? {
         didSet {
-            messageLabel.text = message
-            triggerLayoutSubviews()
+            setMessageText()
         }
     }
     
@@ -40,6 +39,13 @@ class SkyFloatingLabelTextFieldWithMessage: SkyFloatingLabelTextField {
     var messageFont: UIFont = .systemFont(ofSize: 12) {
         didSet {
             messageLabel.font = messageFont
+        }
+    }
+    
+    /// A UIFont value that determines the letter spacing of the message label
+    var messageLetterSpacing: CGFloat = 0.0 {
+        didSet {
+            setMessageText()
         }
     }
     
@@ -62,6 +68,21 @@ class SkyFloatingLabelTextFieldWithMessage: SkyFloatingLabelTextField {
         messageLabel.font = messageFont
         addSubview(messageLabel)
         self.messageLabel = messageLabel
+    }
+    
+    private func setMessageText() {
+        if let message = message {
+            #if swift(>=4.0)
+                messageLabel.attributedText = NSAttributedString(string: message,
+                        attributes: [NSAttributedStringKey.kern: messageLetterSpacing])
+            #else
+                messageLabel.attributedText = NSAttributedString(string: message,
+                                                           attributes: [NSKernAttributeName: messageLetterSpacing])
+            #endif
+        } else {
+            messageLabel.text = nil
+        }
+        triggerLayoutSubviews()
     }
     
     private var messageLabelHeight: CGFloat {
