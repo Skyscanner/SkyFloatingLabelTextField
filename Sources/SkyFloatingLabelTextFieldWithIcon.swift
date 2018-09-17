@@ -13,8 +13,8 @@ import UIKit
 
 /**
  Identify the type of icon. 
-    - font: Set your icon by setting the font of iconLabel
-    - image: Set your icon by setting the image of iconImageView
+ - font: Set your icon by setting the font of iconLabel
+ - image: Set your icon by setting the image of iconImageView
  */
 public enum IconType: Int {
     case font
@@ -25,27 +25,27 @@ public enum IconType: Int {
  A beautiful and flexible textfield implementation with support for icon, title label, error message and placeholder.
  */
 open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
-
+    
     @IBInspectable
     var iconTypeValue: Int {
         get {
             return self.iconType.rawValue
         }
-
+        
         set(iconIndex) {
             self.iconType = IconType(rawValue: iconIndex) ?? .font
         }
     }
-
+    
     open var iconType: IconType = .font {
         didSet {
             updateIconViewHiddenState()
         }
     }
-
+    
     /// A UIImageView value that identifies the view used to display the icon
     open var iconImageView: UIImageView!
-
+    
     /// A UIImage value that determines the image that the icon is using
     @IBInspectable
     dynamic open var iconImage: UIImage? {
@@ -55,17 +55,17 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
             iconImageView?.image = iconImage
         }
     }
-
+    
     /// A UILabel value that identifies the label used to display the icon
     open var iconLabel: UILabel!
-
+    
     /// A UIFont value that determines the font that the icon is using
     @objc dynamic open var iconFont: UIFont? {
         didSet {
             iconLabel?.font = iconFont
         }
     }
-
+    
     /// A String value that determines the text used when displaying the icon
     @IBInspectable
     open var iconText: String? {
@@ -75,7 +75,7 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
             iconLabel?.text = iconText
         }
     }
-
+    
     /// A UIColor value that determines the color of the icon in the normal state
     @IBInspectable
     dynamic open var iconColor: UIColor = UIColor.gray {
@@ -83,7 +83,7 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
             updateIconLabelColor()
         }
     }
-
+    
     /// A UIColor value that determines the color of the icon when the control is selected
     @IBInspectable
     dynamic open var selectedIconColor: UIColor = UIColor.gray {
@@ -91,7 +91,7 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
             updateIconLabelColor()
         }
     }
-
+    
     /// A float value that determines the width of the icon
     @IBInspectable
     dynamic open var iconWidth: CGFloat = 20 {
@@ -99,7 +99,7 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
             updateFrame()
         }
     }
-
+    
     /**
      A float value that determines the left margin of the icon. 
      Use this value to position the icon more precisely horizontally.
@@ -110,7 +110,29 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
             updateFrame()
         }
     }
-
+    
+    /**
+     A float value that determines the left margin of the icon.
+     Use this value to position the icon more precisely horizontally.
+     */
+    @IBInspectable
+    dynamic open var iconMarginRight: CGFloat = 4 {
+        didSet {
+            updateFrame()
+        }
+    }
+    
+    /**
+     A float value that determines the bottom margin of the icon.
+     Use this value to position the icon more precisely vertically.
+     */
+    @IBInspectable
+    dynamic open var iconMarginTop: CGFloat = 4 {
+        didSet {
+            updateFrame()
+        }
+    }
+    
     /**
      A float value that determines the bottom margin of the icon. 
      Use this value to position the icon more precisely vertically.
@@ -121,7 +143,7 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
             updateFrame()
         }
     }
-
+    
     /**
      A float value that determines the rotation in degrees of the icon.
      Use this value to rotate the icon in either direction.
@@ -133,9 +155,9 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
             iconImageView.transform = CGAffineTransform(rotationAngle: CGFloat(iconRotationDegrees * .pi / 180.0))
         }
     }
-
+    
     // MARK: Initializers
-
+    
     /**
      Initializes the control
      - parameter type the type of icon
@@ -145,17 +167,17 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
         self.iconType = iconType
         updateIconViewHiddenState()
     }
-
+    
     /**
-    Initializes the control
-    - parameter frame the frame of the control
-    */
+     Initializes the control
+     - parameter frame the frame of the control
+     */
     override public init(frame: CGRect) {
         super.init(frame: frame)
         createIcon()
         updateIconViewHiddenState()
     }
-
+    
     /**
      Intialzies the control by deserializing it
      - parameter coder the object to deserialize the control from
@@ -165,17 +187,17 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
         createIcon()
         updateIconViewHiddenState()
     }
-
+    
     // MARK: Creating the icon
-
+    
     /// Creates the both icon label and icon image view
     fileprivate func createIcon() {
         createIconLabel()
         createIconImageView()
     }
-
+    
     // MARK: Creating the icon label
-
+    
     /// Creates the icon label
     fileprivate func createIconLabel() {
         let iconLabel = UILabel()
@@ -186,9 +208,9 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
         addSubview(iconLabel)
         updateIconLabelColor()
     }
-
+    
     // MARK: Creating the icon image view
-
+    
     /// Creates the icon image view
     fileprivate func createIconImageView() {
         let iconImageView = UIImageView()
@@ -198,9 +220,9 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
         self.iconImageView = iconImageView
         addSubview(iconImageView)
     }
-
+    
     // MARK: Set icon hidden property
-
+    
     /// Shows the corresponding icon depending on iconType property
     fileprivate func updateIconViewHiddenState() {
         switch iconType {
@@ -212,15 +234,15 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
             self.iconImageView.isHidden = false
         }
     }
-
+    
     // MARK: Handling the icon color
-
+    
     /// Update the colors for the control. Override to customize colors.
     override open func updateColors() {
         super.updateColors()
         updateIconLabelColor()
     }
-
+    
     fileprivate func updateIconLabelColor() {
         if !isEnabled {
             iconLabel?.textColor = disabledColor
@@ -230,26 +252,26 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
             iconLabel?.textColor = editingOrSelected ? selectedIconColor : iconColor
         }
     }
-
+    
     // MARK: Custom layout overrides
-
+    
     /**
      Calculate the bounds for the textfield component of the control.
      Override to create a custom size textbox in the control.
      - parameter bounds: The current bounds of the textfield component
      - returns: The rectangle that the textfield component should render in
-    */
+     */
     override open func textRect(forBounds bounds: CGRect) -> CGRect {
         var rect = super.textRect(forBounds: bounds)
         if isLTRLanguage {
-            rect.origin.x += CGFloat(iconWidth + iconMarginLeft)
+            rect.origin.x += CGFloat(iconWidth + iconMarginLeft + iconMarginRight)
         } else {
-            rect.origin.x -= CGFloat(iconWidth + iconMarginLeft)
+            rect.origin.x -= CGFloat(iconWidth + iconMarginLeft + iconMarginRight)
         }
-        rect.size.width -= CGFloat(iconWidth + iconMarginLeft)
+        rect.size.width -= CGFloat(iconWidth + iconMarginLeft + iconMarginRight)
         return rect
     }
-
+    
     /**
      Calculate the rectangle for the textfield when it is being edited
      - parameter bounds: The current bounds of the field
@@ -258,14 +280,14 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     override open func editingRect(forBounds bounds: CGRect) -> CGRect {
         var rect = super.editingRect(forBounds: bounds)
         if isLTRLanguage {
-            rect.origin.x += CGFloat(iconWidth + iconMarginLeft)
+            rect.origin.x += CGFloat(iconWidth + iconMarginLeft + iconMarginRight)
         } else {
             // don't change the editing field X position for RTL languages
         }
-        rect.size.width -= CGFloat(iconWidth + iconMarginLeft)
+        rect.size.width -= CGFloat(iconWidth + iconMarginLeft+iconMarginRight)
         return rect
     }
-
+    
     /**
      Calculates the bounds for the placeholder component of the control. 
      Override to create a custom size textbox in the control.
@@ -275,45 +297,45 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     override open func placeholderRect(forBounds bounds: CGRect) -> CGRect {
         var rect = super.placeholderRect(forBounds: bounds)
         if isLTRLanguage {
-            rect.origin.x += CGFloat(iconWidth + iconMarginLeft)
+            rect.origin.x += CGFloat(iconWidth + iconMarginLeft+iconMarginRight)
         } else {
             // don't change the editing field X position for RTL languages
         }
-        rect.size.width -= CGFloat(iconWidth + iconMarginLeft)
+        rect.size.width -= CGFloat(iconWidth + iconMarginLeft+iconMarginRight)
         return rect
     }
-
+    
     /// Invoked by layoutIfNeeded automatically
     override open func layoutSubviews() {
         super.layoutSubviews()
         updateFrame()
     }
-
+    
     fileprivate func updateFrame() {
         let textWidth: CGFloat = bounds.size.width
         if isLTRLanguage {
             iconLabel.frame = CGRect(
-                x: 0,
-                y: bounds.size.height - textHeight() - iconMarginBottom,
+                x: 0 + iconMarginLeft + iconMarginRight,
+                y: bounds.size.height - textHeight() - iconMarginBottom - iconMarginTop,
                 width: iconWidth,
                 height: textHeight()
             )
             iconImageView.frame = CGRect(
-                x: 0,
-                y: bounds.size.height - textHeight() - iconMarginBottom,
+                x: 0 + iconMarginLeft + iconMarginRight,
+                y: bounds.size.height - textHeight() - iconMarginBottom - iconMarginTop,
                 width: iconWidth,
                 height: textHeight()
             )
         } else {
             iconLabel.frame = CGRect(
-                x: textWidth - iconWidth,
-                y: bounds.size.height - textHeight() - iconMarginBottom,
+                x: textWidth - iconWidth - (iconMarginLeft + iconMarginRight),
+                y: bounds.size.height - textHeight() - iconMarginBottom - iconMarginTop,
                 width: iconWidth,
                 height: textHeight()
             )
             iconImageView.frame = CGRect(
-                x: textWidth - iconWidth,
-                y: bounds.size.height - textHeight() - iconMarginBottom,
+                x: textWidth - iconWidth - (iconMarginLeft + iconMarginRight),
+                y: bounds.size.height - textHeight() - iconMarginBottom - iconMarginTop,
                 width: iconWidth,
                 height: textHeight()
             )
