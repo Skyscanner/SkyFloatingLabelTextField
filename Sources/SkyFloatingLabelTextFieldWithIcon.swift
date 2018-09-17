@@ -12,7 +12,7 @@
 import UIKit
 
 /**
- Identify the type of icon. 
+ Identify the type of icon.
  - font: Set your icon by setting the font of iconLabel
  - image: Set your icon by setting the image of iconImageView
  */
@@ -101,11 +101,11 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     }
     
     /**
-     A float value that determines the left margin of the icon. 
+     A float value that determines the left margin of the icon.
      Use this value to position the icon more precisely horizontally.
      */
     @IBInspectable
-    dynamic open var iconMarginLeft: CGFloat = 4 {
+    dynamic open var iconMarginLeft: CGFloat = 8 {
         didSet {
             updateFrame()
         }
@@ -116,7 +116,7 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
      Use this value to position the icon more precisely horizontally.
      */
     @IBInspectable
-    dynamic open var iconMarginRight: CGFloat = 4 {
+    dynamic open var iconMarginRight: CGFloat = 8 {
         didSet {
             updateFrame()
         }
@@ -127,14 +127,14 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
      Use this value to position the icon more precisely vertically.
      */
     @IBInspectable
-    dynamic open var iconMarginTop: CGFloat = 4 {
+    dynamic open var iconMarginTop: CGFloat = 0 {
         didSet {
             updateFrame()
         }
     }
     
     /**
-     A float value that determines the bottom margin of the icon. 
+     A float value that determines the bottom margin of the icon.
      Use this value to position the icon more precisely vertically.
      */
     @IBInspectable
@@ -289,7 +289,7 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     }
     
     /**
-     Calculates the bounds for the placeholder component of the control. 
+     Calculates the bounds for the placeholder component of the control.
      Override to create a custom size textbox in the control.
      - parameter bounds: The current bounds of the placeholder component
      - returns: The rectangle that the placeholder component should render in
@@ -315,26 +315,26 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
         let textWidth: CGFloat = bounds.size.width
         if isLTRLanguage {
             iconLabel.frame = CGRect(
-                x: 0 + iconMarginLeft + iconMarginRight,
+                x: 0 + iconMarginLeft,
                 y: bounds.size.height - textHeight() - iconMarginBottom - iconMarginTop,
                 width: iconWidth,
                 height: textHeight()
             )
             iconImageView.frame = CGRect(
-                x: 0 + iconMarginLeft + iconMarginRight,
+                x: 0 + iconMarginLeft,
                 y: bounds.size.height - textHeight() - iconMarginBottom - iconMarginTop,
                 width: iconWidth,
                 height: textHeight()
             )
         } else {
             iconLabel.frame = CGRect(
-                x: textWidth - iconWidth - (iconMarginLeft + iconMarginRight),
+                x: textWidth - iconWidth - iconMarginRight,
                 y: bounds.size.height - textHeight() - iconMarginBottom - iconMarginTop,
                 width: iconWidth,
                 height: textHeight()
             )
             iconImageView.frame = CGRect(
-                x: textWidth - iconWidth - (iconMarginLeft + iconMarginRight),
+                x: textWidth - iconWidth - iconMarginRight,
                 y: bounds.size.height - textHeight() - iconMarginBottom - iconMarginTop,
                 width: iconWidth,
                 height: textHeight()
