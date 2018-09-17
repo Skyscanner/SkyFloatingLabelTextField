@@ -112,7 +112,7 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     }
     
     /**
-     A float value that determines the left margin of the icon.
+     A float value that determines the right margin of the icon.
      Use this value to position the icon more precisely horizontally.
      */
     @IBInspectable
@@ -123,7 +123,7 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     }
     
     /**
-     A float value that determines the bottom margin of the icon.
+     A float value that determines the top margin of the icon.
      Use this value to position the icon more precisely vertically.
      */
     @IBInspectable

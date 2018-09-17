@@ -58,90 +58,100 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
             return cachedTextColor
         }
     }
-
+    
     /// A UIColor value that determines text color of the placeholder label
     @IBInspectable dynamic open var placeholderColor: UIColor = UIColor.lightGray {
         didSet {
             updatePlaceholder()
         }
     }
-
+    
     /// A UIFont value that determines text color of the placeholder label
     @objc dynamic open var placeholderFont: UIFont? {
         didSet {
             updatePlaceholder()
         }
     }
-
+    
     fileprivate func updatePlaceholder() {
         guard let placeholder = placeholder, let font = placeholderFont ?? font else {
             return
         }
         let color = isEnabled ? placeholderColor : disabledColor
         #if swift(>=4.0)
-            attributedPlaceholder = NSAttributedString(
-                string: placeholder,
-                attributes: [
-                    NSAttributedStringKey.foregroundColor: color, NSAttributedStringKey.font: font
-                ]
-            )
+        attributedPlaceholder = NSAttributedString(
+        string: placeholder,
+        attributes: [
+        NSAttributedStringKey.foregroundColor: color, NSAttributedStringKey.font: font
+        ]
+        )
         #else
-            attributedPlaceholder = NSAttributedString(
-                string: placeholder,
-                attributes: [NSForegroundColorAttributeName: color, NSFontAttributeName: font]
-            )
+        attributedPlaceholder = NSAttributedString(
+            string: placeholder,
+            attributes: [NSForegroundColorAttributeName: color, NSFontAttributeName: font]
+        )
         #endif
     }
-
+    
     /// A UIFont value that determines the text font of the title label
     @objc dynamic open var titleFont: UIFont = .systemFont(ofSize: 13) {
         didSet {
             updateTitleLabel()
         }
     }
-
+    
     /// A UIColor value that determines the text color of the title label when in the normal state
     @IBInspectable dynamic open var titleColor: UIColor = .gray {
         didSet {
             updateTitleColor()
         }
     }
-
+    
+    /**
+     A float value that determines the left margin of the title.
+     */
+    @IBInspectable
+    dynamic open var titleMarginLeft: CGFloat = 0 {
+        didSet {
+            updateTitleLabel()
+        }
+    }
+    
     /// A UIColor value that determines the color of the bottom line when in the normal state
     @IBInspectable dynamic open var lineColor: UIColor = .lightGray {
         didSet {
             updateLineView()
         }
     }
-
+    
     /// A UIColor value that determines the color used for the title label and line when the error message is not `nil`
     @IBInspectable dynamic open var errorColor: UIColor = .red {
         didSet {
             updateColors()
         }
     }
-
+    
     /// A UIColor value that determines the color used for the line when error message is not `nil`
     @IBInspectable dynamic open var lineErrorColor: UIColor? {
         didSet {
             updateColors()
         }
     }
-
+    
     /// A UIColor value that determines the color used for the text when error message is not `nil`
     @IBInspectable dynamic open var textErrorColor: UIColor? {
         didSet {
             updateColors()
         }
     }
-
+    
     /// A UIColor value that determines the color used for the title label when error message is not `nil`
     @IBInspectable dynamic open var titleErrorColor: UIColor? {
         didSet {
             updateColors()
         }
     }
-
+    
     /// A UIColor value that determines the color used for the title label and line when text field is disabled
     @IBInspectable dynamic open var disabledColor: UIColor = UIColor(white: 0.88, alpha: 1.0) {
         didSet {
@@ -225,10 +235,10 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
             updateControl(true)
         }
     }
-
+    
     /// The backing property for the highlighted property
     fileprivate var _highlighted: Bool = false
-
+    
     /**
      A Boolean value that determines whether the receiver is highlighted.
      When changing this value, highlighting will be done with animation
@@ -243,19 +253,19 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
             updateLineView()
         }
     }
-
+    
     /// A Boolean value that determines whether the textfield is being edited or is selected.
     open var editingOrSelected: Bool {
         return super.isEditing || isSelected
     }
-
+    
     /// A Boolean value that determines whether the receiver has an error message.
     open var hasErrorMessage: Bool {
         return errorMessage != nil && errorMessage != ""
     }
-
+    
     fileprivate var _renderingInInterfaceBuilder: Bool = false
-
+    
     /// The text content of the textfield
     @IBInspectable
     override open var text: String? {
@@ -263,7 +273,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
             updateControl(false)
         }
     }
-
+    
     /**
      The String to display when the input field is empty.
      The placeholder can also appear in the title label when both `title` `selectedTitle` and are `nil`.
@@ -276,39 +286,39 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
             updateTitleLabel()
         }
     }
-
+    
     /// The String to display when the textfield is editing and the input is not empty.
     @IBInspectable open var selectedTitle: String? {
         didSet {
             updateControl()
         }
     }
-
+    
     /// The String to display when the textfield is not editing and the input is not empty.
     @IBInspectable open var title: String? {
         didSet {
             updateControl()
         }
     }
-
+    
     // Determines whether the field is selected. When selected, the title floats above the textbox.
     open override var isSelected: Bool {
         didSet {
             updateControl(true)
         }
     }
-
+    
     // MARK: - Initializers
-
+    
     /**
-    Initializes the control
-    - parameter frame the frame of the control
-    */
+     Initializes the control
+     - parameter frame the frame of the control
+     */
     override public init(frame: CGRect) {
         super.init(frame: frame)
         init_SkyFloatingLabelTextField()
     }
-
+    
     /**
      Intialzies the control by deserializing it
      - parameter coder the object to deserialize the control from
@@ -317,7 +327,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
         super.init(coder: aDecoder)
         init_SkyFloatingLabelTextField()
     }
-
+    
     fileprivate final func init_SkyFloatingLabelTextField() {
         borderStyle = .none
         createTitleLabel()
@@ -326,11 +336,11 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
         addEditingChangedObserver()
         updateTextAligment()
     }
-
+    
     fileprivate func addEditingChangedObserver() {
         self.addTarget(self, action: #selector(SkyFloatingLabelTextField.editingChanged), for: .editingChanged)
     }
-
+    
     /**
      Invoked when the editing state of the textfield changes. Override to respond to this change.
      */
@@ -338,52 +348,52 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
         updateControl(true)
         updateTitleLabel(true)
     }
-
+    
     // MARK: create components
-
+    
     fileprivate func createTitleLabel() {
         let titleLabel = UILabel()
         titleLabel.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         titleLabel.font = titleFont
         titleLabel.alpha = 0.0
         titleLabel.textColor = titleColor
-
+        
         addSubview(titleLabel)
         self.titleLabel = titleLabel
     }
-
+    
     fileprivate func createLineView() {
-
+        
         if lineView == nil {
             let lineView = UIView()
             lineView.isUserInteractionEnabled = false
             self.lineView = lineView
             configureDefaultLineHeight()
         }
-
+        
         lineView.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
         addSubview(lineView)
     }
-
+    
     fileprivate func configureDefaultLineHeight() {
         let onePixel: CGFloat = 1.0 / UIScreen.main.scale
         lineHeight = 2.0 * onePixel
         selectedLineHeight = 2.0 * self.lineHeight
     }
-
+    
     // MARK: Responder handling
-
+    
     /**
      Attempt the control to become the first responder
      - returns: True when successfull becoming the first responder
-    */
+     */
     @discardableResult
     override open func becomeFirstResponder() -> Bool {
         let result = super.becomeFirstResponder()
         updateControl(true)
         return result
     }
-
+    
     /**
      Attempt the control to resign being the first responder
      - returns: True when successfull resigning being the first responder
@@ -394,7 +404,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
         updateControl(true)
         return result
     }
-
+    
     /// update colors when is enabled changed
     override open var isEnabled: Bool {
         didSet {
@@ -402,38 +412,38 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
             updatePlaceholder()
         }
     }
-
+    
     // MARK: - View updates
-
+    
     fileprivate func updateControl(_ animated: Bool = false) {
         updateColors()
         updateLineView()
         updateTitleLabel(animated)
     }
-
+    
     fileprivate func updateLineView() {
         guard let lineView = lineView else {
             return
         }
-
+        
         lineView.frame = lineViewRectForBounds(bounds, editing: editingOrSelected)
         updateLineColor()
     }
-
+    
     // MARK: - Color updates
-
+    
     /// Update the colors for the control. Override to customize colors.
     open func updateColors() {
         updateLineColor()
         updateTitleColor()
         updateTextColor()
     }
-
+    
     fileprivate func updateLineColor() {
         guard let lineView = lineView else {
             return
         }
-
+        
         if !isEnabled {
             lineView.backgroundColor = disabledColor
         } else if hasErrorMessage {
@@ -442,12 +452,12 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
             lineView.backgroundColor = editingOrSelected ? selectedLineColor : lineColor
         }
     }
-
+    
     fileprivate func updateTitleColor() {
         guard let titleLabel = titleLabel else {
             return
         }
-
+        
         if !isEnabled {
             titleLabel.textColor = disabledColor
         } else if hasErrorMessage {
@@ -460,7 +470,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
             }
         }
     }
-
+    
     fileprivate func updateTextColor() {
         if !isEnabled {
             super.textColor = disabledColor
@@ -470,14 +480,14 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
             super.textColor = cachedTextColor
         }
     }
-
+    
     // MARK: - Title handling
-
+    
     fileprivate func updateTitleLabel(_ animated: Bool = false) {
         guard let titleLabel = titleLabel else {
             return
         }
-
+        
         var titleText: String?
         if hasErrorMessage {
             titleText = titleFormatter(errorMessage!)
@@ -493,20 +503,20 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
         }
         titleLabel.text = titleText
         titleLabel.font = titleFont
-
+        
         updateTitleVisibility(animated)
     }
-
+    
     fileprivate var _titleVisible: Bool = false
-
+    
     /*
-    *   Set this value to make the title visible
-    */
+     *   Set this value to make the title visible
+     */
     open func setTitleVisible(
         _ titleVisible: Bool,
         animated: Bool = false,
         animationCompletion: ((_ completed: Bool) -> Void)? = nil
-    ) {
+        ) {
         if _titleVisible == titleVisible {
             return
         }
@@ -514,7 +524,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
         updateTitleColor()
         updateTitleVisibility(animated, completion: animationCompletion)
     }
-
+    
     /**
      Returns whether the title is being displayed on the control.
      - returns: True if the title is displayed on the control, false otherwise.
@@ -522,7 +532,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
     open func isTitleVisible() -> Bool {
         return hasText || hasErrorMessage || _titleVisible
     }
-
+    
     fileprivate func updateTitleVisibility(_ animated: Bool = false, completion: ((_ completed: Bool) -> Void)? = nil) {
         let alpha: CGFloat = isTitleVisible() ? 1.0 : 0.0
         let frame: CGRect = titleLabelRectForBounds(bounds, editing: isTitleVisible())
@@ -535,24 +545,24 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
             let duration = isTitleVisible() ? titleFadeInDuration : titleFadeOutDuration
             UIView.animate(withDuration: duration, delay: 0, options: animationOptions, animations: { () -> Void in
                 updateBlock()
-                }, completion: completion)
+            }, completion: completion)
         } else {
             updateBlock()
             completion?(true)
         }
     }
-
+    
     // MARK: - UITextField text/placeholder positioning overrides
-
+    
     /**
-    Calculate the rectangle for the textfield when it is not being edited
-    - parameter bounds: The current bounds of the field
-    - returns: The rectangle that the textfield should render in
-    */
+     Calculate the rectangle for the textfield when it is not being edited
+     - parameter bounds: The current bounds of the field
+     - returns: The rectangle that the textfield should render in
+     */
     override open func textRect(forBounds bounds: CGRect) -> CGRect {
         let superRect = super.textRect(forBounds: bounds)
         let titleHeight = self.titleHeight()
-
+        
         let rect = CGRect(
             x: superRect.origin.x,
             y: titleHeight,
@@ -561,7 +571,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
         )
         return rect
     }
-
+    
     /**
      Calculate the rectangle for the textfield when it is being edited
      - parameter bounds: The current bounds of the field
@@ -570,7 +580,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
     override open func editingRect(forBounds bounds: CGRect) -> CGRect {
         let superRect = super.editingRect(forBounds: bounds)
         let titleHeight = self.titleHeight()
-
+        
         let rect = CGRect(
             x: superRect.origin.x,
             y: titleHeight,
@@ -594,24 +604,24 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
         )
         return rect
     }
-
+    
     // MARK: - Positioning Overrides
-
+    
     /**
-    Calculate the bounds for the title label. Override to create a custom size title field.
-    - parameter bounds: The current bounds of the title
-    - parameter editing: True if the control is selected or highlighted
-    - returns: The rectangle that the title label should render in
-    */
+     Calculate the bounds for the title label. Override to create a custom size title field.
+     - parameter bounds: The current bounds of the title
+     - parameter editing: True if the control is selected or highlighted
+     - returns: The rectangle that the title label should render in
+     */
     open func titleLabelRectForBounds(_ bounds: CGRect, editing: Bool) -> CGRect {
         if editing {
-            return CGRect(x: 0, y: 0, width: bounds.size.width, height: titleHeight())
+            return CGRect(x: titleMarginLeft, y: 0, width: bounds.size.width, height: titleHeight())
         }
-        return CGRect(x: 0, y: titleHeight(), width: bounds.size.width, height: titleHeight())
+        return CGRect(x: titleMarginLeft, y: titleHeight(), width: bounds.size.width, height: titleHeight())
     }
-
+    
     /**
-     Calculate the bounds for the bottom line of the control. 
+     Calculate the bounds for the bottom line of the control.
      Override to create a custom size bottom line in the textbox.
      - parameter bounds: The current bounds of the line
      - parameter editing: True if the control is selected or highlighted
