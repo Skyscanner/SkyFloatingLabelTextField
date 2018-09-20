@@ -78,7 +78,14 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
             return
         }
         let color = isEnabled ? placeholderColor : disabledColor
-        #if swift(>=4.0)
+        #if swift(>=4.2)
+            attributedPlaceholder = NSAttributedString(
+                string: placeholder,
+                attributes: [
+                    NSAttributedString.Key.foregroundColor: color, NSAttributedString.Key.font: font
+                ]
+            )
+        #elseif swift(>=4.0)
             attributedPlaceholder = NSAttributedString(
                 string: placeholder,
                 attributes: [
@@ -531,7 +538,11 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
             self.titleLabel.frame = frame
         }
         if animated {
-            let animationOptions: UIViewAnimationOptions = .curveEaseOut
+            #if swift(>=4.2)
+                let animationOptions: UIView.AnimationOptions = .curveEaseOut
+            #else
+                let animationOptions: UIViewAnimationOptions = .curveEaseOut
+            #endif
             let duration = isTitleVisible() ? titleFadeInDuration : titleFadeOutDuration
             UIView.animate(withDuration: duration, delay: 0, options: animationOptions, animations: { () -> Void in
                 updateBlock()
