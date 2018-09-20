@@ -38,9 +38,9 @@ class CustomizingColorsViewController: UIViewController {
         var attributes: [String: Any] = [:]
 
         #if swift(>=4.0)
-            attributes = [NSAttributedStringKey.foregroundColor.rawValue: UIColor.white]
+            attributes = [NSAttributedString.Key.foregroundColor.rawValue: UIColor.white]
         #else
-            attributes = [NSForegroundColorAttributeName: UIColor.white]
+            attributes = [convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor): UIColor.white]
         #endif
 
         selectedTitleColorControl?.setTitleTextAttributes(attributes, for: .selected)
@@ -157,4 +157,9 @@ class CustomizingColorsViewController: UIViewController {
         default: return .black
         }
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
+	return input.rawValue
 }

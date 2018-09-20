@@ -82,13 +82,13 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
             attributedPlaceholder = NSAttributedString(
                 string: placeholder,
                 attributes: [
-                    NSAttributedStringKey.foregroundColor: color, NSAttributedStringKey.font: font
+                    NSAttributedString.Key.foregroundColor: color, NSAttributedString.Key.font: font
                 ]
             )
         #else
             attributedPlaceholder = NSAttributedString(
                 string: placeholder,
-                attributes: [NSForegroundColorAttributeName: color, NSFontAttributeName: font]
+                attributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor): color, convertFromNSAttributedStringKey(NSAttributedString.Key.font): font])
             )
         #endif
     }
@@ -531,7 +531,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
             self.titleLabel.frame = frame
         }
         if animated {
-            let animationOptions: UIViewAnimationOptions = .curveEaseOut
+            let animationOptions: UIView.AnimationOptions = .curveEaseOut
             let duration = isTitleVisible() ? titleFadeInDuration : titleFadeOutDuration
             UIView.animate(withDuration: duration, delay: 0, options: animationOptions, animations: { () -> Void in
                 updateBlock()
@@ -695,3 +695,14 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
         return titleFormatter(title)
     }
 } // swiftlint:disable:this file_length
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
+	return input.rawValue
+}
