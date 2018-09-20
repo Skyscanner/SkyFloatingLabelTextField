@@ -245,7 +245,7 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
 
         // When pressing return, move to the next field
         let nextTag = textField.tag + 1
-        if let nextResponder = textField.superview?.viewWithTag(nextTag) as UIResponder! {
+        if let nextResponder = textField.superview?.viewWithTag(nextTag) {
             nextResponder.becomeFirstResponder()
         } else {
             textField.resignFirstResponder()
@@ -263,7 +263,7 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
             return
         }
 
-        if email.characters.isEmpty {
+        if email.isEmpty {
             emailField.errorMessage = nil
         } else if !validateEmail(email) {
             emailField.errorMessage = NSLocalizedString(
