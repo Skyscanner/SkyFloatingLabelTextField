@@ -6,6 +6,7 @@ EXAMPLE_PROJECT = 'SkyFloatingLabelTextField/SkyFloatingLabelTextField.xcodeproj
 EXAMPLE_SCHEMA = 'SkyFloatingLabelTextField'
 VERSION_FORMAT = '%M.%m.%p%s%d'
 PODSPEC = 'SkyFloatingLabelTextField.podspec'
+VERBOSE= ENV['VERBOSE'] == 'true' || false
 
 def ask(question)
   valid_input = true
@@ -39,7 +40,7 @@ task :test do
 end
 
 task :lint do
-  sh "bundle exec pod lib lint"
+  sh "bundle exec pod lib lint #{VERBOSE ? '--verbose' : ''}"
   sh "swiftlint"
 end
 
