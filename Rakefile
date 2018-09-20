@@ -1,6 +1,7 @@
 require 'semver'
 
-BUILD_SDK = ENV['BUILD_SDK'] || 'iphonesimulator11.2'
+BUILD_SDK = ENV['BUILD_SDK'] || 'iphonesimulator11.4'
+DESTINATION= ENV['DESTINATION'] || 'platform=iOS Simulator,name=iPhone 8'
 EXAMPLE_PROJECT = 'SkyFloatingLabelTextField/SkyFloatingLabelTextField.xcodeproj'
 EXAMPLE_SCHEMA = 'SkyFloatingLabelTextField'
 VERSION_FORMAT = '%M.%m.%p%s%d'
@@ -34,7 +35,7 @@ end
 
 
 task :test do
-  sh "set -o pipefail && xcodebuild test -enableCodeCoverage YES -project #{EXAMPLE_PROJECT} -scheme #{EXAMPLE_SCHEMA} -sdk #{BUILD_SDK} -destination \"platform=iOS Simulator,name=iPhone 8\" ONLY_ACTIVE_ARCH=NO | xcpretty"
+  sh "set -o pipefail && xcodebuild test -enableCodeCoverage YES -project #{EXAMPLE_PROJECT} -scheme #{EXAMPLE_SCHEMA} -sdk #{BUILD_SDK} -destination \"#{DESTINATION}\" ONLY_ACTIVE_ARCH=NO | xcpretty"
 end
 
 task :lint do
