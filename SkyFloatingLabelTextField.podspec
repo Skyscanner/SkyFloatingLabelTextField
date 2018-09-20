@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = "SkyFloatingLabelTextField"
-  s.version          = "3.5.2"
+  s.version          = "3.6.0"
   s.summary = "A beautiful, flexible and customizable textfield that minimizes space when displaying additional context."
   s.homepage = "https://github.com/Skyscanner/SkyFloatingLabelTextField"
   s.license = { :type => "Apache 2.0", :file => "LICENSE" }

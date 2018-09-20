@@ -1,6 +1,11 @@
 Master
 ------
 
+v3.6.0
+------
+
+* Added support for Swift 4.2 and Xcode 10. See [#239](https://github.com/Skyscanner/SkyFloatingLabelTextField/pull/216).
+
 v3.5.2
 ------
 
