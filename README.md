@@ -33,7 +33,7 @@ To create an instance of the class, use Interface builder, or do it from code. T
 ![](/SkyFloatingLabelTextField/images/example-1.gif)
 
 ```swift
-let textField = SkyFloatingLabelTextField(frame: CGRectMake(10, 10, 200, 45))
+let textField = SkyFloatingLabelTextField(frame: CGRect(x: 10, y: 10, width: 200, height: 45))
 textField.placeholder = "Name"
 textField.title = "Your full name"
 self.view.addSubview(textField)
@@ -50,12 +50,12 @@ let lightGreyColor = UIColor(red: 197/255, green: 205/255, blue: 205/255, alpha:
 let darkGreyColor = UIColor(red: 52/255, green: 42/255, blue: 61/255, alpha: 1.0)
 let overcastBlueColor = UIColor(red: 0, green: 187/255, blue: 204/255, alpha: 1.0)
 
-let textField1 = SkyFloatingLabelTextField(frame: CGRectMake(10, 10, 120, 45))
+let textField1 = SkyFloatingLabelTextField(frame: CGRect(x: 10, y: 10, width: 120, height: 45))
 textField1.placeholder = "First name"
 textField1.title = "Given name"
 self.view.addSubview(textField1)
 
-let textField2 = SkyFloatingLabelTextField(frame: CGRectMake(150, 10, 120, 45))
+let textField2 = SkyFloatingLabelTextField(frame: CGRect(x: 150, y: 10, width: 120, height: 45))
 textField2.placeholder = "Last name"
 textField2.title = "Family name"
 
@@ -131,7 +131,7 @@ To get notified of different events happening on the textfield - such as the tex
 class MyViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
-        let textField1 = SkyFloatingLabelTextField(frame: CGRectMake(10, 10, 120, 45))
+        let textField1 = SkyFloatingLabelTextField(frame: CGRect(x: 10, y: 10, width: 120, height: 45))
         textField1.placeholder = "Email"
         textField1.title = "Email address"
         textField1.errorColor = UIColor.redColor()
