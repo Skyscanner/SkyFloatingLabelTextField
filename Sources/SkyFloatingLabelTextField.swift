@@ -25,6 +25,12 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
            updateTextAligment()
         }
     }
+    
+    public enum MatchingType {
+        case number(error:String?)
+        case email(error:String?)
+        case custom(regex:String,error:String?)
+    }
 
     fileprivate func updateTextAligment() {
         if isLTRLanguage {
@@ -72,6 +78,10 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
             updatePlaceholder()
         }
     }
+    
+    var matchingType : MatchingType? = nil
+    
+    fileprivate var regexValidation : String? = nil
 
     fileprivate func updatePlaceholder() {
         guard let placeholder = placeholder, let font = placeholderFont ?? font else {
@@ -344,6 +354,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
     @objc open func editingChanged() {
         updateControl(true)
         updateTitleLabel(true)
+        validationCheck(text: text)
     }
 
     // MARK: create components
@@ -502,6 +513,41 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
         titleLabel.font = titleFont
 
         updateTitleVisibility(animated)
+    }
+    
+    
+    /// Check Validation using Regex
+    ///
+    /// - Parameter text: Text want to check
+    func validationCheck(text:String?){
+        guard let checkingText = text,
+            let match = matchingType
+            else { return }
+        
+        var regex = ""
+        var placeholderMessage : String? = nil
+        switch match {
+        case .number(let error):
+            regex = "^[0-9]+$"
+            placeholderMessage = error
+            
+        case .email(let error):
+            regex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+            placeholderMessage = error
+            
+        case.custom(let text, let error):
+            regex = text
+            placeholderMessage = error
+        }
+        
+        let test = NSPredicate(format:"SELF MATCHES %@", regex)
+        if !test.evaluate(with: checkingText) ,
+            let msg = placeholderMessage {
+            errorMessage = msg
+        }
+        else{
+            errorMessage = nil
+        }
     }
 
     fileprivate var _titleVisible: Bool = false

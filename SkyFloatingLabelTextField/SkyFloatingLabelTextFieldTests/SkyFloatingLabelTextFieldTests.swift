@@ -880,6 +880,31 @@ class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this typ
         // then
         XCTAssertTrue(floatingLabelTextField.isSelected)
     }
+    
+    // MARK: Regex
+    func test_regexEmailValidationShouldSuccess(){
+        floatingLabelTextField.matchingType = .email(error:"Email is not valid")
+        floatingLabelTextField.validationCheck(text: "email.email@gmail")
+        XCTAssertNil(floatingLabelTextField.errorMessage)
+    }
+    
+    func test_regexEmailValidationShouldFailed(){
+        floatingLabelTextField.matchingType = .email(error:"Email is not valid")
+        floatingLabelTextField.validationCheck(text: "email.email@gmail")
+        XCTAssertNotNil(floatingLabelTextField.errorMessage)
+    }
+    
+    func test_regexNumberValidationShouldSuccess(){
+        floatingLabelTextField.matchingType = .number(error:"Email is not valid")
+        floatingLabelTextField.validationCheck(text: "123456")
+        XCTAssertNil(floatingLabelTextField.errorMessage)
+    }
+    
+    func test_regexNumberValidationShouldFailed(){
+        floatingLabelTextField.matchingType = .number(error:"Email is not valid")
+        floatingLabelTextField.validationCheck(text: "123456asd")
+        XCTAssertNotNil(floatingLabelTextField.errorMessage)
+    }
 
     // MARK: intrinsicContentSize()
 

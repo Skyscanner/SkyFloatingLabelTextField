@@ -146,6 +146,11 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
             tableName: "SkyFloatingLabelTextField",
             comment: "placeholder for Email field"
         )
+        emailField.matchingType = .email(error: NSLocalizedString(
+            "Number not valid",
+            tableName: "SkyFloatingLabelTextField",
+            comment: " "
+        ))
         emailField.selectedTitle = NSLocalizedString(
             "Email",
             tableName: "SkyFloatingLabelTextField",
@@ -239,9 +244,9 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // Validate the email field
-        if textField == emailField {
-            validateEmailField()
-        }
+//        if textField == emailField {
+//            validateEmailField()
+//        }
 
         // When pressing return, move to the next field
         let nextTag = textField.tag + 1
@@ -253,38 +258,38 @@ class ShowcaseExampleViewController: UIViewController, UITextFieldDelegate {
         return false
     }
 
-    @IBAction func validateEmailField() {
-        validateEmailTextFieldWithText(email: emailField.text)
-    }
-
-    func validateEmailTextFieldWithText(email: String?) {
-        guard let email = email else {
-            emailField.errorMessage = nil
-            return
-        }
-
-        if email.isEmpty {
-            emailField.errorMessage = nil
-        } else if !validateEmail(email) {
-            emailField.errorMessage = NSLocalizedString(
-                "Email not valid",
-                tableName: "SkyFloatingLabelTextField",
-                comment: " "
-            )
-        } else {
-            emailField.errorMessage = nil
-        }
-    }
+//    @IBAction func validateEmailField() {
+//        validateEmailTextFieldWithText(email: emailField.text)
+//    }
+//
+//    func validateEmailTextFieldWithText(email: String?) {
+//        guard let email = email else {
+//            emailField.errorMessage = nil
+//            return
+//        }
+//
+//        if email.isEmpty {
+//            emailField.errorMessage = nil
+//        } else if !validateEmail(email) {
+//            emailField.errorMessage = NSLocalizedString(
+//                "Email not valid",
+//                tableName: "SkyFloatingLabelTextField",
+//                comment: " "
+//            )
+//        } else {
+//            emailField.errorMessage = nil
+//        }
+//    }
 
     // MARK: - validation
 
-    func validateEmail(_ candidate: String) -> Bool {
-
-        // NOTE: validating email addresses with regex is usually not the best idea.
-        // This implementation is for demonstration purposes only and is not recommended for production use.
-        // Regex source and more information here: http://emailregex.com
-
-        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        return NSPredicate(format: "SELF MATCHES %@", emailRegex).evaluate(with: candidate)
-    }
+//    func validateEmail(_ candidate: String) -> Bool {
+//
+//        // NOTE: validating email addresses with regex is usually not the best idea.
+//        // This implementation is for demonstration purposes only and is not recommended for production use.
+//        // Regex source and more information here: http://emailregex.com
+//
+//        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+//        return NSPredicate(format: "SELF MATCHES %@", emailRegex).evaluate(with: candidate)
+//    }
 }
