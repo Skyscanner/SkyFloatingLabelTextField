@@ -884,7 +884,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this typ
     // MARK: Regex
     func test_regexEmailValidationShouldSuccess(){
         floatingLabelTextField.matchingType = .email(error:"Email is not valid")
-        floatingLabelTextField.validationCheck(text: "email.email@gmail")
+        floatingLabelTextField.validationCheck(text: "email.email@gmail.com")
         XCTAssertNil(floatingLabelTextField.errorMessage)
     }
     
