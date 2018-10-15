@@ -119,7 +119,7 @@ textField1.iconImage = UIImage(imageLiteralResourceName: "PlaneIcon")
 self.view.addSubview(textField1)
 ```
 
-### Error state and delegates
+### Error state and Delegates
 
 The textfield supports displaying an error state - this can be useful for example when validating fields on the fly. When the `errorMessage` property is set on the control, then the control is highlighted with the color set in the `errorColor` property.
 
@@ -153,6 +153,36 @@ class MyViewController: UIViewController, UITextFieldDelegate {
             }
         }
         return true
+    }
+}
+```
+
+### Matching Type
+MatchingType using `errorMessage` property to show usefull message, with Regex checking validation and 
+there is 3 case of enum `MatchingType` :
+```swift
+    .number(error:String?)
+```
+```swift
+    .email(error:String?)
+```
+```swift
+    .custom(regex:String, error:String?)
+```
+Remember it using `errorMessage` property to show message, so when using `matchingType` it will override `errorMessage` to `matchingType` error String,
+
+![](/SkyFloatingLabelTextField/images/example-4.gif)
+
+```swift
+class MyViewController: UIViewController, UITextFieldDelegate {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let textField1 = SkyFloatingLabelTextField(frame: CGRect(x: 10, y: 10, width: 120, height: 45))
+        textField1.placeholder = "Email"
+        textField1.title = "Email address"
+        textField1.errorColor = UIColor.redColor()
+        textField1.matchingType = .email(error: "Invalid email")
+        self.view.addSubview(textField1)
     }
 }
 ```
