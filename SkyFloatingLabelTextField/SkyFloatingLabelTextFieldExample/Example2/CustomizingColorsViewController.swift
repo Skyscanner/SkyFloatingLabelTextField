@@ -35,11 +35,17 @@ class CustomizingColorsViewController: UIViewController {
         // NOTE: For emojis to appear properly we need to set the color to white
         // http://stackoverflow.com/a/38195951
 
-        var attributes: [String: Any] = [:]
-
-        #if swift(>=4.0)
-            attributes = [NSAttributedStringKey.foregroundColor.rawValue: UIColor.white]
+        #if swift(>=4.2)
+            var attributes: [NSAttributedString.Key: Any] = [:]
         #else
+            var attributes: [String: Any] = [:]
+        #endif
+
+        #if swift(>=4.2) // Swift 4.2
+            attributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        #elseif swift(>=4.0) // Swift 4.0 and 4.1
+            attributes = [NSAttributedStringKey.foregroundColor.rawValue: UIColor.white]
+        #else // Swift 3 and earlier
             attributes = [NSForegroundColorAttributeName: UIColor.white]
         #endif
 

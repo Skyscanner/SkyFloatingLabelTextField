@@ -1,10 +1,13 @@
 require 'semver'
 
-BUILD_SDK = ENV['BUILD_SDK'] || 'iphonesimulator11.2'
+SWIFT = ENV['SWIFT'] || '4.1'
+BUILD_SDK = ENV['BUILD_SDK'] || 'iphonesimulator11.4'
+DESTINATION= ENV['DESTINATION'] || 'platform=iOS Simulator,name=iPhone 8'
 EXAMPLE_PROJECT = 'SkyFloatingLabelTextField/SkyFloatingLabelTextField.xcodeproj'
 EXAMPLE_SCHEMA = 'SkyFloatingLabelTextField'
 VERSION_FORMAT = '%M.%m.%p%s%d'
 PODSPEC = 'SkyFloatingLabelTextField.podspec'
+VERBOSE= ENV['VERBOSE'] == 'true' || false
 
 def ask(question)
   valid_input = true
@@ -34,11 +37,11 @@ end
 
 
 task :test do
-  sh "set -o pipefail && xcodebuild test -enableCodeCoverage YES -project #{EXAMPLE_PROJECT} -scheme #{EXAMPLE_SCHEMA} -sdk #{BUILD_SDK} -destination \"platform=iOS Simulator,name=iPhone 8\" ONLY_ACTIVE_ARCH=NO | xcpretty"
+  sh "set -o pipefail && xcodebuild test -enableCodeCoverage YES -project #{EXAMPLE_PROJECT} -scheme #{EXAMPLE_SCHEMA} SWIFT_VERSION=#{SWIFT} -sdk #{BUILD_SDK} -destination \"#{DESTINATION}\" ONLY_ACTIVE_ARCH=NO | xcpretty"
 end
 
 task :lint do
-  sh "bundle exec pod lib lint"
+  sh "bundle exec pod lib lint --swift-version=#{SWIFT} #{VERBOSE ? '--verbose' : ''}"
   sh "swiftlint"
 end
 
