@@ -123,7 +123,7 @@ self.view.addSubview(textField1)
 
 The textfield supports displaying an error state - this can be useful for example when validating fields on the fly. When the `errorMessage` property is set on the control, then the control is highlighted with the color set in the `errorColor` property.
 
-To get notified of different events happening on the textfield - such as the text changing, editing starting or ending - just set the `delegate` property to a class implementing the standard [UITextFieldDelegate](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UITextFieldDelegate_Protocol/) protocol:
+To get notified of different events happening on the textfield - such as the text changing, editing starting or ending - just set the `func addTarget(_ target: Any?, action: Selector, for controlEvents: UIControl.Event)` with the` .editingChanged`. also can set the `delegate` property to a class implementing the standard [UITextFieldDelegate](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UITextFieldDelegate_Protocol/) protocol:
 
 ![](/SkyFloatingLabelTextField/images/example-4.gif)
 
@@ -135,13 +135,13 @@ class MyViewController: UIViewController, UITextFieldDelegate {
         textField1.placeholder = "Email"
         textField1.title = "Email address"
         textField1.errorColor = UIColor.redColor()
-        textField1.delegate = self
+        textField1.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         self.view.addSubview(textField1)
     }
-
-    /// Implementing a method on the UITextFieldDelegate protocol. This will notify us when something has changed on the textfield
-    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        if let text = textField.text {
+    
+    // This will notify us when something has changed on the textfield
+    @objc func textFieldDidChange(_ textfield: UITextField) {
+        if let text = textfield.text {
             if let floatingLabelTextField = textField as? SkyFloatingLabelTextField {
                 if(text.characters.count < 3 || !text.containsString("@")) {
                     floatingLabelTextField.errorMessage = "Invalid email"
@@ -152,7 +152,6 @@ class MyViewController: UIViewController, UITextFieldDelegate {
                 }
             }
         }
-        return true
     }
 }
 ```
