@@ -119,6 +119,12 @@ textField1.iconImage = UIImage(imageLiteralResourceName: "PlaneIcon")
 self.view.addSubview(textField1)
 ```
 
+### Title and line spacing
+```swift
+userTextField.titleVerticalSpacing = 10
+userTextField.lineVerticalSpacing = 5
+```
+
 ### Error state and delegates
 
 The textfield supports displaying an error state - this can be useful for example when validating fields on the fly. When the `errorMessage` property is set on the control, then the control is highlighted with the color set in the `errorColor` property.
