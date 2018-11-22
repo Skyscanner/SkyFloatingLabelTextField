@@ -246,6 +246,9 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
             updateControl(true)
         }
     }
+    
+    @IBInspectable
+    open var alwaysShowTitle: Bool = false
 
     /// The backing property for the highlighted property
     fileprivate var _highlighted: Bool = false
@@ -503,7 +506,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
         if hasErrorMessage {
             titleText = titleFormatter(errorMessage!)
         } else {
-            if editingOrSelected {
+            if editingOrSelected || alwaysShowTitle {
                 titleText = selectedTitleOrTitlePlaceholder()
                 if titleText == nil {
                     titleText = titleOrPlaceholder()
@@ -541,7 +544,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
      - returns: True if the title is displayed on the control, false otherwise.
      */
     open func isTitleVisible() -> Bool {
-        return hasText || hasErrorMessage || _titleVisible
+        return hasText || hasErrorMessage || _titleVisible || alwaysShowTitle
     }
 
     fileprivate func updateTitleVisibility(_ animated: Bool = false, completion: ((_ completed: Bool) -> Void)? = nil) {
