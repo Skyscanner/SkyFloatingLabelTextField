@@ -261,7 +261,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
         return errorMessage != nil && errorMessage != ""
     }
 
-    fileprivate var _renderingInInterfaceBuilder: Bool = false
+    var _renderingInInterfaceBuilder: Bool = false
 
     /// The text content of the textfield
     @IBInspectable
@@ -412,7 +412,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
 
     // MARK: - View updates
 
-    fileprivate func updateControl(_ animated: Bool = false) {
+    func updateControl(_ animated: Bool = false) {
         updateColors()
         updateLineView()
         updateTitleLabel(animated)
@@ -446,7 +446,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
         } else if hasErrorMessage {
             lineView.backgroundColor = lineErrorColor ?? errorColor
         } else {
-            lineView.backgroundColor = editingOrSelected ? selectedLineColor : lineColor
+            lineView.backgroundColor = editingOrSelected ? selectedLineColor : UIColor.clear
         }
     }
 
@@ -486,9 +486,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
         }
 
         var titleText: String?
-        if hasErrorMessage {
-            titleText = titleFormatter(errorMessage!)
-        } else {
+
             if editingOrSelected {
                 titleText = selectedTitleOrTitlePlaceholder()
                 if titleText == nil {
@@ -497,7 +495,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
             } else {
                 titleText = titleOrPlaceholder()
             }
-        }
+        
         titleLabel.text = titleText
         titleLabel.font = titleFont
 
@@ -696,13 +694,13 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
         guard let title = title ?? placeholder else {
             return nil
         }
-        return titleFormatter(title)
+        return title
     }
 
     fileprivate func selectedTitleOrTitlePlaceholder() -> String? {
         guard let title = selectedTitle ?? title ?? placeholder else {
             return nil
         }
-        return titleFormatter(title)
+        return title
     }
 } // swiftlint:disable:this file_length
