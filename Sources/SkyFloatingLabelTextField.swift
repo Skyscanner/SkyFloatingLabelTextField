@@ -35,9 +35,16 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
         if isLTRLanguage {
             textAlignment = .left
             titleLabel.textAlignment = .left
+            errorLabel.textAlignment = .left
         } else {
             textAlignment = .right
             titleLabel.textAlignment = .right
+            titleLabel.textAlignment = .right
+        }
+        
+        //Override error message default alignment
+        if let errorMessageAlignment = errorMessageAlignment {
+            errorLabel.textAlignment = errorMessageAlignment
         }
     }
 
@@ -78,7 +85,18 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
         }
     }
     
-    open var errorMessagePlacement: ErrorLabelPlacement = .defaultPlacement
+    open var errorMessagePlacement: ErrorLabelPlacement = .defaultPlacement {
+        didSet {
+            updateControl()
+            updatePlaceholder()
+        }
+    }
+    
+    open var errorMessageAlignment: NSTextAlignment? {
+        didSet {
+            updateTextAligment()
+        }
+    }
 
     fileprivate func updatePlaceholder() {
         guard let placeholder = placeholder, let font = placeholderFont ?? font else {
