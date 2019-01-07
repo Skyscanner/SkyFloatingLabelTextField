@@ -163,8 +163,8 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
             updateTitleColor()
         }
     }
-    
-    /// A UIFont value that determines text color of the placeholder label
+
+    /// A UIFont value that determines text font of the title label when editing
     @objc dynamic open var selectedTitleFont: UIFont = .systemFont(ofSize: 13) {
         didSet {
             updateTitleLabel()
