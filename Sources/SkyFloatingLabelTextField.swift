@@ -114,6 +114,16 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
         }
     }
 
+    /**
+     A float value that determines the left margin of the title.
+     */
+    @IBInspectable
+    dynamic open var titleMarginLeft: CGFloat = 0 {
+        didSet {
+            updateTitleLabel()
+        }
+    }
+
     /// A UIColor value that determines the color of the bottom line when in the normal state
     @IBInspectable dynamic open var lineColor: UIColor = .lightGray {
         didSet {
@@ -616,9 +626,9 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
     */
     open func titleLabelRectForBounds(_ bounds: CGRect, editing: Bool) -> CGRect {
         if editing {
-            return CGRect(x: 0, y: 0, width: bounds.size.width, height: titleHeight())
+            return CGRect(x: titleMarginLeft, y: 0, width: bounds.size.width, height: titleHeight())
         }
-        return CGRect(x: 0, y: titleHeight(), width: bounds.size.width, height: titleHeight())
+        return CGRect(x: titleMarginLeft, y: titleHeight(), width: bounds.size.width, height: titleHeight())
     }
 
     /**

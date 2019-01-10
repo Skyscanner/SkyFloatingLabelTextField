@@ -111,6 +111,29 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
         }
     }
 
+    
+    /**
+     A float value that determines the right margin of the icon.
+     Use this value to position the icon more precisely horizontally.
+     */
+    @IBInspectable
+    dynamic open var iconMarginRight: CGFloat = 8 {
+        didSet {
+            updateFrame()
+        }
+    }
+    
+    /**
+     A float value that determines the top margin of the icon.
+     Use this value to position the icon more precisely vertically.
+     */
+    @IBInspectable
+    dynamic open var iconMarginTop: CGFloat = 0 {
+        didSet {
+            updateFrame()
+        }
+    }
+
     /**
      A float value that determines the bottom margin of the icon. 
      Use this value to position the icon more precisely vertically.
@@ -242,11 +265,11 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     override open func textRect(forBounds bounds: CGRect) -> CGRect {
         var rect = super.textRect(forBounds: bounds)
         if isLTRLanguage {
-            rect.origin.x += CGFloat(iconWidth + iconMarginLeft)
+            rect.origin.x += CGFloat(iconWidth + iconMarginLeft + iconMarginRight)
         } else {
-            rect.origin.x -= CGFloat(iconWidth + iconMarginLeft)
+            rect.origin.x -= CGFloat(iconWidth + iconMarginLeft + iconMarginRight)
         }
-        rect.size.width -= CGFloat(iconWidth + iconMarginLeft)
+        rect.size.width -= CGFloat(iconWidth + iconMarginLeft + iconMarginRight)
         return rect
     }
 
@@ -258,11 +281,11 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     override open func editingRect(forBounds bounds: CGRect) -> CGRect {
         var rect = super.editingRect(forBounds: bounds)
         if isLTRLanguage {
-            rect.origin.x += CGFloat(iconWidth + iconMarginLeft)
+            rect.origin.x += CGFloat(iconWidth + iconMarginLeft + iconMarginRight)
         } else {
             // don't change the editing field X position for RTL languages
         }
-        rect.size.width -= CGFloat(iconWidth + iconMarginLeft)
+        rect.size.width -= CGFloat(iconWidth + iconMarginLeft + iconMarginRight)
         return rect
     }
 
@@ -275,11 +298,11 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     override open func placeholderRect(forBounds bounds: CGRect) -> CGRect {
         var rect = super.placeholderRect(forBounds: bounds)
         if isLTRLanguage {
-            rect.origin.x += CGFloat(iconWidth + iconMarginLeft)
+            rect.origin.x += CGFloat(iconWidth + iconMarginLeft + iconMarginRight)
         } else {
             // don't change the editing field X position for RTL languages
         }
-        rect.size.width -= CGFloat(iconWidth + iconMarginLeft)
+        rect.size.width -= CGFloat(iconWidth + iconMarginLeft + iconMarginRight)
         return rect
     }
 
@@ -293,27 +316,27 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
         let textWidth: CGFloat = bounds.size.width
         if isLTRLanguage {
             iconLabel.frame = CGRect(
-                x: 0,
-                y: bounds.size.height - textHeight() - iconMarginBottom,
+                x: 0 + iconMarginLeft,
+                y: bounds.size.height - textHeight() - iconMarginBottom - iconMarginTop,
                 width: iconWidth,
                 height: textHeight()
             )
             iconImageView.frame = CGRect(
-                x: 0,
-                y: bounds.size.height - textHeight() - iconMarginBottom,
+                x: 0 + iconMarginLeft,
+                y: bounds.size.height - textHeight() - iconMarginBottom  - iconMarginTop,
                 width: iconWidth,
                 height: textHeight()
             )
         } else {
             iconLabel.frame = CGRect(
-                x: textWidth - iconWidth,
-                y: bounds.size.height - textHeight() - iconMarginBottom,
+                x: textWidth - iconWidth - iconMarginRight,
+                y: bounds.size.height - textHeight() - iconMarginBottom - iconMarginTop,
                 width: iconWidth,
                 height: textHeight()
             )
             iconImageView.frame = CGRect(
-                x: textWidth - iconWidth,
-                y: bounds.size.height - textHeight() - iconMarginBottom,
+                x: textWidth - iconWidth - iconMarginRight,
+                y: bounds.size.height - textHeight() - iconMarginBottom - iconMarginTop,
                 width: iconWidth,
                 height: textHeight()
             )
