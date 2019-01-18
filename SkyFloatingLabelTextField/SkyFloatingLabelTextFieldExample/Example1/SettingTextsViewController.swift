@@ -105,4 +105,15 @@ class SettingTextsViewController: UIViewController {
             textField.isEnabled = !textField.isEnabled
         }
     }
+    
+    @IBAction func animationOnTouchChanged(_ segmentedControl: UISegmentedControl) {
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            textField?.isAnimationOnTouch = false
+        case 1:
+            textField?.isAnimationOnTouch = true
+        default:
+            break
+        }
+    }
 }

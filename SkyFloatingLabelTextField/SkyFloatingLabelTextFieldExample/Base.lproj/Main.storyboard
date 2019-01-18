@@ -140,9 +140,35 @@
                                         <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4TA-03-UGS">
+                                        <rect key="frame" x="133.5" y="543" width="133" height="29"/>
+                                        <segments>
+                                            <segment title="disabled"/>
+                                            <segment title="enabled"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="animationOnTouchChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="8D1-95-R2w"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Animation On Touch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JEI-R0-ctS">
+                                        <rect key="frame" x="121" y="514" width="158" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="d3h-JT-1eH"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selected title is visible when the control is touched." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="040-kO-ZGL">
+                                        <rect key="frame" x="20" y="579" width="360" height="13.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="040-kO-ZGL" firstAttribute="leading" secondItem="SF9-FD-zBm" secondAttribute="leading" constant="20" id="1ep-Lj-oey"/>
                                     <constraint firstItem="wjk-mj-9y9" firstAttribute="centerX" secondItem="mZq-8q-kvm" secondAttribute="centerX" id="56c-zc-Nlp"/>
                                     <constraint firstItem="mZq-8q-kvm" firstAttribute="centerX" secondItem="v9J-yM-eLO" secondAttribute="centerX" id="6fz-5a-wbV"/>
                                     <constraint firstItem="v9J-yM-eLO" firstAttribute="centerX" secondItem="wBj-r2-GJ8" secondAttribute="centerX" id="7ox-gD-JcT"/>
@@ -154,18 +180,27 @@
                                     <constraint firstItem="dQ8-eh-xXY" firstAttribute="centerX" secondItem="hTF-PN-MR1" secondAttribute="centerX" id="MGq-6J-zeq"/>
                                     <constraint firstAttribute="trailing" secondItem="yWR-GY-MZc" secondAttribute="trailing" constant="20" id="MkC-0U-Fqm"/>
                                     <constraint firstItem="wBj-r2-GJ8" firstAttribute="centerX" secondItem="H6F-j0-AqL" secondAttribute="centerX" id="N3K-KI-me7"/>
+                                    <constraint firstItem="040-kO-ZGL" firstAttribute="top" secondItem="4TA-03-UGS" secondAttribute="bottom" constant="8" id="N75-DM-cQY"/>
                                     <constraint firstItem="mZq-8q-kvm" firstAttribute="top" secondItem="v9J-yM-eLO" secondAttribute="bottom" constant="8" id="Nev-o1-J3x"/>
                                     <constraint firstItem="dQ8-eh-xXY" firstAttribute="leading" secondItem="SF9-FD-zBm" secondAttribute="leading" constant="20" id="Pu0-Hf-AaG"/>
+                                    <constraint firstItem="040-kO-ZGL" firstAttribute="centerX" secondItem="SF9-FD-zBm" secondAttribute="centerX" id="QSt-sc-rhW"/>
                                     <constraint firstItem="wBj-r2-GJ8" firstAttribute="leading" secondItem="SF9-FD-zBm" secondAttribute="leading" constant="20" id="SFY-Ck-Gb5"/>
                                     <constraint firstItem="I1P-U3-aHP" firstAttribute="centerX" secondItem="SF9-FD-zBm" secondAttribute="centerX" id="SxR-HF-VH0"/>
+                                    <constraint firstItem="4TA-03-UGS" firstAttribute="centerX" secondItem="JEI-R0-ctS" secondAttribute="centerX" id="Wo4-up-jgx"/>
                                     <constraint firstItem="H6F-j0-AqL" firstAttribute="top" secondItem="I1P-U3-aHP" secondAttribute="bottom" constant="8" id="Xdl-cd-Lh1"/>
+                                    <constraint firstItem="JEI-R0-ctS" firstAttribute="centerX" secondItem="SF9-FD-zBm" secondAttribute="centerX" id="YW8-Pw-GtE"/>
                                     <constraint firstAttribute="bottom" secondItem="dQ8-eh-xXY" secondAttribute="bottom" priority="999" constant="20" id="a6z-GE-DAO"/>
+                                    <constraint firstItem="040-kO-ZGL" firstAttribute="centerX" secondItem="4TA-03-UGS" secondAttribute="centerX" id="aVe-dY-Kfj"/>
+                                    <constraint firstItem="JEI-R0-ctS" firstAttribute="top" secondItem="dQ8-eh-xXY" secondAttribute="bottom" constant="30" id="beH-im-JFy"/>
                                     <constraint firstAttribute="trailing" secondItem="dQ8-eh-xXY" secondAttribute="trailing" constant="20" id="eWS-pd-TPn"/>
+                                    <constraint firstAttribute="trailing" secondItem="040-kO-ZGL" secondAttribute="trailing" constant="20" id="fah-Oq-6Nq"/>
                                     <constraint firstItem="yWR-GY-MZc" firstAttribute="top" secondItem="Q90-lp-2pi" secondAttribute="bottom" constant="8" id="fsq-cE-1Dq"/>
                                     <constraint firstItem="v9J-yM-eLO" firstAttribute="top" secondItem="wBj-r2-GJ8" secondAttribute="bottom" constant="30" id="hcR-DA-NYu"/>
                                     <constraint firstItem="dQ8-eh-xXY" firstAttribute="top" secondItem="hTF-PN-MR1" secondAttribute="bottom" constant="8" id="iXk-8J-LAB"/>
+                                    <constraint firstItem="4TA-03-UGS" firstAttribute="top" secondItem="JEI-R0-ctS" secondAttribute="bottom" constant="8" id="jun-eQ-CXM"/>
                                     <constraint firstItem="hTF-PN-MR1" firstAttribute="top" secondItem="nf1-0o-yMu" secondAttribute="bottom" constant="8" id="k7g-UF-mXu"/>
                                     <constraint firstItem="Q90-lp-2pi" firstAttribute="centerX" secondItem="moI-xd-AVZ" secondAttribute="centerX" id="kBp-rW-Yjy"/>
+                                    <constraint firstItem="4TA-03-UGS" firstAttribute="centerX" secondItem="SF9-FD-zBm" secondAttribute="centerX" id="ks0-jl-yMD"/>
                                     <constraint firstItem="yWR-GY-MZc" firstAttribute="centerX" secondItem="Q90-lp-2pi" secondAttribute="centerX" id="kwk-r5-dWO"/>
                                     <constraint firstItem="I1P-U3-aHP" firstAttribute="top" secondItem="SF9-FD-zBm" secondAttribute="top" constant="15" id="miR-Uy-o5x"/>
                                     <constraint firstItem="H6F-j0-AqL" firstAttribute="centerX" secondItem="I1P-U3-aHP" secondAttribute="centerX" id="ntG-iQ-ZhN"/>
@@ -198,7 +233,6 @@
                     <size key="freeformSize" width="400" height="1000"/>
                     <connections>
                         <outlet property="addErrorButton" destination="Pgz-Tf-Rvl" id="YRU-QW-c8B"/>
-                        <outlet property="scrollView" destination="SF9-FD-zBm" id="CQl-3L-pSf"/>
                         <outlet property="textField" destination="SqB-4f-slo" id="X0q-jS-821"/>
                     </connections>
                 </viewController>
@@ -790,7 +824,7 @@ In this example an icon label is added and placeholder label and textfield are p
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <containerView key="tableHeaderView" opaque="NO" contentMode="scaleToFill" misplaced="YES" id="pEh-Bj-WOF">
-                            <rect key="frame" x="0.0" y="-67" width="425" height="289"/>
+                            <rect key="frame" x="0.0" y="0.0" width="400" height="289"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                             <connections>
                                 <segue destination="Xf7-hu-W0W" kind="embed" id="xe8-ss-8aS"/>
@@ -986,11 +1020,11 @@ In this example an icon label is added and placeholder label and textfield are p
                         <viewControllerLayoutGuide type="bottom" id="FS4-AH-FdX"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="dkS-M1-t0L">
-                        <rect key="frame" x="0.0" y="0.0" width="425" height="289"/>
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="289"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="drh-wZ-CMd" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextFieldExample" customModuleProvider="target">
-                                <rect key="frame" x="20" y="0.0" width="182.5" height="43"/>
+                                <rect key="frame" x="20" y="0.0" width="170" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43" id="wj1-vc-MMi"/>
                                 </constraints>
@@ -1002,7 +1036,7 @@ In this example an icon label is added and placeholder label and textfield are p
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lvb-XU-w6i" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextFieldExample" customModuleProvider="target">
-                                <rect key="frame" x="222.5" y="0.0" width="182.5" height="43"/>
+                                <rect key="frame" x="210" y="0.0" width="170" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43" id="6bd-aa-7iG"/>
                                 </constraints>
@@ -1027,7 +1061,7 @@ In this example an icon label is added and placeholder label and textfield are p
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VnD-me-4jL" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextFieldExample" customModuleProvider="target">
-                                <rect key="frame" x="90" y="73" width="147.5" height="43"/>
+                                <rect key="frame" x="90" y="73" width="135" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43" id="tg1-wG-kuz"/>
                                 </constraints>
@@ -1039,7 +1073,7 @@ In this example an icon label is added and placeholder label and textfield are p
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fap-Uh-ovw" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextFieldExample" customModuleProvider="target">
-                                <rect key="frame" x="257.5" y="73" width="147.5" height="43"/>
+                                <rect key="frame" x="245" y="73" width="135" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43" id="aLO-rq-CQS"/>
                                 </constraints>
@@ -1054,7 +1088,7 @@ In this example an icon label is added and placeholder label and textfield are p
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1tu-Rl-onB">
-                                <rect key="frame" x="305" y="156" width="100" height="30"/>
+                                <rect key="frame" x="280" y="156" width="100" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="bRc-N7-vw9"/>
                                 </constraints>

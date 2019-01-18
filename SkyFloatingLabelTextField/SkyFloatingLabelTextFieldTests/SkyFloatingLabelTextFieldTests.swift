@@ -660,6 +660,54 @@ class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this typ
         // then
         XCTAssertTrue(floatingLabelTextFieldSpy.updateColorsInvoked)
     }
+    
+    func test_whenBecomeFirstResponderInvoked_withAnimationOnTouchEnabled_thenTitleVisibleInvoked() {
+        // given
+        let floatingLabelTextFieldSpy = SkyFloatingLabelTextFieldSpy()
+        
+        // when
+        floatingLabelTextFieldSpy.isAnimationOnTouch = true
+        floatingLabelTextFieldSpy.becomeFirstResponder()
+        
+        // then
+        XCTAssertTrue(floatingLabelTextFieldSpy.titleVisibleInvoked)
+    }
+    
+    func test_whenBecomeFirstResponderInvoked_withAnimationOnTouchEnabled_thenUpdateColorsInvoked() {
+        // given
+        let floatingLabelTextFieldSpy = SkyFloatingLabelTextFieldSpy()
+        
+        // when
+        floatingLabelTextFieldSpy.isAnimationOnTouch = true
+        floatingLabelTextFieldSpy.becomeFirstResponder()
+        
+        // then
+        XCTAssertTrue(floatingLabelTextFieldSpy.updateColorsInvoked)
+    }
+    
+    func test_whenResignFirstResponderInvoked_withAnimationOnTouchEnabled_thenTitleVisibleInvoked() {
+        // given
+        let floatingLabelTextFieldSpy = SkyFloatingLabelTextFieldSpy()
+        
+        // when
+        floatingLabelTextFieldSpy.isAnimationOnTouch = true
+        floatingLabelTextFieldSpy.resignFirstResponder()
+        
+        // then
+        XCTAssertTrue(floatingLabelTextFieldSpy.titleVisibleInvoked)
+    }
+    
+    func test_whenResignFirstResponderInvoked_withAnimationOnTouchEnabled_thenUpdateColorsInvoked() {
+        // given
+        let floatingLabelTextFieldSpy = SkyFloatingLabelTextFieldSpy()
+        
+        // when
+        floatingLabelTextFieldSpy.isAnimationOnTouch = true
+        floatingLabelTextFieldSpy.resignFirstResponder()
+        
+        // then
+        XCTAssertTrue(floatingLabelTextFieldSpy.updateColorsInvoked)
+    }
 
     // MARK: - init
 
@@ -973,10 +1021,16 @@ class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this typ
 
     class SkyFloatingLabelTextFieldSpy: SkyFloatingLabelTextField {
         var updateColorsInvoked: Bool = false
+        var titleVisibleInvoked: Bool = false
 
         override func updateColors() {
             updateColorsInvoked = true
             super.updateColors()
+        }
+        
+        override func setTitleVisible(_ titleVisible: Bool, animated: Bool, animationCompletion: ((Bool) -> Void)?) {
+            titleVisibleInvoked = true
+            super.setTitleVisible(titleVisible, animated: animated, animationCompletion: animationCompletion)
         }
     }
 } // swiftlint:disable:this file_length

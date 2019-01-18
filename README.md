@@ -181,6 +181,10 @@ The control was designed to allow further customization in subclasses. The contr
   - `placeholderRectForBounds(bounds: CGRect)`:  override to change the bounds of the placeholder view
   - `lineViewRectForBounds(bounds:CGRect, editing:Bool)`: override to change the bounds of the bottom line view
 
+### Animation on touch support
+
+The component can be set to animate the title label when becomming first responder. The default behavior is no animation on touch. If `isAnimationOnTouch` is set to true, the title animation will start right after the component became first responder.
+
 ## Documentation
 
 See the [SkyFloatingLabelTextField documentation](http://cocoadocs.org/docsets/SkyFloatingLabelTextField) on [CocoaDocs.org](http://cocoadocs.org) for the full documentation.
