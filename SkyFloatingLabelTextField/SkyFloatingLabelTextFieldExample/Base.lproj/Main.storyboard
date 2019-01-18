@@ -233,6 +233,7 @@
                     <size key="freeformSize" width="400" height="1000"/>
                     <connections>
                         <outlet property="addErrorButton" destination="Pgz-Tf-Rvl" id="YRU-QW-c8B"/>
+                        <outlet property="scrollView" destination="SF9-FD-zBm" id="c30-Zg-J4p"/>
                         <outlet property="textField" destination="SqB-4f-slo" id="X0q-jS-821"/>
                     </connections>
                 </viewController>
@@ -535,14 +536,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="400" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Osc-Na-BFz" customClass="ThemedTextField" customModule="SkyFloatingLabelTextFieldExample" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Osc-Na-BFz" customClass="ThemedTextField" customModule="SkyFloatingLabelTextFieldExample" customModuleProvider="target">
                                 <rect key="frame" x="70" y="84" width="260" height="44"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Placeholder"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nJD-aY-w9P">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nJD-aY-w9P">
                                 <rect key="frame" x="167.5" y="202" width="65" height="30"/>
                                 <state key="normal" title="Add error"/>
                                 <connections>
@@ -551,7 +552,7 @@
                                     <action selector="addError" destination="BYZ-38-t0r" eventType="touchUpInside" id="lCq-qW-5Xe"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JW4-8k-7cH">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JW4-8k-7cH">
                                 <rect key="frame" x="124.5" y="168" width="151" height="30"/>
                                 <state key="normal" title="Resign first responder"/>
                                 <connections>
@@ -687,7 +688,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5HI-11-MA2">
-                                <rect key="frame" x="167.5" y="169" width="65" height="30"/>
+                                <rect key="frame" x="167.5" y="191" width="65" height="30"/>
                                 <state key="normal" title="Add error"/>
                                 <connections>
                                     <action selector="addError" destination="BYZ-38-t0r" eventType="touchUpInside" id="9pH-Q8-RWx"/>
@@ -695,7 +696,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wkx-Ta-RMG">
-                                <rect key="frame" x="124.5" y="135" width="151" height="30"/>
+                                <rect key="frame" x="124.5" y="157" width="151" height="30"/>
                                 <state key="normal" title="Resign first responder"/>
                                 <connections>
                                     <action selector="resignTextField" destination="gAs-mn-2iH" eventType="touchUpInside" id="AIP-9z-fsb"/>
@@ -703,14 +704,14 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RbV-ew-j6J">
-                                <rect key="frame" x="20" y="223" width="360" height="347"/>
+                                <rect key="frame" x="20" y="245" width="360" height="325"/>
                                 <color key="backgroundColor" red="0.94117647409439087" green="0.94117647409439087" blue="0.94117647409439087" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="textColor" red="0.52941179275512695" green="0.54117649793624878" blue="0.58431375026702881" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1BP-H7-VvG" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextFieldExample" customModuleProvider="target">
-                                <rect key="frame" x="120" y="96" width="160" height="17"/>
+                                <rect key="frame" x="120" y="96" width="160" height="39"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -754,7 +755,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="400" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="teF-Dw-L0V" customClass="IconTextField" customModule="SkyFloatingLabelTextFieldExample" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="teF-Dw-L0V" customClass="IconTextField" customModule="SkyFloatingLabelTextFieldExample" customModuleProvider="target">
                                 <rect key="frame" x="70" y="84" width="260" height="43"/>
                                 <color key="backgroundColor" red="0.94117647410000005" green="0.94117647410000005" blue="0.94117647410000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <userDefinedRuntimeAttributes>
@@ -763,7 +764,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="text" value="text"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iv1-md-6Bi">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iv1-md-6Bi">
                                 <rect key="frame" x="167.5" y="181" width="65" height="30"/>
                                 <state key="normal" title="Add error"/>
                                 <connections>
@@ -772,7 +773,7 @@
                                     <action selector="addError" destination="BYZ-38-t0r" eventType="touchUpInside" id="iNN-BX-o4N"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f9a-5M-ybb">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f9a-5M-ybb">
                                 <rect key="frame" x="124.5" y="147" width="151" height="30"/>
                                 <state key="normal" title="Resign first responder"/>
                                 <connections>
@@ -781,7 +782,7 @@
                                     <action selector="resignTextField" destination="BYZ-38-t0r" eventType="touchUpInside" id="s34-rV-yvv"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GwR-K6-apk">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GwR-K6-apk">
                                 <rect key="frame" x="50" y="231" width="300" height="117"/>
                                 <string key="text">By overriding the positioning methods you can layout the view components in a flexible manner.
 
@@ -824,7 +825,7 @@ In this example an icon label is added and placeholder label and textfield are p
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <containerView key="tableHeaderView" opaque="NO" contentMode="scaleToFill" misplaced="YES" id="pEh-Bj-WOF">
-                            <rect key="frame" x="0.0" y="0.0" width="400" height="289"/>
+                            <rect key="frame" x="0.0" y="-67" width="425" height="289"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                             <connections>
                                 <segue destination="Xf7-hu-W0W" kind="embed" id="xe8-ss-8aS"/>
@@ -1020,11 +1021,11 @@ In this example an icon label is added and placeholder label and textfield are p
                         <viewControllerLayoutGuide type="bottom" id="FS4-AH-FdX"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="dkS-M1-t0L">
-                        <rect key="frame" x="0.0" y="0.0" width="400" height="289"/>
+                        <rect key="frame" x="0.0" y="0.0" width="425" height="289"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="drh-wZ-CMd" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextFieldExample" customModuleProvider="target">
-                                <rect key="frame" x="20" y="0.0" width="170" height="43"/>
+                                <rect key="frame" x="16" y="0.0" width="161.5" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43" id="wj1-vc-MMi"/>
                                 </constraints>
@@ -1036,7 +1037,7 @@ In this example an icon label is added and placeholder label and textfield are p
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lvb-XU-w6i" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextFieldExample" customModuleProvider="target">
-                                <rect key="frame" x="210" y="0.0" width="170" height="43"/>
+                                <rect key="frame" x="197.5" y="0.0" width="161.5" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43" id="6bd-aa-7iG"/>
                                 </constraints>
@@ -1048,7 +1049,7 @@ In this example an icon label is added and placeholder label and textfield are p
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zfK-4h-0I4" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextFieldExample" customModuleProvider="target">
-                                <rect key="frame" x="20" y="73" width="50" height="43"/>
+                                <rect key="frame" x="16" y="73" width="50" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="8Ie-A0-pGY"/>
                                     <constraint firstAttribute="height" constant="43" id="jV2-NI-7eO"/>
@@ -1061,7 +1062,7 @@ In this example an icon label is added and placeholder label and textfield are p
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VnD-me-4jL" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextFieldExample" customModuleProvider="target">
-                                <rect key="frame" x="90" y="73" width="135" height="43"/>
+                                <rect key="frame" x="86" y="73" width="126.5" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43" id="tg1-wG-kuz"/>
                                 </constraints>
@@ -1073,7 +1074,7 @@ In this example an icon label is added and placeholder label and textfield are p
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fap-Uh-ovw" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextFieldExample" customModuleProvider="target">
-                                <rect key="frame" x="245" y="73" width="135" height="43"/>
+                                <rect key="frame" x="232.5" y="73" width="126.5" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43" id="aLO-rq-CQS"/>
                                 </constraints>
@@ -1088,7 +1089,7 @@ In this example an icon label is added and placeholder label and textfield are p
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1tu-Rl-onB">
-                                <rect key="frame" x="280" y="156" width="100" height="30"/>
+                                <rect key="frame" x="259" y="156" width="100" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="bRc-N7-vw9"/>
                                 </constraints>
