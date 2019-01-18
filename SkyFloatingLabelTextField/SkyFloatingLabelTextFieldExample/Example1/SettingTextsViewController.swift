@@ -16,9 +16,16 @@ import UIKit
 class SettingTextsViewController: UIViewController {
 
     @IBOutlet var textField: SkyFloatingLabelTextField?
-
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     @IBOutlet var addErrorButton: UIButton?
-
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        scrollView.translatesAutoresizingMaskIntoConstraints = true
+        scrollView.contentSize = CGSize(width: view.frame.width, height: 2000);
+    }
+    
     @IBAction func addError() {
         let localizedAddError = NSLocalizedString(
             "Add error",
