@@ -53,7 +53,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this typ
         let customColor = UIColor.red
         floatingLabelTextField.placeholder = "test"
         var fullRange =
-            NSRange(location: 0, length: floatingLabelTextField.placeholder!.characters.count)
+            NSRange(location: 0, length: floatingLabelTextField.placeholder!.count)
 
         // when
         floatingLabelTextField.placeholderColor = customColor
@@ -214,7 +214,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this typ
         floatingLabelTextField.isEnabled = true
         floatingLabelTextField.placeholder = "test"
         var fullRange =
-            NSRange(location: 0, length: floatingLabelTextField.placeholder!.characters.count)
+            NSRange(location: 0, length: floatingLabelTextField.placeholder!.count)
 
         // when
         floatingLabelTextField.disabledColor = self.customColor
@@ -271,7 +271,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this typ
         floatingLabelTextField.isEnabled = false
         floatingLabelTextField.placeholder = "test"
         var fullRange =
-            NSRange(location: 0, length: floatingLabelTextField.placeholder!.characters.count)
+            NSRange(location: 0, length: floatingLabelTextField.placeholder!.count)
 
         // when
         floatingLabelTextField.disabledColor = self.customColor
@@ -319,7 +319,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this typ
         let customFont = UIFont()
         floatingLabelTextField.placeholder = "test"
         var fullRange =
-            NSRange(location: 0, length: floatingLabelTextField.placeholder!.characters.count)
+            NSRange(location: 0, length: floatingLabelTextField.placeholder!.count)
 
         // when
         floatingLabelTextField.placeholderFont = customFont
