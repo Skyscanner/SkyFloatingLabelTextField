@@ -481,6 +481,11 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
         updateLineColor()
         updateTitleColor()
         updateTextColor()
+        updateErrorLabelColor()
+    }
+
+    fileprivate func updateErrorLabelColor() {
+        errorLabel.textColor = errorColor
     }
 
     fileprivate func updateLineColor() {
