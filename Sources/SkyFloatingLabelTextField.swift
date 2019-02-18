@@ -11,6 +11,11 @@
 
 import UIKit
 
+/**
+ An enum for the possible error labe placements.
+ .defaultPlacement is the standard (on top) position
+ .bottomPlacement positions error label below the text field.
+ */
 public enum ErrorLabelPlacement {
     case defaultPlacement
     case bottomPlacement
@@ -84,14 +89,16 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
             updatePlaceholder()
         }
     }
-    
+
+    /// A ErrorLabelPlacement value that determines where the error label will be placed.
     open var errorMessagePlacement: ErrorLabelPlacement = .defaultPlacement {
         didSet {
             updateControl()
             updatePlaceholder()
         }
     }
-    
+
+    // An NSTextAlignment value that determines the error message alignment.
     open var errorMessageAlignment: NSTextAlignment? {
         didSet {
             updateTextAligment()
@@ -221,6 +228,8 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
 
     /// The internal `UILabel` that displays the selected, deselected title or error message based on the current state.
     open var titleLabel: UILabel!
+
+    /// The internal `UILabel` that displays error messsage if errorMessagePlacement is .bottomPlacement.
     open var errorLabel: UILabel!
 
     // MARK: Properties
