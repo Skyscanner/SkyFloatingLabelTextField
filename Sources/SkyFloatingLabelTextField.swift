@@ -44,7 +44,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
         } else {
             textAlignment = .right
             titleLabel.textAlignment = .right
-            titleLabel.textAlignment = .right
+            errorLabel.textAlignment = .right
         }
         
         //Override error message default alignment
