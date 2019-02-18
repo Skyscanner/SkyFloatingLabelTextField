@@ -187,6 +187,19 @@ class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this typ
         XCTAssertEqual(floatingLabelTextField.lineView.backgroundColor, self.customColor)
     }
 
+    func test_whenSettingErrorColor_withErrorMessagePlacementIsBottom_thenErrorLabelTextColorIsChangedToThisColor() {
+        // given
+        floatingLabelTextField.errorMessagePlacement = .bottom
+        floatingLabelTextField.errorMessage = "test"
+
+        // when
+        floatingLabelTextField.errorColor = self.customColor
+
+        // then
+        XCTAssertNotEqual(floatingLabelTextField.titleLabel.textColor, self.customColor)
+        XCTAssertEqual(floatingLabelTextField.errorLabel.textColor, self.customColor)
+    }
+
     func test_whenSettingSelectedTitleColor_withTextfieldBeingSelected_thenTitleLabelTextColorIsChangedToThisColor() {
         // given
         floatingLabelTextField.isSelected = true
@@ -893,6 +906,42 @@ class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this typ
 
         // then
         XCTAssertEqual(size.height, floatingLabelTextField.titleHeight() + floatingLabelTextField.textHeight())
+    }
+
+    // MARK: Error Message Placement
+    func test_whenSettingErrorMessage_whenErrorMessagePlacementSetToDefault_thenTitleLabelTextIsChanged() {
+        // given
+        XCTAssertEqual(floatingLabelTextField.errorMessagePlacement, .default)
+
+        // when
+        floatingLabelTextField.errorMessage = "SAMPLE ERROR"
+
+        // then
+        XCTAssertEqual(floatingLabelTextField.titleLabel.text, "SAMPLE ERROR")
+    }
+
+    func test_whenSettingErrorMessage_whenErrorMessagePlacementSetToBottom_thenErrorLabelTextIsChanged() {
+        // given
+        floatingLabelTextField.title = "SAMPLE TITLE"
+        floatingLabelTextField.errorMessagePlacement = .bottom
+
+        // when
+        floatingLabelTextField.errorMessage = "SAMPLE ERROR"
+
+        // then
+        XCTAssertEqual(floatingLabelTextField.titleLabel.text, "SAMPLE TITLE")
+        XCTAssertEqual(floatingLabelTextField.errorLabel.text, "SAMPLE ERROR")
+    }
+
+    func test_whenErrorLabelAlignment_thenErrorLabelTextAlignemntIsChanged() {
+        // given
+        XCTAssertNotEqual(floatingLabelTextField.errorLabel.textAlignment, .center)
+
+        // when
+        floatingLabelTextField.errorLabelAlignment = .center
+
+        // then
+        XCTAssertEqual(floatingLabelTextField.errorLabel.textAlignment, .center)
     }
 
     // MARK: - Helpers
