@@ -153,7 +153,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
         }
     }
 
-    /// A UIColor value that determines the color used for the title label and line when the error message is not `nil`
+    /// A UIColor value that determines the color used for the error label
     @IBInspectable dynamic open var errorColor: UIColor = .red {
         didSet {
             updateColors()
