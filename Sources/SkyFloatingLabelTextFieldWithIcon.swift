@@ -56,6 +56,18 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
         }
     }
 
+    /// A Bool value that determines if the UIImage should be templated or not
+    @IBInspectable
+    dynamic open var templateImage: Bool = true {
+        didSet {
+            if templateImage {
+               let templatedOriginalImage = self.iconImageView.image?
+                .withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+                self.iconImageView.image = templatedOriginalImage
+            }
+        }
+    }
+
     /// A UILabel value that identifies the label used to display the icon
     open var iconLabel: UILabel!
 
@@ -80,7 +92,12 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     @IBInspectable
     dynamic open var iconColor: UIColor = UIColor.gray {
         didSet {
-            updateIconLabelColor()
+            if self.iconType == .font {
+                updateIconLabelColor()
+            }
+            if self.iconType == .image {
+                updateImageViewTintColor()
+            }
         }
     }
 
@@ -143,6 +160,7 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     convenience public init(frame: CGRect, iconType: IconType) {
         self.init(frame: frame)
         self.iconType = iconType
+        self.templateImage = true
         updateIconViewHiddenState()
     }
 
@@ -196,6 +214,7 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
         iconImageView.contentMode = .scaleAspectFit
         iconImageView.autoresizingMask = [.flexibleTopMargin, .flexibleRightMargin]
         self.iconImageView = iconImageView
+        self.templateImage = true
         addSubview(iconImageView)
     }
 
@@ -218,7 +237,22 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     /// Update the colors for the control. Override to customize colors.
     override open func updateColors() {
         super.updateColors()
-        updateIconLabelColor()
+        if self.iconType == .font {
+            updateIconLabelColor()
+        }
+        if self.iconType == .image {
+            updateImageViewTintColor()
+        }
+    }
+
+    fileprivate func updateImageViewTintColor() {
+        if !isEnabled {
+            iconImageView.tintColor = disabledColor
+        } else if hasErrorMessage {
+            iconImageView.tintColor = errorColor
+        } else {
+            iconImageView.tintColor = editingOrSelected ? selectedIconColor : iconColor
+        }
     }
 
     fileprivate func updateIconLabelColor() {
