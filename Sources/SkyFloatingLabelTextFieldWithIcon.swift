@@ -61,9 +61,9 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     dynamic open var templateImage: Bool = true {
         didSet {
             if templateImage {
-               let templatedOriginalImage = self.iconImageView.image?
-                .withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
-                self.iconImageView.image = templatedOriginalImage
+                   let templatedOriginalImage = self.iconImageView.image?
+                    .withRenderingMode(.alwaysTemplate)
+                    self.iconImageView.image = templatedOriginalImage
             }
         }
     }
@@ -160,7 +160,6 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     convenience public init(frame: CGRect, iconType: IconType) {
         self.init(frame: frame)
         self.iconType = iconType
-        self.templateImage = true
         updateIconViewHiddenState()
     }
 
