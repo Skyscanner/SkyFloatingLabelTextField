@@ -95,7 +95,7 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
             if self.iconType == .font {
                 updateIconLabelColor()
             }
-            if self.iconType == .image {
+            if self.iconType == .image && self.templateImage {
                 updateImageViewTintColor()
             }
         }
@@ -239,7 +239,7 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
         if self.iconType == .font {
             updateIconLabelColor()
         }
-        if self.iconType == .image {
+        if self.iconType == .image && self.templateImage {
             updateImageViewTintColor()
         }
     }
