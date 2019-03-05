@@ -1,6 +1,11 @@
 Master
 ------
 
+v3.5.0
+-----
+
+* Added support for template images. [#274](https://github.com/Skyscanner/SkyFloatingLabelTextField/pull/274).
+
 v3.6.0
 ------
 
