@@ -175,7 +175,7 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
 
     /**
      Intialzies the control by deserializing it
-     - parameter coder the object to deserialize the control from
+     - parameter aDecoder the object to deserialize the control from
      */
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
