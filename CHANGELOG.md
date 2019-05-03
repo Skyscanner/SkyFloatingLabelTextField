@@ -1,6 +1,8 @@
 Master
 ------
 
+* Added `swift_versions` to podspec.
+
 v3.5.0
 -----
 
