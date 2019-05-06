@@ -5,8 +5,10 @@ script:
   - bundle exec rake ci
 matrix:
   include:
-    - osx_image: xcode10
-      env: SWIFT=4.2 BUILD_SDK=iphonesimulator12.0 DESTINATION="platform=iOS Simulator,name=iPhone 8"
+    - osx_image: xcode10.2
+      env: SWIFT=4.3 BUILD_SDK=iphonesimulator12.2 DESTINATION="platform=iOS Simulator,name=iPhone 8"
+    - osx_image: xcode10.1
+      env: SWIFT=4.2 BUILD_SDK=iphonesimulator12.1 DESTINATION="platform=iOS Simulator,name=iPhone 8"
     - osx_image: xcode9.2
       env: SWIFT=4.0 BUILD_SDK=iphonesimulator11.2 DESTINATION="platform=iOS Simulator,name=iPhone 8"
     - osx_image: xcode9.4
