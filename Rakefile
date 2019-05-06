@@ -1,7 +1,7 @@
 require 'semver'
 
 SWIFT = ENV['SWIFT'] || '4.1'
-BUILD_SDK = ENV['BUILD_SDK'] || 'iphonesimulator11.4'
+BUILD_SDK = ENV['BUILD_SDK'] || 'iphonesimulator12.1'
 DESTINATION= ENV['DESTINATION'] || 'platform=iOS Simulator,name=iPhone 8'
 EXAMPLE_PROJECT = 'SkyFloatingLabelTextField/SkyFloatingLabelTextField.xcodeproj'
 EXAMPLE_SCHEMA = 'SkyFloatingLabelTextField'
