@@ -52,12 +52,12 @@ class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this typ
         // given
         let customColor = UIColor.red
         floatingLabelTextField.placeholder = "test"
-        #if swift(<4.0)
-        var fullRange =
-            NSRange(location: 0, length: floatingLabelTextField.placeholder!.characters.count)
-        #else
+        #if swift(>=4.0)
         var fullRange =
             NSRange(location: 0, length: floatingLabelTextField.placeholder!.count)
+        #else
+        var fullRange =
+            NSRange(location: 0, length: floatingLabelTextField.placeholder!.characters.count)
         #endif
 
         // when
@@ -218,12 +218,12 @@ class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this typ
         // given
         floatingLabelTextField.isEnabled = true
         floatingLabelTextField.placeholder = "test"
-        #if swift(<4.0)
-        var fullRange =
-            NSRange(location: 0, length: floatingLabelTextField.placeholder!.characters.count)
-        #else
+        #if swift(>=4.0)
         var fullRange =
             NSRange(location: 0, length: floatingLabelTextField.placeholder!.count)
+        #else
+        var fullRange =
+            NSRange(location: 0, length: floatingLabelTextField.placeholder!.characters.count)
         #endif
 
         // when
@@ -280,12 +280,12 @@ class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this typ
         // given
         floatingLabelTextField.isEnabled = false
         floatingLabelTextField.placeholder = "test"
-        #if swift(<4.0)
-        var fullRange =
-            NSRange(location: 0, length: floatingLabelTextField.placeholder!.characters.count)
-        #else
+        #if swift(>=4.0)
         var fullRange =
             NSRange(location: 0, length: floatingLabelTextField.placeholder!.count)
+        #else
+        var fullRange =
+            NSRange(location: 0, length: floatingLabelTextField.placeholder!.characters.count)
         #endif
 
         // when
@@ -333,12 +333,12 @@ class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this typ
         // given
         let customFont = UIFont()
         floatingLabelTextField.placeholder = "test"
-        #if swift(<4.0)
-        var fullRange =
-            NSRange(location: 0, length: floatingLabelTextField.placeholder!.characters.count)
-        #else
+        #if swift(>=4.0)
         var fullRange =
             NSRange(location: 0, length: floatingLabelTextField.placeholder!.count)
+        #else
+        var fullRange =
+            NSRange(location: 0, length: floatingLabelTextField.placeholder!.characters.count)
         #endif
 
         // when
