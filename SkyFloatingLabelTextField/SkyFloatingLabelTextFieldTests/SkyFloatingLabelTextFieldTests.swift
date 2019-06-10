@@ -15,6 +15,15 @@ import UIKit
 import XCTest
 @testable import SkyFloatingLabelTextField
 
+#if swift (>=4)
+#else
+fileprivate extension String {
+    var count: Int {
+        return self.characters.count
+    }
+}
+#endif
+
 class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this type_body_length
 
     var floatingLabelTextField: SkyFloatingLabelTextField!
@@ -23,7 +32,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this typ
 
     override func setUp() {
         super.setUp()
-        floatingLabelTextField = SkyFloatingLabelTextField(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
+        floatingLabelTextField = SkyFloatingLabelTextField(frame: CGRect(x: 0, y: 0, width: 200, height: 50)) 
     }
 
     override func tearDown() {
