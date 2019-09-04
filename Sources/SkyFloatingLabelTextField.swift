@@ -354,7 +354,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
         titleLabel.font = titleFont
         titleLabel.alpha = 0.0
         titleLabel.textColor = titleColor
-
+        titleLabel.accessibilityIdentifier = "fieldTitle"
         addSubview(titleLabel)
         self.titleLabel = titleLabel
     }
@@ -363,6 +363,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
 
         if lineView == nil {
             let lineView = UIView()
+            lineView.accessibilityIdentifier = "fieldTitleUnderline"
             lineView.isUserInteractionEnabled = false
             self.lineView = lineView
             configureDefaultLineHeight()
