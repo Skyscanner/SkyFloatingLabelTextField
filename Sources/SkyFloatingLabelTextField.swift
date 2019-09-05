@@ -113,6 +113,20 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
             updateTitleColor()
         }
     }
+    
+    /// A UIColor value that determines the border color of the textField when in the normal state
+    @IBInspectable dynamic open var borderColor: UIColor = .gray {
+        didSet {
+            updateBorderColor()
+        }
+    }
+    
+    /// A UIColor value that determines the border color of the textField when in the selected state
+    @IBInspectable dynamic open var selectedBorderColor: UIColor = .gray {
+        didSet {
+            updateBorderColor()
+        }
+    }
 
     /// A UIColor value that determines the color of the bottom line when in the normal state
     @IBInspectable dynamic open var lineColor: UIColor = .lightGray {
@@ -464,6 +478,20 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
                 titleLabel.textColor = selectedTitleColor
             } else {
                 titleLabel.textColor = titleColor
+            }
+        }
+    }
+    
+    fileprivate func updateBorderColor() {
+        if !isEnabled {
+            self.layer.borderColor = borderColor.cgColor
+        } else if hasErrorMessage {
+            self.layer.borderColor = borderColor.cgColor
+        } else {
+            if editingOrSelected || isHighlighted {
+                self.layer.borderColor = selectedBorderColor.cgColor
+            } else {
+                self.layer.borderColor = borderColor.cgColor
             }
         }
     }
