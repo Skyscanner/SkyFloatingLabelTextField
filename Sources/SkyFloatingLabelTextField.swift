@@ -27,13 +27,9 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
     }
 
     fileprivate func updateTextAligment() {
-        if isLTRLanguage {
-            textAlignment = .left
-            titleLabel.textAlignment = .left
-        } else {
-            textAlignment = .right
-            titleLabel.textAlignment = .right
-        }
+        let alignment: NSTextAlignment = isLTRLanguage ? .left : .right
+        textAlignment = alignment
+        titleLabel.textAlignment = alignment
     }
 
     // MARK: Animation timing
@@ -375,7 +371,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
     fileprivate func configureDefaultLineHeight() {
         let onePixel: CGFloat = 1.0 / UIScreen.main.scale
         lineHeight = 2.0 * onePixel
-        selectedLineHeight = 2.0 * self.lineHeight
+        selectedLineHeight = 2.0 * lineHeight
     }
 
     // MARK: Responder handling
