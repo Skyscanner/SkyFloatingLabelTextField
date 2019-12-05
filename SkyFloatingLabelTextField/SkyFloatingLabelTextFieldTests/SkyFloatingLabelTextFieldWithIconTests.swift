@@ -47,11 +47,14 @@ class SkyFloatingLabelTextFieldWithIconTests: XCTestCase {
     }
 
     func test_whenSettingIconImage_thenImageAppliedToIconImageView() {
+        // given
+        let customImage = UIImage()
+
         // when
-        floatingLabelTextFieldWithIcon.iconImage = #imageLiteral(resourceName: "SkyScannerIcon")
+        floatingLabelTextFieldWithIcon.iconImage = customImage
 
         // then
-        XCTAssertEqual(floatingLabelTextFieldWithIcon.iconImageView.image, #imageLiteral(resourceName: "SkyScannerIcon"))
+        XCTAssertEqual(floatingLabelTextFieldWithIcon.iconImageView.image, customImage)
     }
 
     func test_whenSettingIconColor_thenColorAppliedToIconLabel() {
