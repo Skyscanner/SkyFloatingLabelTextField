@@ -1,6 +1,7 @@
 Master
 ------
 
+* Added support for Swift Package Manager [#296](https://github.com/Skyscanner/SkyFloatingLabelTextField/pull/296). Thanks to [acecilia](https://github.com/acecilia).
 * Added support for Swift 5 [#290](https://github.com/Skyscanner/SkyFloatingLabelTextField/pull/290). Thanks to [jessemx109](https://github.com/jessemx109).
 
 v3.7.0
