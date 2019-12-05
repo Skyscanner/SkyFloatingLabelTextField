@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hHc-fl-Wyp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hHc-fl-Wyp">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -37,14 +35,14 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pgz-Tf-Rvl">
-                                <rect key="frame" x="168" y="181" width="65" height="30"/>
+                                <rect key="frame" x="167.5" y="181" width="65" height="30"/>
                                 <state key="normal" title="Add error"/>
                                 <connections>
                                     <action selector="addError" destination="BYZ-38-t0r" eventType="touchUpInside" id="7LL-Ly-84e"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dHd-er-tPb">
-                                <rect key="frame" x="125" y="147" width="151" height="30"/>
+                                <rect key="frame" x="124.5" y="147" width="151" height="30"/>
                                 <state key="normal" title="Resign first responder"/>
                                 <connections>
                                     <action selector="resignTextField" destination="BYZ-38-t0r" eventType="touchUpInside" id="j0T-fu-ABP"/>
@@ -70,13 +68,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v9J-yM-eLO">
-                                        <rect key="frame" x="182" y="136.5" width="35" height="21"/>
+                                        <rect key="frame" x="182.5" y="136.5" width="35" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="Q90-lp-2pi">
-                                        <rect key="frame" x="102" y="287" width="195" height="29"/>
+                                        <rect key="frame" x="102.5" y="287" width="195" height="29"/>
                                         <segments>
                                             <segment title="None"/>
                                             <segment title="&quot;Placeholder&quot;"/>
@@ -86,32 +84,32 @@
                                         </connections>
                                     </segmentedControl>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Placeholder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="moI-xd-AVZ">
-                                        <rect key="frame" x="153" y="258" width="93" height="21"/>
+                                        <rect key="frame" x="153.5" y="258" width="93" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selected title is visible when the control is editing and input text is at least 1 character long" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wBj-r2-GJ8">
-                                        <rect key="frame" x="20" y="80" width="359" height="26.5"/>
+                                        <rect key="frame" x="20" y="80" width="360" height="26.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title is visible when the control is not editing and input text is at least 1 character long" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wjk-mj-9y9">
-                                        <rect key="frame" x="20" y="201.5" width="359" height="26.5"/>
+                                        <rect key="frame" x="20" y="201.5" width="360" height="26.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yWR-GY-MZc">
-                                        <rect key="frame" x="20" y="323" width="359" height="39.5"/>
+                                        <rect key="frame" x="20" y="323" width="360" height="39.5"/>
                                         <string key="text">Placeholder is visible when no input text is present or when input text is at least 1 character long and neither title nor selected title is present</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="mZq-8q-kvm">
-                                        <rect key="frame" x="147" y="165.5" width="105" height="29"/>
+                                        <rect key="frame" x="147.5" y="165.5" width="105" height="29"/>
                                         <segments>
                                             <segment title="None"/>
                                             <segment title="&quot;Title&quot;"/>
@@ -121,7 +119,7 @@
                                         </connections>
                                     </segmentedControl>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="hTF-PN-MR1">
-                                        <rect key="frame" x="133" y="421.5" width="133" height="29"/>
+                                        <rect key="frame" x="133.5" y="421.5" width="133" height="29"/>
                                         <segments>
                                             <segment title="disabled"/>
                                             <segment title="enabled"/>
@@ -131,13 +129,38 @@
                                         </connections>
                                     </segmentedControl>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enabled" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nf1-0o-yMu">
-                                        <rect key="frame" x="167.5" y="392.5" width="64" height="21"/>
+                                        <rect key="frame" x="168" y="392.5" width="64" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title, text and line color will be disabled color when isEnabled is false." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQ8-eh-xXY">
-                                        <rect key="frame" x="20" y="458" width="359" height="26.5"/>
+                                        <rect key="frame" x="20" y="457.5" width="360" height="26.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4TA-03-UGS">
+                                        <rect key="frame" x="133.5" y="543" width="133" height="29"/>
+                                        <segments>
+                                            <segment title="disabled"/>
+                                            <segment title="enabled"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="animationOnTouchChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="8D1-95-R2w"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Animation On Touch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JEI-R0-ctS">
+                                        <rect key="frame" x="121" y="514" width="158" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="d3h-JT-1eH"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selected title is visible when the control is touched." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="040-kO-ZGL">
+                                        <rect key="frame" x="20" y="579" width="360" height="13.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -145,6 +168,7 @@
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="040-kO-ZGL" firstAttribute="leading" secondItem="SF9-FD-zBm" secondAttribute="leading" constant="20" id="1ep-Lj-oey"/>
                                     <constraint firstItem="wjk-mj-9y9" firstAttribute="centerX" secondItem="mZq-8q-kvm" secondAttribute="centerX" id="56c-zc-Nlp"/>
                                     <constraint firstItem="mZq-8q-kvm" firstAttribute="centerX" secondItem="v9J-yM-eLO" secondAttribute="centerX" id="6fz-5a-wbV"/>
                                     <constraint firstItem="v9J-yM-eLO" firstAttribute="centerX" secondItem="wBj-r2-GJ8" secondAttribute="centerX" id="7ox-gD-JcT"/>
@@ -156,18 +180,27 @@
                                     <constraint firstItem="dQ8-eh-xXY" firstAttribute="centerX" secondItem="hTF-PN-MR1" secondAttribute="centerX" id="MGq-6J-zeq"/>
                                     <constraint firstAttribute="trailing" secondItem="yWR-GY-MZc" secondAttribute="trailing" constant="20" id="MkC-0U-Fqm"/>
                                     <constraint firstItem="wBj-r2-GJ8" firstAttribute="centerX" secondItem="H6F-j0-AqL" secondAttribute="centerX" id="N3K-KI-me7"/>
+                                    <constraint firstItem="040-kO-ZGL" firstAttribute="top" secondItem="4TA-03-UGS" secondAttribute="bottom" constant="8" id="N75-DM-cQY"/>
                                     <constraint firstItem="mZq-8q-kvm" firstAttribute="top" secondItem="v9J-yM-eLO" secondAttribute="bottom" constant="8" id="Nev-o1-J3x"/>
                                     <constraint firstItem="dQ8-eh-xXY" firstAttribute="leading" secondItem="SF9-FD-zBm" secondAttribute="leading" constant="20" id="Pu0-Hf-AaG"/>
+                                    <constraint firstItem="040-kO-ZGL" firstAttribute="centerX" secondItem="SF9-FD-zBm" secondAttribute="centerX" id="QSt-sc-rhW"/>
                                     <constraint firstItem="wBj-r2-GJ8" firstAttribute="leading" secondItem="SF9-FD-zBm" secondAttribute="leading" constant="20" id="SFY-Ck-Gb5"/>
                                     <constraint firstItem="I1P-U3-aHP" firstAttribute="centerX" secondItem="SF9-FD-zBm" secondAttribute="centerX" id="SxR-HF-VH0"/>
+                                    <constraint firstItem="4TA-03-UGS" firstAttribute="centerX" secondItem="JEI-R0-ctS" secondAttribute="centerX" id="Wo4-up-jgx"/>
                                     <constraint firstItem="H6F-j0-AqL" firstAttribute="top" secondItem="I1P-U3-aHP" secondAttribute="bottom" constant="8" id="Xdl-cd-Lh1"/>
+                                    <constraint firstItem="JEI-R0-ctS" firstAttribute="centerX" secondItem="SF9-FD-zBm" secondAttribute="centerX" id="YW8-Pw-GtE"/>
                                     <constraint firstAttribute="bottom" secondItem="dQ8-eh-xXY" secondAttribute="bottom" priority="999" constant="20" id="a6z-GE-DAO"/>
+                                    <constraint firstItem="040-kO-ZGL" firstAttribute="centerX" secondItem="4TA-03-UGS" secondAttribute="centerX" id="aVe-dY-Kfj"/>
+                                    <constraint firstItem="JEI-R0-ctS" firstAttribute="top" secondItem="dQ8-eh-xXY" secondAttribute="bottom" constant="30" id="beH-im-JFy"/>
                                     <constraint firstAttribute="trailing" secondItem="dQ8-eh-xXY" secondAttribute="trailing" constant="20" id="eWS-pd-TPn"/>
+                                    <constraint firstAttribute="trailing" secondItem="040-kO-ZGL" secondAttribute="trailing" constant="20" id="fah-Oq-6Nq"/>
                                     <constraint firstItem="yWR-GY-MZc" firstAttribute="top" secondItem="Q90-lp-2pi" secondAttribute="bottom" constant="8" id="fsq-cE-1Dq"/>
                                     <constraint firstItem="v9J-yM-eLO" firstAttribute="top" secondItem="wBj-r2-GJ8" secondAttribute="bottom" constant="30" id="hcR-DA-NYu"/>
                                     <constraint firstItem="dQ8-eh-xXY" firstAttribute="top" secondItem="hTF-PN-MR1" secondAttribute="bottom" constant="8" id="iXk-8J-LAB"/>
+                                    <constraint firstItem="4TA-03-UGS" firstAttribute="top" secondItem="JEI-R0-ctS" secondAttribute="bottom" constant="8" id="jun-eQ-CXM"/>
                                     <constraint firstItem="hTF-PN-MR1" firstAttribute="top" secondItem="nf1-0o-yMu" secondAttribute="bottom" constant="8" id="k7g-UF-mXu"/>
                                     <constraint firstItem="Q90-lp-2pi" firstAttribute="centerX" secondItem="moI-xd-AVZ" secondAttribute="centerX" id="kBp-rW-Yjy"/>
+                                    <constraint firstItem="4TA-03-UGS" firstAttribute="centerX" secondItem="SF9-FD-zBm" secondAttribute="centerX" id="ks0-jl-yMD"/>
                                     <constraint firstItem="yWR-GY-MZc" firstAttribute="centerX" secondItem="Q90-lp-2pi" secondAttribute="centerX" id="kwk-r5-dWO"/>
                                     <constraint firstItem="I1P-U3-aHP" firstAttribute="top" secondItem="SF9-FD-zBm" secondAttribute="top" constant="15" id="miR-Uy-o5x"/>
                                     <constraint firstItem="H6F-j0-AqL" firstAttribute="centerX" secondItem="I1P-U3-aHP" secondAttribute="centerX" id="ntG-iQ-ZhN"/>
@@ -200,6 +233,7 @@
                     <size key="freeformSize" width="400" height="1000"/>
                     <connections>
                         <outlet property="addErrorButton" destination="Pgz-Tf-Rvl" id="YRU-QW-c8B"/>
+                        <outlet property="scrollView" destination="SF9-FD-zBm" id="c30-Zg-J4p"/>
                         <outlet property="textField" destination="SqB-4f-slo" id="X0q-jS-821"/>
                     </connections>
                 </viewController>
@@ -233,14 +267,14 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Re-re-tpi">
-                                <rect key="frame" x="78" y="181" width="65" height="30"/>
+                                <rect key="frame" x="77.5" y="181" width="65" height="30"/>
                                 <state key="normal" title="Add error"/>
                                 <connections>
                                     <action selector="addError" destination="G0q-zq-dep" eventType="touchUpInside" id="Xb2-bO-Zl8"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LrB-X8-Rt8">
-                                <rect key="frame" x="125" y="147" width="151" height="30"/>
+                                <rect key="frame" x="124.5" y="147" width="151" height="30"/>
                                 <state key="normal" title="Resign first responder"/>
                                 <connections>
                                     <action selector="resignTextField" destination="G0q-zq-dep" eventType="touchUpInside" id="JsG-XQ-NTn"/>
@@ -248,10 +282,10 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="alE-Hq-VDg">
-                                <rect key="frame" x="20" y="219" width="180" height="323"/>
+                                <rect key="frame" x="20" y="219" width="180" height="321.5"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="OhG-wy-aBa">
-                                        <rect key="frame" x="23" y="57" width="135" height="29"/>
+                                        <rect key="frame" x="22.5" y="57" width="135" height="29"/>
                                         <segments>
                                             <segment title="⚪️"/>
                                             <segment title="🔴"/>
@@ -263,13 +297,13 @@
                                         </connections>
                                     </segmentedControl>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selected title color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tqd-y8-1jW">
-                                        <rect key="frame" x="16" y="28" width="147" height="21"/>
+                                        <rect key="frame" x="16.5" y="28" width="147" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="6Ya-gn-vtf">
-                                        <rect key="frame" x="23" y="137" width="135" height="29"/>
+                                        <rect key="frame" x="22.5" y="136.5" width="135" height="29"/>
                                         <segments>
                                             <segment title="⚪️"/>
                                             <segment title="🔴"/>
@@ -281,13 +315,13 @@
                                         </connections>
                                     </segmentedControl>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Placeholder color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRP-1f-9dO">
-                                        <rect key="frame" x="21" y="108" width="137" height="21"/>
+                                        <rect key="frame" x="21.5" y="107.5" width="137" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="bD7-hR-7wM">
-                                        <rect key="frame" x="22" y="216" width="135" height="29"/>
+                                        <rect key="frame" x="22.5" y="215" width="135" height="29"/>
                                         <segments>
                                             <segment title="⚪️"/>
                                             <segment title="🔴"/>
@@ -299,19 +333,19 @@
                                         </connections>
                                     </segmentedControl>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q1u-4f-EEP">
-                                        <rect key="frame" x="51.5" y="186" width="77" height="21"/>
+                                        <rect key="frame" x="51.5" y="185" width="77" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q7U-ur-hzY">
-                                        <rect key="frame" x="48" y="261" width="83" height="21"/>
+                                        <rect key="frame" x="48.5" y="259.5" width="83" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="xDl-bN-AMF">
-                                        <rect key="frame" x="23" y="290" width="135" height="29"/>
+                                        <rect key="frame" x="22.5" y="288.5" width="135" height="29"/>
                                         <segments>
                                             <segment title="⚪️"/>
                                             <segment title="🔴"/>
@@ -345,10 +379,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VgJ-VD-7rc">
-                                <rect key="frame" x="200" y="219" width="180" height="323"/>
+                                <rect key="frame" x="200" y="219" width="180" height="321.5"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" translatesAutoresizingMaskIntoConstraints="NO" id="sId-82-UKI">
-                                        <rect key="frame" x="23" y="57" width="135" height="29"/>
+                                        <rect key="frame" x="22.5" y="57" width="135" height="29"/>
                                         <segments>
                                             <segment title="⚪️"/>
                                             <segment title="🔴"/>
@@ -360,13 +394,13 @@
                                         </connections>
                                     </segmentedControl>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VVQ-Em-Z8I">
-                                        <rect key="frame" x="51.5" y="28" width="78" height="21"/>
+                                        <rect key="frame" x="51" y="28" width="78" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="iAR-Dy-4tD">
-                                        <rect key="frame" x="23" y="137" width="135" height="29"/>
+                                        <rect key="frame" x="22.5" y="136.5" width="135" height="29"/>
                                         <segments>
                                             <segment title="⚪️"/>
                                             <segment title="🔴"/>
@@ -378,13 +412,13 @@
                                         </connections>
                                     </segmentedControl>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tint color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QUd-Se-DoE">
-                                        <rect key="frame" x="53" y="108" width="75" height="21"/>
+                                        <rect key="frame" x="52.5" y="107.5" width="75" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="aU8-tN-vcw">
-                                        <rect key="frame" x="22" y="216" width="135" height="29"/>
+                                        <rect key="frame" x="22.5" y="215" width="135" height="29"/>
                                         <segments>
                                             <segment title="⚪️"/>
                                             <segment title="🔴"/>
@@ -396,19 +430,19 @@
                                         </connections>
                                     </segmentedControl>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Disabled color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3TY-KI-uu5">
-                                        <rect key="frame" x="33.5" y="186" width="113" height="21"/>
+                                        <rect key="frame" x="33.5" y="185" width="113" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="None" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q1Y-Jd-kwO">
-                                        <rect key="frame" x="69" y="261" width="42" height="21"/>
+                                        <rect key="frame" x="69" y="259.5" width="42" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="AcC-l7-4xT">
-                                        <rect key="frame" x="23" y="290" width="135" height="29"/>
+                                        <rect key="frame" x="22.5" y="288.5" width="135" height="29"/>
                                         <segments>
                                             <segment title="⚪️"/>
                                             <segment title="🔴"/>
@@ -439,7 +473,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f5t-DK-nin">
-                                <rect key="frame" x="233" y="181" width="115" height="30"/>
+                                <rect key="frame" x="232.5" y="181" width="115" height="30"/>
                                 <state key="normal" title="Disable text field"/>
                                 <connections>
                                     <action selector="toggleEnable:" destination="G0q-zq-dep" eventType="touchUpInside" id="CTN-h9-L2t"/>
@@ -510,7 +544,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nJD-aY-w9P">
-                                <rect key="frame" x="168" y="202" width="65" height="30"/>
+                                <rect key="frame" x="167.5" y="202" width="65" height="30"/>
                                 <state key="normal" title="Add error"/>
                                 <connections>
                                     <action selector="addError" destination="ieH-5F-man" eventType="touchUpInside" id="V8o-Ai-S8E"/>
@@ -519,7 +553,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JW4-8k-7cH">
-                                <rect key="frame" x="125" y="168" width="151" height="30"/>
+                                <rect key="frame" x="124.5" y="168" width="151" height="30"/>
                                 <state key="normal" title="Resign first responder"/>
                                 <connections>
                                     <action selector="resignTextField" destination="G0q-zq-dep" eventType="touchUpInside" id="0vQ-13-HhG"/>
@@ -654,7 +688,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5HI-11-MA2">
-                                <rect key="frame" x="168" y="191" width="65" height="30"/>
+                                <rect key="frame" x="167.5" y="191" width="65" height="30"/>
                                 <state key="normal" title="Add error"/>
                                 <connections>
                                     <action selector="addError" destination="BYZ-38-t0r" eventType="touchUpInside" id="9pH-Q8-RWx"/>
@@ -662,7 +696,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wkx-Ta-RMG">
-                                <rect key="frame" x="125" y="157" width="151" height="30"/>
+                                <rect key="frame" x="124.5" y="157" width="151" height="30"/>
                                 <state key="normal" title="Resign first responder"/>
                                 <connections>
                                     <action selector="resignTextField" destination="gAs-mn-2iH" eventType="touchUpInside" id="AIP-9z-fsb"/>
@@ -731,7 +765,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iv1-md-6Bi">
-                                <rect key="frame" x="168" y="181" width="65" height="30"/>
+                                <rect key="frame" x="167.5" y="181" width="65" height="30"/>
                                 <state key="normal" title="Add error"/>
                                 <connections>
                                     <action selector="addError" destination="ZOT-En-7Z8" eventType="touchUpInside" id="67L-rX-Zeu"/>
@@ -740,7 +774,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f9a-5M-ybb">
-                                <rect key="frame" x="125" y="147" width="151" height="30"/>
+                                <rect key="frame" x="124.5" y="147" width="151" height="30"/>
                                 <state key="normal" title="Resign first responder"/>
                                 <connections>
                                     <action selector="resignTextField" destination="G0q-zq-dep" eventType="touchUpInside" id="3xx-Gc-oP1"/>
@@ -790,8 +824,8 @@ In this example an icon label is added and placeholder label and textfield are p
                         <rect key="frame" x="0.0" y="0.0" width="400" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <containerView key="tableHeaderView" opaque="NO" contentMode="scaleToFill" id="pEh-Bj-WOF">
-                            <rect key="frame" x="0.0" y="0.0" width="400" height="289"/>
+                        <containerView key="tableHeaderView" opaque="NO" contentMode="scaleToFill" misplaced="YES" id="pEh-Bj-WOF">
+                            <rect key="frame" x="0.0" y="-67" width="425" height="289"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                             <connections>
                                 <segue destination="Xf7-hu-W0W" kind="embed" id="xe8-ss-8aS"/>
@@ -808,7 +842,7 @@ In this example an icon label is added and placeholder label and textfield are p
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Setting text properties" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HdC-wj-sIC">
-                                                    <rect key="frame" x="30" y="11" width="172" height="21"/>
+                                                    <rect key="frame" x="30" y="11.5" width="172" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -832,7 +866,7 @@ In this example an icon label is added and placeholder label and textfield are p
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Customizing colors" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jCk-47-jKB">
-                                                    <rect key="frame" x="30" y="11" width="147" height="21"/>
+                                                    <rect key="frame" x="30" y="11.5" width="147" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -856,7 +890,7 @@ In this example an icon label is added and placeholder label and textfield are p
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Theming by subclassing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="09e-P3-DiE">
-                                                    <rect key="frame" x="30" y="11" width="185" height="21"/>
+                                                    <rect key="frame" x="30" y="11.5" width="185" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -880,7 +914,7 @@ In this example an icon label is added and placeholder label and textfield are p
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Theming with UIAppearance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="14L-ND-bS0">
-                                                    <rect key="frame" x="30" y="11" width="217" height="21"/>
+                                                    <rect key="frame" x="30" y="11.5" width="217" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -904,7 +938,7 @@ In this example an icon label is added and placeholder label and textfield are p
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Custom layout by subclassing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qSH-5l-bpY">
-                                                    <rect key="frame" x="30" y="11" width="228" height="21"/>
+                                                    <rect key="frame" x="30" y="11.5" width="228" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -928,7 +962,7 @@ In this example an icon label is added and placeholder label and textfield are p
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Using delegate methods" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="evz-m8-4qe">
-                                                    <rect key="frame" x="30" y="11" width="187" height="21"/>
+                                                    <rect key="frame" x="30" y="11.5" width="187" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -987,11 +1021,11 @@ In this example an icon label is added and placeholder label and textfield are p
                         <viewControllerLayoutGuide type="bottom" id="FS4-AH-FdX"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="dkS-M1-t0L">
-                        <rect key="frame" x="0.0" y="0.0" width="400" height="289"/>
+                        <rect key="frame" x="0.0" y="0.0" width="425" height="289"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="drh-wZ-CMd" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextFieldExample" customModuleProvider="target">
-                                <rect key="frame" x="20" y="0.0" width="170" height="43"/>
+                                <rect key="frame" x="16" y="0.0" width="161.5" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43" id="wj1-vc-MMi"/>
                                 </constraints>
@@ -1003,7 +1037,7 @@ In this example an icon label is added and placeholder label and textfield are p
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lvb-XU-w6i" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextFieldExample" customModuleProvider="target">
-                                <rect key="frame" x="210" y="0.0" width="170" height="43"/>
+                                <rect key="frame" x="197.5" y="0.0" width="161.5" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43" id="6bd-aa-7iG"/>
                                 </constraints>
@@ -1015,7 +1049,7 @@ In this example an icon label is added and placeholder label and textfield are p
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zfK-4h-0I4" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextFieldExample" customModuleProvider="target">
-                                <rect key="frame" x="20" y="73" width="50" height="43"/>
+                                <rect key="frame" x="16" y="73" width="50" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="8Ie-A0-pGY"/>
                                     <constraint firstAttribute="height" constant="43" id="jV2-NI-7eO"/>
@@ -1028,7 +1062,7 @@ In this example an icon label is added and placeholder label and textfield are p
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VnD-me-4jL" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextFieldExample" customModuleProvider="target">
-                                <rect key="frame" x="90" y="73" width="135" height="43"/>
+                                <rect key="frame" x="86" y="73" width="126.5" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43" id="tg1-wG-kuz"/>
                                 </constraints>
@@ -1040,7 +1074,7 @@ In this example an icon label is added and placeholder label and textfield are p
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fap-Uh-ovw" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextFieldExample" customModuleProvider="target">
-                                <rect key="frame" x="245" y="73" width="135" height="43"/>
+                                <rect key="frame" x="232.5" y="73" width="126.5" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43" id="aLO-rq-CQS"/>
                                 </constraints>
@@ -1055,7 +1089,7 @@ In this example an icon label is added and placeholder label and textfield are p
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1tu-Rl-onB">
-                                <rect key="frame" x="280" y="156" width="100" height="30"/>
+                                <rect key="frame" x="259" y="156" width="100" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="bRc-N7-vw9"/>
                                 </constraints>

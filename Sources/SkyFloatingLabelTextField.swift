@@ -72,6 +72,13 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
             updatePlaceholder()
         }
     }
+    
+    /**
+     A Boolean value that determines if the animation should start when the text field
+     is touched.
+     Default value is false.
+     */
+    @objc open var isAnimationOnTouch: Bool = false
 
     fileprivate func updatePlaceholder() {
         guard let placeholder = placeholder, let font = placeholderFont ?? font else {
@@ -388,6 +395,9 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
     override open func becomeFirstResponder() -> Bool {
         let result = super.becomeFirstResponder()
         updateControl(true)
+        if isAnimationOnTouch {
+            setTitleVisible(true, animated: true, animationCompletion: nil)
+        }
         return result
     }
 
@@ -398,7 +408,11 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
     @discardableResult
     override open func resignFirstResponder() -> Bool {
         let result = super.resignFirstResponder()
-        updateControl(true)
+        if isAnimationOnTouch {
+            setTitleVisible(false, animated: true, animationCompletion: { _ in self.updateControl(true) })
+        } else {
+            updateControl(true)
+        }
         return result
     }
 

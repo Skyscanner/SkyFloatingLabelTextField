@@ -16,9 +16,16 @@ import UIKit
 class SettingTextsViewController: UIViewController {
 
     @IBOutlet var textField: SkyFloatingLabelTextField?
-
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     @IBOutlet var addErrorButton: UIButton?
-
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        scrollView.translatesAutoresizingMaskIntoConstraints = true
+        scrollView.contentSize = CGSize(width: view.frame.width, height: 2000);
+    }
+    
     @IBAction func addError() {
         let localizedAddError = NSLocalizedString(
             "Add error",
@@ -96,6 +103,17 @@ class SettingTextsViewController: UIViewController {
     @IBAction func enabledChanged(_ sender: Any) {
         if let textField = textField {
             textField.isEnabled = !textField.isEnabled
+        }
+    }
+    
+    @IBAction func animationOnTouchChanged(_ segmentedControl: UISegmentedControl) {
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            textField?.isAnimationOnTouch = false
+        case 1:
+            textField?.isAnimationOnTouch = true
+        default:
+            break
         }
     }
 }
