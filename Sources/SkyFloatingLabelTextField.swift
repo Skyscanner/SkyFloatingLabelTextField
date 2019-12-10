@@ -188,6 +188,20 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
             setNeedsDisplay()
         }
     }
+    
+    // MARK: Components spacing
+    
+    @IBInspectable dynamic open var lineVerticalSpacing: CGFloat = 0 {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+    
+    @IBInspectable dynamic open var titleVerticalSpacing: CGFloat = 0 {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
 
     // MARK: View components
 
@@ -232,6 +246,9 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
             updateControl(true)
         }
     }
+    
+    @IBInspectable
+    open var alwaysShowTitle: Bool = false
 
     /// The backing property for the highlighted property
     fileprivate var _highlighted: Bool = false
@@ -489,7 +506,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
         if hasErrorMessage {
             titleText = titleFormatter(errorMessage!)
         } else {
-            if editingOrSelected {
+            if editingOrSelected || alwaysShowTitle {
                 titleText = selectedTitleOrTitlePlaceholder()
                 if titleText == nil {
                     titleText = titleOrPlaceholder()
@@ -527,7 +544,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
      - returns: True if the title is displayed on the control, false otherwise.
      */
     open func isTitleVisible() -> Bool {
-        return hasText || hasErrorMessage || _titleVisible
+        return hasText || hasErrorMessage || _titleVisible || alwaysShowTitle
     }
 
     fileprivate func updateTitleVisibility(_ animated: Bool = false, completion: ((_ completed: Bool) -> Void)? = nil) {
@@ -568,7 +585,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
             x: superRect.origin.x,
             y: titleHeight,
             width: superRect.size.width,
-            height: superRect.size.height - titleHeight - selectedLineHeight
+            height: superRect.size.height - titleHeight - selectedLineHeight - lineVerticalSpacing
         )
         return rect
     }
@@ -586,7 +603,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
             x: superRect.origin.x,
             y: titleHeight,
             width: superRect.size.width,
-            height: superRect.size.height - titleHeight - selectedLineHeight
+            height: superRect.size.height - titleHeight - selectedLineHeight - lineVerticalSpacing
         )
         return rect
     }
@@ -601,7 +618,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
             x: 0,
             y: titleHeight(),
             width: bounds.size.width,
-            height: bounds.size.height - titleHeight() - selectedLineHeight
+            height: bounds.size.height - titleHeight() - selectedLineHeight - lineVerticalSpacing
         )
         return rect
     }
@@ -640,7 +657,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
     open func titleHeight() -> CGFloat {
         if let titleLabel = titleLabel,
             let font = titleLabel.font {
-            return font.lineHeight
+            return font.lineHeight + titleVerticalSpacing
         }
         return 15.0
     }
@@ -687,7 +704,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
      - returns: the content size to be used for auto layout
      */
     override open var intrinsicContentSize: CGSize {
-        return CGSize(width: bounds.size.width, height: titleHeight() + textHeight())
+        return CGSize(width: bounds.size.width, height: titleHeight() + textHeight() + lineVerticalSpacing)
     }
 
     // MARK: - Helpers
