@@ -46,7 +46,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
             titleLabel.textAlignment = .right
             errorLabel.textAlignment = .right
         }
-        
+
         // Override error message default alignment
         if let errorLabelAlignment = errorLabelAlignment {
             errorLabel.textAlignment = errorLabelAlignment
@@ -401,7 +401,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
         errorLabel.font = titleFont
         errorLabel.alpha = 0.0
         errorLabel.textColor = errorColor
-        
+
         addSubview(errorLabel)
         self.errorLabel = errorLabel
     }
@@ -539,7 +539,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
 
         var titleText: String?
         var errorText: String?
-        
+
         if errorMessagePlacement == .default {
             if hasErrorMessage {
                 titleText = titleFormatter(errorMessage!)
@@ -557,7 +557,6 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
             if hasErrorMessage {
                 errorText = titleFormatter(errorMessage!)
             }
-            
             if editingOrSelected {
                 titleText = selectedTitleOrTitlePlaceholder()
                 if titleText == nil {
@@ -567,13 +566,11 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
                 titleText = titleOrPlaceholder()
             }
         }
-        
         titleLabel.text = titleText
         titleLabel.font = titleFont
 
         errorLabel.text = errorText
         errorLabel.font = titleFont
-        
         updateTitleVisibility(animated)
         updateErrorVisibility(animated)
     }
@@ -607,7 +604,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
             return hasText || _titleVisible
         }
     }
-    
+
     open func isErrorVisible() -> Bool {
         return hasErrorMessage
     }
@@ -668,13 +665,10 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
     override open func textRect(forBounds bounds: CGRect) -> CGRect {
         let superRect = super.textRect(forBounds: bounds)
         let titleHeight = self.titleHeight()
-        
         var height = superRect.size.height - titleHeight - selectedLineHeight
-        
         if errorMessagePlacement == .bottom {
-            height = height - errorHeight()
+            height -= errorHeight()
         }
-        
         let rect = CGRect(
             x: superRect.origin.x,
             y: titleHeight,
@@ -694,9 +688,8 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
         let titleHeight = self.titleHeight()
 
         var height = superRect.size.height - titleHeight - selectedLineHeight
-        
         if errorMessagePlacement == .bottom {
-            height = height - errorHeight()
+            height -= errorHeight()
         }
 
         let rect = CGRect(
@@ -715,11 +708,9 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
      */
     override open func placeholderRect(forBounds bounds: CGRect) -> CGRect {
         var height = bounds.size.height - titleHeight() - selectedLineHeight
-        
         if errorMessagePlacement == .bottom {
-            height = height - errorHeight()
+            height -= errorHeight()
         }
-        
         let rect = CGRect(
             x: 0,
             y: titleHeight(),
@@ -755,12 +746,12 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
             return CGRect.zero
         } else {
             let lineRect = lineViewRectForBounds(bounds, editing: editing)
-            
             if editing {
-                return CGRect(x: 0, y: lineRect.origin.y + selectedLineHeight, width: bounds.size.width, height: errorHeight())
+                let originY = lineRect.origin.y + selectedLineHeight
+                return CGRect(x: 0, y: originY, width: bounds.size.width, height: errorHeight())
             }
-            
-            return CGRect(x: 0, y: lineRect.origin.y + selectedLineHeight + errorHeight(), width: bounds.size.width, height: errorHeight())
+            let originY = lineRect.origin.y + selectedLineHeight + errorHeight()
+            return CGRect(x: 0, y: originY, width: bounds.size.width, height: errorHeight())
         }
     }
 
@@ -773,7 +764,6 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
      */
     open func lineViewRectForBounds(_ bounds: CGRect, editing: Bool) -> CGRect {
         let height = editing ? selectedLineHeight : lineHeight
-        
         if errorMessagePlacement == .bottom {
             return CGRect(x: 0, y: textRect(forBounds: bounds).maxY, width: bounds.size.width, height: height)
         } else {

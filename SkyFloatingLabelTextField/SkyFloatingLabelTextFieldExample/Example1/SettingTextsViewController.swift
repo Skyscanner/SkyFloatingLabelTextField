@@ -98,7 +98,7 @@ class SettingTextsViewController: UIViewController {
             textField.isEnabled = !textField.isEnabled
         }
     }
-    
+
     @IBAction func errorPlacementChanged(_ segmentedControl: UISegmentedControl) {
         switch segmentedControl.selectedSegmentIndex {
         case 0:
