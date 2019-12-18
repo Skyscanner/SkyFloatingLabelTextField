@@ -1,6 +1,19 @@
 Master
 ------
 
+v.3.8.0
+------
+
+* A new tag format for release has been introduced to be compatible with Swift Package Manager(SPM). The new format **does not** include the `v` prefix in tag names. This will be the case for all tags going forward, previous `v` prefix tags remain in place and new tags without the `v` prefix has been pushed for these commits too.
+* Added support for Swift Package Manager [#296](https://github.com/Skyscanner/SkyFloatingLabelTextField/pull/296). Thanks to [acecilia](https://github.com/acecilia).
+* Added support for Swift 5 [#290](https://github.com/Skyscanner/SkyFloatingLabelTextField/pull/290). Thanks to [jessemx109](https://github.com/jessemx109).
+
+v3.7.0
+------
+
+* Added `swift_versions` to podspec.
+* Added support for template images. [#274](https://github.com/Skyscanner/SkyFloatingLabelTextField/pull/274).
+
 v3.6.0
 ------
 

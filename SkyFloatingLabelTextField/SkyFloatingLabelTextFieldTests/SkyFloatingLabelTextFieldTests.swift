@@ -1,4 +1,4 @@
-//  Copyright 2016-2017 Skyscanner Ltd
+//  Copyright 2016-2019 Skyscanner Ltd
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -52,8 +52,13 @@ class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this typ
         // given
         let customColor = UIColor.red
         floatingLabelTextField.placeholder = "test"
+        #if swift(>=4.0)
+        var fullRange =
+            NSRange(location: 0, length: floatingLabelTextField.placeholder!.count)
+        #else
         var fullRange =
             NSRange(location: 0, length: floatingLabelTextField.placeholder!.characters.count)
+        #endif
 
         // when
         floatingLabelTextField.placeholderColor = customColor
@@ -226,8 +231,13 @@ class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this typ
         // given
         floatingLabelTextField.isEnabled = true
         floatingLabelTextField.placeholder = "test"
+        #if swift(>=4.0)
+        var fullRange =
+            NSRange(location: 0, length: floatingLabelTextField.placeholder!.count)
+        #else
         var fullRange =
             NSRange(location: 0, length: floatingLabelTextField.placeholder!.characters.count)
+        #endif
 
         // when
         floatingLabelTextField.disabledColor = self.customColor
@@ -283,8 +293,13 @@ class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this typ
         // given
         floatingLabelTextField.isEnabled = false
         floatingLabelTextField.placeholder = "test"
+        #if swift(>=4.0)
+        var fullRange =
+            NSRange(location: 0, length: floatingLabelTextField.placeholder!.count)
+        #else
         var fullRange =
             NSRange(location: 0, length: floatingLabelTextField.placeholder!.characters.count)
+        #endif
 
         // when
         floatingLabelTextField.disabledColor = self.customColor
@@ -331,8 +346,13 @@ class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this typ
         // given
         let customFont = UIFont()
         floatingLabelTextField.placeholder = "test"
+        #if swift(>=4.0)
+        var fullRange =
+            NSRange(location: 0, length: floatingLabelTextField.placeholder!.count)
+        #else
         var fullRange =
             NSRange(location: 0, length: floatingLabelTextField.placeholder!.characters.count)
+        #endif
 
         // when
         floatingLabelTextField.placeholderFont = customFont

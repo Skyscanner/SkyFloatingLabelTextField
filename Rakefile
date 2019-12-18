@@ -1,7 +1,7 @@
 require 'semver'
 
-SWIFT = ENV['SWIFT'] || '4.1'
-BUILD_SDK = ENV['BUILD_SDK'] || 'iphonesimulator11.4'
+SWIFT = ENV['SWIFT'] || '5.0'
+BUILD_SDK = ENV['BUILD_SDK'] || 'iphonesimulator13.2'
 DESTINATION= ENV['DESTINATION'] || 'platform=iOS Simulator,name=iPhone 8'
 EXAMPLE_PROJECT = 'SkyFloatingLabelTextField/SkyFloatingLabelTextField.xcodeproj'
 EXAMPLE_SCHEMA = 'SkyFloatingLabelTextField'
@@ -90,7 +90,7 @@ task release: :ci do
   puts "Comitting, tagging, and pushing"
   message = "[Release] Version #{version_string}"
   sh "git commit -am '#{message}'"
-  sh "git tag v#{version_string} -m '#{message}'"
+  sh "git tag #{version_string} -m '#{message}'"
   sh "git push  --follow-tags"
 
   puts "Pushing to CocoaPods trunk."

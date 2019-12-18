@@ -47,7 +47,7 @@ If you are adding a new file it should have a header like this:
 
 ```
 //
-// Copyright 2016 Skyscanner Limited
+// Copyright 2016-2019 Skyscanner Limited
 //
 // Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at:

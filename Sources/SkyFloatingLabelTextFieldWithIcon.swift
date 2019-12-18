@@ -1,4 +1,4 @@
-//  Copyright 2016-2017 Skyscanner Ltd
+//  Copyright 2016-2019 Skyscanner Ltd
 //
 //  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in
 //  compliance with the License. You may obtain a copy of the License at
@@ -56,6 +56,18 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
         }
     }
 
+    /// A Bool value that determines if the UIImage should be templated or not
+    @IBInspectable
+    dynamic open var templateImage: Bool = true {
+        didSet {
+            if templateImage {
+                   let templatedOriginalImage = self.iconImageView.image?
+                    .withRenderingMode(.alwaysTemplate)
+                    self.iconImageView.image = templatedOriginalImage
+            }
+        }
+    }
+
     /// A UILabel value that identifies the label used to display the icon
     open var iconLabel: UILabel!
 
@@ -80,7 +92,12 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     @IBInspectable
     dynamic open var iconColor: UIColor = UIColor.gray {
         didSet {
-            updateIconLabelColor()
+            if self.iconType == .font {
+                updateIconLabelColor()
+            }
+            if self.iconType == .image && self.templateImage {
+                updateImageViewTintColor()
+            }
         }
     }
 
@@ -158,7 +175,7 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
 
     /**
      Intialzies the control by deserializing it
-     - parameter coder the object to deserialize the control from
+     - parameter aDecoder the object to deserialize the control from
      */
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -196,6 +213,7 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
         iconImageView.contentMode = .scaleAspectFit
         iconImageView.autoresizingMask = [.flexibleTopMargin, .flexibleRightMargin]
         self.iconImageView = iconImageView
+        self.templateImage = true
         addSubview(iconImageView)
     }
 
@@ -218,7 +236,22 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
     /// Update the colors for the control. Override to customize colors.
     override open func updateColors() {
         super.updateColors()
-        updateIconLabelColor()
+        if self.iconType == .font {
+            updateIconLabelColor()
+        }
+        if self.iconType == .image && self.templateImage {
+            updateImageViewTintColor()
+        }
+    }
+
+    fileprivate func updateImageViewTintColor() {
+        if !isEnabled {
+            iconImageView.tintColor = disabledColor
+        } else if hasErrorMessage {
+            iconImageView.tintColor = errorColor
+        } else {
+            iconImageView.tintColor = editingOrSelected ? selectedIconColor : iconColor
+        }
     }
 
     fileprivate func updateIconLabelColor() {
