@@ -1,6 +1,8 @@
 language: objective-c
 xcode_project: SkyFloatingLabelTextField/SkyFloatingLabelTextField.xcodeproj
 xcode_scheme: SkyFloatingLabelTextField
+before_install:
+    - gem install bundler
 script:
   - bundle exec rake ci
 matrix:
