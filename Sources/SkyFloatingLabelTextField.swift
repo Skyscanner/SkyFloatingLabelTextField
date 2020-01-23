@@ -12,6 +12,16 @@
 import UIKit
 
 /**
+ An enum for the possible error label placements.
+ .default is the standard (on top) position; the error message is displayed in the `titleLabel`.
+ .bottom displays the error below the text field in a dedicated `errorLabel`.
+ */
+public enum ErrorMessagePlacement {
+    case `default`
+    case bottom
+}
+
+/**
  A beautiful and flexible textfield implementation with support for title label, error message and placeholder.
  */
 @IBDesignable
@@ -27,9 +37,11 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
     }
 
     fileprivate func updateTextAligment() {
+
         let alignment: NSTextAlignment = isLTRLanguage ? .left : .right
         textAlignment = alignment
         titleLabel.textAlignment = alignment
+        errorLabel.textAlignment = alignment
     }
 
     // MARK: Animation timing
@@ -66,6 +78,22 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
     @objc dynamic open var placeholderFont: UIFont? {
         didSet {
             updatePlaceholder()
+        }
+    }
+
+    /// A `ErrorMessagePlacement` value that determines where the error message will be displayed.
+    open var errorMessagePlacement: ErrorMessagePlacement = .default {
+        didSet {
+            updateControl()
+            updatePlaceholder()
+        }
+    }
+
+    /// An `NSTextAlignment` value that determines the error label text alignment.
+    open var errorLabelAlignment: NSTextAlignment? {
+        didSet {
+            // Override error message default alignment
+            errorLabel.textAlignment = errorLabelAlignment
         }
     }
 
@@ -117,7 +145,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
         }
     }
 
-    /// A UIColor value that determines the color used for the title label and line when the error message is not `nil`
+    /// A UIColor value that determines the color used for the label displaying the error message
     @IBInspectable dynamic open var errorColor: UIColor = .red {
         didSet {
             updateColors()
@@ -192,6 +220,9 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
 
     /// The internal `UILabel` that displays the selected, deselected title or error message based on the current state.
     open var titleLabel: UILabel!
+
+    /// The internal `UILabel` that displays error messsage if `errorMessagePlacement` is `.bottom`.
+    open var errorLabel: UILabel!
 
     // MARK: Properties
 
@@ -325,6 +356,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
         borderStyle = .none
         createTitleLabel()
         createLineView()
+        createErrorLabel()
         updateColors()
         addEditingChangedObserver()
         updateTextAligment()
@@ -353,6 +385,17 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
 
         addSubview(titleLabel)
         self.titleLabel = titleLabel
+    }
+
+    fileprivate func createErrorLabel() {
+        let errorLabel = UILabel()
+        errorLabel.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        errorLabel.font = titleFont
+        errorLabel.alpha = 0.0
+        errorLabel.textColor = errorColor
+
+        addSubview(errorLabel)
+        self.errorLabel = errorLabel
     }
 
     fileprivate func createLineView() {
@@ -430,6 +473,11 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
         updateLineColor()
         updateTitleColor()
         updateTextColor()
+        updateErrorLabelColor()
+    }
+
+    fileprivate func updateErrorLabelColor() {
+        errorLabel.textColor = errorColor
     }
 
     fileprivate func updateLineColor() {
@@ -453,7 +501,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
 
         if !isEnabled {
             titleLabel.textColor = disabledColor
-        } else if hasErrorMessage {
+        } else if hasErrorMessage && errorMessagePlacement == .default {
             titleLabel.textColor = titleErrorColor ?? errorColor
         } else {
             if editingOrSelected || isHighlighted {
@@ -482,9 +530,25 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
         }
 
         var titleText: String?
-        if hasErrorMessage {
-            titleText = titleFormatter(errorMessage!)
+        var errorText: String?
+
+        if errorMessagePlacement == .default {
+            if hasErrorMessage {
+                titleText = titleFormatter(errorMessage!)
+            } else {
+                if editingOrSelected {
+                    titleText = selectedTitleOrTitlePlaceholder()
+                    if titleText == nil {
+                        titleText = titleOrPlaceholder()
+                    }
+                } else {
+                    titleText = titleOrPlaceholder()
+                }
+            }
         } else {
+            if hasErrorMessage {
+                errorText = titleFormatter(errorMessage!)
+            }
             if editingOrSelected {
                 titleText = selectedTitleOrTitlePlaceholder()
                 if titleText == nil {
@@ -497,7 +561,10 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
         titleLabel.text = titleText
         titleLabel.font = titleFont
 
+        errorLabel.text = errorText
+        errorLabel.font = titleFont
         updateTitleVisibility(animated)
+        updateErrorVisibility(animated)
     }
 
     fileprivate var _titleVisible: Bool = false
@@ -523,7 +590,15 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
      - returns: True if the title is displayed on the control, false otherwise.
      */
     open func isTitleVisible() -> Bool {
-        return hasText || hasErrorMessage || _titleVisible
+        if errorMessagePlacement == .default {
+            return hasText || hasErrorMessage || _titleVisible
+        } else {
+            return hasText || _titleVisible
+        }
+    }
+
+    open func isErrorVisible() -> Bool {
+        return hasErrorMessage
     }
 
     fileprivate func updateTitleVisibility(_ animated: Bool = false, completion: ((_ completed: Bool) -> Void)? = nil) {
@@ -549,6 +624,29 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
         }
     }
 
+    fileprivate func updateErrorVisibility(_ animated: Bool = false, completion: ((_ completed: Bool) -> Void)? = nil) {
+        let alpha: CGFloat = isErrorVisible() ? 1.0 : 0.0
+        let frame: CGRect = errorLabelRectForBounds(bounds, editing: isErrorVisible())
+        let updateBlock = { () -> Void in
+            self.errorLabel.alpha = alpha
+            self.errorLabel.frame = frame
+        }
+        if animated {
+            #if swift(>=4.2)
+            let animationOptions: UIView.AnimationOptions = .curveEaseOut
+            #else
+            let animationOptions: UIViewAnimationOptions = .curveEaseOut
+            #endif
+            let duration = isErrorVisible() ? titleFadeInDuration : titleFadeOutDuration
+            UIView.animate(withDuration: duration, delay: 0, options: animationOptions, animations: { () -> Void in
+                updateBlock()
+            }, completion: completion)
+        } else {
+            updateBlock()
+            completion?(true)
+        }
+    }
+
     // MARK: - UITextField text/placeholder positioning overrides
 
     /**
@@ -559,12 +657,15 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
     override open func textRect(forBounds bounds: CGRect) -> CGRect {
         let superRect = super.textRect(forBounds: bounds)
         let titleHeight = self.titleHeight()
-
+        var height = superRect.size.height - titleHeight - selectedLineHeight
+        if errorMessagePlacement == .bottom {
+            height -= errorHeight()
+        }
         let rect = CGRect(
             x: superRect.origin.x,
             y: titleHeight,
             width: superRect.size.width,
-            height: superRect.size.height - titleHeight - selectedLineHeight
+            height: height
         )
         return rect
     }
@@ -578,11 +679,16 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
         let superRect = super.editingRect(forBounds: bounds)
         let titleHeight = self.titleHeight()
 
+        var height = superRect.size.height - titleHeight - selectedLineHeight
+        if errorMessagePlacement == .bottom {
+            height -= errorHeight()
+        }
+
         let rect = CGRect(
             x: superRect.origin.x,
             y: titleHeight,
             width: superRect.size.width,
-            height: superRect.size.height - titleHeight - selectedLineHeight
+            height: height
         )
         return rect
     }
@@ -593,11 +699,15 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
      - returns: The rectangle that the placeholder should render in
      */
     override open func placeholderRect(forBounds bounds: CGRect) -> CGRect {
+        var height = bounds.size.height - titleHeight() - selectedLineHeight
+        if errorMessagePlacement == .bottom {
+            height -= errorHeight()
+        }
         let rect = CGRect(
             x: 0,
             y: titleHeight(),
             width: bounds.size.width,
-            height: bounds.size.height - titleHeight() - selectedLineHeight
+            height: height
         )
         return rect
     }
@@ -618,6 +728,26 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
     }
 
     /**
+     Calculate the bounds for the error label. Override to create a custom size error field.
+     - parameter bounds: The current bounds of the title
+     - parameter editing: True if the control is selected or highlighted
+     - returns: The rectangle that the title label should render in
+     */
+    open func errorLabelRectForBounds(_ bounds: CGRect, editing: Bool) -> CGRect {
+        if errorMessagePlacement == .default {
+            return CGRect.zero
+        } else {
+            let lineRect = lineViewRectForBounds(bounds, editing: editing)
+            if editing {
+                let originY = lineRect.origin.y + selectedLineHeight
+                return CGRect(x: 0, y: originY, width: bounds.size.width, height: errorHeight())
+            }
+            let originY = lineRect.origin.y + selectedLineHeight + errorHeight()
+            return CGRect(x: 0, y: originY, width: bounds.size.width, height: errorHeight())
+        }
+    }
+
+    /**
      Calculate the bounds for the bottom line of the control. 
      Override to create a custom size bottom line in the textbox.
      - parameter bounds: The current bounds of the line
@@ -626,7 +756,11 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
      */
     open func lineViewRectForBounds(_ bounds: CGRect, editing: Bool) -> CGRect {
         let height = editing ? selectedLineHeight : lineHeight
-        return CGRect(x: 0, y: bounds.size.height - height, width: bounds.size.width, height: height)
+        if errorMessagePlacement == .bottom {
+            return CGRect(x: 0, y: textRect(forBounds: bounds).maxY, width: bounds.size.width, height: height)
+        } else {
+            return CGRect(x: 0, y: bounds.size.height - height, width: bounds.size.width, height: height)
+        }
     }
 
     /**
@@ -642,7 +776,19 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
     }
 
     /**
-     Calcualte the height of the textfield.
+     Calculate the height of the error label.
+     -returns: the calculated height of the error label. Override to size the error with a different height
+     */
+    open func errorHeight() -> CGFloat {
+        if let errorLabel = errorLabel,
+            let font = errorLabel.font {
+            return font.lineHeight
+        }
+        return 15.0
+    }
+
+    /**
+     Calculate the height of the textfield.
      -returns: the calculated height of the textfield. Override to size the textfield with a different height
      */
     open func textHeight() -> CGFloat {
@@ -674,6 +820,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
         super.layoutSubviews()
 
         titleLabel.frame = titleLabelRectForBounds(bounds, editing: isTitleVisible() || _renderingInInterfaceBuilder)
+        errorLabel.frame = errorLabelRectForBounds(bounds, editing: isErrorVisible() || _renderingInInterfaceBuilder)
         lineView.frame = lineViewRectForBounds(bounds, editing: editingOrSelected || _renderingInInterfaceBuilder)
     }
 
@@ -683,7 +830,11 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
      - returns: the content size to be used for auto layout
      */
     override open var intrinsicContentSize: CGSize {
-        return CGSize(width: bounds.size.width, height: titleHeight() + textHeight())
+        if errorMessagePlacement == .bottom {
+            return CGSize(width: bounds.size.width, height: titleHeight() + textHeight() + errorHeight())
+        } else {
+            return CGSize(width: bounds.size.width, height: titleHeight() + textHeight())
+        }
     }
 
     // MARK: - Helpers
