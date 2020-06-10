@@ -573,10 +573,26 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
             }
         }
 
-        let attrText = NSAttributedString(string: "\(titleText ?? "")",
-                                          attributes: [NSAttributedString.Key.backgroundColor: titleBackgroundColor,
-                                                       NSAttributedString.Key.font: titleFont])
-        titleLabel.attributedText = attrText
+        let color = titleBackgroundColor
+        #if swift(>=4.2)
+
+            titleLabel.attributedText = NSAttributedString(string: "\(titleText ?? "")",
+                                                           attributes: [NSAttributedString.Key.backgroundColor: color,
+                                                                        NSAttributedString.Key.font: titleFont])
+
+        #elseif swift(>=4.0)
+
+            titleLabel.attributedText = NSAttributedString(string: "\(titleText ?? "")",
+                                                           attributes: [NSAttributedStringKey.foregroundColor: color,
+                                                                        NSAttributedStringKey.font: titleFont])
+
+        #else
+
+            titleLabel.attributedText = NSAttributedString(string: "\(titleText ?? "")",
+                                                           attributes: [NSForegroundColorAttributeName: color,
+                                                                        NSFontAttributeName: titleFont])
+
+        #endif
 
         errorLabel.text = errorText
         errorLabel.font = titleFont
