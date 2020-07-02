@@ -838,10 +838,11 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
      - returns: the content size to be used for auto layout
      */
     override open var intrinsicContentSize: CGSize {
+        let width = max(super.intrinsicContentSize.width, bounds.size.width)
         if errorMessagePlacement == .bottom {
-            return CGSize(width: bounds.size.width, height: titleHeight() + textHeight() + errorHeight())
+            return CGSize(width: width, height: titleHeight() + textHeight() + errorHeight())
         } else {
-            return CGSize(width: bounds.size.width, height: titleHeight() + textHeight())
+            return CGSize(width: width, height: titleHeight() + textHeight())
         }
     }
 
