@@ -928,6 +928,18 @@ class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this typ
         XCTAssertEqual(size.height, floatingLabelTextField.titleHeight() + floatingLabelTextField.textHeight())
     }
 
+    func test_whenIntristicContentSizeInvoked_whenAPlaceHolderIsSet_thenWidthIsNotZero() {
+        // given
+        floatingLabelTextField = SkyFloatingLabelTextField() // need to create a new instance with no frame set
+        floatingLabelTextField.placeholder = "Placeholder"
+
+        // when
+        let width = floatingLabelTextField.intrinsicContentSize.width
+
+        // then
+        XCTAssertGreaterThan(width, 0)
+    }
+
     // MARK: Error Message Placement
     func test_whenSettingErrorMessage_whenErrorMessagePlacementSetToDefault_thenTitleLabelTextIsChanged() {
         // given
