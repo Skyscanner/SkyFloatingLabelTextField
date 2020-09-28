@@ -1,6 +1,8 @@
 Master
 ------
 
+* Bump build target to 9.0 [#325](https://github.com/Skyscanner/SkyFloatingLabelTextField/pull/325)
+
 v.3.8.0
 ------
 
