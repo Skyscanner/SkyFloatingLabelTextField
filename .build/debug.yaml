@@ -1,0 +1,65 @@
+client:
+  name: basic
+tools: {}
+targets:
+  "main": ["/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug/SkyFloatingLabelTextField.swiftmodule","<SkyFloatingLabelTextField-debug.module>"]
+  "test": ["/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug/SkyFloatingLabelTextField.swiftmodule","/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug/SkyFloatingLabelTextFieldPackageTests.xctest/Contents/MacOS/SkyFloatingLabelTextFieldPackageTests","/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug/SkyFloatingLabelTextFieldTests.swiftmodule","<SkyFloatingLabelTextField-debug.module>","<SkyFloatingLabelTextFieldPackageTests-debug.test>","<SkyFloatingLabelTextFieldTests-debug.module>"]
+  "SkyFloatingLabelTextField-debug.module": ["/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug/SkyFloatingLabelTextField.swiftmodule","<SkyFloatingLabelTextField-debug.module>"]
+  "SkyFloatingLabelTextFieldPackageTests-debug.test": ["/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug/SkyFloatingLabelTextFieldPackageTests.xctest/Contents/MacOS/SkyFloatingLabelTextFieldPackageTests","<SkyFloatingLabelTextFieldPackageTests-debug.test>"]
+  "SkyFloatingLabelTextFieldTests-debug.module": ["/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug/SkyFloatingLabelTextFieldTests.swiftmodule","<SkyFloatingLabelTextFieldTests-debug.module>"]
+default: "main"
+commands: 
+  "<C.SkyFloatingLabelTextField-debug.module>":
+    tool: phony
+    inputs: ["/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug/SkyFloatingLabelTextField.swiftmodule"]
+    outputs: ["<SkyFloatingLabelTextField-debug.module>"]
+
+  "<C.SkyFloatingLabelTextFieldPackageTests-debug.test>":
+    tool: phony
+    inputs: ["/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug/SkyFloatingLabelTextFieldPackageTests.xctest/Contents/MacOS/SkyFloatingLabelTextFieldPackageTests"]
+    outputs: ["<SkyFloatingLabelTextFieldPackageTests-debug.test>"]
+
+  "<C.SkyFloatingLabelTextFieldTests-debug.module>":
+    tool: phony
+    inputs: ["/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug/SkyFloatingLabelTextFieldTests.swiftmodule"]
+    outputs: ["<SkyFloatingLabelTextFieldTests-debug.module>"]
+
+  "C.SkyFloatingLabelTextField-debug.module":
+    tool: swift-compiler
+    executable: "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    module-name: "SkyFloatingLabelTextField"
+    module-output-path: "/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug/SkyFloatingLabelTextField.swiftmodule"
+    inputs: ["/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/Sources/SkyFloatingLabelTextField.swift","/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/Sources/SkyFloatingLabelTextFieldWithIcon.swift","/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/Sources/UITextField+fixCaretPosition.swift"]
+    outputs: ["/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug/SkyFloatingLabelTextField.build/SkyFloatingLabelTextField.swift.o","/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug/SkyFloatingLabelTextField.build/SkyFloatingLabelTextFieldWithIcon.swift.o","/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug/SkyFloatingLabelTextField.build/UITextField+fixCaretPosition.swift.o","/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug/SkyFloatingLabelTextField.swiftmodule"]
+    import-paths: ["/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug"]
+    temps-path: "/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug/SkyFloatingLabelTextField.build"
+    objects: ["/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug/SkyFloatingLabelTextField.build/SkyFloatingLabelTextField.swift.o","/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug/SkyFloatingLabelTextField.build/SkyFloatingLabelTextFieldWithIcon.swift.o","/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug/SkyFloatingLabelTextField.build/UITextField+fixCaretPosition.swift.o"]
+    other-args: ["-target","x86_64-apple-macosx10.10","-swift-version","4.2","-enable-batch-mode","-index-store-path","/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug/index/store","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-Onone","-g","-enable-testing","-j12","-DSWIFT_PACKAGE","-DDEBUG","-module-cache-path","/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug/ModuleCache","-parseable-output"]
+    sources: ["/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/Sources/SkyFloatingLabelTextField.swift","/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/Sources/SkyFloatingLabelTextFieldWithIcon.swift","/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/Sources/UITextField+fixCaretPosition.swift"]
+    is-library: true
+    enable-whole-module-optimization: false
+    num-threads: "12"
+
+  "C.SkyFloatingLabelTextFieldPackageTests-debug.test":
+    tool: shell
+    description: "Linking ./.build/x86_64-apple-macosx/debug/SkyFloatingLabelTextFieldPackageTests.xctest/Contents/MacOS/SkyFloatingLabelTextFieldPackageTests"
+    inputs: ["/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug/SkyFloatingLabelTextField.build/SkyFloatingLabelTextField.swift.o","/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug/SkyFloatingLabelTextField.build/SkyFloatingLabelTextFieldWithIcon.swift.o","/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug/SkyFloatingLabelTextField.build/UITextField+fixCaretPosition.swift.o","/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug/SkyFloatingLabelTextFieldTests.build/SkyFloatingLabelTextFieldAppearanceTests.swift.o","/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug/SkyFloatingLabelTextFieldTests.build/SkyFloatingLabelTextFieldTests.swift.o","/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug/SkyFloatingLabelTextFieldTests.build/SkyFloatingLabelTextFieldWithIconTests.swift.o"]
+    outputs: ["/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug/SkyFloatingLabelTextFieldPackageTests.xctest/Contents/MacOS/SkyFloatingLabelTextFieldPackageTests"]
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-g","-L","/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug","-o","/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug/SkyFloatingLabelTextFieldPackageTests.xctest/Contents/MacOS/SkyFloatingLabelTextFieldPackageTests","-module-name","SkyFloatingLabelTextFieldPackageTests","-Xlinker","-bundle","@/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug/SkyFloatingLabelTextFieldPackageTests.product/Objects.LinkFileList","-Xlinker","-rpath","-Xlinker","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx","-target","x86_64-apple-macosx10.10","-L","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib"]
+
+  "C.SkyFloatingLabelTextFieldTests-debug.module":
+    tool: swift-compiler
+    executable: "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    module-name: "SkyFloatingLabelTextFieldTests"
+    module-output-path: "/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug/SkyFloatingLabelTextFieldTests.swiftmodule"
+    inputs: ["/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug/SkyFloatingLabelTextField.swiftmodule","/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/SkyFloatingLabelTextField/SkyFloatingLabelTextFieldTests/SkyFloatingLabelTextFieldAppearanceTests.swift","/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/SkyFloatingLabelTextField/SkyFloatingLabelTextFieldTests/SkyFloatingLabelTextFieldTests.swift","/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/SkyFloatingLabelTextField/SkyFloatingLabelTextFieldTests/SkyFloatingLabelTextFieldWithIconTests.swift"]
+    outputs: ["/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug/SkyFloatingLabelTextFieldTests.build/SkyFloatingLabelTextFieldAppearanceTests.swift.o","/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug/SkyFloatingLabelTextFieldTests.build/SkyFloatingLabelTextFieldTests.swift.o","/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug/SkyFloatingLabelTextFieldTests.build/SkyFloatingLabelTextFieldWithIconTests.swift.o","/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug/SkyFloatingLabelTextFieldTests.swiftmodule"]
+    import-paths: ["/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug"]
+    temps-path: "/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug/SkyFloatingLabelTextFieldTests.build"
+    objects: ["/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug/SkyFloatingLabelTextFieldTests.build/SkyFloatingLabelTextFieldAppearanceTests.swift.o","/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug/SkyFloatingLabelTextFieldTests.build/SkyFloatingLabelTextFieldTests.swift.o","/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug/SkyFloatingLabelTextFieldTests.build/SkyFloatingLabelTextFieldWithIconTests.swift.o"]
+    other-args: ["-target","x86_64-apple-macosx10.10","-swift-version","4.2","-enable-batch-mode","-index-store-path","/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug/index/store","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-Onone","-g","-enable-testing","-j12","-DSWIFT_PACKAGE","-DDEBUG","-module-cache-path","/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug/ModuleCache","-parseable-output"]
+    sources: ["/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/SkyFloatingLabelTextField/SkyFloatingLabelTextFieldTests/SkyFloatingLabelTextFieldAppearanceTests.swift","/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/SkyFloatingLabelTextField/SkyFloatingLabelTextFieldTests/SkyFloatingLabelTextFieldTests.swift","/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/SkyFloatingLabelTextField/SkyFloatingLabelTextFieldTests/SkyFloatingLabelTextFieldWithIconTests.swift"]
+    is-library: true
+    enable-whole-module-optimization: false
+    num-threads: "12"
+

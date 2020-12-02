@@ -4,7 +4,7 @@ import PackageDescription
 
 let package = Package(
     name: "SkyFloatingLabelTextField",
-    platforms: [.iOS("8.0")],
+    platforms: [.iOS("9.0")],
     products: [
       .library(name: "SkyFloatingLabelTextField", targets: ["SkyFloatingLabelTextField"])
     ],

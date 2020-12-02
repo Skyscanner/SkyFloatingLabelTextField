@@ -1,0 +1,7 @@
+version: "Apple Swift version 5.1.2 (swiftlang-1100.0.278 clang-1100.0.33.9)"
+options: "82628d1596fb4fd17efd79ca63be9591"
+build_time: [1575549800, 679633000]
+inputs:
+  "/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/Sources/SkyFloatingLabelTextField.swift": !dirty [1557136601, 413551102]
+  "/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/Sources/SkyFloatingLabelTextFieldWithIcon.swift": !dirty [1557136601, 413969518]
+  "/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/Sources/UITextField+fixCaretPosition.swift": !dirty [1548840571, 363600735]
