@@ -57,7 +57,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this typ
             NSRange(location: 0, length: floatingLabelTextField.placeholder!.count)
         #else
         var fullRange =
-            NSRange(location: 0, length: floatingLabelTextField.placeholder!.characters.count)
+            NSRange(location: 0, length: floatingLabelTextField.placeholder!.count)
         #endif
 
         // when
@@ -236,7 +236,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this typ
             NSRange(location: 0, length: floatingLabelTextField.placeholder!.count)
         #else
         var fullRange =
-            NSRange(location: 0, length: floatingLabelTextField.placeholder!.characters.count)
+            NSRange(location: 0, length: floatingLabelTextField.placeholder!.count)
         #endif
 
         // when
@@ -298,7 +298,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this typ
             NSRange(location: 0, length: floatingLabelTextField.placeholder!.count)
         #else
         var fullRange =
-            NSRange(location: 0, length: floatingLabelTextField.placeholder!.characters.count)
+            NSRange(location: 0, length: floatingLabelTextField.placeholder!.count)
         #endif
 
         // when
@@ -351,7 +351,7 @@ class SkyFloatingLabelTextFieldTests: XCTestCase { // swiftlint:disable:this typ
             NSRange(location: 0, length: floatingLabelTextField.placeholder!.count)
         #else
         var fullRange =
-            NSRange(location: 0, length: floatingLabelTextField.placeholder!.characters.count)
+            NSRange(location: 0, length: floatingLabelTextField.placeholder!.count)
         #endif
 
         // when
