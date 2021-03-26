@@ -63,6 +63,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
     // MARK: Colors
 
     fileprivate var cachedTextColor: UIColor?
+    fileprivate var cachedAttributedText: NSAttributedString?
 
     /// A UIColor value that determines the text color of the editable text
     @IBInspectable
@@ -73,6 +74,21 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
         }
         get {
             return cachedTextColor
+        }
+    }
+
+    /// An `NSAttributedString` to display as the text field content
+    ///
+    /// **NOTE:** by setting this property to a non-nil value, changes to `textColor`
+    /// are ignored.
+    @IBInspectable
+    override dynamic open var attributedText: NSAttributedString? {
+        set {
+            cachedAttributedText = newValue
+            super.attributedText = newValue
+        }
+        get {
+            return cachedAttributedText
         }
     }
 
@@ -526,7 +542,11 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
         } else if hasErrorMessage {
             super.textColor = textErrorColor ?? errorColor
         } else {
-            super.textColor = cachedTextColor
+            if let attributedText = cachedAttributedText {
+                super.attributedText = attributedText
+            } else {
+                super.textColor = cachedTextColor
+            }
         }
     }
 
