@@ -1,0 +1,23 @@
+{
+  "": {
+    "swift-dependencies": "/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug/SkyFloatingLabelTextField.build/master.swiftdeps"
+  },
+  "/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/Sources/SkyFloatingLabelTextField.swift": {
+    "dependencies": "/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug/SkyFloatingLabelTextField.build/SkyFloatingLabelTextField.d",
+    "object": "/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug/SkyFloatingLabelTextField.build/SkyFloatingLabelTextField.swift.o",
+    "swiftmodule": "/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug/SkyFloatingLabelTextField.build/SkyFloatingLabelTextField~partial.swiftmodule",
+    "swift-dependencies": "/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug/SkyFloatingLabelTextField.build/SkyFloatingLabelTextField.swiftdeps"
+  },
+  "/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/Sources/SkyFloatingLabelTextFieldWithIcon.swift": {
+    "dependencies": "/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug/SkyFloatingLabelTextField.build/SkyFloatingLabelTextFieldWithIcon.d",
+    "object": "/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug/SkyFloatingLabelTextField.build/SkyFloatingLabelTextFieldWithIcon.swift.o",
+    "swiftmodule": "/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug/SkyFloatingLabelTextField.build/SkyFloatingLabelTextFieldWithIcon~partial.swiftmodule",
+    "swift-dependencies": "/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug/SkyFloatingLabelTextField.build/SkyFloatingLabelTextFieldWithIcon.swiftdeps"
+  },
+  "/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/Sources/UITextField+fixCaretPosition.swift": {
+    "dependencies": "/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug/SkyFloatingLabelTextField.build/UITextField+fixCaretPosition.d",
+    "object": "/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug/SkyFloatingLabelTextField.build/UITextField+fixCaretPosition.swift.o",
+    "swiftmodule": "/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug/SkyFloatingLabelTextField.build/UITextField+fixCaretPosition~partial.swiftmodule",
+    "swift-dependencies": "/Users/hugotunius/Code/Personal/SkyFloatingLabelTextField/.build/x86_64-apple-macosx/debug/SkyFloatingLabelTextField.build/UITextField+fixCaretPosition.swiftdeps"
+  }
+}

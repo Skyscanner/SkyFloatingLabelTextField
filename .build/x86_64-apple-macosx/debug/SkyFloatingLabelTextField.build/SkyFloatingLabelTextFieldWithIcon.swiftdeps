@@ -1,0 +1,279 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "IconType"
+- "SkyFloatingLabelTextFieldWithIcon"
+provides-nominal:
+- "25SkyFloatingLabelTextField8IconTypeO"
+- "25SkyFloatingLabelTextField0abcdE8WithIconC"
+provides-member:
+- ["25SkyFloatingLabelTextField8IconTypeO", ""]
+- ["25SkyFloatingLabelTextField0abcdE8WithIconC", ""]
+provides-dynamic-lookup:
+- "iconRotationDegrees"
+- "iconTypeValue"
+- "templateImage"
+depends-top-level:
+- !private "!"
+- !private "&&"
+- !private "*"
+- !private "+"
+- !private "+="
+- !private "-"
+- !private "-="
+- !private "/"
+- "=="
+- !private "??"
+- "AssignmentPrecedence"
+- "Bool"
+- "BooleanLiteralType"
+- !private "CGAffineTransform"
+- "CGFloat"
+- "CGRect"
+- "Double"
+- "FloatLiteralType"
+- "IconType"
+- "Int"
+- "IntegerLiteralType"
+- "NSCoder"
+- !private "NSLog"
+- "SkyFloatingLabelTextField"
+- "SkyFloatingLabelTextFieldWithIcon"
+- "String"
+- "TernaryPrecedence"
+- "UIColor"
+- "UIFont"
+- "UIImage"
+- "UIImageView"
+- "UILabel"
+- !private "addSubview"
+- !private "bounds"
+- !private "~="
+depends-member:
+- !private ["s18AdditiveArithmeticP", "pi"]
+- !private ["SB", "pi"]
+- !private ["s7CVarArgP", "pi"]
+- !private ["SL", "pi"]
+- !private ["s28CustomDebugStringConvertibleP", "pi"]
+- !private ["s17CustomReflectableP", "pi"]
+- !private ["s23CustomStringConvertibleP", "pi"]
+- !private ["Se", "pi"]
+- !private ["Sd", "pi"]
+- !private ["SE", "pi"]
+- ["SQ", "=="]
+- ["SQ", "RawValue"]
+- ["SQ", ""]
+- ["SQ", "_Default_RawValue"]
+- ["SQ", "_rawHashValue"]
+- ["SQ", "font"]
+- ["SQ", "hash"]
+- ["SQ", "hashValue"]
+- ["SQ", "image"]
+- ["SQ", "init"]
+- !private ["SQ", "pi"]
+- ["SQ", "rawValue"]
+- !private ["s25ExpressibleByFloatLiteralP", "pi"]
+- !private ["s27ExpressibleByIntegerLiteralP", "pi"]
+- !private ["SF", "pi"]
+- ["SH", "=="]
+- ["SH", "RawValue"]
+- ["SH", ""]
+- ["SH", "_Default_RawValue"]
+- ["SH", "_rawHashValue"]
+- ["SH", "font"]
+- ["SH", "hash"]
+- ["SH", "hashValue"]
+- ["SH", "image"]
+- ["SH", "init"]
+- !private ["SH", "pi"]
+- ["SH", "rawValue"]
+- ["25SkyFloatingLabelTextField8IconTypeO", "=="]
+- ["25SkyFloatingLabelTextField8IconTypeO", "RawValue"]
+- ["25SkyFloatingLabelTextField8IconTypeO", "_Default_RawValue"]
+- ["25SkyFloatingLabelTextField8IconTypeO", "_rawHashValue"]
+- ["25SkyFloatingLabelTextField8IconTypeO", "deinit"]
+- ["25SkyFloatingLabelTextField8IconTypeO", "font"]
+- ["25SkyFloatingLabelTextField8IconTypeO", "hash"]
+- ["25SkyFloatingLabelTextField8IconTypeO", "hashValue"]
+- ["25SkyFloatingLabelTextField8IconTypeO", "image"]
+- ["25SkyFloatingLabelTextField8IconTypeO", "init"]
+- ["25SkyFloatingLabelTextField8IconTypeO", "rawValue"]
+- !private ["s25LosslessStringConvertibleP", "pi"]
+- !private ["Sj", "pi"]
+- ["SY", "=="]
+- ["SY", "RawValue"]
+- ["SY", ""]
+- ["SY", "_Default_RawValue"]
+- ["SY", "_rawHashValue"]
+- ["SY", "font"]
+- ["SY", "hash"]
+- ["SY", "hashValue"]
+- ["SY", "image"]
+- ["SY", "init"]
+- ["SY", "rawValue"]
+- !private ["s10SIMDScalarP", "pi"]
+- !private ["s13SignedNumericP", "pi"]
+- ["25SkyFloatingLabelTextFieldAAC", "Bool"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "CGAffineTransform"]
+- ["25SkyFloatingLabelTextFieldAAC", "CGFloat"]
+- ["25SkyFloatingLabelTextFieldAAC", "CGRect"]
+- ["25SkyFloatingLabelTextFieldAAC", "Double"]
+- ["25SkyFloatingLabelTextFieldAAC", "IconType"]
+- ["25SkyFloatingLabelTextFieldAAC", "Int"]
+- ["25SkyFloatingLabelTextFieldAAC", "NSCoder"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "NSLog"]
+- ["25SkyFloatingLabelTextFieldAAC", "String"]
+- ["25SkyFloatingLabelTextFieldAAC", "UIColor"]
+- ["25SkyFloatingLabelTextFieldAAC", "UIFont"]
+- ["25SkyFloatingLabelTextFieldAAC", "UIImage"]
+- ["25SkyFloatingLabelTextFieldAAC", "UIImageView"]
+- ["25SkyFloatingLabelTextFieldAAC", "UILabel"]
+- ["25SkyFloatingLabelTextFieldAAC", ""]
+- !private ["25SkyFloatingLabelTextFieldAAC", "addSubview"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "bounds"]
+- ["25SkyFloatingLabelTextFieldAAC", "createIcon"]
+- ["25SkyFloatingLabelTextFieldAAC", "createIconImageView"]
+- ["25SkyFloatingLabelTextFieldAAC", "createIconLabel"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "disabledColor"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "editingOrSelected"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "editingRect"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "errorColor"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "hasErrorMessage"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "iconColor"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "iconFont"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "iconImage"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "iconImageView"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "iconLabel"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "iconMarginBottom"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "iconMarginLeft"]
+- ["25SkyFloatingLabelTextFieldAAC", "iconRotationDegrees"]
+- ["25SkyFloatingLabelTextFieldAAC", "iconText"]
+- ["25SkyFloatingLabelTextFieldAAC", "iconType"]
+- ["25SkyFloatingLabelTextFieldAAC", "iconTypeValue"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "iconWidth"]
+- ["25SkyFloatingLabelTextFieldAAC", "init"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "isEnabled"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "isLTRLanguage"]
+- ["25SkyFloatingLabelTextFieldAAC", "layoutSubviews"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "placeholderRect"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "selectedIconColor"]
+- ["25SkyFloatingLabelTextFieldAAC", "templateImage"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "textHeight"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "textRect"]
+- ["25SkyFloatingLabelTextFieldAAC", "updateColors"]
+- ["25SkyFloatingLabelTextFieldAAC", "updateFrame"]
+- ["25SkyFloatingLabelTextFieldAAC", "updateIconLabelColor"]
+- ["25SkyFloatingLabelTextFieldAAC", "updateIconViewHiddenState"]
+- ["25SkyFloatingLabelTextFieldAAC", "updateImageViewTintColor"]
+- ["25SkyFloatingLabelTextField0abcdE8WithIconC", "Bool"]
+- !private ["25SkyFloatingLabelTextField0abcdE8WithIconC", "CGAffineTransform"]
+- ["25SkyFloatingLabelTextField0abcdE8WithIconC", "CGFloat"]
+- ["25SkyFloatingLabelTextField0abcdE8WithIconC", "CGRect"]
+- ["25SkyFloatingLabelTextField0abcdE8WithIconC", "Double"]
+- ["25SkyFloatingLabelTextField0abcdE8WithIconC", "IconType"]
+- ["25SkyFloatingLabelTextField0abcdE8WithIconC", "Int"]
+- ["25SkyFloatingLabelTextField0abcdE8WithIconC", "NSCoder"]
+- !private ["25SkyFloatingLabelTextField0abcdE8WithIconC", "NSLog"]
+- ["25SkyFloatingLabelTextField0abcdE8WithIconC", "String"]
+- ["25SkyFloatingLabelTextField0abcdE8WithIconC", "UIColor"]
+- ["25SkyFloatingLabelTextField0abcdE8WithIconC", "UIFont"]
+- ["25SkyFloatingLabelTextField0abcdE8WithIconC", "UIImage"]
+- ["25SkyFloatingLabelTextField0abcdE8WithIconC", "UIImageView"]
+- ["25SkyFloatingLabelTextField0abcdE8WithIconC", "UILabel"]
+- !private ["25SkyFloatingLabelTextField0abcdE8WithIconC", "addSubview"]
+- !private ["25SkyFloatingLabelTextField0abcdE8WithIconC", "bounds"]
+- !private ["25SkyFloatingLabelTextField0abcdE8WithIconC", "createIcon"]
+- !private ["25SkyFloatingLabelTextField0abcdE8WithIconC", "createIconImageView"]
+- !private ["25SkyFloatingLabelTextField0abcdE8WithIconC", "createIconLabel"]
+- !private ["25SkyFloatingLabelTextField0abcdE8WithIconC", "disabledColor"]
+- !private ["25SkyFloatingLabelTextField0abcdE8WithIconC", "editingOrSelected"]
+- !private ["25SkyFloatingLabelTextField0abcdE8WithIconC", "errorColor"]
+- !private ["25SkyFloatingLabelTextField0abcdE8WithIconC", "hasErrorMessage"]
+- !private ["25SkyFloatingLabelTextField0abcdE8WithIconC", "iconColor"]
+- !private ["25SkyFloatingLabelTextField0abcdE8WithIconC", "iconFont"]
+- !private ["25SkyFloatingLabelTextField0abcdE8WithIconC", "iconImage"]
+- !private ["25SkyFloatingLabelTextField0abcdE8WithIconC", "iconImageView"]
+- !private ["25SkyFloatingLabelTextField0abcdE8WithIconC", "iconLabel"]
+- !private ["25SkyFloatingLabelTextField0abcdE8WithIconC", "iconMarginBottom"]
+- !private ["25SkyFloatingLabelTextField0abcdE8WithIconC", "iconMarginLeft"]
+- ["25SkyFloatingLabelTextField0abcdE8WithIconC", "iconRotationDegrees"]
+- ["25SkyFloatingLabelTextField0abcdE8WithIconC", "iconText"]
+- ["25SkyFloatingLabelTextField0abcdE8WithIconC", "iconType"]
+- ["25SkyFloatingLabelTextField0abcdE8WithIconC", "iconTypeValue"]
+- !private ["25SkyFloatingLabelTextField0abcdE8WithIconC", "iconWidth"]
+- !private ["25SkyFloatingLabelTextField0abcdE8WithIconC", "init"]
+- !private ["25SkyFloatingLabelTextField0abcdE8WithIconC", "isEnabled"]
+- !private ["25SkyFloatingLabelTextField0abcdE8WithIconC", "isLTRLanguage"]
+- ["25SkyFloatingLabelTextField0abcdE8WithIconC", "layoutSubviews"]
+- !private ["25SkyFloatingLabelTextField0abcdE8WithIconC", "selectedIconColor"]
+- ["25SkyFloatingLabelTextField0abcdE8WithIconC", "templateImage"]
+- !private ["25SkyFloatingLabelTextField0abcdE8WithIconC", "textHeight"]
+- ["25SkyFloatingLabelTextField0abcdE8WithIconC", "updateColors"]
+- !private ["25SkyFloatingLabelTextField0abcdE8WithIconC", "updateFrame"]
+- !private ["25SkyFloatingLabelTextField0abcdE8WithIconC", "updateIconLabelColor"]
+- !private ["25SkyFloatingLabelTextField0abcdE8WithIconC", "updateIconViewHiddenState"]
+- !private ["25SkyFloatingLabelTextField0abcdE8WithIconC", "updateImageViewTintColor"]
+- !private ["Sx", "pi"]
+- !private ["s20TextOutputStreamableP", "pi"]
+- !private ["s15_CVarArgAlignedP", "pi"]
+- !private ["s22_CVarArgPassedAsDoubleP", "pi"]
+- !private ["s30_CustomPlaygroundQuickLookableP", "pi"]
+- !private ["s33_ExpressibleByBuiltinFloatLiteralP", "pi"]
+- !private ["s35_ExpressibleByBuiltinIntegerLiteralP", "pi"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "pi"]
+depends-nominal:
+- !private "s18AdditiveArithmeticP"
+- !private "SB"
+- !private "s7CVarArgP"
+- !private "SL"
+- !private "s28CustomDebugStringConvertibleP"
+- !private "s17CustomReflectableP"
+- !private "s23CustomStringConvertibleP"
+- !private "Se"
+- !private "Sd"
+- !private "SE"
+- "SQ"
+- !private "s25ExpressibleByFloatLiteralP"
+- !private "s27ExpressibleByIntegerLiteralP"
+- !private "SF"
+- "SH"
+- "25SkyFloatingLabelTextField8IconTypeO"
+- !private "s25LosslessStringConvertibleP"
+- !private "Sj"
+- "SY"
+- !private "s10SIMDScalarP"
+- !private "s13SignedNumericP"
+- "25SkyFloatingLabelTextFieldAAC"
+- "25SkyFloatingLabelTextField0abcdE8WithIconC"
+- !private "Sx"
+- !private "s20TextOutputStreamableP"
+- !private "s15_CVarArgAlignedP"
+- !private "s22_CVarArgPassedAsDoubleP"
+- !private "s30_CustomPlaygroundQuickLookableP"
+- !private "s33_ExpressibleByBuiltinFloatLiteralP"
+- !private "s35_ExpressibleByBuiltinIntegerLiteralP"
+- !private "s35_HasCustomAnyHashableRepresentationP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib/swift/Swift.swiftmodule/x86_64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib/swift/SwiftOnoneSupport.swiftmodule/x86_64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib/swift/shims/ThreadLocalStorage.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib/swift/shims/SwiftStddef.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib/swift/shims/AssertionReporting.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib/swift/shims/KeyPath.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib/swift/shims/SwiftStdbool.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib/swift/shims/System.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib/swift/shims/Random.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib/swift/shims/RuntimeStubs.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib/swift/shims/LibcShims.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib/swift/shims/UnicodeShims.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib/swift/shims/RuntimeShims.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib/swift/shims/FoundationShims.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib/swift/shims/CoreFoundationShims.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib/swift/shims/GlobalObjects.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib/swift/shims/HeapObject.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib/swift/shims/Target.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib/swift/shims/SwiftStdint.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib/swift/shims/RefCount.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib/swift/shims/Visibility.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib/swift/shims/module.modulemap"
+interface-hash: "7e3e32589884b4b85bfc14be3415d13e"

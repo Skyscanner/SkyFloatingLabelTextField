@@ -1,0 +1,248 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "SkyFloatingLabelTextField"
+provides-nominal:
+- "25SkyFloatingLabelTextFieldAAC"
+provides-member:
+- ["25SkyFloatingLabelTextFieldAAC", ""]
+provides-dynamic-lookup:
+- "editingChanged"
+- "isLTRLanguage"
+depends-top-level:
+- !private "!"
+- !private "!="
+- !private "&&"
+- !private "*"
+- !private "-"
+- "=="
+- !private "??"
+- "AssignmentPrecedence"
+- "Bool"
+- "BooleanLiteralType"
+- "CGFloat"
+- "CGRect"
+- "CGSize"
+- !private "FloatLiteralType"
+- !private "NSAttributedString"
+- "NSCoder"
+- "SkyFloatingLabelTextField"
+- "String"
+- !private "StringLiteralType"
+- "TernaryPrecedence"
+- "TimeInterval"
+- "UIApplication"
+- "UIColor"
+- "UIFont"
+- "UILabel"
+- "UITextField"
+- "UIView"
+- "Void"
+- !private "addSubview"
+- !private "attributedPlaceholder"
+- !private "borderStyle"
+- !private "bounds"
+- !private "fixCaretPosition"
+- !private "font"
+- !private "hasText"
+- !private "invalidateIntrinsicContentSize"
+- !private "setNeedsDisplay"
+- !private "textAlignment"
+- !private "||"
+depends-member:
+- ["SK", "localizedUppercase"]
+- ["SK", "uppercased"]
+- ["Sl", "localizedUppercase"]
+- ["Sl", "uppercased"]
+- ["SL", "localizedUppercase"]
+- ["SL", "uppercased"]
+- ["s28CustomDebugStringConvertibleP", "localizedUppercase"]
+- ["s28CustomDebugStringConvertibleP", "uppercased"]
+- ["s17CustomReflectableP", "localizedUppercase"]
+- ["s17CustomReflectableP", "uppercased"]
+- ["s23CustomStringConvertibleP", "localizedUppercase"]
+- ["s23CustomStringConvertibleP", "uppercased"]
+- ["Se", "localizedUppercase"]
+- ["Se", "uppercased"]
+- ["SE", "localizedUppercase"]
+- ["SE", "uppercased"]
+- ["SQ", "localizedUppercase"]
+- ["SQ", "uppercased"]
+- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "localizedUppercase"]
+- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "uppercased"]
+- ["s32ExpressibleByStringInterpolationP", "localizedUppercase"]
+- ["s32ExpressibleByStringInterpolationP", "uppercased"]
+- ["s26ExpressibleByStringLiteralP", "localizedUppercase"]
+- ["s26ExpressibleByStringLiteralP", "uppercased"]
+- ["s33ExpressibleByUnicodeScalarLiteralP", "localizedUppercase"]
+- ["s33ExpressibleByUnicodeScalarLiteralP", "uppercased"]
+- ["SH", "localizedUppercase"]
+- ["SH", "uppercased"]
+- ["s25LosslessStringConvertibleP", "localizedUppercase"]
+- ["s25LosslessStringConvertibleP", "uppercased"]
+- ["s10MirrorPathP", "localizedUppercase"]
+- ["s10MirrorPathP", "uppercased"]
+- ["Sm", "localizedUppercase"]
+- ["Sm", "uppercased"]
+- ["ST", "localizedUppercase"]
+- ["ST", "uppercased"]
+- ["25SkyFloatingLabelTextFieldAAC", "Bool"]
+- ["25SkyFloatingLabelTextFieldAAC", "CGFloat"]
+- ["25SkyFloatingLabelTextFieldAAC", "CGRect"]
+- ["25SkyFloatingLabelTextFieldAAC", "CGSize"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "NSAttributedString"]
+- ["25SkyFloatingLabelTextFieldAAC", "NSCoder"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "SkyFloatingLabelTextField"]
+- ["25SkyFloatingLabelTextFieldAAC", "String"]
+- ["25SkyFloatingLabelTextFieldAAC", "TimeInterval"]
+- ["25SkyFloatingLabelTextFieldAAC", "UIApplication"]
+- ["25SkyFloatingLabelTextFieldAAC", "UIColor"]
+- ["25SkyFloatingLabelTextFieldAAC", "UIFont"]
+- ["25SkyFloatingLabelTextFieldAAC", "UILabel"]
+- ["25SkyFloatingLabelTextFieldAAC", "UIView"]
+- ["25SkyFloatingLabelTextFieldAAC", "Void"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "_highlighted"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "_renderingInInterfaceBuilder"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "_titleVisible"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "addEditingChangedObserver"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "addSubview"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "addTarget"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "attributedPlaceholder"]
+- ["25SkyFloatingLabelTextFieldAAC", "becomeFirstResponder"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "borderStyle"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "bounds"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "cachedTextColor"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "configureDefaultLineHeight"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "createLineView"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "createTitleLabel"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "disabledColor"]
+- ["25SkyFloatingLabelTextFieldAAC", "editingChanged"]
+- ["25SkyFloatingLabelTextFieldAAC", "editingOrSelected"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "errorColor"]
+- ["25SkyFloatingLabelTextFieldAAC", "errorMessage"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "fixCaretPosition"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "font"]
+- ["25SkyFloatingLabelTextFieldAAC", "hasErrorMessage"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "hasText"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "init_SkyFloatingLabelTextField"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "invalidateIntrinsicContentSize"]
+- ["25SkyFloatingLabelTextFieldAAC", "isEnabled"]
+- ["25SkyFloatingLabelTextFieldAAC", "isHighlighted"]
+- ["25SkyFloatingLabelTextFieldAAC", "isLTRLanguage"]
+- ["25SkyFloatingLabelTextFieldAAC", "isSecureTextEntry"]
+- ["25SkyFloatingLabelTextFieldAAC", "isSelected"]
+- ["25SkyFloatingLabelTextFieldAAC", "isTitleVisible"]
+- ["25SkyFloatingLabelTextFieldAAC", "layoutSubviews"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "lineColor"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "lineErrorColor"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "lineHeight"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "lineView"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "lineViewRectForBounds"]
+- ["25SkyFloatingLabelTextFieldAAC", "placeholder"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "placeholderColor"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "placeholderFont"]
+- ["25SkyFloatingLabelTextFieldAAC", "prepareForInterfaceBuilder"]
+- ["25SkyFloatingLabelTextFieldAAC", "resignFirstResponder"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "selectedLineColor"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "selectedLineHeight"]
+- ["25SkyFloatingLabelTextFieldAAC", "selectedTitle"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "selectedTitleColor"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "selectedTitleOrTitlePlaceholder"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "setNeedsDisplay"]
+- ["25SkyFloatingLabelTextFieldAAC", "setTitleVisible"]
+- ["25SkyFloatingLabelTextFieldAAC", "text"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "textAlignment"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "textErrorColor"]
+- ["25SkyFloatingLabelTextFieldAAC", "title"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "titleColor"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "titleErrorColor"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "titleFadeInDuration"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "titleFadeOutDuration"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "titleFont"]
+- ["25SkyFloatingLabelTextFieldAAC", "titleFormatter"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "titleHeight"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "titleLabel"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "titleLabelRectForBounds"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "titleOrPlaceholder"]
+- ["25SkyFloatingLabelTextFieldAAC", "updateColors"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "updateControl"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "updateLineColor"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "updateLineView"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "updatePlaceholder"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "updateTextAligment"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "updateTextColor"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "updateTitleColor"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "updateTitleLabel"]
+- !private ["25SkyFloatingLabelTextFieldAAC", "updateTitleVisibility"]
+- ["SS", "localizedUppercase"]
+- ["SS", "uppercased"]
+- ["Sy", "localizedUppercase"]
+- ["Sy", "uppercased"]
+- ["s16TextOutputStreamP", "localizedUppercase"]
+- ["s16TextOutputStreamP", "uppercased"]
+- ["s20TextOutputStreamableP", "localizedUppercase"]
+- ["s20TextOutputStreamableP", "uppercased"]
+- ["s30_CustomPlaygroundQuickLookableP", "localizedUppercase"]
+- ["s30_CustomPlaygroundQuickLookableP", "uppercased"]
+- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "localizedUppercase"]
+- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "uppercased"]
+- ["s34_ExpressibleByBuiltinStringLiteralP", "localizedUppercase"]
+- ["s34_ExpressibleByBuiltinStringLiteralP", "uppercased"]
+- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "localizedUppercase"]
+- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "uppercased"]
+- ["s19_HasContiguousBytesP", "localizedUppercase"]
+- ["s19_HasContiguousBytesP", "uppercased"]
+depends-nominal:
+- "SK"
+- "Sl"
+- "SL"
+- "s28CustomDebugStringConvertibleP"
+- "s17CustomReflectableP"
+- "s23CustomStringConvertibleP"
+- "Se"
+- "SE"
+- "SQ"
+- "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- "s32ExpressibleByStringInterpolationP"
+- "s26ExpressibleByStringLiteralP"
+- "s33ExpressibleByUnicodeScalarLiteralP"
+- "SH"
+- "s25LosslessStringConvertibleP"
+- "s10MirrorPathP"
+- "Sm"
+- "ST"
+- "25SkyFloatingLabelTextFieldAAC"
+- "SS"
+- "Sy"
+- "s16TextOutputStreamP"
+- "s20TextOutputStreamableP"
+- "s30_CustomPlaygroundQuickLookableP"
+- "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- "s34_ExpressibleByBuiltinStringLiteralP"
+- "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
+- "s19_HasContiguousBytesP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib/swift/Swift.swiftmodule/x86_64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib/swift/SwiftOnoneSupport.swiftmodule/x86_64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/SwiftOnoneSupport.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib/swift/shims/ThreadLocalStorage.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib/swift/shims/SwiftStddef.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib/swift/shims/AssertionReporting.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib/swift/shims/KeyPath.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib/swift/shims/SwiftStdbool.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib/swift/shims/System.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib/swift/shims/Random.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib/swift/shims/RuntimeStubs.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib/swift/shims/LibcShims.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib/swift/shims/UnicodeShims.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib/swift/shims/RuntimeShims.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib/swift/shims/FoundationShims.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib/swift/shims/CoreFoundationShims.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib/swift/shims/GlobalObjects.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib/swift/shims/HeapObject.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib/swift/shims/Target.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib/swift/shims/SwiftStdint.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib/swift/shims/RefCount.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib/swift/shims/Visibility.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib/swift/shims/module.modulemap"
+interface-hash: "ccb9d6f4d829052187e63bdd2c616c24"

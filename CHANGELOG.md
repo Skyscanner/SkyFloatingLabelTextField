@@ -1,6 +1,12 @@
 Master
 ------
 
+v4.0.0
+------
+
+* The error message can now be placed above or below the field. [#271](https://github.com/Skyscanner/SkyFloatingLabelTextField/pull/271)
+* Bump build target to 9.0 [#325](https://github.com/Skyscanner/SkyFloatingLabelTextField/pull/325)
+
 v.3.8.0
 ------
 
