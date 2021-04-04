@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/Skyscanner/SkyFloatingLabelTextField.svg?branch=master)](https://travis-ci.org/Skyscanner/SkyFloatingLabelTextField)
 [![Coverage Status](https://coveralls.io/repos/github/Skyscanner/SkyFloatingLabelTextField/badge.svg?branch=master)](https://coveralls.io/github/Skyscanner/SkyFloatingLabelTextField?branch=master)
 [![Pod Platform](https://img.shields.io/cocoapods/p/SkyFloatingLabelTextField.svg?style=flat)](https://cocoapods.org/pods/SkyFloatingLabelTextField)
-[![Pod License](https://img.shields.io/cocoapods/l/SkyFloatingLabelTextField.svg?style=flat)](https://github.com/SkyFloatingLabelTextField/blob/master/LICENSE.md)
+[![Pod License](https://img.shields.io/cocoapods/l/SkyFloatingLabelTextField.svg?style=flat)](https://github.com/Skyscanner/SkyFloatingLabelTextField/blob/master/LICENSE)
 
 [![Pod Version](https://img.shields.io/cocoapods/v/SkyFloatingLabelTextField.svg?style=flat)](https://cocoapods.org/pods/SkyFloatingLabelTextField)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
@@ -33,7 +33,7 @@ To create an instance of the class, use Interface builder, or do it from code. T
 ![](/SkyFloatingLabelTextField/images/example-1.gif)
 
 ```swift
-let textField = SkyFloatingLabelTextField(frame: CGRectMake(10, 10, 200, 45))
+let textField = SkyFloatingLabelTextField(frame: CGRect(x: 10, y: 10, width: 200, height: 45))
 textField.placeholder = "Name"
 textField.title = "Your full name"
 self.view.addSubview(textField)
@@ -50,12 +50,12 @@ let lightGreyColor = UIColor(red: 197/255, green: 205/255, blue: 205/255, alpha:
 let darkGreyColor = UIColor(red: 52/255, green: 42/255, blue: 61/255, alpha: 1.0)
 let overcastBlueColor = UIColor(red: 0, green: 187/255, blue: 204/255, alpha: 1.0)
 
-let textField1 = SkyFloatingLabelTextField(frame: CGRectMake(10, 10, 120, 45))
+let textField1 = SkyFloatingLabelTextField(frame: CGRect(x: 10, y: 10, width: 120, height: 45))
 textField1.placeholder = "First name"
 textField1.title = "Given name"
 self.view.addSubview(textField1)
 
-let textField2 = SkyFloatingLabelTextField(frame: CGRectMake(150, 10, 120, 45))
+let textField2 = SkyFloatingLabelTextField(frame: CGRect(x: 150, y: 10, width: 120, height: 45))
 textField2.placeholder = "Last name"
 textField2.title = "Family name"
 
@@ -67,25 +67,29 @@ textField2.selectedLineColor = overcastBlueColor
 
 textField2.lineHeight = 1.0 // bottom line height in points
 textField2.selectedLineHeight = 2.0
+self.view.addSubview(textField2)
 ```
 
 ### Icons and fonts
 
-Use the `SkyFloatingLabelTextFieldWithIcon` field to display icons next to the textfields. You will have to set the `iconFont` property and bundle your icon with your app (if it's not a built in one). Icons can be rotated and more precise positioning is also supported:
+Use the `SkyFloatingLabelTextFieldWithIcon` field to display icons next to the textfields. You have the option of using a font or an image as the icon by setting the `iconType` property (Default = `IconType.font`). If using an image as icon, you will have to set the `iconImage` property. If using a font as icon, you will have to set the `iconFont` property and bundle your icon with your app (if it's not a built in one). Icons can be rotated and more precise positioning is also supported:
 
 ![](/SkyFloatingLabelTextField/images/example-3.gif)
 
+#### Using a font
+
 ```swift
 let overcastBlueColor = UIColor(red: 0, green: 187/255, blue: 204/255, alpha: 1.0)
+let textFieldFrame = CGRect(x: 150, y: 10, width: 120, height: 45)
 
-let textField1 = SkyFloatingLabelTextFieldWithIcon(frame: CGRectMake(10, 10, 120, 45))
+let textField1 = SkyFloatingLabelTextFieldWithIcon(frame: textFieldFrame, iconType: .font)
 textField1.placeholder = "Departure"
 textField1.title = "Flying from"
 textField1.iconFont = UIFont(name: "FontAwesome", size: 15)
 textField1.iconText = "\u{f072}" // plane icon as per https://fortawesome.github.io/Font-Awesome/cheatsheet/
 self.view.addSubview(textField1)
 
-let textField2 = SkyFloatingLabelTextFieldWithIcon(frame: CGRectMake(150, 10, 120, 45))
+let textField2 = SkyFloatingLabelTextFieldWithIcon(frame: textFieldFrame)
 textField2.placeholder = "Arrival"
 textField2.title = "Flying to"
 textField2.tintColor = overcastBlueColor
@@ -93,6 +97,7 @@ textField2.selectedTitleColor = overcastBlueColor
 textField2.selectedLineColor = overcastBlueColor
 
 // Set icon properties
+textField2.iconType = .font
 textField2.iconColor = UIColor.lightGrayColor()
 textField2.selectedIconColor = overcastBlueColor
 textField2.iconFont = UIFont(name: "FontAwesome", size: 15)
@@ -103,11 +108,22 @@ textField2.iconMarginLeft = 2.0
 self.view.addSubview(textField2)
 ```
 
+#### Using an image
+```swift
+let textFieldframe = CGRect(x: 150, y: 10, width: 120, height: 45)
+
+let textField1 = SkyFloatingLabelTextFieldWithIcon(frame: textFieldframe, iconType: .image)
+textField1.placeholder = "Departure"
+textField1.title = "Flying from"
+textField1.iconImage = UIImage(imageLiteralResourceName: "PlaneIcon")
+self.view.addSubview(textField1)
+```
+
 ### Error state and delegates
 
 The textfield supports displaying an error state - this can be useful for example when validating fields on the fly. When the `errorMessage` property is set on the control, then the control is highlighted with the color set in the `errorColor` property.
 
-To get notified of different events happening on the textfield - such as the text changing, editing starting or ending - just set the `delegate` property to a class implementing the standard [UITextFieldDelegate](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UITextFieldDelegate_Protocol/) protocol:
+To get notified of different events happening on the textfield - such as the text changing, editing starting or ending - just set the `func addTarget(_ target: Any?, action: Selector, for controlEvents: UIControl.Event)` with the` .editingChanged`. also can set the `delegate` property to a class implementing the standard [UITextFieldDelegate](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UITextFieldDelegate_Protocol/) protocol:
 
 ![](/SkyFloatingLabelTextField/images/example-4.gif)
 
@@ -115,17 +131,17 @@ To get notified of different events happening on the textfield - such as the tex
 class MyViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
-        let textField1 = SkyFloatingLabelTextField(frame: CGRectMake(10, 10, 120, 45))
+        let textField1 = SkyFloatingLabelTextField(frame: CGRect(x: 10, y: 10, width: 120, height: 45))
         textField1.placeholder = "Email"
         textField1.title = "Email address"
         textField1.errorColor = UIColor.redColor()
-        textField1.delegate = self
+        textField1.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         self.view.addSubview(textField1)
     }
-
-    /// Implementing a method on the UITextFieldDelegate protocol. This will notify us when something has changed on the textfield
-    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        if let text = textField.text {
+    
+    // This will notify us when something has changed on the textfield
+    @objc func textFieldDidChange(_ textfield: UITextField) {
+        if let text = textfield.text {
             if let floatingLabelTextField = textField as? SkyFloatingLabelTextField {
                 if(text.characters.count < 3 || !text.containsString("@")) {
                     floatingLabelTextField.errorMessage = "Invalid email"
@@ -136,11 +152,16 @@ class MyViewController: UIViewController, UITextFieldDelegate {
                 }
             }
         }
-        return true
     }
 }
 ```
 
+### Disabled state
+The textfield also supports displaying a disabled state. When the `isEnabled` property is set on the control, then the control is highlighted with the color set in the `disabledColor` property.
+```swift
+    textField.disabledColor = disabledColor
+    textField.isEnabled = false
+```
 ### RTL language support
 
 The component automatically detects the language writing direction. When the phone has a RTL language set (e.g. Arabic or Hebrew), then it automatically adjusts to support this style.
@@ -176,12 +197,12 @@ $ gem install cocoapods
 Then simply add `SkyFloatingLabelTextField` to your Podfile:
 
 ```
-pod 'SkyFloatingLabelTextField', '~> 2.0.0'
+pod 'SkyFloatingLabelTextField', '~> 3.0'
 ```
 
 Lastly, let CocoaPods fetch the latest version of the component by running:
 ```shell
-$ cocoapods update
+$ pod update
 ```
 
 ##### Integrating into Objective C projects
@@ -192,7 +213,7 @@ When integrating the component into an Objective C project, in the Podfile add `
 use_frameworks!
 
 target 'SkyFloatingLabelTextFieldObjectiveCExample' do
-  pod 'SkyFloatingLabelTextField', '~> 2.0.0'
+  pod 'SkyFloatingLabelTextField', '~> 3.0'
 end
 ```
 
@@ -232,7 +253,7 @@ Credits for the original design, and improving it with iconography to Matt D. Sm
 
 - *Can I use it in Objective C projects?*
 
-  Of course! Please see the [Integrating-into-Objective-C-projects](#Integrating into Objective C projects) section on how to integrate the component via CocoaPods.
+  Of course! Please see the [Integrating-into-Objective-C-projects](#integrating-into-objective-c-projects) section on how to integrate the component via CocoaPods.
 
 - *Does the control work well with auto layout? What about using it programmatically?*
 
