@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+ "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+
+    <!-- This SDK does NOT track users -->
+    <key>NSPrivacyTracking</key>
+    <false/>
+
+    <!-- This SDK does NOT collect any user data -->
+    <key>NSPrivacyCollectedDataTypes</key>
+    <array/>
+
+    <!-- This SDK does NOT use Required Reason APIs -->
+    <key>NSPrivacyAccessedAPITypes</key>
+    <array/>
+
+</dict>
+</plist>

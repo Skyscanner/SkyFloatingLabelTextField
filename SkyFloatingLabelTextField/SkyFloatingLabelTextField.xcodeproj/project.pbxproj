@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B5EDEC02EF58BB000F32CD5 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 0B5EDEBF2EF58BB000F32CD5 /* PrivacyInfo.xcprivacy */; };
+		0B5EDEC12EF58BB000F32CD5 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 0B5EDEBF2EF58BB000F32CD5 /* PrivacyInfo.xcprivacy */; };
 		934DBCFF1CC774B900E03F87 /* SkyFloatingLabelTextField.strings in Resources */ = {isa = PBXBuildFile; fileRef = 934DBD011CC774B900E03F87 /* SkyFloatingLabelTextField.strings */; };
 		934DBD021CC775D300E03F87 /* SkyFloatingLabelTextField.strings in Resources */ = {isa = PBXBuildFile; fileRef = 934DBD011CC774B900E03F87 /* SkyFloatingLabelTextField.strings */; };
 		C70C15ED1E8C433000E0673B /* SkyFloatingLabelTextFieldAppearanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70C15EC1E8C433000E0673B /* SkyFloatingLabelTextFieldAppearanceTests.swift */; };
@@ -54,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B5EDEBF2EF58BB000F32CD5 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		934DBCFB1CC76D4600E03F87 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/Main.strings; sourceTree = "<group>"; };
 		934DBCFC1CC76D4600E03F87 /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		934DBD001CC774B900E03F87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/SkyFloatingLabelTextField.strings; sourceTree = "<group>"; };
@@ -230,6 +233,7 @@
 				F5B6E1021C8604C2003D4DB9 /* SkyFloatingLabelTextField.swift */,
 				F5B6E1041C8604C2003D4DB9 /* SkyFloatingLabelTextFieldWithIcon.swift */,
 				F5B6E1051C8604C2003D4DB9 /* UITextField+fixCaretPosition.swift */,
+				0B5EDEBF2EF58BB000F32CD5 /* PrivacyInfo.xcprivacy */,
 				F562891D1C3BE3A20082D9A6 /* Info.plist */,
 			);
 			path = SkyFloatingLabelTextField;
@@ -365,6 +369,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B5EDEC02EF58BB000F32CD5 /* PrivacyInfo.xcprivacy in Resources */,
 				F547D4B91C3BEA900075A0C2 /* LaunchScreen.storyboard in Resources */,
 				F538420C1C3C2B3600409083 /* fontawesome-webfont.ttf in Resources */,
 				F547D4B61C3BEA900075A0C2 /* Assets.xcassets in Resources */,
@@ -377,6 +382,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B5EDEC12EF58BB000F32CD5 /* PrivacyInfo.xcprivacy in Resources */,
 				934DBCFF1CC774B900E03F87 /* SkyFloatingLabelTextField.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
